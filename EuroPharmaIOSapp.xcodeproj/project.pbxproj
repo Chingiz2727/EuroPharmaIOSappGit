@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A41459C522DC76FC00B6F38B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459C422DC76FC00B6F38B /* AppDelegate.swift */; };
+		A41459C722DC76FC00B6F38B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459C622DC76FC00B6F38B /* ViewController.swift */; };
+		A41459CA22DC76FC00B6F38B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41459C822DC76FC00B6F38B /* Main.storyboard */; };
+		A41459CC22DC76FE00B6F38B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A41459CB22DC76FE00B6F38B /* Assets.xcassets */; };
+		A41459CF22DC76FE00B6F38B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41459CD22DC76FE00B6F38B /* LaunchScreen.storyboard */; };
+		A41459DA22DC76FE00B6F38B /* EuroPharmaIOSappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459D922DC76FE00B6F38B /* EuroPharmaIOSappTests.swift */; };
+		A41459E522DC76FE00B6F38B /* EuroPharmaIOSappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459E422DC76FE00B6F38B /* EuroPharmaIOSappUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A41459D622DC76FE00B6F38B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A41459B922DC76FC00B6F38B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A41459C022DC76FC00B6F38B;
+			remoteInfo = EuroPharmaIOSapp;
+		};
+		A41459E122DC76FE00B6F38B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A41459B922DC76FC00B6F38B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A41459C022DC76FC00B6F38B;
+			remoteInfo = EuroPharmaIOSapp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A41459C122DC76FC00B6F38B /* EuroPharmaIOSapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EuroPharmaIOSapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A41459C422DC76FC00B6F38B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A41459C622DC76FC00B6F38B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A41459C922DC76FC00B6F38B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A41459CB22DC76FE00B6F38B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A41459CE22DC76FE00B6F38B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A41459D022DC76FE00B6F38B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A41459D522DC76FE00B6F38B /* EuroPharmaIOSappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EuroPharmaIOSappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A41459D922DC76FE00B6F38B /* EuroPharmaIOSappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuroPharmaIOSappTests.swift; sourceTree = "<group>"; };
+		A41459DB22DC76FE00B6F38B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A41459E022DC76FE00B6F38B /* EuroPharmaIOSappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EuroPharmaIOSappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A41459E422DC76FE00B6F38B /* EuroPharmaIOSappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuroPharmaIOSappUITests.swift; sourceTree = "<group>"; };
+		A41459E622DC76FE00B6F38B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A41459BE22DC76FC00B6F38B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A41459D222DC76FE00B6F38B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A41459DD22DC76FE00B6F38B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A41459B822DC76FC00B6F38B = {
+			isa = PBXGroup;
+			children = (
+				A41459C322DC76FC00B6F38B /* EuroPharmaIOSapp */,
+				A41459D822DC76FE00B6F38B /* EuroPharmaIOSappTests */,
+				A41459E322DC76FE00B6F38B /* EuroPharmaIOSappUITests */,
+				A41459C222DC76FC00B6F38B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A41459C222DC76FC00B6F38B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A41459C122DC76FC00B6F38B /* EuroPharmaIOSapp.app */,
+				A41459D522DC76FE00B6F38B /* EuroPharmaIOSappTests.xctest */,
+				A41459E022DC76FE00B6F38B /* EuroPharmaIOSappUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A41459C322DC76FC00B6F38B /* EuroPharmaIOSapp */ = {
+			isa = PBXGroup;
+			children = (
+				A41459C422DC76FC00B6F38B /* AppDelegate.swift */,
+				A41459C622DC76FC00B6F38B /* ViewController.swift */,
+				A41459C822DC76FC00B6F38B /* Main.storyboard */,
+				A41459CB22DC76FE00B6F38B /* Assets.xcassets */,
+				A41459CD22DC76FE00B6F38B /* LaunchScreen.storyboard */,
+				A41459D022DC76FE00B6F38B /* Info.plist */,
+			);
+			path = EuroPharmaIOSapp;
+			sourceTree = "<group>";
+		};
+		A41459D822DC76FE00B6F38B /* EuroPharmaIOSappTests */ = {
+			isa = PBXGroup;
+			children = (
+				A41459D922DC76FE00B6F38B /* EuroPharmaIOSappTests.swift */,
+				A41459DB22DC76FE00B6F38B /* Info.plist */,
+			);
+			path = EuroPharmaIOSappTests;
+			sourceTree = "<group>";
+		};
+		A41459E322DC76FE00B6F38B /* EuroPharmaIOSappUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A41459E422DC76FE00B6F38B /* EuroPharmaIOSappUITests.swift */,
+				A41459E622DC76FE00B6F38B /* Info.plist */,
+			);
+			path = EuroPharmaIOSappUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A41459C022DC76FC00B6F38B /* EuroPharmaIOSapp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A41459E922DC76FE00B6F38B /* Build configuration list for PBXNativeTarget "EuroPharmaIOSapp" */;
+			buildPhases = (
+				A41459BD22DC76FC00B6F38B /* Sources */,
+				A41459BE22DC76FC00B6F38B /* Frameworks */,
+				A41459BF22DC76FC00B6F38B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EuroPharmaIOSapp;
+			productName = EuroPharmaIOSapp;
+			productReference = A41459C122DC76FC00B6F38B /* EuroPharmaIOSapp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A41459D422DC76FE00B6F38B /* EuroPharmaIOSappTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A41459EC22DC76FE00B6F38B /* Build configuration list for PBXNativeTarget "EuroPharmaIOSappTests" */;
+			buildPhases = (
+				A41459D122DC76FE00B6F38B /* Sources */,
+				A41459D222DC76FE00B6F38B /* Frameworks */,
+				A41459D322DC76FE00B6F38B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A41459D722DC76FE00B6F38B /* PBXTargetDependency */,
+			);
+			name = EuroPharmaIOSappTests;
+			productName = EuroPharmaIOSappTests;
+			productReference = A41459D522DC76FE00B6F38B /* EuroPharmaIOSappTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A41459DF22DC76FE00B6F38B /* EuroPharmaIOSappUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A41459EF22DC76FE00B6F38B /* Build configuration list for PBXNativeTarget "EuroPharmaIOSappUITests" */;
+			buildPhases = (
+				A41459DC22DC76FE00B6F38B /* Sources */,
+				A41459DD22DC76FE00B6F38B /* Frameworks */,
+				A41459DE22DC76FE00B6F38B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A41459E222DC76FE00B6F38B /* PBXTargetDependency */,
+			);
+			name = EuroPharmaIOSappUITests;
+			productName = EuroPharmaIOSappUITests;
+			productReference = A41459E022DC76FE00B6F38B /* EuroPharmaIOSappUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A41459B922DC76FC00B6F38B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Shyngys Kuandyk";
+				TargetAttributes = {
+					A41459C022DC76FC00B6F38B = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					A41459D422DC76FE00B6F38B = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = A41459C022DC76FC00B6F38B;
+					};
+					A41459DF22DC76FE00B6F38B = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = A41459C022DC76FC00B6F38B;
+					};
+				};
+			};
+			buildConfigurationList = A41459BC22DC76FC00B6F38B /* Build configuration list for PBXProject "EuroPharmaIOSapp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A41459B822DC76FC00B6F38B;
+			productRefGroup = A41459C222DC76FC00B6F38B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A41459C022DC76FC00B6F38B /* EuroPharmaIOSapp */,
+				A41459D422DC76FE00B6F38B /* EuroPharmaIOSappTests */,
+				A41459DF22DC76FE00B6F38B /* EuroPharmaIOSappUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A41459BF22DC76FC00B6F38B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A41459CF22DC76FE00B6F38B /* LaunchScreen.storyboard in Resources */,
+				A41459CC22DC76FE00B6F38B /* Assets.xcassets in Resources */,
+				A41459CA22DC76FC00B6F38B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A41459D322DC76FE00B6F38B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A41459DE22DC76FE00B6F38B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A41459BD22DC76FC00B6F38B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A41459C722DC76FC00B6F38B /* ViewController.swift in Sources */,
+				A41459C522DC76FC00B6F38B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A41459D122DC76FE00B6F38B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A41459DA22DC76FE00B6F38B /* EuroPharmaIOSappTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A41459DC22DC76FE00B6F38B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A41459E522DC76FE00B6F38B /* EuroPharmaIOSappUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A41459D722DC76FE00B6F38B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A41459C022DC76FC00B6F38B /* EuroPharmaIOSapp */;
+			targetProxy = A41459D622DC76FE00B6F38B /* PBXContainerItemProxy */;
+		};
+		A41459E222DC76FE00B6F38B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A41459C022DC76FC00B6F38B /* EuroPharmaIOSapp */;
+			targetProxy = A41459E122DC76FE00B6F38B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A41459C822DC76FC00B6F38B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A41459C922DC76FC00B6F38B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A41459CD22DC76FE00B6F38B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A41459CE22DC76FE00B6F38B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A41459E722DC76FE00B6F38B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A41459E822DC76FE00B6F38B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A41459EA22DC76FE00B6F38B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KGL7D9XAQ6;
+				INFOPLIST_FILE = EuroPharmaIOSapp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cheena.EuroPharmaIOSapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A41459EB22DC76FE00B6F38B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KGL7D9XAQ6;
+				INFOPLIST_FILE = EuroPharmaIOSapp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cheena.EuroPharmaIOSapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A41459ED22DC76FE00B6F38B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KGL7D9XAQ6;
+				INFOPLIST_FILE = EuroPharmaIOSappTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cheena.EuroPharmaIOSappTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EuroPharmaIOSapp.app/EuroPharmaIOSapp";
+			};
+			name = Debug;
+		};
+		A41459EE22DC76FE00B6F38B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KGL7D9XAQ6;
+				INFOPLIST_FILE = EuroPharmaIOSappTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cheena.EuroPharmaIOSappTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EuroPharmaIOSapp.app/EuroPharmaIOSapp";
+			};
+			name = Release;
+		};
+		A41459F022DC76FE00B6F38B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KGL7D9XAQ6;
+				INFOPLIST_FILE = EuroPharmaIOSappUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cheena.EuroPharmaIOSappUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EuroPharmaIOSapp;
+			};
+			name = Debug;
+		};
+		A41459F122DC76FE00B6F38B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KGL7D9XAQ6;
+				INFOPLIST_FILE = EuroPharmaIOSappUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cheena.EuroPharmaIOSappUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EuroPharmaIOSapp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A41459BC22DC76FC00B6F38B /* Build configuration list for PBXProject "EuroPharmaIOSapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A41459E722DC76FE00B6F38B /* Debug */,
+				A41459E822DC76FE00B6F38B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A41459E922DC76FE00B6F38B /* Build configuration list for PBXNativeTarget "EuroPharmaIOSapp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A41459EA22DC76FE00B6F38B /* Debug */,
+				A41459EB22DC76FE00B6F38B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A41459EC22DC76FE00B6F38B /* Build configuration list for PBXNativeTarget "EuroPharmaIOSappTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A41459ED22DC76FE00B6F38B /* Debug */,
+				A41459EE22DC76FE00B6F38B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A41459EF22DC76FE00B6F38B /* Build configuration list for PBXNativeTarget "EuroPharmaIOSappUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A41459F022DC76FE00B6F38B /* Debug */,
+				A41459F122DC76FE00B6F38B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A41459B922DC76FC00B6F38B /* Project object */;
+}
