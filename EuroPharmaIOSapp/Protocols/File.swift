@@ -7,3 +7,6 @@
 //
 
 import Foundation
+protocol RemoveAtCell {
+    func removeAtItem(item:Int)
+}

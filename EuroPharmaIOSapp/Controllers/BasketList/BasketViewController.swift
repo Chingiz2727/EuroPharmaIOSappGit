@@ -7,24 +7,76 @@
 //
 
 import UIKit
-
-class BasketViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+import RealmSwift
+class BasketViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,RemoveAtCell {
+    func removeAtItem(item: Int) {
+        let realm = try! Realm()
+        
+        let result = realm.objects(BasketModule.self)
+        try! realm.write {
+            realm.delete(result[item])
+            self.table.reloadData()
+        }
     }
     
+    let cellid = "cellid"
+    let head = "head"
+    let results = try! Realm().objects(BasketModule.self)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return results.count
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? BasketTableViewCell
+        cell?.remove.tag = indexPath.row
+        cell?.remove_item = self
+        cell?.item = results[indexPath.row]
+        // Configure the cell...
+        return cell ?? UITableViewCell()
+    }
+    
+     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headd = tableView.dequeueReusableCell(withIdentifier: head) as? BasketTableViewHeader
+        
+        return headd ?? UIView()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.table.reloadData()
+    }
+  
+    
+     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    let table = UITableView()
+    let orderview = MakeOrderButtonView()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        table.dataSource = self
+        table.delegate = self
+        table.register(BasketTableViewCell.self, forCellReuseIdentifier: cellid)
+        table.register(BasketTableViewHeader.self, forCellReuseIdentifier: head)
+    }
+    override func loadView() {
+        super.loadView()
+        self.view.addSubview(orderview)
+        orderview.snp.makeConstraints { (cons) in
+            cons.left.right.bottom.equalTo(self.view).inset(0)
+            cons.height.equalTo(70)
+        }
+        self.view.addSubview(table)
+        table.snp.makeConstraints { (cons) in
+            cons.left.right.top.equalTo(self.view).inset(0)
+            cons.bottom.equalTo(orderview.snp.top).offset(0)
+        }
+    }
+
+    
 
 }

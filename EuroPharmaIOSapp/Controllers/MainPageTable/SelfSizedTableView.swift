@@ -1,9 +1,24 @@
 //
 //  SelfSizedTableView.swift
-//  EuroPharmaIOSapp
+//  tableview_with_colletionview
 //
-//  Created by Shyngys Kuandyk on 7/23/19.
-//  Copyright © 2019 Shyngys Kuandyk. All rights reserved.
+//  Created by Robert Hills on 04/03/2019.
+//  Copyright © 2019 Test. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class SelfSizedTableView: UITableView {
+    var maxHeight: CGFloat = UIScreen.main.bounds.size.height
+    
+    override func reloadData() {
+        super.reloadData()
+        self.invalidateIntrinsicContentSize()
+        self.layoutIfNeeded()
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let height = min(contentSize.height, maxHeight)
+        return CGSize(width: contentSize.width, height: height)
+    }
+}

@@ -9,13 +9,16 @@
 import UIKit
 
 class RegistrationViewController: UIViewController {
-
+    var register : RegistrationView  {return self.view as! RegistrationView}
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+    override func loadView() {
+        super.loadView()
+        self.view = RegistrationView(frame: self.view.bounds)
+    }
 
     /*
     // MARK: - Navigation

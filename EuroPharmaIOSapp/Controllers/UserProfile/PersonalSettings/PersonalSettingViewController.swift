@@ -9,11 +9,17 @@
 import UIKit
 
 class PersonalSettingViewController: UIViewController {
-
+    var settings : PersonalSettingView {return self.view as! PersonalSettingView}
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.title = "Личная информация"
 
         // Do any additional setup after loading the view.
+    }
+    override func loadView() {
+        super.loadView()
+        self.view = PersonalSettingView(frame: self.view.bounds)
+        
     }
     
 

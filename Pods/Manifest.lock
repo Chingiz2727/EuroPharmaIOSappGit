@@ -1,0 +1,77 @@
+PODS:
+  - Alamofire (4.8.2)
+  - IQKeyboardManager (6.4.0)
+  - Realm (3.17.1):
+    - Realm/Headers (= 3.17.1)
+  - Realm/Headers (3.17.1)
+  - RealmSwift (3.17.1):
+    - Realm (= 3.17.1)
+  - RSSelectionMenu (6.0.3)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
+  - SideMenu (5.0.3)
+  - SnapKit (4.0.1)
+  - SwiftPhoneNumberFormatter (1.5)
+  - SwiftyJSON (4.3.0)
+  - SwiftyStarRatingView (1.0.4)
+  - TextFieldEffects (1.6.0)
+  - ZKCarousel (1.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - IQKeyboardManager
+  - RealmSwift
+  - RSSelectionMenu
+  - SDWebImage (~> 5.0)
+  - SideMenu (from `https://github.com/stelabouras/SideMenu.git`, branch `upgrade/xcode-10.2`)
+  - SnapKit (~> 4.0.0)
+  - SwiftPhoneNumberFormatter
+  - SwiftyJSON (~> 4.0)
+  - SwiftyStarRatingView
+  - TextFieldEffects
+  - ZKCarousel
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - IQKeyboardManager
+    - Realm
+    - RealmSwift
+    - RSSelectionMenu
+    - SDWebImage
+    - SnapKit
+    - SwiftPhoneNumberFormatter
+    - SwiftyJSON
+    - SwiftyStarRatingView
+    - TextFieldEffects
+    - ZKCarousel
+
+EXTERNAL SOURCES:
+  SideMenu:
+    :branch: upgrade/xcode-10.2
+    :git: https://github.com/stelabouras/SideMenu.git
+
+CHECKOUT OPTIONS:
+  SideMenu:
+    :commit: ccd4b640063a721180b77a59d2a45039672ec95d
+    :git: https://github.com/stelabouras/SideMenu.git
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
+  Realm: c204f1a890f07dea43b14132a6aad118c054b8f2
+  RealmSwift: 4d3c9233544b9cd08a8913e0872b9038eb99b054
+  RSSelectionMenu: decee83e020ee9d63e53995eb7f1ea5ca75f0667
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+  SideMenu: 92417cef5aa12b2784e82854406a0d3831ef7df3
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  SwiftyStarRatingView: a2b0057700e0adeb8e7442c55d99cb53b531d2f4
+  TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
+  ZKCarousel: 10d5d84fe490dca8e234e381d27e733a364d119c
+
+PODFILE CHECKSUM: 55fe3d13e8a290717c0056dbf48aa3da6e8fc17c
+
+COCOAPODS: 1.6.1

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class CategoryCollectionViewCell: UICollectionViewCell {
     let img : ImageLoader = {
        let img = ImageLoader()
@@ -24,26 +24,28 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    
     lazy var stack : UIStackView = {
     let stack = UIStackView(arrangedSubviews: [img,label])
-        stack.spacing = 7
+        stack.spacing = 3
         stack.axis = .vertical
-        stack.distribution = .fill
+        stack.distribution = .fillProportionally
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
     
-    var category : Category?  {
-        didSet {
-            updateUI()
+    var category : Category?  {didSet {
+        updateUI()
         }
+        
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+   
+    
+    func adlayer() {
         self.addSubview(stack)
         clipsToBounds = true
-
+        
         stack.snp.makeConstraints { (cons) in
             cons.top.bottom.equalTo(self).inset(0)
             cons.left.right.equalTo(self).inset(0)
@@ -53,9 +55,39 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         stack.layoutIfNeeded()
         self.backgroundColor = .white
         img.snp.makeConstraints { (cons) in
-            cons.size.equalTo(100)
+            cons.top.equalTo(30)
+            cons.size.equalTo(50)
+            
         }
+        img.layer.cornerRadius = 30
     }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        let contentViewConstraints = [
+            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ]
+        NSLayoutConstraint.activate(contentViewConstraints)
+        adlayer()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    override func prepareForReuse() { //This prevents images/text etc being reused on another cell (wrong image/text displayed)
+        super.prepareForReuse()
+        
+      
+        
+       
+    }
+    
     
     func updateUI() {
         if let category = category {
@@ -71,9 +103,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         label.numberOfLines = 0
-        
+    
     }
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+   
 }

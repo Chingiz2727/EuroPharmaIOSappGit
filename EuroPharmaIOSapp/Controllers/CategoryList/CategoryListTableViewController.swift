@@ -37,6 +37,11 @@ class CategoryListTableViewController: UICollectionViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let layout = UICollectionViewFlowLayout()
+        let medicine = MedineCollectionViewController(collectionViewLayout: layout)
+        self.navigationController?.pushViewController(medicine, animated: true)
+    }
  
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -62,11 +67,15 @@ class CategoryListTableViewController: UICollectionViewController {
    
     
     func getData() {
-        let decoder = JSONDecoder()
-        decoder.decode_url(Product.self, fromURL: Endpoint.main_url.rawValue + Endpoint.categories.rawValue + id) { (data) in
-            self.cat = data.categories!
-            self.collectionView.reloadData()
+        Networking.Request(type: Product.self, params: nil, header: nil, url: Endpoint.main_url.rawValue + Endpoint.categories.rawValue + id, method: .get) { [weak self] (data, success, error) in
+            if success == true {
+                if let info = data?.categories {
+                    self?.cat = info
+                    self?.collectionView.reloadData()
+                }
+            }
         }
+      
     }
     
   

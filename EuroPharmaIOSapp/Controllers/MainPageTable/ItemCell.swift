@@ -1,9 +1,255 @@
 //
 //  ItemCell.swift
-//  EuroPharmaIOSapp
+//  tableview_with_colletionview
 //
-//  Created by Shyngys Kuandyk on 7/23/19.
-//  Copyright © 2019 Shyngys Kuandyk. All rights reserved.
+//  Created by Robert Hills on 04/03/2019.
+//  Copyright © 2019 Test. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import SwiftyStarRatingView
+import SDWebImage
+class ItemCell: UICollectionViewCell {
+    fileprivate var isCategory: Bool = true
+    fileprivate var imageHeightRatio: CGFloat = 1
+    fileprivate var cellType: String = "football"
+    
+    var item : CategoryContentModel? {
+        didSet {
+            old_price.attributedText = (String(item?.old_price ?? 0) + " тг").strikeThrough()
+            price.text = String(item?.new_price ?? 0) + " тг"
+            titleLabel.text = String(item?.title ?? "")
+            
+        }
+    }
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        let contentViewConstraints = [
+            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ]
+        NSLayoutConstraint.activate(contentViewConstraints)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    override func prepareForReuse() { //This prevents images/text etc being reused on another cell (wrong image/text displayed)
+        super.prepareForReuse()
+        
+      
+   
+    }
+    let star_rating : SwiftyStarRatingView = {
+       let star = SwiftyStarRatingView()
+        star.maximumValue = 5
+        star.minimumValue = 0
+        star.isUserInteractionEnabled = false
+        star.tintColor = .orange
+        star.allowsHalfStars = true
+        star.value = 4
+        return star
+    }()
+    
+    
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor.black
+        label.numberOfLines = 2
+        label.font = UIFont(name: "Arial", size: 15)
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    let price : UILabel = {
+        let labele = UILabel()
+        labele.textColor = .black
+        labele.numberOfLines = 0
+        labele.frame = CGRect(x: 20, y: 20, width: 200, height: 800)
+
+        labele.textAlignment = .left
+        labele.font = UIFont(name: "Arial", size: 16)
+        labele.sizeToFit()
+
+        labele.translatesAutoresizingMaskIntoConstraints = false
+        return labele
+    }()
+    
+    let discount : UILabel = {
+        let labele = UILabel()
+        labele.textColor = .black
+        labele.backgroundColor = .orange
+        labele.numberOfLines = 0
+        labele.textAlignment = .left
+        labele.font = UIFont(name: "Arial", size: 13)
+        labele.sizeToFit()
+        labele.translatesAutoresizingMaskIntoConstraints = false
+        return labele
+    }()
+    
+    let like_button : UIButton = {
+        let button = UIButton()
+      
+        button.isUserInteractionEnabled = true
+        button.imageView?.contentMode = .scaleAspectFit
+        return button
+    }()
+    
+    let country : UILabel = {
+        let labele = UILabel()
+        labele.textColor = .black
+        labele.numberOfLines = 0
+        labele.textAlignment = .left
+        labele.font = UIFont(name: "Arial", size: 13)
+        labele.frame = CGRect(x: 20, y: 20, width: 200, height: 800)
+
+        labele.sizeToFit()
+
+        labele.translatesAutoresizingMaskIntoConstraints = false
+        return labele
+    }()
+    let old_price : UILabel = {
+        let labele = UILabel()
+        labele.textColor = .red
+        labele.font = UIFont(name: "Arial", size: 16)
+        labele.numberOfLines = 0
+        labele.frame = CGRect(x: 20, y: 20, width: 200, height: 800)
+
+        labele.sizeToFit()
+        labele.textAlignment = .left
+        labele.translatesAutoresizingMaskIntoConstraints = false
+        return labele
+    }()
+    
+    lazy var stack : UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [titleLabel])
+        stack.distribution = .fillProportionally
+        stack.axis = .vertical
+        
+        stack.spacing = 5
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    let mediaPoster: ImageLoader = {
+        let imageView = ImageLoader()
+        imageView.image = UIImage()
+        imageView.translatesAutoresizingMaskIntoConstraints = false //call this so image is added to view
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.backgroundColor = .white
+        return imageView
+    }()
+    
+    lazy var stack_cos : UIStackView = UIStackView()
+ 
+    func setupViews(asCategory category: Bool, withImageRatio ratio: CGFloat, cellType: String? = "football") {
+        self.backgroundColor = .white
+ 
+        
+        
+        clipsToBounds = true
+        self.addSubview(like_button)
+        like_button.snp.makeConstraints { (cons) in
+            cons.width.height.equalTo(30)
+            cons.right.equalTo(self).inset(10)
+            cons.top.equalTo(self).inset(10)
+        }
+        self.addSubview(mediaPoster)
+        mediaPoster.snp.makeConstraints { (cons) in
+            cons.top.equalTo(like_button.snp.bottom).offset(5)
+            cons.left.right.equalTo(self).inset(20)
+            cons.height.equalTo(100)
+        }
+        
+        self.addSubview(stack_cos)
+    
+        stack_cos.customStack(view: [old_price,price], distribution: .fill, spacing: 6)
+        stack_cos.axis = .horizontal
+     
+       
+        self.addSubview(star_rating)
+        star_rating.snp.makeConstraints { (cons) in
+            cons.top.equalTo(mediaPoster.snp.bottom).offset(7)
+            cons.left.right.equalTo(self).inset(30)
+            cons.height.equalTo(20)
+        }
+        self.addSubview(stack)
+       
+        stack.snp.makeConstraints { (cons) in
+            cons.left.right.equalTo(self).inset(3)
+            cons.top.equalTo(star_rating.snp.bottom).offset(3)
+            cons.bottom.equalTo(stack_cos.snp.top).offset(3)
+        }
+        stack_cos.snp.makeConstraints { (cons) in
+            cons.left.equalTo(3)
+            
+            cons.bottom.equalTo(self).inset(5)
+        }
+    }
+
+}
+
+extension UIView {
+    func addSubViews(withList views: [UIView]) -> Void {
+        for view in views {
+            self.addSubview(view)
+        }
+    }
+    
+    //Remove Constraints
+    func removeConstraints() {
+        removeConstraints(constraints)
+    }
+    
+    func deactivateAllConstraints() {
+        NSLayoutConstraint.deactivate(getAllConstraints())
+    }
+    
+    func getAllSubviews() -> [UIView] {
+        return UIView.getAllSubviews(view: self)
+    }
+    
+    func getAllConstraints() -> [NSLayoutConstraint] {
+        
+        var subviewsConstaints = getAllSubviews().flatMap { (view) -> [NSLayoutConstraint] in
+            return view.constraints
+        }
+        
+        if let superview = self.superview {
+            
+            subviewsConstaints += superview.constraints.compactMap { (constraint) -> NSLayoutConstraint? in
+                if let view = constraint.firstItem as? UIView {
+                    if view == self {
+                        return constraint
+                    }
+                }
+                return nil
+            }
+        }
+        
+        return subviewsConstaints + constraints
+    }
+    
+    class func getAllSubviews(view: UIView) -> [UIView] {
+        return view.subviews.flatMap { subView -> [UIView] in
+            return [subView] + getAllSubviews(view: subView)
+        }
+    }
+}
+extension NSMutableAttributedString{
+    func setColorForText(_ textToFind: String, with color: UIColor) {
+        let range = self.mutableString.range(of: textToFind, options: .caseInsensitive)
+        if range.location != NSNotFound {
+            addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
+        }
+    }
+}

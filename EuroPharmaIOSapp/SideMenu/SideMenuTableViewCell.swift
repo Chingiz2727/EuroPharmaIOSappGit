@@ -7,18 +7,70 @@
 //
 
 import UIKit
+import SnapKit
 
 class SideMenuTableViewCell: UITableViewCell {
-
+    
+    let icon : UIImageView = {
+        let icon = UIImageView()
+        icon.contentMode = .scaleAspectFit
+        return icon
+    }()
+    
+    let menu : UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Arial", size: 15)
+        label.textAlignment = .left
+        label.textColor = .white
+        return label
+    }()
+    
+    let road : UILabel = {
+       let label = UILabel()
+        label.text = ">"
+        label.textAlignment = .right
+        label.textColor = .white
+        label.isHidden = false
+        return label
+    }()
+    
+    lazy var stack : UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [icon,menu,road])
+        stack.axis = .horizontal
+        stack.distribution = .fillProportionally
+        stack.spacing = 10
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.addSubview(stack)
+        stack.snp.makeConstraints { (cons) in
+            cons.left.right.equalTo(self).inset(10)
+            cons.centerY.equalTo(self)
+        }
+        if icon.image != nil {
+            icon.snp.makeConstraints { (cons) in
+                cons.width.height.equalTo(35)
+            }
+        }
+      
+        self.selectionStyle = .none
+        self.backgroundColor = .clear
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
+    
 
 }

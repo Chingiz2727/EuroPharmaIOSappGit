@@ -7,13 +7,74 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61B4613DB7AB1E0F00258774 /* Pods_EuroPharmaIOSappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583A12145B708A4A67817497 /* Pods_EuroPharmaIOSappTests.framework */; };
+		A40870FE22DD731100668227 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40870FD22DD731100668227 /* Colors.swift */; };
+		A408710922DD9A4200668227 /* PostNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408710822DD9A4200668227 /* PostNetworking.swift */; };
+		A408710B22DDA33300668227 /* StoreModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408710A22DDA33300668227 /* StoreModule.swift */; };
+		A408710D22DDBAFD00668227 /* ChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408710C22DDBAFD00668227 /* ChildView.swift */; };
+		A408711022DDC3C200668227 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408710F22DDC3C200668227 /* CategoryCollectionViewCell.swift */; };
+		A408711422DDC58800668227 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408711322DDC58800668227 /* CarouselView.swift */; };
+		A408711622DDC9F000668227 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408711522DDC9F000668227 /* ImageDownloader.swift */; };
 		A41459C522DC76FC00B6F38B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459C422DC76FC00B6F38B /* AppDelegate.swift */; };
 		A41459C722DC76FC00B6F38B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459C622DC76FC00B6F38B /* ViewController.swift */; };
-		A41459CA22DC76FC00B6F38B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41459C822DC76FC00B6F38B /* Main.storyboard */; };
 		A41459CC22DC76FE00B6F38B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A41459CB22DC76FE00B6F38B /* Assets.xcassets */; };
 		A41459CF22DC76FE00B6F38B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41459CD22DC76FE00B6F38B /* LaunchScreen.storyboard */; };
 		A41459DA22DC76FE00B6F38B /* EuroPharmaIOSappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459D922DC76FE00B6F38B /* EuroPharmaIOSappTests.swift */; };
 		A41459E522DC76FE00B6F38B /* EuroPharmaIOSappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459E422DC76FE00B6F38B /* EuroPharmaIOSappUITests.swift */; };
+		A41459F422DC7A2700B6F38B /* DecodeJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459F322DC7A2700B6F38B /* DecodeJSON.swift */; };
+		A41459F722DC7A4300B6F38B /* UserTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459F622DC7A4300B6F38B /* UserTabBar.swift */; };
+		A41459F922DC7AF100B6F38B /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459F822DC7AF100B6F38B /* CustomAlert.swift */; };
+		A41459FB22DC7BD900B6F38B /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459FA22DC7BD900B6F38B /* SideMenuTableViewCell.swift */; };
+		A41459FE22DC7DA400B6F38B /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459FD22DC7DA400B6F38B /* SideMenuTableViewController.swift */; };
+		A414E02822DECDB40007005F /* ShadowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E02722DECDB40007005F /* ShadowExtension.swift */; };
+		A414E02F22DEDC380007005F /* CategoryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E02E22DEDC380007005F /* CategoryListTableViewController.swift */; };
+		A414E03122DEDC460007005F /* CategoryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E03022DEDC460007005F /* CategoryListTableViewCell.swift */; };
+		A414E03322DEDED00007005F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E03222DEDED00007005F /* Endpoint.swift */; };
+		A414E03522DEEF4D0007005F /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E03422DEEF4D0007005F /* FlowLayout.swift */; };
+		A414E03922DF11C90007005F /* MedineCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E03822DF11C90007005F /* MedineCollectionViewController.swift */; };
+		A414E03B22DF11D80007005F /* MedicineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E03A22DF11D80007005F /* MedicineCollectionViewCell.swift */; };
+		A414E03E22DF3F180007005F /* MedicineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E03D22DF3F180007005F /* MedicineDetailViewController.swift */; };
+		A414E04022DF3F280007005F /* MedicineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E03F22DF3F280007005F /* MedicineDetailView.swift */; };
+		A424625A22E029EA007473C1 /* BasketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424625922E029EA007473C1 /* BasketTableViewController.swift */; };
+		A424625C22E029F7007473C1 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424625B22E029F7007473C1 /* BasketTableViewCell.swift */; };
+		A424625E22E0368E007473C1 /* BasketTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424625D22E0368E007473C1 /* BasketTableViewHeader.swift */; };
+		A424626022E039B2007473C1 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424625F22E039B2007473C1 /* BasketViewController.swift */; };
+		A424626222E039D3007473C1 /* MakeOrderButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424626122E039D3007473C1 /* MakeOrderButtonView.swift */; };
+		A424626722E043D1007473C1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424626622E043D1007473C1 /* LoginView.swift */; };
+		A424626922E049AD007473C1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424626822E049AD007473C1 /* LoginViewController.swift */; };
+		A424626C22E06208007473C1 /* RegistrationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424626B22E06208007473C1 /* RegistrationVIew.swift */; };
+		A424626E22E06216007473C1 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424626D22E06216007473C1 /* RegistrationViewController.swift */; };
+		A424627122E06555007473C1 /* ForgetPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424627022E06555007473C1 /* ForgetPassViewController.swift */; };
+		A424627322E06567007473C1 /* ForgetPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424627222E06567007473C1 /* ForgetPassView.swift */; };
+		A424627522E066D9007473C1 /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424627422E066D9007473C1 /* LabelExtension.swift */; };
+		A424627B22E07128007473C1 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424627A22E07128007473C1 /* ProfileTableViewController.swift */; };
+		A424627D22E0728A007473C1 /* ProfileHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424627C22E0728A007473C1 /* ProfileHeaderTableViewCell.swift */; };
+		A424627F22E07512007473C1 /* StackExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424627E22E07512007473C1 /* StackExtension.swift */; };
+		A424628222E07E1E007473C1 /* UserSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424628122E07E1E007473C1 /* UserSettingTableViewController.swift */; };
+		A424628522E087E5007473C1 /* AdressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424628422E087E5007473C1 /* AdressTableViewController.swift */; };
+		A424628722E08826007473C1 /* AdressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424628622E08826007473C1 /* AdressTableViewCell.swift */; };
+		A424628A22E08D64007473C1 /* PersonalSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424628922E08D64007473C1 /* PersonalSettingViewController.swift */; };
+		A424628C22E08D74007473C1 /* PersonalSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424628B22E08D74007473C1 /* PersonalSettingView.swift */; };
+		A424628F22E09295007473C1 /* EditPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424628E22E09295007473C1 /* EditPhoneViewController.swift */; };
+		A424629122E095C1007473C1 /* EditPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424629022E095C1007473C1 /* EditPhoneView.swift */; };
+		A42A630922E6AB22007CED70 /* SelfSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A630822E6AB22007CED70 /* SelfSizedTableView.swift */; };
+		A42A630B22E6AB33007CED70 /* CategoryRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A630A22E6AB33007CED70 /* CategoryRowCell.swift */; };
+		A42A630D22E6AB5C007CED70 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A630C22E6AB5C007CED70 /* ItemCell.swift */; };
+		A42A630F22E6AB71007CED70 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A630E22E6AB71007CED70 /* CategoryModel.swift */; };
+		A42A631122E6AB8C007CED70 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A631022E6AB8C007CED70 /* Utils.swift */; };
+		A42A631322E6ABA2007CED70 /* MainPageTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A631222E6ABA2007CED70 /* MainPageTable.swift */; };
+		A466633222E16A8300CA6AA4 /* EditPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633122E16A8300CA6AA4 /* EditPassViewController.swift */; };
+		A466633422E16A9200CA6AA4 /* EditPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633322E16A9200CA6AA4 /* EditPassView.swift */; };
+		A466633722E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633622E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift */; };
+		A466633922E1752C00CA6AA4 /* MyOrdersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633822E1752C00CA6AA4 /* MyOrdersCollectionViewCell.swift */; };
+		A466633D22E1962300CA6AA4 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633C22E1962300CA6AA4 /* SearchTableViewController.swift */; };
+		A466633F22E1973E00CA6AA4 /* SearchItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633E22E1973E00CA6AA4 /* SearchItemTableViewCell.swift */; };
+		A4786BBE22E9579C002BD835 /* BasketModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4786BBD22E9579C002BD835 /* BasketModule.swift */; };
+		A4786BC122E96F1B002BD835 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4786BC022E96F1B002BD835 /* File.swift */; };
+		A4A4B0B622E720740016B903 /* SetupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4B0B522E720740016B903 /* SetupData.swift */; };
+		A4A4B0B822E729990016B903 /* MainCategoryRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4B0B722E729990016B903 /* MainCategoryRowCell.swift */; };
+		B4BFF53130DE830876D02278 /* Pods_EuroPharmaIOSapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0610DEDC99B13F285602303A /* Pods_EuroPharmaIOSapp.framework */; };
+		ED626F7DE3221AEC56BF7FE9 /* Pods_EuroPharmaIOSappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65FD78AFFAF629CC8AD84D2 /* Pods_EuroPharmaIOSappUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +95,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0610DEDC99B13F285602303A /* Pods_EuroPharmaIOSapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EuroPharmaIOSapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		284D9123A4F79E38029737EB /* Pods-EuroPharmaIOSappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSappUITests.release.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSappUITests/Pods-EuroPharmaIOSappUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4A63EEDB4FBE433A7A5243CA /* Pods-EuroPharmaIOSappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSappTests.debug.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSappTests/Pods-EuroPharmaIOSappTests.debug.xcconfig"; sourceTree = "<group>"; };
+		583A12145B708A4A67817497 /* Pods_EuroPharmaIOSappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EuroPharmaIOSappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A40914E3C0F0437DF812E5D /* Pods-EuroPharmaIOSappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSappUITests.debug.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSappUITests/Pods-EuroPharmaIOSappUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A40870FD22DD731100668227 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		A408710822DD9A4200668227 /* PostNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworking.swift; sourceTree = "<group>"; };
+		A408710A22DDA33300668227 /* StoreModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModule.swift; sourceTree = "<group>"; };
+		A408710C22DDBAFD00668227 /* ChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildView.swift; sourceTree = "<group>"; };
+		A408710F22DDC3C200668227 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		A408711322DDC58800668227 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		A408711522DDC9F000668227 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		A41459C122DC76FC00B6F38B /* EuroPharmaIOSapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EuroPharmaIOSapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41459C422DC76FC00B6F38B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A41459C622DC76FC00B6F38B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A41459C922DC76FC00B6F38B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A41459CB22DC76FE00B6F38B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A41459CE22DC76FE00B6F38B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A41459D022DC76FE00B6F38B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +119,62 @@
 		A41459E022DC76FE00B6F38B /* EuroPharmaIOSappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EuroPharmaIOSappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41459E422DC76FE00B6F38B /* EuroPharmaIOSappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuroPharmaIOSappUITests.swift; sourceTree = "<group>"; };
 		A41459E622DC76FE00B6F38B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A41459F322DC7A2700B6F38B /* DecodeJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeJSON.swift; sourceTree = "<group>"; };
+		A41459F622DC7A4300B6F38B /* UserTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTabBar.swift; sourceTree = "<group>"; };
+		A41459F822DC7AF100B6F38B /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		A41459FA22DC7BD900B6F38B /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
+		A41459FD22DC7DA400B6F38B /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
+		A414E02722DECDB40007005F /* ShadowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowExtension.swift; sourceTree = "<group>"; };
+		A414E02E22DEDC380007005F /* CategoryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewController.swift; sourceTree = "<group>"; };
+		A414E03022DEDC460007005F /* CategoryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListTableViewCell.swift; sourceTree = "<group>"; };
+		A414E03222DEDED00007005F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		A414E03422DEEF4D0007005F /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
+		A414E03822DF11C90007005F /* MedineCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedineCollectionViewController.swift; sourceTree = "<group>"; };
+		A414E03A22DF11D80007005F /* MedicineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineCollectionViewCell.swift; sourceTree = "<group>"; };
+		A414E03D22DF3F180007005F /* MedicineDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineDetailViewController.swift; sourceTree = "<group>"; };
+		A414E03F22DF3F280007005F /* MedicineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineDetailView.swift; sourceTree = "<group>"; };
+		A424625922E029EA007473C1 /* BasketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewController.swift; sourceTree = "<group>"; };
+		A424625B22E029F7007473C1 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
+		A424625D22E0368E007473C1 /* BasketTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewHeader.swift; sourceTree = "<group>"; };
+		A424625F22E039B2007473C1 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		A424626122E039D3007473C1 /* MakeOrderButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeOrderButtonView.swift; sourceTree = "<group>"; };
+		A424626622E043D1007473C1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A424626822E049AD007473C1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A424626B22E06208007473C1 /* RegistrationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVIew.swift; sourceTree = "<group>"; };
+		A424626D22E06216007473C1 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		A424627022E06555007473C1 /* ForgetPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPassViewController.swift; sourceTree = "<group>"; };
+		A424627222E06567007473C1 /* ForgetPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPassView.swift; sourceTree = "<group>"; };
+		A424627422E066D9007473C1 /* LabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
+		A424627A22E07128007473C1 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		A424627C22E0728A007473C1 /* ProfileHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		A424627E22E07512007473C1 /* StackExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackExtension.swift; sourceTree = "<group>"; };
+		A424628122E07E1E007473C1 /* UserSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingTableViewController.swift; sourceTree = "<group>"; };
+		A424628422E087E5007473C1 /* AdressTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressTableViewController.swift; sourceTree = "<group>"; };
+		A424628622E08826007473C1 /* AdressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressTableViewCell.swift; sourceTree = "<group>"; };
+		A424628922E08D64007473C1 /* PersonalSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalSettingViewController.swift; sourceTree = "<group>"; };
+		A424628B22E08D74007473C1 /* PersonalSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalSettingView.swift; sourceTree = "<group>"; };
+		A424628E22E09295007473C1 /* EditPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhoneViewController.swift; sourceTree = "<group>"; };
+		A424629022E095C1007473C1 /* EditPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPhoneView.swift; sourceTree = "<group>"; };
+		A42A630822E6AB22007CED70 /* SelfSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedTableView.swift; sourceTree = "<group>"; };
+		A42A630A22E6AB33007CED70 /* CategoryRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowCell.swift; sourceTree = "<group>"; };
+		A42A630C22E6AB5C007CED70 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		A42A630E22E6AB71007CED70 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		A42A631022E6AB8C007CED70 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A42A631222E6ABA2007CED70 /* MainPageTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageTable.swift; sourceTree = "<group>"; };
+		A466633122E16A8300CA6AA4 /* EditPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPassViewController.swift; sourceTree = "<group>"; };
+		A466633322E16A9200CA6AA4 /* EditPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPassView.swift; sourceTree = "<group>"; };
+		A466633622E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersCollectionViewController.swift; sourceTree = "<group>"; };
+		A466633822E1752C00CA6AA4 /* MyOrdersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersCollectionViewCell.swift; sourceTree = "<group>"; };
+		A466633C22E1962300CA6AA4 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		A466633E22E1973E00CA6AA4 /* SearchItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemTableViewCell.swift; sourceTree = "<group>"; };
+		A4786BBD22E9579C002BD835 /* BasketModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModule.swift; sourceTree = "<group>"; };
+		A4786BC022E96F1B002BD835 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		A4A4B0B522E720740016B903 /* SetupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupData.swift; sourceTree = "<group>"; };
+		A4A4B0B722E729990016B903 /* MainCategoryRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryRowCell.swift; sourceTree = "<group>"; };
+		B1FD5B26F6D88691BFFEB894 /* Pods-EuroPharmaIOSapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSapp.debug.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp.debug.xcconfig"; sourceTree = "<group>"; };
+		C37207F36207E5465AD54804 /* Pods-EuroPharmaIOSappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSappTests.release.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSappTests/Pods-EuroPharmaIOSappTests.release.xcconfig"; sourceTree = "<group>"; };
+		E65FD78AFFAF629CC8AD84D2 /* Pods_EuroPharmaIOSappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EuroPharmaIOSappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0209E976D8D7B8F30E8340C /* Pods-EuroPharmaIOSapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSapp.release.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4BFF53130DE830876D02278 /* Pods_EuroPharmaIOSapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61B4613DB7AB1E0F00258774 /* Pods_EuroPharmaIOSappTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +198,63 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED626F7DE3221AEC56BF7FE9 /* Pods_EuroPharmaIOSappUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08A99CE1DF2955E076296339 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0610DEDC99B13F285602303A /* Pods_EuroPharmaIOSapp.framework */,
+				583A12145B708A4A67817497 /* Pods_EuroPharmaIOSappTests.framework */,
+				E65FD78AFFAF629CC8AD84D2 /* Pods_EuroPharmaIOSappUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A40870FC22DD72F500668227 /* StaticVariablees */ = {
+			isa = PBXGroup;
+			children = (
+				A40870FD22DD731100668227 /* Colors.swift */,
+				A414E03422DEEF4D0007005F /* FlowLayout.swift */,
+				A414E03222DEDED00007005F /* Endpoint.swift */,
+			);
+			path = StaticVariablees;
+			sourceTree = "<group>";
+		};
+		A40870FF22DD824D00668227 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A42A630722E6AB05007CED70 /* MainPageTable */,
+				A466633B22E195FD00CA6AA4 /* SearchView */,
+				A424626322E041D4007473C1 /* UserProfile */,
+				A424625822E02955007473C1 /* BasketList */,
+				A414E03622DF11AE0007005F /* MedicineList */,
+				A414E02D22DEDC070007005F /* CategoryList */,
+				A408710022DD825C00668227 /* MainPage */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A408710022DD825C00668227 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		A408710722DD99FD00668227 /* NetWorking */ = {
+			isa = PBXGroup;
+			children = (
+				A408710822DD9A4200668227 /* PostNetworking.swift */,
+				A408711522DDC9F000668227 /* ImageDownloader.swift */,
+			);
+			path = NetWorking;
+			sourceTree = "<group>";
+		};
 		A41459B822DC76FC00B6F38B = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +262,8 @@
 				A41459D822DC76FE00B6F38B /* EuroPharmaIOSappTests */,
 				A41459E322DC76FE00B6F38B /* EuroPharmaIOSappUITests */,
 				A41459C222DC76FC00B6F38B /* Products */,
+				EC42161412A92235BCF64A5F /* Pods */,
+				08A99CE1DF2955E076296339 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,7 +282,12 @@
 			children = (
 				A41459C422DC76FC00B6F38B /* AppDelegate.swift */,
 				A41459C622DC76FC00B6F38B /* ViewController.swift */,
-				A41459C822DC76FC00B6F38B /* Main.storyboard */,
+				A4786BBF22E96F0D002BD835 /* Protocols */,
+				A40870FF22DD824D00668227 /* Controllers */,
+				A40870FC22DD72F500668227 /* StaticVariablees */,
+				A41459FC22DC7BE500B6F38B /* SideMenu */,
+				A41459F522DC7A3700B6F38B /* TabBar */,
+				A41459F222DC7A1200B6F38B /* Extensions */,
 				A41459CB22DC76FE00B6F38B /* Assets.xcassets */,
 				A41459CD22DC76FE00B6F38B /* LaunchScreen.storyboard */,
 				A41459D022DC76FE00B6F38B /* Info.plist */,
@@ -125,6 +313,248 @@
 			path = EuroPharmaIOSappUITests;
 			sourceTree = "<group>";
 		};
+		A41459F222DC7A1200B6F38B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A41459F322DC7A2700B6F38B /* DecodeJSON.swift */,
+				A424627422E066D9007473C1 /* LabelExtension.swift */,
+				A424627E22E07512007473C1 /* StackExtension.swift */,
+				A414E02722DECDB40007005F /* ShadowExtension.swift */,
+				A408710C22DDBAFD00668227 /* ChildView.swift */,
+				A408710722DD99FD00668227 /* NetWorking */,
+				A41459F822DC7AF100B6F38B /* CustomAlert.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A41459F522DC7A3700B6F38B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A41459F622DC7A4300B6F38B /* UserTabBar.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		A41459FC22DC7BE500B6F38B /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				A41459FA22DC7BD900B6F38B /* SideMenuTableViewCell.swift */,
+				A41459FD22DC7DA400B6F38B /* SideMenuTableViewController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		A414E02D22DEDC070007005F /* CategoryList */ = {
+			isa = PBXGroup;
+			children = (
+				A414E02E22DEDC380007005F /* CategoryListTableViewController.swift */,
+				A414E03022DEDC460007005F /* CategoryListTableViewCell.swift */,
+			);
+			path = CategoryList;
+			sourceTree = "<group>";
+		};
+		A414E03622DF11AE0007005F /* MedicineList */ = {
+			isa = PBXGroup;
+			children = (
+				A414E03822DF11C90007005F /* MedineCollectionViewController.swift */,
+				A414E03C22DF3F020007005F /* MedicineDetail */,
+				A414E03A22DF11D80007005F /* MedicineCollectionViewCell.swift */,
+			);
+			path = MedicineList;
+			sourceTree = "<group>";
+		};
+		A414E03C22DF3F020007005F /* MedicineDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A414E03D22DF3F180007005F /* MedicineDetailViewController.swift */,
+				A414E03F22DF3F280007005F /* MedicineDetailView.swift */,
+			);
+			path = MedicineDetail;
+			sourceTree = "<group>";
+		};
+		A424625822E02955007473C1 /* BasketList */ = {
+			isa = PBXGroup;
+			children = (
+				A4786BBC22E9578D002BD835 /* BasketModule */,
+				A424625922E029EA007473C1 /* BasketTableViewController.swift */,
+				A424626122E039D3007473C1 /* MakeOrderButtonView.swift */,
+				A424625F22E039B2007473C1 /* BasketViewController.swift */,
+				A424625B22E029F7007473C1 /* BasketTableViewCell.swift */,
+				A424625D22E0368E007473C1 /* BasketTableViewHeader.swift */,
+			);
+			path = BasketList;
+			sourceTree = "<group>";
+		};
+		A424626322E041D4007473C1 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				A466633522E1726000CA6AA4 /* MyOrders */,
+				A466633022E16A7100CA6AA4 /* EditPassword */,
+				A424628D22E09283007473C1 /* PhoneNumberEdit */,
+				A424628822E08D4D007473C1 /* PersonalSettings */,
+				A424628322E087D4007473C1 /* Adresses */,
+				A424628022E07E08007473C1 /* UserSettingTable */,
+				A424627722E06FAF007473C1 /* Profile */,
+				A424626422E041DD007473C1 /* Authorization */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		A424626422E041DD007473C1 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				A424626F22E06544007473C1 /* ForgetPassword */,
+				A424626A22E061F4007473C1 /* Registration */,
+				A424626522E043C0007473C1 /* Login */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		A424626522E043C0007473C1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A424626622E043D1007473C1 /* LoginView.swift */,
+				A424626822E049AD007473C1 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A424626A22E061F4007473C1 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				A424626B22E06208007473C1 /* RegistrationVIew.swift */,
+				A424626D22E06216007473C1 /* RegistrationViewController.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		A424626F22E06544007473C1 /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				A424627022E06555007473C1 /* ForgetPassViewController.swift */,
+				A424627222E06567007473C1 /* ForgetPassView.swift */,
+			);
+			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
+		A424627722E06FAF007473C1 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A424627A22E07128007473C1 /* ProfileTableViewController.swift */,
+				A424627C22E0728A007473C1 /* ProfileHeaderTableViewCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A424628022E07E08007473C1 /* UserSettingTable */ = {
+			isa = PBXGroup;
+			children = (
+				A424628122E07E1E007473C1 /* UserSettingTableViewController.swift */,
+			);
+			path = UserSettingTable;
+			sourceTree = "<group>";
+		};
+		A424628322E087D4007473C1 /* Adresses */ = {
+			isa = PBXGroup;
+			children = (
+				A424628422E087E5007473C1 /* AdressTableViewController.swift */,
+				A424628622E08826007473C1 /* AdressTableViewCell.swift */,
+			);
+			path = Adresses;
+			sourceTree = "<group>";
+		};
+		A424628822E08D4D007473C1 /* PersonalSettings */ = {
+			isa = PBXGroup;
+			children = (
+				A424628922E08D64007473C1 /* PersonalSettingViewController.swift */,
+				A424628B22E08D74007473C1 /* PersonalSettingView.swift */,
+			);
+			path = PersonalSettings;
+			sourceTree = "<group>";
+		};
+		A424628D22E09283007473C1 /* PhoneNumberEdit */ = {
+			isa = PBXGroup;
+			children = (
+				A424628E22E09295007473C1 /* EditPhoneViewController.swift */,
+				A424629022E095C1007473C1 /* EditPhoneView.swift */,
+			);
+			path = PhoneNumberEdit;
+			sourceTree = "<group>";
+		};
+		A42A630722E6AB05007CED70 /* MainPageTable */ = {
+			isa = PBXGroup;
+			children = (
+				A42A630822E6AB22007CED70 /* SelfSizedTableView.swift */,
+				A42A631222E6ABA2007CED70 /* MainPageTable.swift */,
+				A4A4B0B522E720740016B903 /* SetupData.swift */,
+				A42A630A22E6AB33007CED70 /* CategoryRowCell.swift */,
+				A4A4B0B722E729990016B903 /* MainCategoryRowCell.swift */,
+				A42A630C22E6AB5C007CED70 /* ItemCell.swift */,
+				A408710F22DDC3C200668227 /* CategoryCollectionViewCell.swift */,
+				A408710A22DDA33300668227 /* StoreModule.swift */,
+				A42A630E22E6AB71007CED70 /* CategoryModel.swift */,
+				A408711322DDC58800668227 /* CarouselView.swift */,
+				A42A631022E6AB8C007CED70 /* Utils.swift */,
+			);
+			path = MainPageTable;
+			sourceTree = "<group>";
+		};
+		A466633022E16A7100CA6AA4 /* EditPassword */ = {
+			isa = PBXGroup;
+			children = (
+				A466633122E16A8300CA6AA4 /* EditPassViewController.swift */,
+				A466633322E16A9200CA6AA4 /* EditPassView.swift */,
+			);
+			path = EditPassword;
+			sourceTree = "<group>";
+		};
+		A466633522E1726000CA6AA4 /* MyOrders */ = {
+			isa = PBXGroup;
+			children = (
+				A466633622E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift */,
+				A466633822E1752C00CA6AA4 /* MyOrdersCollectionViewCell.swift */,
+			);
+			path = MyOrders;
+			sourceTree = "<group>";
+		};
+		A466633B22E195FD00CA6AA4 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				A466633C22E1962300CA6AA4 /* SearchTableViewController.swift */,
+				A466633E22E1973E00CA6AA4 /* SearchItemTableViewCell.swift */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		A4786BBC22E9578D002BD835 /* BasketModule */ = {
+			isa = PBXGroup;
+			children = (
+				A4786BBD22E9579C002BD835 /* BasketModule.swift */,
+			);
+			path = BasketModule;
+			sourceTree = "<group>";
+		};
+		A4786BBF22E96F0D002BD835 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A4786BC022E96F1B002BD835 /* File.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		EC42161412A92235BCF64A5F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B1FD5B26F6D88691BFFEB894 /* Pods-EuroPharmaIOSapp.debug.xcconfig */,
+				F0209E976D8D7B8F30E8340C /* Pods-EuroPharmaIOSapp.release.xcconfig */,
+				4A63EEDB4FBE433A7A5243CA /* Pods-EuroPharmaIOSappTests.debug.xcconfig */,
+				C37207F36207E5465AD54804 /* Pods-EuroPharmaIOSappTests.release.xcconfig */,
+				9A40914E3C0F0437DF812E5D /* Pods-EuroPharmaIOSappUITests.debug.xcconfig */,
+				284D9123A4F79E38029737EB /* Pods-EuroPharmaIOSappUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +562,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A41459E922DC76FE00B6F38B /* Build configuration list for PBXNativeTarget "EuroPharmaIOSapp" */;
 			buildPhases = (
+				1231333C7710413791A3D6E9 /* [CP] Check Pods Manifest.lock */,
 				A41459BD22DC76FC00B6F38B /* Sources */,
 				A41459BE22DC76FC00B6F38B /* Frameworks */,
 				A41459BF22DC76FC00B6F38B /* Resources */,
+				344530D9EB8394617FFE4404 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +581,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A41459EC22DC76FE00B6F38B /* Build configuration list for PBXNativeTarget "EuroPharmaIOSappTests" */;
 			buildPhases = (
+				CF88BF85431A411DD26FF0BD /* [CP] Check Pods Manifest.lock */,
 				A41459D122DC76FE00B6F38B /* Sources */,
 				A41459D222DC76FE00B6F38B /* Frameworks */,
 				A41459D322DC76FE00B6F38B /* Resources */,
@@ -167,6 +600,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A41459EF22DC76FE00B6F38B /* Build configuration list for PBXNativeTarget "EuroPharmaIOSappUITests" */;
 			buildPhases = (
+				508C070DEA5EF82A392FDA95 /* [CP] Check Pods Manifest.lock */,
 				A41459DC22DC76FE00B6F38B /* Sources */,
 				A41459DD22DC76FE00B6F38B /* Frameworks */,
 				A41459DE22DC76FE00B6F38B /* Resources */,
@@ -231,7 +665,6 @@
 			files = (
 				A41459CF22DC76FE00B6F38B /* LaunchScreen.storyboard in Resources */,
 				A41459CC22DC76FE00B6F38B /* Assets.xcassets in Resources */,
-				A41459CA22DC76FC00B6F38B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +684,187 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1231333C7710413791A3D6E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EuroPharmaIOSapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		344530D9EB8394617FFE4404 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/RSSelectionMenu/RSSelectionMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftPhoneNumberFormatter/SwiftPhoneNumberFormatter.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyStarRatingView/SwiftyStarRatingView.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+				"${BUILT_PRODUCTS_DIR}/ZKCarousel/ZKCarousel.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSSelectionMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftPhoneNumberFormatter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStarRatingView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZKCarousel.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		508C070DEA5EF82A392FDA95 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EuroPharmaIOSappUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF88BF85431A411DD26FF0BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EuroPharmaIOSappTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A41459BD22DC76FC00B6F38B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A466633222E16A8300CA6AA4 /* EditPassViewController.swift in Sources */,
+				A424627522E066D9007473C1 /* LabelExtension.swift in Sources */,
+				A424626022E039B2007473C1 /* BasketViewController.swift in Sources */,
+				A424628C22E08D74007473C1 /* PersonalSettingView.swift in Sources */,
 				A41459C722DC76FC00B6F38B /* ViewController.swift in Sources */,
+				A42A630B22E6AB33007CED70 /* CategoryRowCell.swift in Sources */,
+				A40870FE22DD731100668227 /* Colors.swift in Sources */,
+				A424625A22E029EA007473C1 /* BasketTableViewController.swift in Sources */,
+				A408711622DDC9F000668227 /* ImageDownloader.swift in Sources */,
+				A466633422E16A9200CA6AA4 /* EditPassView.swift in Sources */,
+				A424628722E08826007473C1 /* AdressTableViewCell.swift in Sources */,
+				A424626222E039D3007473C1 /* MakeOrderButtonView.swift in Sources */,
+				A466633922E1752C00CA6AA4 /* MyOrdersCollectionViewCell.swift in Sources */,
+				A42A631322E6ABA2007CED70 /* MainPageTable.swift in Sources */,
+				A4786BC122E96F1B002BD835 /* File.swift in Sources */,
+				A414E02F22DEDC380007005F /* CategoryListTableViewController.swift in Sources */,
+				A466633722E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift in Sources */,
+				A41459F422DC7A2700B6F38B /* DecodeJSON.swift in Sources */,
+				A414E03B22DF11D80007005F /* MedicineCollectionViewCell.swift in Sources */,
+				A414E02822DECDB40007005F /* ShadowExtension.swift in Sources */,
+				A4A4B0B622E720740016B903 /* SetupData.swift in Sources */,
+				A424627122E06555007473C1 /* ForgetPassViewController.swift in Sources */,
+				A41459F722DC7A4300B6F38B /* UserTabBar.swift in Sources */,
+				A42A630D22E6AB5C007CED70 /* ItemCell.swift in Sources */,
+				A42A630F22E6AB71007CED70 /* CategoryModel.swift in Sources */,
+				A42A630922E6AB22007CED70 /* SelfSizedTableView.swift in Sources */,
+				A424625E22E0368E007473C1 /* BasketTableViewHeader.swift in Sources */,
+				A408710D22DDBAFD00668227 /* ChildView.swift in Sources */,
+				A4A4B0B822E729990016B903 /* MainCategoryRowCell.swift in Sources */,
+				A424628F22E09295007473C1 /* EditPhoneViewController.swift in Sources */,
+				A424627322E06567007473C1 /* ForgetPassView.swift in Sources */,
+				A41459FB22DC7BD900B6F38B /* SideMenuTableViewCell.swift in Sources */,
+				A408710B22DDA33300668227 /* StoreModule.swift in Sources */,
+				A424629122E095C1007473C1 /* EditPhoneView.swift in Sources */,
 				A41459C522DC76FC00B6F38B /* AppDelegate.swift in Sources */,
+				A424625C22E029F7007473C1 /* BasketTableViewCell.swift in Sources */,
+				A424626C22E06208007473C1 /* RegistrationVIew.swift in Sources */,
+				A414E03E22DF3F180007005F /* MedicineDetailViewController.swift in Sources */,
+				A466633F22E1973E00CA6AA4 /* SearchItemTableViewCell.swift in Sources */,
+				A414E03922DF11C90007005F /* MedineCollectionViewController.swift in Sources */,
+				A424627D22E0728A007473C1 /* ProfileHeaderTableViewCell.swift in Sources */,
+				A424626922E049AD007473C1 /* LoginViewController.swift in Sources */,
+				A414E04022DF3F280007005F /* MedicineDetailView.swift in Sources */,
+				A424627B22E07128007473C1 /* ProfileTableViewController.swift in Sources */,
+				A408711422DDC58800668227 /* CarouselView.swift in Sources */,
+				A408710922DD9A4200668227 /* PostNetworking.swift in Sources */,
+				A466633D22E1962300CA6AA4 /* SearchTableViewController.swift in Sources */,
+				A424626E22E06216007473C1 /* RegistrationViewController.swift in Sources */,
+				A41459F922DC7AF100B6F38B /* CustomAlert.swift in Sources */,
+				A424628522E087E5007473C1 /* AdressTableViewController.swift in Sources */,
+				A424626722E043D1007473C1 /* LoginView.swift in Sources */,
+				A42A631122E6AB8C007CED70 /* Utils.swift in Sources */,
+				A424628222E07E1E007473C1 /* UserSettingTableViewController.swift in Sources */,
+				A414E03522DEEF4D0007005F /* FlowLayout.swift in Sources */,
+				A408711022DDC3C200668227 /* CategoryCollectionViewCell.swift in Sources */,
+				A41459FE22DC7DA400B6F38B /* SideMenuTableViewController.swift in Sources */,
+				A414E03122DEDC460007005F /* CategoryListTableViewCell.swift in Sources */,
+				A424628A22E08D64007473C1 /* PersonalSettingViewController.swift in Sources */,
+				A4786BBE22E9579C002BD835 /* BasketModule.swift in Sources */,
+				A424627F22E07512007473C1 /* StackExtension.swift in Sources */,
+				A414E03322DEDED00007005F /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +900,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A41459C822DC76FC00B6F38B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A41459C922DC76FC00B6F38B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A41459CD22DC76FE00B6F38B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -430,6 +1029,7 @@
 		};
 		A41459EA22DC76FE00B6F38B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1FD5B26F6D88691BFFEB894 /* Pods-EuroPharmaIOSapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -442,12 +1042,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cheena.EuroPharmaIOSapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		A41459EB22DC76FE00B6F38B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0209E976D8D7B8F30E8340C /* Pods-EuroPharmaIOSapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -460,12 +1061,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cheena.EuroPharmaIOSapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		A41459ED22DC76FE00B6F38B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A63EEDB4FBE433A7A5243CA /* Pods-EuroPharmaIOSappTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +1089,7 @@
 		};
 		A41459EE22DC76FE00B6F38B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C37207F36207E5465AD54804 /* Pods-EuroPharmaIOSappTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +1111,7 @@
 		};
 		A41459F022DC76FE00B6F38B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A40914E3C0F0437DF812E5D /* Pods-EuroPharmaIOSappUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +1132,7 @@
 		};
 		A41459F122DC76FE00B6F38B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 284D9123A4F79E38029737EB /* Pods-EuroPharmaIOSappUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

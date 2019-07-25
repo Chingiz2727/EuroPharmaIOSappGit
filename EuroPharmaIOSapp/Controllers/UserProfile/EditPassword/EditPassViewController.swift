@@ -9,13 +9,17 @@
 import UIKit
 
 class EditPassViewController: UIViewController {
-
+    var edit_pass : EditPassView {return self.view as! EditPassView}
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    override func loadView() {
+        super.loadView()
+        self.view = EditPassView(frame: self.view.bounds)
+    }
 
     /*
     // MARK: - Navigation

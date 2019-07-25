@@ -9,14 +9,17 @@
 import UIKit
 
 class ForgetPassViewController: UIViewController {
-
+    var forget : ForgetPassView  { return self.view as! ForgetPassView}
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    override func loadView() {
+        super.loadView()
+        self.view = ForgetPassView(frame: self.view.bounds)
+    }
     /*
     // MARK: - Navigation
 

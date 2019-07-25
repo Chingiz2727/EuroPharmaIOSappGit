@@ -9,38 +9,67 @@
 import UIKit
 
 class ProfileTableViewController: UITableViewController {
-
+let cellid = "cellid"
+    let headerid = "headerid"
+    let menu = ["Мои заказы","Список желаемых","Адреса доставки","Настройки","Выход"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.register(SideMenuTableViewCell.self, forCellReuseIdentifier: cellid)
+        tableView.register(ProfileHeaderTableViewCell.self, forCellReuseIdentifier: headerid)
+        tableView.tableFooterView = UIView()
+        tableView.bounces = false
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            let layout = UICollectionViewFlowLayout()
+            let my_order = MyOrdersCollectionViewController(collectionViewLayout: layout)
+            self.navigationController?.pushViewController(my_order, animated: true)
+        case 2:
+            self.navigationController?.pushViewController(AdressTableViewController(), animated: true)
+
+        case 3:
+            self.navigationController?.pushViewController(UserSettingTableViewController(), animated: true)
+        default:
+            break
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return menu.count
+    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let head = tableView.dequeueReusableCell(withIdentifier: headerid) as? ProfileHeaderTableViewCell
+        
+        return head ?? UIView()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 80
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? SideMenuTableViewCell
+        cell?.backgroundColor = .white
+        cell?.menu.textColor = .custom_gray()
+        cell?.road.textColor = .custom_gray()
+        cell?.imageView?.image = nil
+        cell?.menu.text = menu[indexPath.row]
         // Configure the cell...
 
-        return cell
+        return cell ?? UITableViewCell()
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

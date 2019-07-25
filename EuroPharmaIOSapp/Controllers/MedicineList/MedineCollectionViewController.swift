@@ -11,16 +11,17 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class MedineCollectionViewController: UICollectionViewController {
-
+    let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 180, minimumInteritemSpacing: 20, minimumLineSpacing: 25, sectionInset: UIEdgeInsets(top: 20, left: 15, bottom: 20, right: 15))
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+        
+        self.collectionView!.register(MedicineCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        collectionView?.collectionViewLayout = columnLayout
+        self.collectionView.collectionViewLayout = columnLayout
+        columnLayout.collectionView?.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
+        collectionView.bounces = false
         // Do any additional setup after loading the view.
     }
 
@@ -38,19 +39,20 @@ class MedineCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.navigationController?.pushViewController(MedicineDetailViewController(), animated: true)
+    }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 3
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MedicineCollectionViewCell
     
-        // Configure the cell
     
         return cell
     }
