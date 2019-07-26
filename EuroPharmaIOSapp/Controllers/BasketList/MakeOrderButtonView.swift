@@ -53,7 +53,6 @@ class MakeOrderButtonView: UIView {
         self.backgroundColor = .white
 //        getcost()
         notify()
-       total = results.reduce(0) {$0 + $1.cost*$1.count}
     }
     func getcost() {
         for item in results {
@@ -65,7 +64,8 @@ class MakeOrderButtonView: UIView {
     }
     func notify() {
         let results = try! Realm().objects(BasketModule.self)
-        
+        total = results.reduce(0) {$0 + $1.cost*$1.count}
+
         token = results.observe(  { [weak self] (changes:RealmCollectionChange) in
             switch changes {
             case.update(_, deletions: _, insertions:  _, modifications:  _):

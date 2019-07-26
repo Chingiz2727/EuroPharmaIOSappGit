@@ -10,17 +10,18 @@ import UIKit
 import SideMenu
 class SideMenuTableViewController: UITableViewController {
 let cellid = "cellid"
-    let items = [["Каталог","Покупателю","Аптеки","О нас","Контакты","Личный кабинет"],["Алматы","Русский"],["Статус Заказа","Оформить предзаказ"]]
+    let items = [["Мои заказы"],["Europharma гид"],["Алматы","Русский"]]
+    let headid = "headid"
     override func viewDidLoad() {
         super.viewDidLoad()
-      
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.register(SideMenuTableViewCell.self, forCellReuseIdentifier: cellid)
+        tableView.register(ProfileLoginTableViewCell.self, forCellReuseIdentifier: headid)
         tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor.custom_gray()
-        navigationController?.view.backgroundColor = UIColor.custom_gray()
+        tableView.backgroundColor = UIColor.custom_white()
+        navigationController?.view.backgroundColor = UIColor.custom_white()
         navigationController?.navigationBar.barTintColor = UIColor.custom_gray()
         let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 270, height: 30))
         let imageView = UIImageView(frame: CGRect(x: 0, y: -5, width: 270, height: 30))
@@ -37,7 +38,34 @@ let cellid = "cellid"
     override func numberOfSections(in tableView: UITableView) -> Int {
         return items.count
     }
-
+    
+    
+    
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch section {
+        case 0:
+            let head_profile = tableView.dequeueReusableCell(withIdentifier: headid) as! ProfileLoginTableViewCell
+            head_profile.login_button.addTarget(self, action: #selector(goContent(sender:)), for: .touchUpInside)
+            head_profile.register_button.addTarget(self, action: #selector(goContent(sender:)), for: .touchUpInside)
+            return head_profile
+        default:
+            return UIView()
+        }
+    }
+    
+    @objc func goContent(sender:UIButton) {
+        switch sender.tag {
+        case 0:
+            self.navigationController?.pushViewController(RegistrationViewController(), animated: true)
+        default:
+            
+            self.navigationController?.pushViewController(LoginViewController(), animated: true)
+        }
+        
+    }
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items[section].count
     }

@@ -9,32 +9,34 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import UIKit
 
 
-class PostNetworking {
-    class func Post(params:HTTPHeaders,url:String,completion:@escaping(Data)->Void){
-        let header : HTTPHeaders = params
-        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
-            DispatchQueue.main.async {
-                if let data = response.data {
-                    completion(data)
-                }
-            }
-            
-        }
-        
-    }
-}
 
 
 class Networking {
     
-    class func Request<T:Decodable>(type:T.Type,params:[String:Any]?,header:HTTPHeaders?,url:String,method:HTTPMethod,completion:@escaping(_ data:T?,_ isSucces:Bool, _ error_desc:Error?)->()) {
+    class func Request<T:Decodable>(view:UIViewController,type:T.Type,params:[String:Any]?,header:HTTPHeaders?,url:String,method:HTTPMethod,completion:@escaping(_ data:T?,_ isSucces:Bool, _ error_desc:Error?)->()) {
 
-        
+        let activityIndicator = UIActivityIndicatorView()
+        view.view.addSubview(activityIndicator)
+        activityIndicator.snp.makeConstraints({ (cons) in
+            cons.center.equalTo(view.view)
+            cons.width.height.equalTo(100)
+        })
+        activityIndicator.style = .whiteLarge
+        activityIndicator.color = .custom_green()
+
+        activityIndicator.backgroundColor = .custom_gray()
+        activityIndicator.startAnimating()
+        activityIndicator.layer.cornerRadius = 15
         Alamofire.request(url, method: method, parameters: params, encoding: JSONEncoding.default, headers: header).responseJSON(completionHandler: { (response) in
             response.result.ifSuccess {
+               
+                
                 if let info = response.data {
+                    activityIndicator.stopAnimating()
+
                     DispatchQueue.global().async {
                         do {
                             let decoder = JSONDecoder()
@@ -43,18 +45,27 @@ class Networking {
                             let downloadData = try decoder.decode(type, from: info)
                             DispatchQueue.main.async {
                                 completion(downloadData,true,nil)
+                             
                             }
                             
                         }
                         catch let error {
                             completion(nil,false,error)
+                            CustomAlert.customAlert.showalert(controller: view, text: "Ошибка", message: "Попробуйте позже")
                         }
                     }
                 }
+                else {
+
+                    completion(nil,false,nil)
+                }
                 
             }
+            
             response.result.ifFailure {
+                activityIndicator.stopAnimating()
                 completion(nil,false,response.result.error)
+                CustomAlert.customAlert.showalert(controller: view, text: "Ошибка", message: "Подключитесь к интернету")
             }
         })
     }

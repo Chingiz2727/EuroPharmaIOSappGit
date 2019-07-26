@@ -7,13 +7,15 @@
 //
 
 import Foundation
+import UIKit
 class SetupData {
     lazy var categoryItems = [CategoryContentModel]()
     var banner : [Banner]?
      var categories : [Category]?
+    var view = UIViewController()
     func setupFakeDemoData(completion:@escaping(_ error:Bool?)->()) {
         //Setup row 1 of table to be a list of sport categories
-        Networking.Request(type: Product.self, params: nil, header: ["CityId":"1"], url: Endpoint.main_url.rawValue + Endpoint.mainpage.rawValue, method: .get) { [weak self] (data, success, error) in
+        Networking.Request(view:view,type: Product.self, params: nil, header: ["CityId":"1"], url: Endpoint.main_url.rawValue + Endpoint.mainpage.rawValue, method: .get) { [weak self] (data, success, error) in
             DispatchQueue.main.async {
                 if success == true {
                     if let info = data {
@@ -38,8 +40,8 @@ class SetupData {
                             }
                             row2.category_content = row2content
                             self?.categoryItems.append(row2)
-                            
                         }
+                        
                         if let product = info.products {
                             let row3 = CategoryContentModel()
                             row3.title = "Популярные товары"

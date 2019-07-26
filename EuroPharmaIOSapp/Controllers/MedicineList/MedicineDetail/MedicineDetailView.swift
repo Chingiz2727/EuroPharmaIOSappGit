@@ -122,8 +122,7 @@ class MedicineDetailView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         detail.numberOfLines = 0
-        addview()
-        addstyle()
+       addview()
         add.addTarget(self, action: #selector(add_and_remove(sender:)), for: .touchUpInside)
         remove.addTarget(self, action: #selector(add_and_remove(sender:)), for: .touchUpInside)
         self.backgroundColor = .white

@@ -18,7 +18,6 @@ class MedicineDetailViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isTranslucent = false
         detail.buy.addTarget(self, action: #selector(append_data), for: .touchUpInside)
-        let results = try! Realm().objects(BasketModule.self)
       
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -46,9 +45,10 @@ class MedicineDetailViewController: UIViewController {
     
     func detail(id:String) {
         DispatchQueue.main.async {
-            Networking.Request(type: ProductElement.self, params: nil, header: ["CityId":"1"], url: Endpoint.main_url.rawValue + Endpoint.products.rawValue + "/\(id)", method: .get) { (item, tru, error) in
+            Networking.Request(view:self,type: ProductElement.self, params: nil, header: ["CityId":"1"], url: Endpoint.main_url.rawValue + Endpoint.products.rawValue + "/\(id)", method: .get) { (item, tru, error) in
                 self.detail.product = item
                 self.product = item
+                self.detail.addstyle()
                 if let url = item?.img {
                     Alamofire.request(url).responseJSON(completionHandler: { (response) in
                         if let data = response.data {

@@ -9,7 +9,16 @@
 import UIKit
 import Alamofire
 import ZKCarousel
-class MainPageTable: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+import RealmSwift
+class MainPageTable: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,RemoveAtCell {
+  
+    func removeAtItem(item: Int) {
+        let catlist = CategoryListTableViewController()
+        catlist.id = String(item)
+        catlist.getData()
+        self.navigationController?.pushViewController(catlist, animated: true)
+    }
+    
     
  var tableView: SelfSizedTableView = SelfSizedTableView()
     let reuseIdentifier = "categorycell"
@@ -33,7 +42,7 @@ class MainPageTable: UIViewController, UITableViewDelegate, UITableViewDataSourc
             cons.left.right.top.equalTo(self.view).inset(0)
             cons.bottom.equalTo(self.view).inset(0)
         }
-        
+        data.view = self
         DispatchQueue.main.async {
             self.data.setupFakeDemoData { [weak self] (error) in
                 if error == false {
@@ -50,9 +59,10 @@ class MainPageTable: UIViewController, UITableViewDelegate, UITableViewDataSourc
         if section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: categoryid) as! MainPageCategoryRowCell
          
-         
+            cell.select = self
             if let banner = data.banner {
                 cell.category = data.categories ?? []
+                cell.addlayer()
                 cell.collectionView.reloadData() 
                 for images in banner {
                     let url = images.image!
@@ -84,7 +94,6 @@ class MainPageTable: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CategoryRowCell
         
-        
         cell.collectionView.tag = indexPath.row
         cell.titleLbl.text = self.data.categoryItems[indexPath.row].title
         //Register Xibs
@@ -110,16 +119,18 @@ class MainPageTable: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemReuseId, for: indexPath) as! ItemCell
         let item = data.categoryItems[collectionView.tag].category_content[indexPath.row]
-        cell.setupViews(asCategory: false, withImageRatio: 1, cellType: "rugby_layout")
         cell.item = item
+        let results = try! Realm().objects(FavouritesModule.self)
+        for i in results {
+            if i.id == item.id {
+                cell.like_button.setImage(#imageLiteral(resourceName: "like"), for: .normal)
+            }
+        }
         cell.mediaPoster.loadImageWithUrl(URL(string: data.categoryItems[collectionView.tag].category_content[indexPath.row].img_url ?? "")!)
         
        return cell
     }
     
-    @objc func seleected() {
-
-    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2

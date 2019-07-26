@@ -64,15 +64,16 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
     func Tab() {
         self.navigationController?.navigationBar.isTranslucent = false
         let firstVc = UINavigationController(rootViewController: MainPageTable())
-        firstVc.tabBarItem = UITabBarItem(title: "Дом", image: nil, selectedImage: nil)
+        firstVc.tabBarItem = UITabBarItem(title: "Главная", image: nil, selectedImage: nil)
         let secondVc = UINavigationController(rootViewController: SearchTableViewController())
-        secondVc.tabBarItem = UITabBarItem(title: "Меню", image: nil, selectedImage: nil)
+        secondVc.tabBarItem = UITabBarItem(title: "Поиск", image: nil, selectedImage: nil)
         let thirdVC = UINavigationController(rootViewController: BasketViewController())
         thirdVC.tabBarItem = UITabBarItem(title: "Корзина", image: nil, selectedImage: nil)
-        let fourthVC = UINavigationController(rootViewController: LoginViewController())
-        fourthVC.tabBarItem = UITabBarItem(title: "Профиль", image: nil, selectedImage: nil)
+        let fourthVC = UINavigationController(rootViewController: FavouriteTableViewController())
+        fourthVC.tabBarItem = UITabBarItem(title: "Избранное", image: nil, selectedImage: nil)
         let fifthVC = UINavigationController(rootViewController: SideMenuTableViewController())
-        fifthVC.tabBarItem = UITabBarItem(title: "...", image: nil, selectedImage: nil)
+        fifthVC.tabBarItem = UITabBarItem(title: "Профиль", image: nil, selectedImage: nil)
+        
         let tabbarlist = [firstVc,secondVc,thirdVC,fourthVC,fifthVC]
         viewControllers = tabbarlist
         self.tabBar.isTranslucent = false

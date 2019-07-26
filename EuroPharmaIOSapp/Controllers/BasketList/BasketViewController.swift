@@ -22,7 +22,7 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
     let cellid = "cellid"
     let head = "head"
     let results = try! Realm().objects(BasketModule.self)
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return results.count
     }
@@ -30,9 +30,9 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? BasketTableViewCell
         cell?.remove.tag = indexPath.row
+        
         cell?.remove_item = self
         cell?.item = results[indexPath.row]
-        // Configure the cell...
         return cell ?? UITableViewCell()
     }
     

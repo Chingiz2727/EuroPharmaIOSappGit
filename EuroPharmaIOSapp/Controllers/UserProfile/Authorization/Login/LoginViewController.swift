@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LoginViewController: UIViewController {
     var login : LoginView {return self.view as! LoginView}
@@ -25,9 +26,38 @@ class LoginViewController: UIViewController {
         self.navigationController?.pushViewController(ForgetPassViewController(), animated: true)
     }
     @objc func logn() {
-        self.navigationController?.pushViewController(ProfileTableViewController(), animated: true)
-        
+        let phone = login.phone.text?.replacingOccurrences(of:" ", with: "").replacingOccurrences(of: "-", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: "+", with: "")
+        Networking.Request(view: self, type: AuthorizationModule.self, params: ["phone":phone,"password":login.password.text ?? ""], header: nil, url: Endpoint.main_url.rawValue + Endpoint.auth.rawValue, method: .post) { (item, success, error) in
+            if success == true {
+                Networking.Request(view: self, type: UserModule.self, params: nil, header: ["Authorization":"Bearer \(item?.token ?? "")"], url: Endpoint.main_url.rawValue + Endpoint.userorders.rawValue, method: .get, completion: { (user, issuccess, err) in
+                    if issuccess == true {
+                        let realm = try? Realm()
+                        let data = UserData()
+                        data.token = item?.token
+                        data.city_id = user?.city_id ?? 0
+                        data.first_name = user?.first_name
+                        data.last_name = user?.last_name
+                        data.phone = user?.phone
+                        data.logo = user?.logo
+                        data.id = user?.id ?? 0
+                        try? realm?.write {
+                            realm?.add(data)
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    }
+                })
+            }
+            else {
+                CustomAlert.customAlert.showalert(controller: self, text: "Ошибка", message: "Не правильный логин или пароль")
+            }
+            
+            
+        }
+//        self.navigationController?.pushViewController(ProfileTableViewController(), animated: true)
     }
+    
+    
+    
     override func loadView() {
         super.loadView()
         self.view = LoginView(frame: self.view.bounds)

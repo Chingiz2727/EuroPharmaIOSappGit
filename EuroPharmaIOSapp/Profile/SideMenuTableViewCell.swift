@@ -21,7 +21,7 @@ class SideMenuTableViewCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Arial", size: 15)
         label.textAlignment = .left
-        label.textColor = .white
+        label.textColor = .custom_gray()
         return label
     }()
     
@@ -29,7 +29,7 @@ class SideMenuTableViewCell: UITableViewCell {
        let label = UILabel()
         label.text = ">"
         label.textAlignment = .right
-        label.textColor = .white
+        label.textColor = .custom_gray()
         label.isHidden = false
         return label
     }()

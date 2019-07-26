@@ -1,23 +1,23 @@
 //
-//  BasketTableViewController.swift
+//  FavouriteTableViewController.swift
 //  EuroPharmaIOSapp
 //
-//  Created by Shyngys Kuandyk on 7/18/19.
+//  Created by Shyngys Kuandyk on 7/25/19.
 //  Copyright © 2019 Shyngys Kuandyk. All rights reserved.
 //
 
 import UIKit
 import RealmSwift
-class BasketTableViewController: UITableViewController {
-let cellid = "cellid"
-let head = "head"
-    let results = try! Realm().objects(BasketModule.self)
+class FavouriteTableViewController: UITableViewController {
+    let cellid = "cellid"
+    let results = try! Realm().objects(FavouritesModule.self)
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.register(BasketTableViewCell.self, forCellReuseIdentifier: cellid)
-        tableView.register(BasketTableViewHeader.self, forCellReuseIdentifier: head)
+        let results = try! Realm().objects(FavouritesModule.self)
+        print("resuisfd")
         print(results)
+        tableView.register(FavouriteTableViewCell.self, forCellReuseIdentifier: cellid)
     }
 
     // MARK: - Table view data source
@@ -26,29 +26,31 @@ let head = "head"
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return results.count
     }
-
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headd = tableView.dequeueReusableCell(withIdentifier: head) as? BasketTableViewHeader
-        
-        return headd ?? UIView()
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detail = MedicineDetailViewController()
+        let it = results[indexPath.row]
+        detail.detail(id: String(it.id))
+        self.navigationController?.pushViewController(detail, animated: true)
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
-    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? BasketTableViewCell
-        cell?.item = results[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? FavouriteTableViewCell
+        cell?.module = results[indexPath.row]
+    
+        
         return cell ?? UITableViewCell()
     }
     
-    
- 
 
     /*
     // Override to support conditional editing of the table view.

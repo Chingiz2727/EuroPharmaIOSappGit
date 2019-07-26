@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyStarRatingView
 import SDWebImage
+import RealmSwift
 class ItemCell: UICollectionViewCell {
     fileprivate var isCategory: Bool = true
     fileprivate var imageHeightRatio: CGFloat = 1
@@ -35,6 +36,7 @@ class ItemCell: UICollectionViewCell {
             contentView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ]
         NSLayoutConstraint.activate(contentViewConstraints)
+        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -150,10 +152,49 @@ class ItemCell: UICollectionViewCell {
     }()
     
     lazy var stack_cos : UIStackView = UIStackView()
- 
-    func setupViews(asCategory category: Bool, withImageRatio ratio: CGFloat, cellType: String? = "football") {
+    
+    @objc func like() {
+        if (like_button.imageView?.image == UIImage(named: "like")) {
+
+            like_button.setImage(UIImage(named: "unlike"), for: .normal)
+            remove_fav()
+        } else{
+            
+            like_button.setImage(UIImage(named: "like"), for: .normal)
+            add_toFav()
+        }
+        
+    }
+    
+    @objc func remove_fav() {
+       let realm = try? Realm()
+        let results = try! Realm().objects(FavouritesModule.self)
+        for i in results {
+            if i.id == item?.id {
+                try? realm?.write {
+                    realm?.delete(i)
+                }
+            }
+        }
+        
+    }
+    
+    func add_toFav() {
+        let realm = try? Realm()
+        let fav = FavouritesModule()
+        var fav_list = [FavouritesModule]()
+        fav.id = item?.id ?? 0
+        fav.cost = item?.new_price ?? 0
+        fav.img_url = item?.img_url ?? ""
+        fav.name = item?.title
+       fav_list.append(fav)
+        try? realm?.write {
+            realm?.add(fav_list)
+        }
+    }
+    func setupViews() {
         self.backgroundColor = .white
- 
+        like_button.addTarget(self, action: #selector(like), for: .touchUpInside)
         
         
         clipsToBounds = true
@@ -162,7 +203,9 @@ class ItemCell: UICollectionViewCell {
             cons.width.height.equalTo(30)
             cons.right.equalTo(self).inset(10)
             cons.top.equalTo(self).inset(10)
+            
         }
+        like_button.setImage(#imageLiteral(resourceName: "unlike"), for: .normal)
         self.addSubview(mediaPoster)
         mediaPoster.snp.makeConstraints { (cons) in
             cons.top.equalTo(like_button.snp.bottom).offset(5)
@@ -194,6 +237,8 @@ class ItemCell: UICollectionViewCell {
             
             cons.bottom.equalTo(self).inset(5)
         }
+        
+       
     }
 
 }

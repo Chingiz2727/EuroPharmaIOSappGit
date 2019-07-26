@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Alamofire
+import RealmSwift
 class BasketTableViewCell: UITableViewCell {
     let img : ImageLoader = ImageLoader()
     let desc : UILabel = UILabel()
@@ -21,8 +22,13 @@ class BasketTableViewCell: UITableViewCell {
     var item = BasketModule() {
         didSet {
             desc.text = item.name
-            price.text = String(item.cost)
+            price.text = String(item.cost) + " тг"
             count.text = String(item.count)
+            Alamofire.request(item.img_url ?? "").responseJSON { (response) in
+                if let data = response.data {
+                    self.img.image = UIImage(data: data)
+                }
+            }
         }
     }
     
@@ -34,11 +40,13 @@ class BasketTableViewCell: UITableViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
+    
     @objc func remove_cell(sender:UIButton) {
         remove_item?.removeAtItem(item: sender.tag)
     }
+    
     lazy var price_stack : UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [price,old_price])
+        let stack = UIStackView(arrangedSubviews: [price])
         stack.axis = .horizontal
         stack.distribution = .fillProportionally
         stack.spacing = 20
@@ -60,13 +68,16 @@ class BasketTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
         addview()
     }
     
@@ -126,6 +137,10 @@ class BasketTableViewCell: UITableViewCell {
         desc.text = "Нестле каша молочная Овсяная М 220 гр 4"
         add.setTitle("+", for: .normal)
         delete.setTitle("-", for: .normal)
+        delete.tag = 1
+        add.tag = 0
+        add.addTarget(self, action: #selector(add_and_remove(sender:)), for: .touchUpInside)
+        delete.addTarget(self, action: #selector(add_and_remove(sender:)), for: .touchUpInside)
         count.text = "1"
         full_stack.sizeToFit()
         full_stack.layoutIfNeeded()
@@ -143,5 +158,19 @@ class BasketTableViewCell: UITableViewCell {
         full_stack.setCustomSpacing(UIStackView.spacingUseDefault, after: desc)
         self.selectionStyle = .none
     }
-
+    
+    @objc func add_and_remove(sender:UIButton) {
+        
+        switch sender.tag {
+        case 0:
+            item.count += 1
+        default:
+            if item.count != 1 {
+                item.count -= 1
+            }
+        }
+    
+        
+    }
+    
 }

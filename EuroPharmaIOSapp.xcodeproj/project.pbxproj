@@ -35,7 +35,6 @@
 		A414E03B22DF11D80007005F /* MedicineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E03A22DF11D80007005F /* MedicineCollectionViewCell.swift */; };
 		A414E03E22DF3F180007005F /* MedicineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E03D22DF3F180007005F /* MedicineDetailViewController.swift */; };
 		A414E04022DF3F280007005F /* MedicineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A414E03F22DF3F280007005F /* MedicineDetailView.swift */; };
-		A424625A22E029EA007473C1 /* BasketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424625922E029EA007473C1 /* BasketTableViewController.swift */; };
 		A424625C22E029F7007473C1 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424625B22E029F7007473C1 /* BasketTableViewCell.swift */; };
 		A424625E22E0368E007473C1 /* BasketTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424625D22E0368E007473C1 /* BasketTableViewHeader.swift */; };
 		A424626022E039B2007473C1 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A424625F22E039B2007473C1 /* BasketViewController.swift */; };
@@ -63,6 +62,11 @@
 		A42A630F22E6AB71007CED70 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A630E22E6AB71007CED70 /* CategoryModel.swift */; };
 		A42A631122E6AB8C007CED70 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A631022E6AB8C007CED70 /* Utils.swift */; };
 		A42A631322E6ABA2007CED70 /* MainPageTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42A631222E6ABA2007CED70 /* MainPageTable.swift */; };
+		A42CD47022EAADF100BF63E9 /* ProfileLoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CD46F22EAADF100BF63E9 /* ProfileLoginTableViewCell.swift */; };
+		A42CD47222EAB58600BF63E9 /* AuthorizationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CD47122EAB58600BF63E9 /* AuthorizationModule.swift */; };
+		A46495E822E9A0310044EA81 /* FavouritesModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46495E722E9A0310044EA81 /* FavouritesModule.swift */; };
+		A46495EA22E9A2020044EA81 /* FavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46495E922E9A2020044EA81 /* FavouriteTableViewController.swift */; };
+		A46495EC22E9A20F0044EA81 /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46495EB22E9A20F0044EA81 /* FavouriteTableViewCell.swift */; };
 		A466633222E16A8300CA6AA4 /* EditPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633122E16A8300CA6AA4 /* EditPassViewController.swift */; };
 		A466633422E16A9200CA6AA4 /* EditPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633322E16A9200CA6AA4 /* EditPassView.swift */; };
 		A466633722E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633622E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift */; };
@@ -133,7 +137,6 @@
 		A414E03A22DF11D80007005F /* MedicineCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineCollectionViewCell.swift; sourceTree = "<group>"; };
 		A414E03D22DF3F180007005F /* MedicineDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineDetailViewController.swift; sourceTree = "<group>"; };
 		A414E03F22DF3F280007005F /* MedicineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineDetailView.swift; sourceTree = "<group>"; };
-		A424625922E029EA007473C1 /* BasketTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewController.swift; sourceTree = "<group>"; };
 		A424625B22E029F7007473C1 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
 		A424625D22E0368E007473C1 /* BasketTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewHeader.swift; sourceTree = "<group>"; };
 		A424625F22E039B2007473C1 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +164,11 @@
 		A42A630E22E6AB71007CED70 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		A42A631022E6AB8C007CED70 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A42A631222E6ABA2007CED70 /* MainPageTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageTable.swift; sourceTree = "<group>"; };
+		A42CD46F22EAADF100BF63E9 /* ProfileLoginTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLoginTableViewCell.swift; sourceTree = "<group>"; };
+		A42CD47122EAB58600BF63E9 /* AuthorizationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModule.swift; sourceTree = "<group>"; };
+		A46495E722E9A0310044EA81 /* FavouritesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavouritesModule.swift; path = EuroPharmaIOSapp/Controllers/MainPageTable/FavouritesModule.swift; sourceTree = SOURCE_ROOT; };
+		A46495E922E9A2020044EA81 /* FavouriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewController.swift; sourceTree = "<group>"; };
+		A46495EB22E9A20F0044EA81 /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
 		A466633122E16A8300CA6AA4 /* EditPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPassViewController.swift; sourceTree = "<group>"; };
 		A466633322E16A9200CA6AA4 /* EditPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPassView.swift; sourceTree = "<group>"; };
 		A466633622E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersCollectionViewController.swift; sourceTree = "<group>"; };
@@ -228,22 +236,15 @@
 		A40870FF22DD824D00668227 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A46495E622E9A0190044EA81 /* Favourites */,
 				A42A630722E6AB05007CED70 /* MainPageTable */,
 				A466633B22E195FD00CA6AA4 /* SearchView */,
 				A424626322E041D4007473C1 /* UserProfile */,
 				A424625822E02955007473C1 /* BasketList */,
 				A414E03622DF11AE0007005F /* MedicineList */,
 				A414E02D22DEDC070007005F /* CategoryList */,
-				A408710022DD825C00668227 /* MainPage */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		A408710022DD825C00668227 /* MainPage */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MainPage;
 			sourceTree = "<group>";
 		};
 		A408710722DD99FD00668227 /* NetWorking */ = {
@@ -285,7 +286,7 @@
 				A4786BBF22E96F0D002BD835 /* Protocols */,
 				A40870FF22DD824D00668227 /* Controllers */,
 				A40870FC22DD72F500668227 /* StaticVariablees */,
-				A41459FC22DC7BE500B6F38B /* SideMenu */,
+				A41459FC22DC7BE500B6F38B /* Profile */,
 				A41459F522DC7A3700B6F38B /* TabBar */,
 				A41459F222DC7A1200B6F38B /* Extensions */,
 				A41459CB22DC76FE00B6F38B /* Assets.xcassets */,
@@ -335,13 +336,14 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		A41459FC22DC7BE500B6F38B /* SideMenu */ = {
+		A41459FC22DC7BE500B6F38B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				A42CD46E22EAADDC00BF63E9 /* ProfileLoginCell */,
 				A41459FA22DC7BD900B6F38B /* SideMenuTableViewCell.swift */,
 				A41459FD22DC7DA400B6F38B /* SideMenuTableViewController.swift */,
 			);
-			path = SideMenu;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		A414E02D22DEDC070007005F /* CategoryList */ = {
@@ -376,7 +378,6 @@
 			isa = PBXGroup;
 			children = (
 				A4786BBC22E9578D002BD835 /* BasketModule */,
-				A424625922E029EA007473C1 /* BasketTableViewController.swift */,
 				A424626122E039D3007473C1 /* MakeOrderButtonView.swift */,
 				A424625F22E039B2007473C1 /* BasketViewController.swift */,
 				A424625B22E029F7007473C1 /* BasketTableViewCell.swift */,
@@ -415,6 +416,7 @@
 			children = (
 				A424626622E043D1007473C1 /* LoginView.swift */,
 				A424626822E049AD007473C1 /* LoginViewController.swift */,
+				A42CD47122EAB58600BF63E9 /* AuthorizationModule.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -497,6 +499,24 @@
 				A42A631022E6AB8C007CED70 /* Utils.swift */,
 			);
 			path = MainPageTable;
+			sourceTree = "<group>";
+		};
+		A42CD46E22EAADDC00BF63E9 /* ProfileLoginCell */ = {
+			isa = PBXGroup;
+			children = (
+				A42CD46F22EAADF100BF63E9 /* ProfileLoginTableViewCell.swift */,
+			);
+			path = ProfileLoginCell;
+			sourceTree = "<group>";
+		};
+		A46495E622E9A0190044EA81 /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				A46495E722E9A0310044EA81 /* FavouritesModule.swift */,
+				A46495E922E9A2020044EA81 /* FavouriteTableViewController.swift */,
+				A46495EB22E9A20F0044EA81 /* FavouriteTableViewCell.swift */,
+			);
+			path = Favourites;
 			sourceTree = "<group>";
 		};
 		A466633022E16A7100CA6AA4 /* EditPassword */ = {
@@ -811,7 +831,7 @@
 				A41459C722DC76FC00B6F38B /* ViewController.swift in Sources */,
 				A42A630B22E6AB33007CED70 /* CategoryRowCell.swift in Sources */,
 				A40870FE22DD731100668227 /* Colors.swift in Sources */,
-				A424625A22E029EA007473C1 /* BasketTableViewController.swift in Sources */,
+				A42CD47022EAADF100BF63E9 /* ProfileLoginTableViewCell.swift in Sources */,
 				A408711622DDC9F000668227 /* ImageDownloader.swift in Sources */,
 				A466633422E16A9200CA6AA4 /* EditPassView.swift in Sources */,
 				A424628722E08826007473C1 /* AdressTableViewCell.swift in Sources */,
@@ -821,6 +841,7 @@
 				A4786BC122E96F1B002BD835 /* File.swift in Sources */,
 				A414E02F22DEDC380007005F /* CategoryListTableViewController.swift in Sources */,
 				A466633722E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift in Sources */,
+				A42CD47222EAB58600BF63E9 /* AuthorizationModule.swift in Sources */,
 				A41459F422DC7A2700B6F38B /* DecodeJSON.swift in Sources */,
 				A414E03B22DF11D80007005F /* MedicineCollectionViewCell.swift in Sources */,
 				A414E02822DECDB40007005F /* ShadowExtension.swift in Sources */,
@@ -834,6 +855,7 @@
 				A408710D22DDBAFD00668227 /* ChildView.swift in Sources */,
 				A4A4B0B822E729990016B903 /* MainCategoryRowCell.swift in Sources */,
 				A424628F22E09295007473C1 /* EditPhoneViewController.swift in Sources */,
+				A46495EA22E9A2020044EA81 /* FavouriteTableViewController.swift in Sources */,
 				A424627322E06567007473C1 /* ForgetPassView.swift in Sources */,
 				A41459FB22DC7BD900B6F38B /* SideMenuTableViewCell.swift in Sources */,
 				A408710B22DDA33300668227 /* StoreModule.swift in Sources */,
@@ -850,6 +872,7 @@
 				A424627B22E07128007473C1 /* ProfileTableViewController.swift in Sources */,
 				A408711422DDC58800668227 /* CarouselView.swift in Sources */,
 				A408710922DD9A4200668227 /* PostNetworking.swift in Sources */,
+				A46495EC22E9A20F0044EA81 /* FavouriteTableViewCell.swift in Sources */,
 				A466633D22E1962300CA6AA4 /* SearchTableViewController.swift in Sources */,
 				A424626E22E06216007473C1 /* RegistrationViewController.swift in Sources */,
 				A41459F922DC7AF100B6F38B /* CustomAlert.swift in Sources */,
@@ -864,6 +887,7 @@
 				A424628A22E08D64007473C1 /* PersonalSettingViewController.swift in Sources */,
 				A4786BBE22E9579C002BD835 /* BasketModule.swift in Sources */,
 				A424627F22E07512007473C1 /* StackExtension.swift in Sources */,
+				A46495E822E9A0310044EA81 /* FavouritesModule.swift in Sources */,
 				A414E03322DEDED00007005F /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,23 +8,31 @@
 
 import UIKit
 
-class CategoryListTableViewController: UICollectionViewController {
+class CategoryListTableViewController: UITableViewController {
     var id : String = ""
     var cat = [Category]()
     let cellid = "cellid"
-    let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 80, minimumInteritemSpacing: 20, minimumLineSpacing: 35, sectionInset: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20))
+ 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView!.register(CategoryListTableViewCell.self, forCellWithReuseIdentifier: cellid)
-       
-        collectionView?.collectionViewLayout = columnLayout
-        self.collectionView.collectionViewLayout = columnLayout
-        columnLayout.collectionView?.backgroundColor = .white
-        collectionView.bounces = false
- 
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellid)
+        tableView.tableFooterView = UIView()
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath)
+        cell.textLabel?.text = cat[indexPath.row].name ?? ""
+        return cell
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cat.count
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,44 +42,17 @@ class CategoryListTableViewController: UICollectionViewController {
         super.viewWillDisappear(animated)
     }
     
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let layout = UICollectionViewFlowLayout()
-        let medicine = MedineCollectionViewController(collectionViewLayout: layout)
-        self.navigationController?.pushViewController(medicine, animated: true)
-    }
- 
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cat.count
-    }
-    
-    
-  
-    
-  
-    
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellid, for: indexPath)
-            as? CategoryListTableViewCell
-        cell?.name.text = cat[indexPath.item].name ?? ""
-        cell?.layoutIfNeeded()
-        cell?.dropShadow(color: .custom_gray(), opacity: 0.3, offSet: CGSize(width: 3, height: 1), radius: 10, scale: false)
-        return cell ?? UICollectionViewCell()
-    }
+   
     
     
    
     
     func getData() {
-        Networking.Request(type: Product.self, params: nil, header: nil, url: Endpoint.main_url.rawValue + Endpoint.categories.rawValue + id, method: .get) { [weak self] (data, success, error) in
+        Networking.Request(view:self,type: Product.self, params: nil, header: nil, url: Endpoint.main_url.rawValue + Endpoint.categories.rawValue + id, method: .get) { [weak self] (data, success, error) in
             if success == true {
                 if let info = data?.categories {
                     self?.cat = info
-                    self?.collectionView.reloadData()
+                    self?.tableView.reloadData()
                 }
             }
         }
