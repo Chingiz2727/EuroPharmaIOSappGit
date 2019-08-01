@@ -9,7 +9,7 @@
 import UIKit
 class CategoryRowCell: UITableViewCell {
     let titleLbl = UILabel()
-    let seeAllBtn = UILabel()
+    let seeAllBtn = UIButton()
     lazy var horizontalLayout: UICollectionViewFlowLayout = {
         let tmpLayout = UICollectionViewFlowLayout()
         let width = bounds.size.width //should adjust for inset
@@ -18,7 +18,7 @@ class CategoryRowCell: UITableViewCell {
         return tmpLayout
     }()
     
-      let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 260, cellwidth: 200, minimumInteritemSpacing: 10, minimumLineSpacing: 20, sectionInset: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
+      let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 260, cellwidth: 200, minimumInteritemSpacing: 20, minimumLineSpacing: 20, sectionInset: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
     
     lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: columnLayout)
@@ -28,7 +28,7 @@ class CategoryRowCell: UITableViewCell {
         collection.bounces = false
         collection.collectionViewLayout = columnLayout
         collection.isScrollEnabled = true
-        collection.backgroundColor = .clear
+        collection.backgroundColor = .custom_white()
         
         return collection
     }()
@@ -57,21 +57,22 @@ class CategoryRowCell: UITableViewCell {
         addSubview(titleLbl)
         addSubview(seeAllBtn)
         //Category Title
-        titleLbl.textColor = .black
+        titleLbl.textColor = .custom_gray()
         titleLbl.numberOfLines = 1
         titleLbl.textAlignment = .left
        
-
+        
+//                titleLbl.snp_edges = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         //See All
-        seeAllBtn.text = "Смотреть все"
-        seeAllBtn.textColor = .custom_gray()
-        seeAllBtn.textColor = .black
+        seeAllBtn.setTitle("Смотреть все", for: .normal)
+        seeAllBtn.setTitleColor(#colorLiteral(red: 0.2584031224, green: 0.5864952207, blue: 1, alpha: 1), for: .normal)
+ 
         seeAllBtn.translatesAutoresizingMaskIntoConstraints = false
         
         collectionView.backgroundColor = .custom_white()
         //Collection View
         titleLbl.snp.makeConstraints { (cons) in
-            cons.top.equalTo(self).inset(5)
+            cons.centerY.equalTo(seeAllBtn)
             cons.left.equalTo(self).inset(10)
         }
         seeAllBtn.snp.makeConstraints { (cons) in
@@ -87,7 +88,7 @@ class CategoryRowCell: UITableViewCell {
 
         collectionView.snp.makeConstraints { (cons) in
             cons.left.right.equalTo(self).inset(0)
-            cons.top.equalTo(seeAllBtn.snp.bottom).offset(5)
+            cons.top.equalTo(seeAllBtn.snp.bottom).offset(10)
             cons.bottom.equalTo(self).inset(2)
             cons.height.equalTo(300)
         }

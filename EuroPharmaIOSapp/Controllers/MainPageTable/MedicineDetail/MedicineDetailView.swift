@@ -24,15 +24,15 @@ class MedicineDetailView: UIView {
     
     let buy : UIButton = UIButton()
     
-     var product : ProductElement? {
-        didSet {
-            title.text = product?.name ?? ""
-            price.text = String(product?.price ?? 0)
-            old_price.text = String(product?.priceOriginal ?? 0)
-            type.text = product?.category ?? ""
-            detail.text = product?.name ?? ""
-            company.text = product?.manufacturer ?? ""
-            country.text = product?.country ?? ""
+     var product : CategoryContentModel? {
+        willSet(product) {
+            guard let prod = product else { return}
+            title.text = prod.title
+            price.text = String(prod.new_price ?? 0)
+            old_price.attributedText = String(prod.old_price ?? 0).strikeThrough()
+            detail.text = prod.title
+            img.loadImageWithUrl(URL(string: prod.img_url ?? "")!)
+            
         }
     }
     
@@ -67,7 +67,7 @@ class MedicineDetailView: UIView {
     func addview() {
         self.addSubview(scroll)
         scroll.addSubview(main_stack)
-      
+        img.contentMode = .scaleAspectFit
         main_stack.snp.makeConstraints { (cons) in
             cons.top.equalTo(scroll).inset(5)
             cons.left.right.equalTo(self).inset(5)

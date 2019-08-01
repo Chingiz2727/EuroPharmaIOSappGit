@@ -84,7 +84,7 @@ class LoginView: UIView {
         stack.snp.makeConstraints { (cons) in
             cons.left.right.equalTo(self).inset(25)
             cons.centerY.equalTo(self)
-            cons.height.equalTo(220)
+            cons.height.equalTo(250)
         }
         self.backgroundColor = .white
     }

@@ -26,11 +26,7 @@ class FavouriteTableViewCell: UITableViewCell {
         didSet {
             name.text = module.name ?? ""
             cost.text = String(module.cost)
-            Alamofire.request(module.img_url ?? "").responseJSON { [weak self] (response) in
-                if let data = response.data {
-                    self?.img.image = UIImage(data: data)
-                }
-            }
+            img.loadImageWithUrl(URL(string: module.img_url ?? "")!)
         }
     }
     

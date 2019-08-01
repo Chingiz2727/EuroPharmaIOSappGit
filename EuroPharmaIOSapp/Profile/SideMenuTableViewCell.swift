@@ -11,6 +11,8 @@ import SnapKit
 
 class SideMenuTableViewCell: UITableViewCell {
     
+    
+    
     let icon : UIImageView = {
         let icon = UIImageView()
         icon.contentMode = .scaleAspectFit
@@ -46,6 +48,7 @@ class SideMenuTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+  
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.addSubview(stack)

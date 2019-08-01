@@ -11,6 +11,7 @@ import RealmSwift
 
 class LoginViewController: UIViewController {
     var login : LoginView {return self.view as! LoginView}
+    var reload : reloadData?
     override func viewDidLoad() {
         super.viewDidLoad()
         login.register.addTarget(self, action: #selector(register), for: .touchUpInside)
@@ -29,8 +30,9 @@ class LoginViewController: UIViewController {
         let phone = login.phone.text?.replacingOccurrences(of:" ", with: "").replacingOccurrences(of: "-", with: "").replacingOccurrences(of: ")", with: "").replacingOccurrences(of: "(", with: "").replacingOccurrences(of: "+", with: "")
         Networking.Request(view: self, type: AuthorizationModule.self, params: ["phone":phone,"password":login.password.text ?? ""], header: nil, url: Endpoint.main_url.rawValue + Endpoint.auth.rawValue, method: .post) { (item, success, error) in
             if success == true {
-                Networking.Request(view: self, type: UserModule.self, params: nil, header: ["Authorization":"Bearer \(item?.token ?? "")"], url: Endpoint.main_url.rawValue + Endpoint.userorders.rawValue, method: .get, completion: { (user, issuccess, err) in
+                Networking.Request(view: self, type: UserModule.self, params: nil, header: ["Authorization":"Bearer \(item?.token ?? "")"], url: Endpoint.main_url.rawValue + Endpoint.userinfo.rawValue, method: .get, completion: { (user, issuccess, err) in
                     if issuccess == true {
+                        
                         let realm = try? Realm()
                         let data = UserData()
                         data.token = item?.token
@@ -42,6 +44,7 @@ class LoginViewController: UIViewController {
                         data.id = user?.id ?? 0
                         try? realm?.write {
                             realm?.add(data)
+                            self.reload?.reload()
                             self.navigationController?.popViewController(animated: true)
                         }
                     }

@@ -11,8 +11,10 @@ import Alamofire
 class CategoryCollectionViewCell: UICollectionViewCell {
     let img : ImageLoader = {
        let img = ImageLoader()
-        img.contentMode = .scaleAspectFit
         img.backgroundColor = .white
+        img.layer.masksToBounds = false
+        img.layer.cornerRadius = img.frame.height/2
+        img.clipsToBounds = true
         return img
     }()
     
@@ -27,7 +29,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     lazy var stack : UIStackView = {
     let stack = UIStackView(arrangedSubviews: [img,label])
-        stack.spacing = 3
+        stack.spacing = 10
         stack.axis = .vertical
         stack.distribution = .fillProportionally
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -43,23 +45,15 @@ class CategoryCollectionViewCell: UICollectionViewCell {
    
     
     func adlayer() {
-        self.addSubview(stack)
         clipsToBounds = true
-        
-        stack.snp.makeConstraints { (cons) in
-            cons.top.bottom.equalTo(self).inset(0)
-            cons.left.right.equalTo(self).inset(0)
-            
-        }
-        stack.sizeToFit()
-        stack.layoutIfNeeded()
-        self.backgroundColor = .white
+        self.addSubview(img)
         img.snp.makeConstraints { (cons) in
-            cons.top.equalTo(30)
-            cons.size.equalTo(50)
-            
+            cons.top.equalTo(self).inset(5)
+            cons.width.height.equalTo(50)
+            cons.centerX.equalTo(self)
         }
-        img.layer.cornerRadius = 30
+//        img.layer.cornerRadius = 30
+        img.contentMode = .scaleToFill
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,6 +67,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         ]
         NSLayoutConstraint.activate(contentViewConstraints)
         adlayer()
+        self.backgroundColor = .red
     }
     
     required init?(coder aDecoder: NSCoder) {

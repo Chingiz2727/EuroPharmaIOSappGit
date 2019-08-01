@@ -15,14 +15,7 @@ class ItemCell: UICollectionViewCell {
     fileprivate var imageHeightRatio: CGFloat = 1
     fileprivate var cellType: String = "football"
     
-    var item : CategoryContentModel? {
-        didSet {
-            old_price.attributedText = (String(item?.old_price ?? 0) + " тг").strikeThrough()
-            price.text = String(item?.new_price ?? 0) + " тг"
-            titleLabel.text = String(item?.title ?? "")
-            
-        }
-    }
+  
     
     
     override init(frame: CGRect) {
@@ -44,12 +37,8 @@ class ItemCell: UICollectionViewCell {
         contentView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    override func prepareForReuse() { //This prevents images/text etc being reused on another cell (wrong image/text displayed)
-        super.prepareForReuse()
-        
-      
    
-    }
+    
     let star_rating : SwiftyStarRatingView = {
        let star = SwiftyStarRatingView()
         star.maximumValue = 5
@@ -156,23 +145,26 @@ class ItemCell: UICollectionViewCell {
     @objc func like() {
         if (like_button.imageView?.image == UIImage(named: "like")) {
 
-            like_button.setImage(UIImage(named: "unlike"), for: .normal)
             remove_fav()
         } else{
             
-            like_button.setImage(UIImage(named: "like"), for: .normal)
             add_toFav()
         }
         
     }
     
     @objc func remove_fav() {
+        guard  let viewModule = viewModule else {
+            return
+        }
        let realm = try? Realm()
         let results = try! Realm().objects(FavouritesModule.self)
         for i in results {
-            if i.id == item?.id {
+            if i.id == viewModule.id {
                 try? realm?.write {
                     realm?.delete(i)
+                    like_button.setImage(UIImage(named: "unlike"), for: .normal)
+
                 }
             }
         }
@@ -180,16 +172,21 @@ class ItemCell: UICollectionViewCell {
     }
     
     func add_toFav() {
+        guard  let viewModule = viewModule else {
+            return
+        }
         let realm = try? Realm()
         let fav = FavouritesModule()
         var fav_list = [FavouritesModule]()
-        fav.id = item?.id ?? 0
-        fav.cost = item?.new_price ?? 0
-        fav.img_url = item?.img_url ?? ""
-        fav.name = item?.title
+        fav.id = viewModule.id
+        fav.cost = viewModule.new_price
+        fav.img_url = viewModule.img_url
+        fav.name = viewModule.title
        fav_list.append(fav)
         try? realm?.write {
             realm?.add(fav_list)
+            like_button.setImage(UIImage(named: "like"), for: .normal)
+
         }
     }
     func setupViews() {
@@ -228,17 +225,56 @@ class ItemCell: UICollectionViewCell {
         self.addSubview(stack)
        
         stack.snp.makeConstraints { (cons) in
-            cons.left.right.equalTo(self).inset(3)
+            cons.left.right.equalTo(self).inset(15)
             cons.top.equalTo(star_rating.snp.bottom).offset(3)
             cons.bottom.equalTo(stack_cos.snp.top).offset(3)
         }
         stack_cos.snp.makeConstraints { (cons) in
-            cons.left.equalTo(3)
+            cons.left.equalTo(15)
             
-            cons.bottom.equalTo(self).inset(5)
+            cons.bottom.equalTo(self).inset(10)
         }
         
        
+    }
+    override func prepareForReuse() { //This prevents images/text etc being reused on another cell (wrong image/text displayed)
+        super.prepareForReuse()
+  
+    }
+    
+    func check()
+    {
+        let results = try! Realm().objects(FavouritesModule.self)
+        if results.contains(where: {($0.id == self.id)}) {
+            self.like_button.setImage(#imageLiteral(resourceName: "like"), for: .normal)
+        }
+        else {
+            self.like_button.setImage(#imageLiteral(resourceName: "unlike"), for: .normal)
+        }
+    }
+    var id : Int = 0 {
+        didSet {
+            check()
+        }
+    }
+   var viewModule : ProductViewCellModuleType? {
+        willSet(viewModule) {
+            guard  let viewModule = viewModule else {
+                return
+            }
+            self.id = viewModule.id
+            titleLabel.text = viewModule.title
+            price.text = String(viewModule.new_price)
+            old_price.attributedText = (String(viewModule.old_price) + " тг").strikeThrough()
+            mediaPoster.loadImageWithUrl(URL(string: viewModule.img_url)!)
+            
+        }
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        self.layer.cornerRadius = 30
+        self.dropShadow(color: .custom_gray(), opacity: 0.1, offSet: CGSize(width: 10, height: 10), radius: 20, scale: true)
     }
 
 }

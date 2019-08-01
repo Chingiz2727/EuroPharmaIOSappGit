@@ -18,6 +18,7 @@ pod 'SwiftyStarRatingView'
 pod 'IQKeyboardManager'
 pod 'SwiftPhoneNumberFormatter'
 pod 'RSSelectionMenu'
+pod 'SKActivityIndicatorView'
 
   target 'EuroPharmaIOSappTests' do
     inherit! :search_paths

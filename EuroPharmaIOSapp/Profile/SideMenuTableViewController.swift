@@ -8,9 +8,18 @@
 
 import UIKit
 import SideMenu
-class SideMenuTableViewController: UITableViewController {
+protocol reloadData {
+    func reload()
+}
+class SideMenuTableViewController: UITableViewController,reloadData {
+    func reload() {
+        self.tableView.reloadData()
+    }
+    
+    var coordinator : ProfilePageNavigator?
+    
 let cellid = "cellid"
-    let items = [["Мои заказы"],["Europharma гид"],["Алматы","Русский"]]
+    let items = [[],["Europharma гид"],["Алматы","Русский"]]
     let headid = "headid"
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +32,7 @@ let cellid = "cellid"
         tableView.backgroundColor = UIColor.custom_white()
         navigationController?.view.backgroundColor = UIColor.custom_white()
         navigationController?.navigationBar.barTintColor = UIColor.custom_gray()
+        tableView.bounces = false
         let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 270, height: 30))
         let imageView = UIImageView(frame: CGRect(x: 0, y: -5, width: 270, height: 30))
         imageView.contentMode = .scaleAspectFit
@@ -45,38 +55,52 @@ let cellid = "cellid"
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case 0:
+            
             let head_profile = tableView.dequeueReusableCell(withIdentifier: headid) as! ProfileLoginTableViewCell
+            head_profile.profile = go_profile
             head_profile.login_button.addTarget(self, action: #selector(goContent(sender:)), for: .touchUpInside)
             head_profile.register_button.addTarget(self, action: #selector(goContent(sender:)), for: .touchUpInside)
             return head_profile
         default:
-            return UIView()
+            return tableView.tableHeaderView
         }
     }
     
+    @objc func go_profile() {
+        let profile = ProfileTableViewController()
+        profile.reload = self
+        self.navigationController?.pushViewController(profile, animated: true)
+    }
+    
     @objc func goContent(sender:UIButton) {
+         coordinator = ProfilePageNavigator(navigationController: self.navigationController ?? UINavigationController())
         switch sender.tag {
         case 0:
             self.navigationController?.pushViewController(RegistrationViewController(), animated: true)
         default:
-            
-            self.navigationController?.pushViewController(LoginViewController(), animated: true)
+           
+            coordinator?.go_toLogin(relod: self)
+       
         }
         
     }
     
-    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Профиль"
+        case 1:
+            return "Информация"
+        case 2:
+            return "Настройки"
+        default:
+            return ""
+        }
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items[section].count
     }
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.4
-    }
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let line = UIView()
-        line.backgroundColor = .black
-        return line
-    }
+   
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? SideMenuTableViewCell

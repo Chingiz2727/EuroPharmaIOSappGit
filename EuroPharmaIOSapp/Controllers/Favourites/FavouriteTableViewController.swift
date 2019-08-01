@@ -39,7 +39,7 @@ class FavouriteTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detail = MedicineDetailViewController()
         let it = results[indexPath.row]
-        detail.detail(id: String(it.id))
+//        detail.detail(id: String(it.id))
         self.navigationController?.pushViewController(detail, animated: true)
     }
     

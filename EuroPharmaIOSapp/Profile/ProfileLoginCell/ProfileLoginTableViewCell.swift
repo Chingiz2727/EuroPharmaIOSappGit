@@ -12,7 +12,12 @@ class ProfileLoginTableViewCell: UITableViewCell {
     
     let register_button = UIButton()
     let login_button = UIButton()
+    let icon_name = UILabel()
+    let name = UILabel()
+    var profile : (()->Void)?
+    let arrow = UILabel()
     lazy var stack = UIStackView()
+    lazy var user_stack = UIStackView()
     let item = try? Realm().objects(UserData.self)
     
     override func awakeFromNib() {
@@ -24,18 +29,58 @@ class ProfileLoginTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .custom_white()
-        if let user = item {
-            
+        
+        if item?.count != 0 {
+            add_profile()
         }
         else {
             add_loginView()
-
         }
+        self.backgroundColor = .custom_white()
     }
     
+    func add_profile() {
+        addSubview(user_stack)
+        addSubview(arrow)
+        self.isUserInteractionEnabled = true
+        let gestrue = UITapGestureRecognizer.init(target: self, action: #selector(go_profile))
+        self.addGestureRecognizer(gestrue)
+        self.isUserInteractionEnabled = true
+        user_stack.customStack(view: [icon_name,name], distribution: .fillProportionally, spacing: 10)
+        user_stack.axis = .horizontal
+        user_stack.snp.makeConstraints { (cons) in
+            cons.left.right.equalTo(self).inset(15)
+            cons.top.bottom.equalTo(self).inset(15)
+        }
+        arrow.snp.makeConstraints { (cons) in
+            cons.centerY.equalTo(icon_name)
+            cons.right.equalTo(self).inset(25)
+        }
+        arrow.text = ">"
+        arrow.font = UIFont.init(name: "Arial", size: 22)
+        icon_name.snp.makeConstraints { (cons) in
+            cons.width.height.equalTo(56)
+        }
+        icon_name.backgroundColor = .custom_green()
+        name.text = item?.last?.first_name ?? ""
+        let array = Array(item?.last?.first_name ?? "")
+        name.textColor = .custom_gray()
+        name.font = UIFont.init(name: "Arial", size: 20)
+        icon_name.text = String(array[0])
+        icon_name.textAlignment = .center
+        icon_name.layoutIfNeeded()
+        icon_name.textColor = .custom_gray()
+        icon_name.clipsToBounds = true
+        icon_name.layer.cornerRadius = 28
+        icon_name.font = UIFont.boldSystemFont(ofSize: 30)
+    }
+    @objc func go_profile() {
+        profile?()
+    }
     
     func add_loginView() {
         self.addSubview(stack)
+      
         stack.customStack(view: [register_button,login_button], distribution: .fillProportionally, spacing: 10)
         stack.axis = .horizontal
         self.addSubview(stack)

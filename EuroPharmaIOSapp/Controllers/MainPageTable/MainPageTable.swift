@@ -11,7 +11,9 @@ import Alamofire
 import ZKCarousel
 import RealmSwift
 class MainPageTable: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,RemoveAtCell {
-  
+
+    var networkManager: NetworkManager!
+    
     func removeAtItem(item: Int) {
         let catlist = CategoryListTableViewController()
         catlist.id = String(item)
@@ -20,21 +22,24 @@ class MainPageTable: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     
- var tableView: SelfSizedTableView = SelfSizedTableView()
-    let reuseIdentifier = "categorycell"
-    let itemReuseId = "itemCellReuseId"
-    let newitemReuseId = "newitemCellReuseId"
+var ProductViewModel:ProductViewModuleType?
+var Module = MainPageProductViewModule()
+    var navigator : MainPageTableNavigator?
+    
+ var tableView: SelfSizedTableView = {
+    let table = SelfSizedTableView()
+    table.register(CategoryRowCell.self, forCellReuseIdentifier: MainPageIdentifiers().reuseIdentifier)
+    table.register(MainPageCategoryRowCell.self, forCellReuseIdentifier: MainPageIdentifiers().categoryid)
+    table.backgroundColor = .custom_white()
+    return table
+    }()
 
-    let categoryid = "catid"
-    let data = SetupData()
-    //Max number of items that can be viewed in horizontal category/item view
-    let MAX_CATEGORIES = 99
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.register(CategoryRowCell.self, forCellReuseIdentifier: reuseIdentifier)
-        tableView.register(MainPageCategoryRowCell.self, forCellReuseIdentifier: categoryid)
+       
         tableView.delegate = self
         tableView.dataSource = self
         self.view.addSubview(tableView)
@@ -42,29 +47,33 @@ class MainPageTable: UIViewController, UITableViewDelegate, UITableViewDataSourc
             cons.left.right.top.equalTo(self.view).inset(0)
             cons.bottom.equalTo(self.view).inset(0)
         }
-        data.view = self
         DispatchQueue.main.async {
-            self.data.setupFakeDemoData { [weak self] (error) in
-                if error == false {
-                    
-                    self?.tableView.reloadData()
-                }
-            }
+                self.SetupData()
+
         }
-      
-        tableView.backgroundColor = .custom_white()
+        navigator = MainPageTableNavigator(navigationController: self.navigationController!)
+
+        ProductViewModel = Module
+        
     }
+    
+
+    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: categoryid) as! MainPageCategoryRowCell
-         
+           
+            let cell = tableView.dequeueReusableCell(withIdentifier: MainPageIdentifiers().categoryid) as! MainPageCategoryRowCell
+            if Module.banner.count != 0 {
+                cell.titleLbl.text = "Акции"
+            }
+            
             cell.select = self
-            if let banner = data.banner {
-                cell.category = data.categories ?? []
+            cell.category = Module.categories
+            cell.banner = Module.banner
                 cell.addlayer()
                 cell.collectionView.reloadData() 
-                for images in banner {
+                for images in Module.banner {
                     let url = images.image!
                     Alamofire.request(url).responseJSON { (response) in
                         if let data = response.data {
@@ -72,8 +81,7 @@ class MainPageTable: UIViewController, UITableViewDelegate, UITableViewDataSourc
                         }
                     }
                 }
-                
-            }
+            
             return cell
         }
       return UIView()
@@ -88,47 +96,57 @@ class MainPageTable: UIViewController, UITableViewDelegate, UITableViewDataSourc
         if section == 0 {
             return 0
         }
-        return data.categoryItems.count
+        return ProductViewModel?.numOfRows() ?? 0
+    }
+    
+    @objc func goToList(sender:UIButton) {
+        navigator?.list(item: Module.categoryModel[sender.tag].category_content)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CategoryRowCell
-        
-        cell.collectionView.tag = indexPath.row
-        cell.titleLbl.text = self.data.categoryItems[indexPath.row].title
-        //Register Xibs
-        cell.collectionView.register(ItemCell.self, forCellWithReuseIdentifier: itemReuseId)
-        cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
-        
-        
-      
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: MainPageIdentifiers().reuseIdentifier, for: indexPath) as? CategoryRowCell
+        guard let tablecell = cell , let _ = ProductViewModel else {return UITableViewCell()}
+        tablecell.titleLbl.text = Module.categoryModel[indexPath.row].title ?? ""
+        tablecell.collectionView.tag = indexPath.row
+        tablecell.collectionView.register(ItemCell.self, forCellWithReuseIdentifier: MainPageIdentifiers().itemReuseId)
+        tablecell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
+        tablecell.seeAllBtn.tag = indexPath.row
+        tablecell.collectionView.reloadInputViews()
+        tablecell.seeAllBtn.addTarget(self, action: #selector(goToList(sender:)), for: .touchUpInside)
+        return tablecell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-   
-        return data.categoryItems[collectionView.tag].category_content.count
+            var categoryLimit = Module.categoryModel[collectionView.tag].category_content.count
+            if categoryLimit > 5 {
+                categoryLimit = 5
+            }
+            return categoryLimit
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 10, right: 0)
     }
-  
+   
+    
+    
+//    ProductCollectionViewCell
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: itemReuseId, for: indexPath) as! ItemCell
-        let item = data.categoryItems[collectionView.tag].category_content[indexPath.row]
-        cell.item = item
-        let results = try! Realm().objects(FavouritesModule.self)
-        for i in results {
-            if i.id == item.id {
-                cell.like_button.setImage(#imageLiteral(resourceName: "like"), for: .normal)
-            }
-        }
-        cell.mediaPoster.loadImageWithUrl(URL(string: data.categoryItems[collectionView.tag].category_content[indexPath.row].img_url ?? "")!)
-        
-       return cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPageIdentifiers().itemReuseId, for: indexPath) as? ItemCell
+        guard let collectionCell = cell,let ViewModule = ProductViewModel else {return UICollectionViewCell()}
+        let cellViewModule = ViewModule.cellViewModule(forIndexPath: indexPath, section: collectionView.tag)
+        collectionCell.viewModule = cellViewModule
+        collectionCell.layoutIfNeeded()
+        collectionCell.check()
+       return collectionCell
     }
     
     
@@ -136,16 +154,24 @@ class MainPageTable: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return 2
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let it = data.categoryItems[collectionView.tag].category_content[indexPath.row]
-        let detail = MedicineDetailViewController()
-        detail.detail(id: String(it.id ?? 0))
-        self.navigationController?.pushViewController(detail, animated: true)
+        guard let module = ProductViewModel else {return}
+        module.selectRow(atindexPath: indexPath, atSection: collectionView.tag)
+        navigator?.detail(module: module.viewModuleForSelectedRow()!)
         
     }
     
+     init(networkManager: NetworkManager) {
+        super.init(nibName: nil, bundle: nil)
+        self.networkManager = networkManager
+    }
     
+    
+    required  init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     
 }

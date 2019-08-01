@@ -14,6 +14,8 @@ class MedicineDetailViewController: UIViewController {
     let scroll : UIScrollView = UIScrollView()
     var product : ProductElement?
     var Basket_list = [BasketModule]()
+    var id : Int?
+    var viewModule: DetailViewModelType?
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isTranslucent = false
@@ -22,12 +24,20 @@ class MedicineDetailViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
     }
     override func loadView() {
         super.loadView()
         self.view = MedicineDetailView(frame: self.view.bounds)
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let viewModule = viewModule else {return}
+        detail.product = viewModule.description
+    }
+    
+    
+    
     @objc func append_data() {
         
         let realm = try? Realm()
@@ -43,27 +53,7 @@ class MedicineDetailViewController: UIViewController {
             }
     }
     
-    func detail(id:String) {
-        DispatchQueue.main.async {
-            Networking.Request(view:self,type: ProductElement.self, params: nil, header: ["CityId":"1"], url: Endpoint.main_url.rawValue + Endpoint.products.rawValue + "/\(id)", method: .get) { (item, tru, error) in
-                self.detail.product = item
-                self.product = item
-                self.detail.addstyle()
-                if let url = item?.img {
-                    Alamofire.request(url).responseJSON(completionHandler: { (response) in
-                        if let data = response.data {
-                            self.detail.img.image = UIImage.init(data: data)
-                        }
-                    })
-                }
-                
-            }
-        }
-        
-        
-        
-        
-    }
+    
     
 
 }

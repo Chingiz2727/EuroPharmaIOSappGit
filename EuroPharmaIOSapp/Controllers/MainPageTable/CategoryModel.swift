@@ -19,4 +19,6 @@ class CategoryContentModel {
     var content_media = [Int?]()
     var img_url : String? = nil
     var id : Int? = nil
+    
+  
 }

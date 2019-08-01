@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 11.0, *)
 final public class ZKCarousel: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
@@ -35,11 +36,14 @@ final public class ZKCarousel: UIView, UICollectionViewDelegateFlowLayout, UICol
         control.translatesAutoresizingMaskIntoConstraints = false
         return control
     }()
+            let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 260, cellwidth: 200, minimumInteritemSpacing: 20, minimumLineSpacing: 20, sectionInset: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
     
     fileprivate lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+
         layout.scrollDirection = .horizontal
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: columnLayout)
+        columnLayout.scrollDirection = .horizontal
         cv.delegate = self
         cv.dataSource = self
         cv.isPagingEnabled = true
@@ -285,3 +289,49 @@ extension UIImageView {
 }
 
 
+@available(iOS 11.0, *)
+@available(iOS 11.0, *)
+class ColumnFlowLayout: UICollectionViewFlowLayout {
+    
+    let cellsPerRow: Int
+    let cellheight : CGFloat
+    let cellwidth : CGFloat
+    var width : CGFloat?
+    init(cellsPerRow: Int, cellheight: CGFloat = 0 ,cellwidth:CGFloat = 0, minimumInteritemSpacing: CGFloat = 0, minimumLineSpacing: CGFloat = 0, sectionInset: UIEdgeInsets = .zero) {
+        self.cellsPerRow = cellsPerRow
+        self.cellheight = cellheight
+        self.cellwidth = cellwidth
+        super.init()
+        self.minimumInteritemSpacing = minimumInteritemSpacing
+        self.minimumLineSpacing = minimumLineSpacing
+        self.sectionInset = sectionInset
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepare() {
+        super.prepare()
+        
+        guard let collectionView = collectionView else { return }
+        let marginsAndInsets = sectionInset.left + sectionInset.right + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
+        let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
+        if self.cellwidth == 0 {
+            itemSize = CGSize(width: itemWidth, height: cellheight)
+        }
+        else {
+            self.width = itemWidth
+            itemSize = CGSize(width: cellwidth, height: cellheight)
+        }
+        
+    }
+    
+    override func invalidationContext(forBoundsChange newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext {
+        let context = super.invalidationContext(forBoundsChange: newBounds) as! UICollectionViewFlowLayoutInvalidationContext
+        context.invalidateFlowLayoutDelegateMetrics = newBounds.size != collectionView?.bounds.size
+        return context
+    }
+    
+}

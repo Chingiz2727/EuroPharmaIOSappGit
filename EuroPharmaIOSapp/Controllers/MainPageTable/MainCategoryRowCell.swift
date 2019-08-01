@@ -18,19 +18,15 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellid, for: indexPath) as! CategoryCollectionViewCell
         cell.category = category[indexPath.row]
-        cell.dropShadow()
-        cell.dropShadow(color: .black, opacity: 0.2, offSet: CGSize(width: 5, height: 5), radius: 2, scale: true)
+        cell.img.dropShadow(color: .black, opacity: 0.1, offSet: CGSize(width: 1, height: 1), radius: 1, scale: true)
         cell.layoutIfNeeded()
 
         return cell
     }
     let cellid = "cellid"
     let titleLbl = UILabel()
-    var slides : [ZKCarouselSlide] = [] {
-        didSet {
-            carousel.slides = slides
-        }
-    }
+    var slides : [ZKCarouselSlide] = []
+    var banner : [Banner]?
     
     let carousel : ZKCarousel = {
         let carousel = ZKCarousel()
@@ -38,19 +34,17 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
         return carousel
     }()
     
-    let img = ImageLoader()
-    var banner = [Banner]()
     var select : RemoveAtCell?
 
     lazy var horizontalLayout: UICollectionViewFlowLayout = {
         let tmpLayout = UICollectionViewFlowLayout()
         let width = bounds.size.width //should adjust for inset
         tmpLayout.estimatedItemSize = CGSize(width: width, height: 100)
-        tmpLayout.scrollDirection = .horizontal
+        tmpLayout.scrollDirection = .vertical
         return tmpLayout
     }()
     
-    let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 200, cellwidth: 130, minimumInteritemSpacing: 10, minimumLineSpacing: 20, sectionInset: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
+    let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 130, cellwidth: 120, minimumInteritemSpacing: 10, minimumLineSpacing: 20, sectionInset: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
     
     lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: columnLayout)
@@ -69,11 +63,14 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
         self.setupCategoryViews()
+        self.addlayer()
         collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: cellid)
         collectionView.delegate = self
         collectionView.dataSource = self
         columnLayout.scrollDirection = .horizontal
+        columnLayout.collectionView?.backgroundColor = .custom_white()
     }
+  
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cat = category[indexPath.row]
         select?.removeAtItem(item: cat.id ?? 0)
@@ -91,19 +88,27 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
         titleLbl.textColor = .black
         titleLbl.numberOfLines = 1
         titleLbl.textAlignment = .left
-        titleLbl.text = "Категории"
-        
     }
+    
     func setupCategoryViews() {
         //First configure all views and then setup the constraints..
         self.addSubview(carousel)
+        addSubview(titleLbl)
+        titleLbl.font = UIFont.init(name: "Arial", size: 22)
+        titleLbl.snp.makeConstraints { (cons) in
+            cons.top.equalTo(self).inset(10)
+            cons.left.equalTo(self).inset(10)
+        }
+        carousel.interval = 3
+
         carousel.snp.makeConstraints { (cons) in
-            cons.left.right.top.equalTo(self).inset(0)
+            cons.top.equalTo(titleLbl.snp.bottom).offset(10)
+            cons.left.right.equalTo(self).inset(0)
             cons.height.equalTo(230)
+            cons.bottom.equalTo(self).inset(0)
         }
         
         //Clear background colour
-        addSubview(titleLbl)
         //Category Title
     
         //See All
@@ -111,23 +116,12 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
         
         collectionView.backgroundColor = .custom_white()
         //Collection View
-        titleLbl.snp.makeConstraints { (cons) in
-            cons.top.equalTo(carousel.snp.bottom).offset(5)
-            cons.left.equalTo(self).inset(10)
-        }
+      
         
     
         
         self.backgroundColor = .clear
         //Now views are setup, lets add the constraints..
-        addSubview(collectionView)
-        
-        collectionView.snp.makeConstraints { (cons) in
-            cons.left.right.equalTo(self).inset(4)
-            cons.top.equalTo(titleLbl.snp.bottom).offset(10)
-            cons.bottom.equalTo(self).inset(10)
-            cons.height.equalTo(200)
-        }
     }
     
     func setCollectionViewDataSourceDelegate<D: UICollectionViewDelegate & UICollectionViewDataSource>(_ dataSourceDelegate: D, forRow row: Int) {

@@ -11,6 +11,7 @@ PODS:
     - SDWebImage/Core (= 5.0.6)
   - SDWebImage/Core (5.0.6)
   - SideMenu (5.0.3)
+  - SKActivityIndicatorView (0.1.0)
   - SnapKit (4.0.1)
   - SwiftPhoneNumberFormatter (1.5)
   - SwiftyJSON (4.3.0)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - RSSelectionMenu
   - SDWebImage (~> 5.0)
   - SideMenu (from `https://github.com/stelabouras/SideMenu.git`, branch `upgrade/xcode-10.2`)
+  - SKActivityIndicatorView
   - SnapKit (~> 4.0.0)
   - SwiftPhoneNumberFormatter
   - SwiftyJSON (~> 4.0)
@@ -40,6 +42,7 @@ SPEC REPOS:
     - RealmSwift
     - RSSelectionMenu
     - SDWebImage
+    - SKActivityIndicatorView
     - SnapKit
     - SwiftPhoneNumberFormatter
     - SwiftyJSON
@@ -65,6 +68,7 @@ SPEC CHECKSUMS:
   RSSelectionMenu: decee83e020ee9d63e53995eb7f1ea5ca75f0667
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   SideMenu: 92417cef5aa12b2784e82854406a0d3831ef7df3
+  SKActivityIndicatorView: f46936f760d33eb8235333242269bf01cc9248ae
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
@@ -72,6 +76,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
   ZKCarousel: 10d5d84fe490dca8e234e381d27e733a364d119c
 
-PODFILE CHECKSUM: 55fe3d13e8a290717c0056dbf48aa3da6e8fc17c
+PODFILE CHECKSUM: ff79b3e45602e3a7dcefd3820f21d3e4467baa31
 
 COCOAPODS: 1.6.1

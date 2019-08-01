@@ -12,15 +12,24 @@ import IQKeyboardManager
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var coordinator: MainPageNavigator?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
+      
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -1000, vertical: 0), for:UIBarMetrics.default)
         IQKeyboardManager.shared().isEnabled = true
+        let navController = UINavigationController()
+
+        coordinator = MainPageNavigator(navigationController: navController)
         
-        window?.rootViewController = UserTabBar()
+        // tell the coordinator to take over control
+        coordinator?.start()
+        
+        // create a basic UIWindow and activate it
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navController
+        window?.makeKeyAndVisible()
         
         // Override point for customization after application launch.
         return true

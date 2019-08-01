@@ -9,6 +9,20 @@
 import UIKit
 import RealmSwift
 class UserTabBar: UITabBarController,UITabBarControllerDelegate {
+    func navigate(to destination: UserTabBar.Destination) {
+        
+    }
+    
+    
+    
+    enum Destination {
+        case main
+        case catalog
+        case basket
+        case favourite
+        case menu
+    }
+    
     var token: NotificationToken? = nil
 
     var count : Int = 0 {
@@ -22,10 +36,13 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
         }
     }
     let item = BasketModule()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
       
@@ -39,10 +56,15 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
         UINavigationController().navigationItem.titleView = logoContainer
          UINavigationController().navigationBar.barTintColor = .custom_gray()
         UINavigationController().navigationBar.isTranslucent = false
-        UITabBar.appearance().barTintColor = UIColor.custom_gray()
+        UITabBar.appearance().barTintColor = UIColor.custom_white()
         UITabBar.appearance().itemPositioning = .fill
-          Tab()
+//        self.tabBar.isTranslucent = true
+        self.tabBar.frame.size.height = 70
+        Tab()
      notify()
+        self.selectedViewController?.tabBarItem.badgeColor = .black
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isTranslucent = false
     }
     
     func notify() {
@@ -60,22 +82,25 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
             }
         })
     }
-    
+
     func Tab() {
-        self.navigationController?.navigationBar.isTranslucent = false
-        let firstVc = UINavigationController(rootViewController: MainPageTable())
+        let networkManager = NetworkManager()
+        let firstVc = UINavigationController(rootViewController: MainPageTable(networkManager: networkManager))
         firstVc.tabBarItem = UITabBarItem(title: "Главная", image: nil, selectedImage: nil)
         let secondVc = UINavigationController(rootViewController: SearchTableViewController())
-        secondVc.tabBarItem = UITabBarItem(title: "Поиск", image: nil, selectedImage: nil)
+        secondVc.tabBarItem = UITabBarItem(title: "Каталог", image: nil, selectedImage: nil)
         let thirdVC = UINavigationController(rootViewController: BasketViewController())
         thirdVC.tabBarItem = UITabBarItem(title: "Корзина", image: nil, selectedImage: nil)
         let fourthVC = UINavigationController(rootViewController: FavouriteTableViewController())
         fourthVC.tabBarItem = UITabBarItem(title: "Избранное", image: nil, selectedImage: nil)
+      
         let fifthVC = UINavigationController(rootViewController: SideMenuTableViewController())
+
         fifthVC.tabBarItem = UITabBarItem(title: "Профиль", image: nil, selectedImage: nil)
         
         let tabbarlist = [firstVc,secondVc,thirdVC,fourthVC,fifthVC]
         viewControllers = tabbarlist
+        
         self.tabBar.isTranslucent = false
     
     }
