@@ -57,9 +57,9 @@ let cellid = "cellid"
         case 0:
             
             let head_profile = tableView.dequeueReusableCell(withIdentifier: headid) as! ProfileLoginTableViewCell
-            head_profile.profile = go_profile
-            head_profile.login_button.addTarget(self, action: #selector(goContent(sender:)), for: .touchUpInside)
-            head_profile.register_button.addTarget(self, action: #selector(goContent(sender:)), for: .touchUpInside)
+//            head_profile.profile = go_profile
+//            head_profile.login_button.addTarget(self, action: #selector(goContent(sender:)), for: .touchUpInside)
+//            head_profile.register_button.addTarget(self, action: #selector(goContent(sender:)), for: .touchUpInside)
             return head_profile
         default:
             return tableView.tableHeaderView

@@ -19,6 +19,11 @@ pod 'IQKeyboardManager'
 pod 'SwiftPhoneNumberFormatter'
 pod 'RSSelectionMenu'
 pod 'SKActivityIndicatorView'
+pod 'CollectionKit'
+pod 'IGListKit'
+pod 'SwipeMenuViewController'
+pod 'InstantSearch', '~> 4.0'
+pod 'YNSearch'
 
   target 'EuroPharmaIOSappTests' do
     inherit! :search_paths

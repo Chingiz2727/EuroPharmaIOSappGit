@@ -8,7 +8,7 @@
 
 import Foundation
 protocol ProductViewCellModuleType:class {
-    var title: String {get}
+    var title: String {get set}
     var type: String {get}
     var old_price : Int {get}
     var new_price : Int {get}

@@ -26,6 +26,7 @@ extension ShopApi:EndPointType {
         case .categories(let id):
             return "/app/v1/categories/\(id)"
         case .product(let id):
+            
             return "/app/v1/products/\(id)"
         case .auth(let phone, let password):
             return "/auth"
@@ -47,6 +48,8 @@ extension ShopApi:EndPointType {
         case .categories(let id):
             return .request
         case .mainpage:
+            return .requestParametersAndHeaders(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: nil, additionHeaders: ["CityId":"1"])
+        case .product(let id):
             return .requestParametersAndHeaders(bodyParameters: nil, bodyEncoding: .urlEncoding, urlParameters: nil, additionHeaders: ["CityId":"1"])
         default:
             return .request

@@ -33,16 +33,19 @@ class AdressTableViewCell: UITableViewCell {
     func addview() {
         self.addSubview(stack)
         
-        stack.customStack(view: [name,city], distribution: .fillEqually, spacing: 5)
-        stack.axis = .vertical
+        stack.customStack(view: [city,name], distribution: .fill, spacing: 5)
+        stack.axis = .horizontal
         stack.snp.makeConstraints { (cons) in
-            cons.centerY.equalTo(self)
-            cons.left.equalTo(self).inset(10)
+            cons.left.right.top.bottom.equalTo(self).inset(10)
         }
+        name.numberOfLines = 0
         city.text = "Алматы"
-        name.text = "Raduga 44"
+        name.text = "пр. Аль Фараби 77/8, НП 7 здание Esentai mall, 2-й этаж"
         name.CustomLabel(textAlignment: .left, color: .black, font: UIFont.init(name: "Arial", size: 16)!)
         city.CustomLabel(textAlignment: .left, color: .custom_gray(), font: UIFont.init(name: "Arial", size: 14)!)
+        name.numberOfLines = 0
+        stack.sizeToFit()
+        stack.layoutIfNeeded()
     }
 
 }

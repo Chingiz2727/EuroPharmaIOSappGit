@@ -8,9 +8,9 @@
 
 import Foundation
 class ProductViewCellViewModule:ProductViewCellModuleType {
-    var title: String {
-        return product.title ?? ""
-    }
+    var title: String
+    
+  
     
     var type: String {return product.type ?? ""}
     
@@ -30,5 +30,8 @@ class ProductViewCellViewModule:ProductViewCellModuleType {
     
     init(product:CategoryContentModel) {
         self.product = product
+        self.title = product.title ?? ""
     }
 }
+
+

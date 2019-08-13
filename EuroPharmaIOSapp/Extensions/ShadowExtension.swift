@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 extension UIView {
     
+    
     // OUTPUT 1
     func dropShadow(scale: Bool = true) {
         layer.masksToBounds = false

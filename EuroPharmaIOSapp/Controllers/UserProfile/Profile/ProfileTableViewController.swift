@@ -12,16 +12,16 @@ class ProfileTableViewController: UITableViewController {
 let cellid = "cellid"
     var reload : reloadData?
     let headerid = "headerid"
-    let menu = ["Мои заказы","Адреса доставки","Настройки","Выход"]
+    var pushing : (()->Void)?
+    let menu = ["Europharma гид","Адреса аптек","Город"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(SideMenuTableViewCell.self, forCellReuseIdentifier: cellid)
         tableView.register(ProfileLoginTableViewCell.self, forCellReuseIdentifier: headerid)
-        tableView.backgroundColor = UIColor.custom_white()
         tableView.tableFooterView = UIView()
-        tableView.bounces = false
     }
+    
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
@@ -53,18 +53,29 @@ let cellid = "cellid"
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return menu.count
     }
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let head = tableView.dequeueReusableCell(withIdentifier: headerid) as? ProfileLoginTableViewCell
-        head?.arrow.text = ""
-        return head ?? UIView()
+        let head = tableView.dequeueReusableCell(withIdentifier: headerid) as! ProfileLoginTableViewCell
+        return head.contentView
     }
     
-   
+    @objc func push() {
+        pushing?()
+//        self.navigationController?.pushViewController(ProductViewController(), animated: true)
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? SideMenuTableViewCell
         cell?.menu.textColor = .custom_gray()

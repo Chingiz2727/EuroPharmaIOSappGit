@@ -48,12 +48,19 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         clipsToBounds = true
         self.addSubview(img)
         img.snp.makeConstraints { (cons) in
-            cons.top.equalTo(self).inset(5)
+            cons.top.equalTo(self).inset(15)
             cons.width.height.equalTo(50)
             cons.centerX.equalTo(self)
         }
+        self.addSubview(label)
+        label.snp.makeConstraints { (cons) in
+            cons.top.equalTo(img.snp.bottom).offset(10)
+            cons.left.right.equalTo(self).inset(5)
+            cons.centerX.equalTo(self)
+        }
+        label.numberOfLines = 2
 //        img.layer.cornerRadius = 30
-        img.contentMode = .scaleToFill
+        img.contentMode = .scaleAspectFit
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,7 +74,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         ]
         NSLayoutConstraint.activate(contentViewConstraints)
         adlayer()
-        self.backgroundColor = .red
+        self.backgroundColor = .white   
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -83,13 +90,28 @@ class CategoryCollectionViewCell: UICollectionViewCell {
        
     }
     
+    func getImage(name:String) -> UIImage {
+        switch name {
+        case "Лекарственные средства":
+            return #imageLiteral(resourceName: "витамины3")
+        case "Мать и дитя":
+            return #imageLiteral(resourceName: "88")
+        case "Красота и гигиена":
+            return #imageLiteral(resourceName: "77")
+        case "Витамины и бады":
+            return #imageLiteral(resourceName: "99")
+        case "Изделия мед. назначения":
+            return #imageLiteral(resourceName: "22")
+        default:
+              return UIImage()
+        }
+      
+    }
     
     func updateUI() {
         if let category = category {
 //            img.image = interest.featuredImage
-            if let url = category.icon {
-                img.loadImageWithUrl(URL(string: url)!)
-            }
+          img.image = getImage(name: category.name ?? "")
             label.text = category.name ?? ""
         } else {
             img.image = nil

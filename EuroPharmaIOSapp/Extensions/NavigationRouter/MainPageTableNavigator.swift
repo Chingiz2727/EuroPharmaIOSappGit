@@ -27,14 +27,30 @@ class MainPageTableNavigator:Coordinator {
         let list = ProducstListViewController()
         list.item = item
         list.navigator = self
+        
         navigationController.pushViewController(list, animated: true)
     }
     
-    func detail(module:DetailViewModelType) {
-        let detail = MedicineDetailViewController()
-        detail.viewModule = module
+    func detail(module:Int,title:String) {
+        let manager = NetworkManager()
+        let detail = MedicineDetailViewController(networkManager: manager)
+        detail.id = module
+        detail.title_name = title
+        detail.navigator = self
         navigationController.pushViewController(detail, animated: true)
     }
     
+  @objc func main_page() {
+    let manager = NetworkManager()
+
+        navigationController.popToViewController(MainPageTable(networkManager: manager), animated: true)
+    }
     
+    func detailFromFavAndBasket(id:Int) {
+        let manager = NetworkManager()
+        let detail = MedicineDetailViewController(networkManager: manager)
+        detail.id = id
+        detail.navigator = self
+        navigationController.pushViewController(detail, animated: true)
+    }
 }

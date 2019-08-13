@@ -11,6 +11,7 @@ import UIKit
 import SKActivityIndicatorView
 extension MainPageTable {
     func SetupData() {
+        
         SKActivityIndicator.show()
         networkManager.getShopList { (product, error) in
             guard let product = product else {
@@ -20,10 +21,8 @@ extension MainPageTable {
             }
             
             DispatchQueue.main.async {
-            
                 self.Module.banner = product.banners ?? []
                 self.Module.categories = product.categories ?? []
-              
                     if let discount = product.discounts {
                         let row2 = CategoryContentModel()
                         row2.title = "Акционные товары"

@@ -77,13 +77,7 @@ final public class ZKCarousel: UIView, UICollectionViewDelegateFlowLayout, UICol
         
         self.collectionView.addGestureRecognizer(self.tapGesture)
         
-        self.addSubview(pageControl)
-        NSLayoutConstraint(item: pageControl, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: 20).isActive = true
-        NSLayoutConstraint(item: pageControl, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: -20).isActive = true
-        NSLayoutConstraint(item: pageControl, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: -5).isActive = true
-        NSLayoutConstraint(item: pageControl, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 25).isActive = true
-        
-        self.bringSubviewToFront(pageControl)
+      
     }
     
     @objc private func tapGestureHandler(tap: UITapGestureRecognizer?) {
@@ -126,6 +120,8 @@ final public class ZKCarousel: UIView, UICollectionViewDelegateFlowLayout, UICol
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "slideCell", for: indexPath) as! carouselCollectionViewCell
         cell.slide = self.slides[indexPath.item]
+        cell.layer.cornerRadius = 6
+        cell.layoutIfNeeded()
         return cell
     }
     
@@ -227,6 +223,7 @@ fileprivate class carouselCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint(item: self.titleLabel, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: -15).isActive = true
         NSLayoutConstraint(item: self.titleLabel, attribute: .bottom, relatedBy: .equal, toItem: self.descriptionLabel, attribute: .top, multiplier: 1.0, constant: 8).isActive = true
         NSLayoutConstraint(item: self.titleLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 43).isActive = true
+        
     }
     
     private func parseData(forSlide slide: ZKCarouselSlide) {

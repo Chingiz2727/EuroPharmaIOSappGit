@@ -17,9 +17,9 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellid, for: indexPath) as! CategoryCollectionViewCell
-        cell.category = category[indexPath.row]
-        cell.img.dropShadow(color: .black, opacity: 0.1, offSet: CGSize(width: 1, height: 1), radius: 1, scale: true)
-        cell.layoutIfNeeded()
+            cell.category = category[indexPath.row]
+            cell.layer.cornerRadius = 5
+            cell.layoutIfNeeded()
 
         return cell
     }
@@ -34,6 +34,7 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
         return carousel
     }()
     
+    
     var select : RemoveAtCell?
 
     lazy var horizontalLayout: UICollectionViewFlowLayout = {
@@ -44,7 +45,7 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
         return tmpLayout
     }()
     
-    let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 130, cellwidth: 120, minimumInteritemSpacing: 10, minimumLineSpacing: 20, sectionInset: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
+    let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 130, cellwidth: 130, minimumInteritemSpacing: 10, minimumLineSpacing: 10, sectionInset: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
     
     lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: columnLayout)
@@ -69,6 +70,7 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
         collectionView.dataSource = self
         columnLayout.scrollDirection = .horizontal
         columnLayout.collectionView?.backgroundColor = .custom_white()
+        
     }
   
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -81,8 +83,8 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
     }
+    
     lazy var stack  = UIStackView()
     func addlayer() {
         titleLbl.textColor = .black
@@ -93,18 +95,22 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
     func setupCategoryViews() {
         //First configure all views and then setup the constraints..
         self.addSubview(carousel)
-        addSubview(titleLbl)
-        titleLbl.font = UIFont.init(name: "Arial", size: 22)
-        titleLbl.snp.makeConstraints { (cons) in
-            cons.top.equalTo(self).inset(10)
-            cons.left.equalTo(self).inset(10)
-        }
+        self.addSubview(collectionView)
+        
         carousel.interval = 3
-
+            carousel.layer.cornerRadius = 5
+        
         carousel.snp.makeConstraints { (cons) in
-            cons.top.equalTo(titleLbl.snp.bottom).offset(10)
+            cons.top.equalTo(self).offset(10)
             cons.left.right.equalTo(self).inset(0)
             cons.height.equalTo(230)
+//            cons.bottom.equalTo(self).inset(0)
+        }
+        carousel.layoutIfNeeded()
+        collectionView.snp.makeConstraints { (cons) in
+            cons.left.right.equalTo(self).inset(10)
+            cons.top.equalTo(carousel.snp.bottom).offset(10)
+            cons.height.equalTo(150)
             cons.bottom.equalTo(self).inset(0)
         }
         
@@ -113,14 +119,12 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
     
         //See All
 
-        
-        collectionView.backgroundColor = .custom_white()
         //Collection View
       
         
     
         
-        self.backgroundColor = .clear
+//        self.backgroundColor = .clear
         //Now views are setup, lets add the constraints..
     }
     
@@ -130,4 +134,48 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
         collectionView.tag = row
         collectionView.reloadData()
     }
+}
+extension UITextField {
+    
+    enum Direction {
+        case Left
+        case Right
+    }
+    
+    // add image to textfield
+    func withImage(direction: Direction, image: UIImage, colorSeparator: UIColor, colorBorder: UIColor){
+        let mainView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 45))
+        mainView.layer.cornerRadius = 5
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 45))
+        view.backgroundColor = .white
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 5
+        view.layer.borderWidth = CGFloat(0.5)
+        view.layer.borderColor = colorBorder.cgColor
+        mainView.addSubview(view)
+        
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: 12.0, y: 10.0, width: 24.0, height: 24.0)
+        view.addSubview(imageView)
+        
+        let seperatorView = UIView()
+        seperatorView.backgroundColor = colorSeparator
+        mainView.addSubview(seperatorView)
+        
+        if(Direction.Left == direction){ // image left
+            seperatorView.frame = CGRect(x: 45, y: 0, width: 5, height: 45)
+            self.leftViewMode = .always
+            self.leftView = mainView
+        } else { // image right
+            seperatorView.frame = CGRect(x: 0, y: 0, width: 5, height: 45)
+            self.rightViewMode = .always
+            self.rightView = mainView
+        }
+        self.layer.borderColor = colorBorder.cgColor
+        self.layer.borderWidth = CGFloat(0.5)
+        self.layer.cornerRadius = 5
+    }
+    
 }

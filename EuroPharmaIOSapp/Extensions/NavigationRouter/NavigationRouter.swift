@@ -17,6 +17,3 @@ protocol Coordinator {
     func start()
 }
 
-protocol TabBarNavigator:class {
-    var rootViewController: UIViewController {get}
-}

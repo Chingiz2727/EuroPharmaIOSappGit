@@ -18,7 +18,7 @@ class CategoryRowCell: UITableViewCell {
         return tmpLayout
     }()
     
-      let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 260, cellwidth: 200, minimumInteritemSpacing: 20, minimumLineSpacing: 20, sectionInset: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
+      let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 255, cellwidth: 200, minimumInteritemSpacing: 20, minimumLineSpacing: 20, sectionInset: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
     
     lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: columnLayout)
@@ -59,11 +59,9 @@ class CategoryRowCell: UITableViewCell {
         //Category Title
         titleLbl.textColor = .custom_gray()
         titleLbl.numberOfLines = 1
+        titleLbl.font = UIFont(name: "SegoeUI", size: 20)
         titleLbl.textAlignment = .left
        
-        
-//                titleLbl.snp_edges = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        //See All
         seeAllBtn.setTitle("Смотреть все", for: .normal)
         seeAllBtn.setTitleColor(#colorLiteral(red: 0.2584031224, green: 0.5864952207, blue: 1, alpha: 1), for: .normal)
  
@@ -76,21 +74,22 @@ class CategoryRowCell: UITableViewCell {
             cons.left.equalTo(self).inset(10)
         }
         seeAllBtn.snp.makeConstraints { (cons) in
-            cons.top.equalTo(self).inset(5)
+            cons.top.equalTo(self).inset(15)
             cons.right.equalTo(self).inset(10)
             
            
         }
         
-        self.backgroundColor = .clear
+        self.backgroundColor = .custom_white()
         //Now views are setup, lets add the constraints..
         addSubview(collectionView)
-
+        
         collectionView.snp.makeConstraints { (cons) in
             cons.left.right.equalTo(self).inset(0)
-            cons.top.equalTo(seeAllBtn.snp.bottom).offset(10)
-            cons.bottom.equalTo(self).inset(2)
-            cons.height.equalTo(300)
+            cons.top.equalTo(seeAllBtn.snp.bottom).offset(15)
+            
+            cons.bottom.equalTo(self).inset(0)
+            cons.height.equalTo(270)
         }
     }
     

@@ -10,8 +10,16 @@ import UIKit
 import Alamofire
 import ZKCarousel
 import RealmSwift
-class MainPageTable: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,RemoveAtCell {
+import InstantSearchClient
+import InstantSearch
 
+class MainPageTable: UIViewController, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,RemoveAtCell {
+    
+    
+    
+    
+    
+    
     var networkManager: NetworkManager!
     
     func removeAtItem(item: Int) {
@@ -31,12 +39,16 @@ var Module = MainPageProductViewModule()
     table.register(CategoryRowCell.self, forCellReuseIdentifier: MainPageIdentifiers().reuseIdentifier)
     table.register(MainPageCategoryRowCell.self, forCellReuseIdentifier: MainPageIdentifiers().categoryid)
     table.backgroundColor = .custom_white()
+    table.register(MainPageFooterTableViewCell.self, forCellReuseIdentifier: MainPageIdentifiers().footerId)
+    table.tableHeaderView?.backgroundColor = .custom_white()
+    table.tableFooterView?.backgroundColor = .custom_white()
+    table.separatorStyle = .none
+    table.keyboardDismissMode = .onDrag
+    table.backgroundColor = .custom_white()
     return table
     }()
 
 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -44,23 +56,22 @@ var Module = MainPageProductViewModule()
         tableView.dataSource = self
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { (cons) in
-            cons.left.right.top.equalTo(self.view).inset(0)
+            cons.left.right.top.equalTo(self.view).inset(7)
             cons.bottom.equalTo(self.view).inset(0)
         }
-        DispatchQueue.main.async {
-                self.SetupData()
-
-        }
+        self.SetupData()
         navigator = MainPageTableNavigator(navigationController: self.navigationController!)
-
+        navigator?.navigationController.navigationBar.barTintColor = .custom_gray()
+        addNavBarImage()
         ProductViewModel = Module
-        
     }
+ 
     
-
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+      
+        
         if section == 0 {
            
             let cell = tableView.dequeueReusableCell(withIdentifier: MainPageIdentifiers().categoryid) as! MainPageCategoryRowCell
@@ -81,7 +92,6 @@ var Module = MainPageProductViewModule()
                         }
                     }
                 }
-            
             return cell
         }
       return UIView()
@@ -91,13 +101,7 @@ var Module = MainPageProductViewModule()
         super.viewWillAppear(animated)
     }
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 0
-        }
-        return ProductViewModel?.numOfRows() ?? 0
-    }
+   
     
     @objc func goToList(sender:UIButton) {
         navigator?.list(item: Module.categoryModel[sender.tag].category_content)
@@ -106,60 +110,31 @@ var Module = MainPageProductViewModule()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tableView.reloadData()
+        self.tableView.reloadInputViews()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MainPageIdentifiers().reuseIdentifier, for: indexPath) as? CategoryRowCell
-        guard let tablecell = cell , let _ = ProductViewModel else {return UITableViewCell()}
-        tablecell.titleLbl.text = Module.categoryModel[indexPath.row].title ?? ""
-        tablecell.collectionView.tag = indexPath.row
-        tablecell.collectionView.register(ItemCell.self, forCellWithReuseIdentifier: MainPageIdentifiers().itemReuseId)
-        tablecell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
-        tablecell.seeAllBtn.tag = indexPath.row
-        tablecell.collectionView.reloadInputViews()
-        tablecell.seeAllBtn.addTarget(self, action: #selector(goToList(sender:)), for: .touchUpInside)
-        return tablecell
-    }
+
     
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            var categoryLimit = Module.categoryModel[collectionView.tag].category_content.count
-            if categoryLimit > 5 {
-                categoryLimit = 5
-            }
-            return categoryLimit
-    }
+   
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 10, right: 0)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
     }
    
     
     
 //    ProductCollectionViewCell
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPageIdentifiers().itemReuseId, for: indexPath) as? ItemCell
-        guard let collectionCell = cell,let ViewModule = ProductViewModel else {return UICollectionViewCell()}
-        let cellViewModule = ViewModule.cellViewModule(forIndexPath: indexPath, section: collectionView.tag)
-        collectionCell.viewModule = cellViewModule
-        collectionCell.layoutIfNeeded()
-        collectionCell.check()
-       return collectionCell
-    }
+ 
     
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
+  
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let module = ProductViewModel else {return}
         module.selectRow(atindexPath: indexPath, atSection: collectionView.tag)
-        navigator?.detail(module: module.viewModuleForSelectedRow()!)
+        navigator?.detail(module: module.viewModuleForSelectedRow()?.description.id ?? 0, title: module.viewModuleForSelectedRow()?.description.title ?? "")
         
     }
     
@@ -167,7 +142,7 @@ var Module = MainPageProductViewModule()
         super.init(nibName: nil, bundle: nil)
         self.networkManager = networkManager
     }
-    
+
     
     required  init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -42,7 +42,9 @@ struct NetworkManager {
                 case.success:
                     guard let responseData = data else {
                         completion(nil,NetworkResponse.noData.rawValue)
-                        return}
+                        return
+                        
+                    }
                     do {
                         print(responseData)
                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
@@ -60,7 +62,78 @@ struct NetworkManager {
             }
         }
     }
-   
+    
+    func getProductDetail(id:Int,completion:@escaping(_ product:ProductElement?,_ error:String?)->()) {
+        
+        router.request(.product(id: id)) { (data, response, error) in
+            
+            if error != nil {
+                completion(nil,"Пожалуйста проверьте соединение с интернетом")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                
+                let result = self.handleNetworkResponse(response)
+                
+                switch result {
+                case.success:
+                    guard let responseData = data else {
+                        completion(nil,NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    
+                    do {
+                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                        let apiResponse = try JSONDecoder().decode(ProductElement.self, from: responseData)
+                        completion(apiResponse,nil)
+                    }catch {
+                        print(error)
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                    
+                }
+            }
+        }
+    }
+    
+    
+    
+    func categoryDetail(id:Int,completion:@escaping(_ cat:Product?,_ error:String?)->()) {
+        router.request(.categories(id: id)) { (data, response, error) in
+            if error != nil {
+                completion(nil,"Пожалуйста проверьте соединение с интернетом")
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                
+                let result = self.handleNetworkResponse(response)
+                
+                switch result {
+                case.success:
+                    guard let responseData = data else {
+                        completion(nil,NetworkResponse.noData.rawValue)
+                        return
+                    }
+                    
+                    do {
+                        print(responseData)
+                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
+                        print(jsonData)
+                        let apiResponse = try JSONDecoder().decode(Product.self, from: responseData)
+                        completion(apiResponse,nil)
+                    }catch {
+                        print(error)
+                        completion(nil, NetworkResponse.unableToDecode.rawValue)
+                    }
+                case .failure(let networkFailureError):
+                    completion(nil, networkFailureError)
+                    
+                }
+            }
+        }
+    }
     
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String>{
         switch response.statusCode {

@@ -154,7 +154,12 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/InstantSearch/InstantSearch.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/InstantSearchClient/InstantSearchClient.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/InstantSearchCore/InstantSearchCore.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RSSelectionMenu/RSSelectionMenu.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
@@ -165,12 +170,19 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftPhoneNumberFormatter/SwiftPhoneNumberFormatter.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyStarRatingView/SwiftyStarRatingView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwipeMenuViewController/SwipeMenuViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/YNSearch/YNSearch.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ZKCarousel/ZKCarousel.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/InstantSearch/InstantSearch.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/InstantSearchClient/InstantSearchClient.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/InstantSearchCore/InstantSearchCore.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RSSelectionMenu/RSSelectionMenu.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Realm/Realm.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework"
@@ -181,7 +193,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftPhoneNumberFormatter/SwiftPhoneNumberFormatter.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyStarRatingView/SwiftyStarRatingView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwipeMenuViewController/SwipeMenuViewController.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/YNSearch/YNSearch.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ZKCarousel/ZKCarousel.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

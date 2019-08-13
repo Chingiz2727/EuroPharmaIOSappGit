@@ -12,6 +12,10 @@ import Foundation
 
 class MainPageProductViewModule:ProductViewModuleType {
     
+    func fetchdata() {
+    }
+    
+    
     
   
     
@@ -56,7 +60,4 @@ class MainPageProductViewModule:ProductViewModuleType {
         self.selectedIndexPath?.section = section
     }
    
-    
-    
-    
 }

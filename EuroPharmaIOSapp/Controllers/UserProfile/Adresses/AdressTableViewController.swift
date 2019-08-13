@@ -10,10 +10,14 @@ import UIKit
 
 class AdressTableViewController: UITableViewController {
     let cellid = "cellid"
+    let headid = "headid"
+    let footid = "footid"
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         tableView.register(AdressTableViewCell.self, forCellReuseIdentifier: cellid)
+        tableView.register(AdressTableViewHeaderCell.self, forCellReuseIdentifier: headid)
+        tableView.register(AdressTableViewFooterCell.self, forCellReuseIdentifier: footid)
     }
 
     // MARK: - Table view data source
@@ -22,18 +26,19 @@ class AdressTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let head = tableView.dequeueReusableCell(withIdentifier: headid) as! AdressTableViewHeaderCell
+        return head
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 3
     }
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Адреса доставки"
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let foot = tableView.dequeueReusableCell(withIdentifier: footid) as! AdressTableViewFooterCell
+        return foot
     }
-   
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? AdressTableViewCell
         cell?.selectionStyle = .none

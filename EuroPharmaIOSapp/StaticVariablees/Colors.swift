@@ -21,7 +21,10 @@ extension UIColor {
     }
 
     class func custom_white() -> UIColor {
-        return #colorLiteral(red: 0.9887468219, green: 0.9828686118, blue: 0.9932649732, alpha: 1)
+        return #colorLiteral(red: 0.968627451, green: 0.968627451, blue: 0.968627451, alpha: 1)
+    }
+    class func custom_gray_text() -> UIColor {
+        return #colorLiteral(red: 0.7411764706, green: 0.7529411765, blue: 0.7607843137, alpha: 1)
     }
     class func custom_green() -> UIColor {
         return #colorLiteral(red: 0.7725490196, green: 0.8901960784, blue: 0.09803921569, alpha: 1)
@@ -30,7 +33,12 @@ extension UIColor {
         return #colorLiteral(red: 0.7235844731, green: 0.8195508718, blue: 0.2157313526, alpha: 1)
     }
     class func custom_green2() -> UIColor {
-        return #colorLiteral(red: 0.768627451, green: 0.8392156863, blue: 0, alpha: 1)
+        return #colorLiteral(red: 0.7725490196, green: 0.8901960784, blue: 0.09803921569, alpha: 1)
     }
     
+}
+extension String {
+    static func return_tg() -> String {
+        return "₸"
+    }
 }

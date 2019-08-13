@@ -18,6 +18,7 @@ class Product: Codable {
         self.products = products
         self.discounts = discounts
     }
+    
     deinit {
         print("Deinited")
     }
@@ -42,12 +43,12 @@ class Category: Codable {
     var id: Int?
     var name: String?
     var icon: String?
-
-    init(id: Int?, name: String?, icon: String?,country:String?) {
+    var category : [Category]?
+    init(id: Int?, name: String?, icon: String?,country:String?,category:[Category]?) {
         self.id = id
         self.name = name
         self.icon = icon
-   
+        self.category = category
     }
 }
 

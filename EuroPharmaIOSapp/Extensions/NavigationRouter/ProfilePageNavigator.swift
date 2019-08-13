@@ -28,4 +28,34 @@ class ProfilePageNavigator: Coordinator {
     }
     
     
+    func userSettings(indexpath:IndexPath) {
+        let layout = UICollectionViewFlowLayout()
+        switch indexpath.section {
+        case 0:
+            switch indexpath.row {
+            case 0:
+                navigationController.pushViewController(MyDataTableViewController(), animated: true)
+            case 1:
+                navigationController.pushViewController(MyOrdersCollectionViewController(collectionViewLayout: layout), animated: true)
+            case 2:
+                navigationController.pushViewController(OrderStatusViewController(), animated: true)
+            case 3:
+                navigationController.pushViewController(AdressTableViewController(), animated: true)
+            default:
+                break
+            }
+            
+        case 2:
+            switch indexpath.row {
+            case 1:
+                navigationController.pushViewController(DepartmentAdressTableViewController(), animated: true)
+            default:
+                break
+            }
+        default:
+            break
+        }
+    }
+    
+    
 }

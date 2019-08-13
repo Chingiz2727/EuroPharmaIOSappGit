@@ -56,19 +56,17 @@ class ItemCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = UIColor.black
         label.numberOfLines = 2
-        label.font = UIFont(name: "Arial", size: 15)
+        label.font = UIFont(name: "SegoeUI", size: 20)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     let price : UILabel = {
         let labele = UILabel()
-        labele.textColor = .black
+        labele.textColor = .custom_gray()
         labele.numberOfLines = 0
-        labele.frame = CGRect(x: 20, y: 20, width: 200, height: 800)
-
         labele.textAlignment = .left
-        labele.font = UIFont(name: "Arial", size: 16)
+        labele.font = UIFont(name: "SegoeUI", size: 22)
         labele.sizeToFit()
 
         labele.translatesAutoresizingMaskIntoConstraints = false
@@ -81,26 +79,20 @@ class ItemCell: UICollectionViewCell {
         labele.backgroundColor = .orange
         labele.numberOfLines = 0
         labele.textAlignment = .left
-        labele.font = UIFont(name: "Arial", size: 13)
+        labele.font = UIFont(name: "SegoeUI", size: 13)
         labele.sizeToFit()
         labele.translatesAutoresizingMaskIntoConstraints = false
         return labele
     }()
     
-    let like_button : UIButton = {
-        let button = UIButton()
-      
-        button.isUserInteractionEnabled = true
-        button.imageView?.contentMode = .scaleAspectFit
-        return button
-    }()
+ 
     
     let country : UILabel = {
         let labele = UILabel()
         labele.textColor = .black
         labele.numberOfLines = 0
         labele.textAlignment = .left
-        labele.font = UIFont(name: "Arial", size: 13)
+        labele.font = UIFont(name: "SegoeUI", size: 13)
         labele.frame = CGRect(x: 20, y: 20, width: 200, height: 800)
 
         labele.sizeToFit()
@@ -108,15 +100,14 @@ class ItemCell: UICollectionViewCell {
         labele.translatesAutoresizingMaskIntoConstraints = false
         return labele
     }()
+    
     let old_price : UILabel = {
         let labele = UILabel()
-        labele.textColor = .red
-        labele.font = UIFont(name: "Arial", size: 16)
+        labele.textColor = #colorLiteral(red: 0.7411764706, green: 0.7529411765, blue: 0.7607843137, alpha: 1)
+        labele.font = UIFont(name: "SegoeUI", size: 18)
         labele.numberOfLines = 0
-        labele.frame = CGRect(x: 20, y: 20, width: 200, height: 800)
-
         labele.sizeToFit()
-        labele.textAlignment = .left
+        labele.textAlignment = .right
         labele.translatesAutoresizingMaskIntoConstraints = false
         return labele
     }()
@@ -142,99 +133,46 @@ class ItemCell: UICollectionViewCell {
     
     lazy var stack_cos : UIStackView = UIStackView()
     
-    @objc func like() {
-        if (like_button.imageView?.image == UIImage(named: "like")) {
-
-            remove_fav()
-        } else{
-            
-            add_toFav()
-        }
-        
-    }
+ 
+  var favourite = FavouriteView()
     
-    @objc func remove_fav() {
-        guard  let viewModule = viewModule else {
-            return
-        }
-       let realm = try? Realm()
-        let results = try! Realm().objects(FavouritesModule.self)
-        for i in results {
-            if i.id == viewModule.id {
-                try? realm?.write {
-                    realm?.delete(i)
-                    like_button.setImage(UIImage(named: "unlike"), for: .normal)
 
-                }
-            }
-        }
-        
-    }
-    
-    func add_toFav() {
-        guard  let viewModule = viewModule else {
-            return
-        }
-        let realm = try? Realm()
-        let fav = FavouritesModule()
-        var fav_list = [FavouritesModule]()
-        fav.id = viewModule.id
-        fav.cost = viewModule.new_price
-        fav.img_url = viewModule.img_url
-        fav.name = viewModule.title
-       fav_list.append(fav)
-        try? realm?.write {
-            realm?.add(fav_list)
-            like_button.setImage(UIImage(named: "like"), for: .normal)
-
-        }
-    }
     func setupViews() {
         self.backgroundColor = .white
-        like_button.addTarget(self, action: #selector(like), for: .touchUpInside)
         
-        
-        clipsToBounds = true
-        self.addSubview(like_button)
-        like_button.snp.makeConstraints { (cons) in
+        self.addSubview(favourite)
+        favourite.snp.makeConstraints { (cons) in
             cons.width.height.equalTo(30)
-            cons.right.equalTo(self).inset(10)
-            cons.top.equalTo(self).inset(10)
-            
+            cons.right.top.equalTo(self).inset(10)
         }
-        like_button.setImage(#imageLiteral(resourceName: "unlike"), for: .normal)
+        clipsToBounds = true
+    
         self.addSubview(mediaPoster)
         mediaPoster.snp.makeConstraints { (cons) in
-            cons.top.equalTo(like_button.snp.bottom).offset(5)
+            cons.top.equalTo(favourite.snp.bottom).offset(5)
             cons.left.right.equalTo(self).inset(20)
             cons.height.equalTo(100)
         }
-        
+      
         self.addSubview(stack_cos)
     
-        stack_cos.customStack(view: [old_price,price], distribution: .fill, spacing: 6)
+        stack_cos.customStack(view: [price], distribution: .fill, spacing: 6)
         stack_cos.axis = .horizontal
      
        
-        self.addSubview(star_rating)
-        star_rating.snp.makeConstraints { (cons) in
-            cons.top.equalTo(mediaPoster.snp.bottom).offset(7)
-            cons.left.right.equalTo(self).inset(30)
-            cons.height.equalTo(20)
-        }
+      
         self.addSubview(stack)
        
         stack.snp.makeConstraints { (cons) in
             cons.left.right.equalTo(self).inset(15)
-            cons.top.equalTo(star_rating.snp.bottom).offset(3)
-            cons.bottom.equalTo(stack_cos.snp.top).offset(3)
+            cons.top.equalTo(mediaPoster.snp.bottom).offset(3)
         }
         stack_cos.snp.makeConstraints { (cons) in
-            cons.left.equalTo(15)
-            
+            cons.left.equalTo(self).inset(10)
+            cons.right.equalTo(self).inset(10)
             cons.bottom.equalTo(self).inset(10)
         }
-        
+        price.font = UIFont.boldSystemFont(ofSize: 22)
        
     }
     override func prepareForReuse() { //This prevents images/text etc being reused on another cell (wrong image/text displayed)
@@ -242,30 +180,30 @@ class ItemCell: UICollectionViewCell {
   
     }
     
-    func check()
-    {
-        let results = try! Realm().objects(FavouritesModule.self)
-        if results.contains(where: {($0.id == self.id)}) {
-            self.like_button.setImage(#imageLiteral(resourceName: "like"), for: .normal)
-        }
-        else {
-            self.like_button.setImage(#imageLiteral(resourceName: "unlike"), for: .normal)
-        }
-    }
+
     var id : Int = 0 {
         didSet {
-            check()
+            favourite.check(id: id)
         }
     }
+    
    var viewModule : ProductViewCellModuleType? {
         willSet(viewModule) {
             guard  let viewModule = viewModule else {
                 return
             }
+            favourite.viewModule = viewModule
             self.id = viewModule.id
             titleLabel.text = viewModule.title
-            price.text = String(viewModule.new_price)
-            old_price.attributedText = (String(viewModule.old_price) + " тг").strikeThrough()
+            price.text = String(viewModule.new_price) + tg_sign
+            if viewModule.new_price == viewModule.old_price {
+               
+                }
+            else {
+                stack_cos.addArrangedSubview(old_price)
+                old_price.attributedText = (String(viewModule.old_price) + tg_sign).strikeThrough()
+            }
+            
             mediaPoster.loadImageWithUrl(URL(string: viewModule.img_url)!)
             
         }
@@ -273,8 +211,8 @@ class ItemCell: UICollectionViewCell {
     
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
-        self.layer.cornerRadius = 30
-        self.dropShadow(color: .custom_gray(), opacity: 0.1, offSet: CGSize(width: 10, height: 10), radius: 20, scale: true)
+        self.layer.cornerRadius = 4
+    
     }
 
 }
@@ -326,6 +264,7 @@ extension UIView {
         }
     }
 }
+
 extension NSMutableAttributedString{
     func setColorForText(_ textToFind: String, with color: UIColor) {
         let range = self.mutableString.range(of: textToFind, options: .caseInsensitive)

@@ -9,7 +9,7 @@
 import Foundation
 protocol ProductViewModuleType {
     func numOfRows() -> Int
-    
+    func fetchdata()
     func cellViewModule(forIndexPath indexPath:IndexPath,section:Int) -> ProductViewCellModuleType?
     func viewModuleForSelectedRow() -> DetailViewModelType?
     func selectRow(atindexPath indexPath:IndexPath,atSection section:Int)
