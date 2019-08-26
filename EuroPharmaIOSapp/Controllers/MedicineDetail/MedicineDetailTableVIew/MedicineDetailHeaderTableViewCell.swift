@@ -33,9 +33,15 @@ class MedicineDetailHeaderTableViewCell: UITableViewCell {
         self.backgroundColor = .white
         title.setImage(#imageLiteral(resourceName: "Vector-8"), for: .normal)
         title.imageView?.contentMode = .scaleAspectFit
-        
+        getcolor()
     }
     
+    func getcolor() {
+    
+        self.backgroundColor = .white()
+        title.setTitleColor(.custom_gray(), for: .normal)
+        name.textColor = .custom_gray()
+    }
     override func prepareForReuse() {
         super.prepareForReuse()
         

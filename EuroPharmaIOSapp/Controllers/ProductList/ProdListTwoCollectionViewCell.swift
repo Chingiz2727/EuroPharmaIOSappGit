@@ -16,6 +16,7 @@ class ProdListTwoCollectionViewCell: UICollectionViewCell {
             main_view.favourite.check(id: id)
         }
     }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -44,7 +45,7 @@ class ProdListTwoCollectionViewCell: UICollectionViewCell {
             }
             
             self.id = viewModule.id
-            main_view.favourite.viewModule = viewModule
+            main_view.favourite.viewModule = FavModule(id: viewModule.id, img: viewModule.img_url, cost: viewModule.new_price, name: viewModule.title,manufacturer: viewModule.menufacturer)
             main_view.name.text = viewModule.title
             main_view.price.text = String(viewModule.new_price) + " ₸"
             main_view.company.text = viewModule.menufacturer

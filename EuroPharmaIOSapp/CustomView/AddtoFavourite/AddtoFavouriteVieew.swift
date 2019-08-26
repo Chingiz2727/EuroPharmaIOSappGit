@@ -32,15 +32,7 @@ class FavouriteView: UIView {
         }
         
     }
-    var viewModule : ProductViewCellModuleType? {
-        willSet(viewModule) {
-            guard  let viewModule = viewModule else {
-                return
-            }
-            
-            
-        }
-    }
+    var viewModule : FavModule?
     
     @objc func remove_fav() {
         guard  let viewModule = viewModule else {
@@ -77,10 +69,11 @@ class FavouriteView: UIView {
         let realm = try? Realm()
         let fav = FavouritesModule()
         var fav_list = [FavouritesModule]()
-        fav.id = viewModule.id
-        fav.cost = viewModule.new_price
-        fav.img_url = viewModule.img_url
-        fav.name = viewModule.title
+        fav.id = viewModule.id!
+        fav.cost = viewModule.cost!
+        fav.img_url = viewModule.img_url!
+        fav.name = viewModule.name!
+        fav.manufacturer = viewModule.manufacturer!
         fav_list.append(fav)
         try? realm?.write {
             realm?.add(fav_list)
@@ -101,5 +94,21 @@ class FavouriteView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+
+class FavModule {
+    var id : Int?
+    var img_url : String?
+    var cost : Int?
+    var name : String?
+    var manufacturer : String?
+    init(id:Int,img:String,cost:Int,name:String,manufacturer:String) {
+        self.id = id
+        self.img_url = img
+        self.cost = cost
+        self.name = name
+        self.manufacturer = manufacturer
     }
 }

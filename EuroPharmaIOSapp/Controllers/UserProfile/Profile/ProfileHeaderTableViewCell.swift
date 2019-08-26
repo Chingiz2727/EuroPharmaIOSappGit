@@ -7,11 +7,12 @@
 //
 
 import UIKit
-
+import RealmSwift
 class ProfileHeaderTableViewCell: UITableViewCell {
-    let photo = UIImageView()
+    let photo = UILabel()
     let name = UILabel()
     let phone = UILabel()
+    var results = try! Realm().objects(UserData.self)
     lazy var stack = UIStackView()
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,24 +40,30 @@ class ProfileHeaderTableViewCell: UITableViewCell {
         
         photo.contentMode = .scaleToFill
         self.addSubview(stack)
-        photo.image = #imageLiteral(resourceName: "UNADJUSTEDNONRAW_thumb_3ff")
         photo.layer.masksToBounds = false
         stack.customStack(view: [name,phone], distribution: .equalSpacing, spacing: 5)
         stack.axis = .vertical
-        photo.layer.cornerRadius = 30
+        photo.layer.cornerRadius = 18
 self.backgroundColor = .white
         photo.snp.makeConstraints { (cons) in
             cons.centerY.equalTo(self)
-            cons.left.equalTo(self).inset(20)
-            cons.width.height.equalTo(60)
+            cons.left.equalTo(self).inset(15)
+            cons.width.height.equalTo(36)
         }
+        let nam_it = Array(results.first!.first_name!)
+        print(nam_it)
+        photo.text = "\(nam_it[0])"
         photo.clipsToBounds = true
-
-
-        name.CustomLabel(textAlignment: .left, color: .custom_gray(), font: UIFont.boldSystemFont(ofSize: 18))
-        phone.CustomLabel(textAlignment: .left, color: .custom_gray(), font: UIFont.init(name: "Arial", size: 16)!)
-        name.text = "Shyngys Kuandyk"
-        phone.text = "+ 7 747 750 23 21"
+        photo.backgroundColor = .custom_green()
+        photo.textAlignment = .center
+        photo.textColor = .white()
+        photo.get_regular(size: 17)
+        name.get_bold(size: 17)
+        name.textColor = .custom_gray()
+        phone.textColor = .custom_gray()
+        photo.get_regular(size: 13)
+        name.text = (results.first?.first_name!)!
+        phone.text = results.first?.phone!
         stack.snp.makeConstraints { (cons) in
             cons.left.equalTo(photo.snp.right).offset(10)
             cons.right.equalTo(self).inset(10)

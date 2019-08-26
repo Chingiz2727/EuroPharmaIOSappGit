@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 class ProductListCollectionViewCell: UICollectionViewCell {
     var main_view = ProductCellView()
+    
     override func prepareForReuse() {
         super.prepareForReuse()
       
@@ -19,6 +20,7 @@ class ProductListCollectionViewCell: UICollectionViewCell {
         main_view.BuyButton.id = nil
         main_view.product_image.image = nil
         main_view.BuyButton.write = nil
+        main_view.BuyButton.remove()
     }
     
    
@@ -27,13 +29,13 @@ class ProductListCollectionViewCell: UICollectionViewCell {
             main_view.favourite.check(id: id)
         }
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(main_view)
         main_view.snp.makeConstraints { (cons) in
             cons.width.height.equalTo(self)
         }
-        print("adding")
         main_view.addview()
     }
     
@@ -42,7 +44,7 @@ class ProductListCollectionViewCell: UICollectionViewCell {
             guard  let viewModule = viewModule else {
                 return
             }
-            main_view.favourite.viewModule = viewModule
+            main_view.favourite.viewModule = FavModule(id: viewModule.id, img: viewModule.img_url, cost: viewModule.new_price, name: viewModule.title,manufacturer: viewModule.menufacturer)
             self.id = viewModule.id
             
             main_view.name.text = viewModule.title

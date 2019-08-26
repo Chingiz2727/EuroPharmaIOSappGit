@@ -8,12 +8,22 @@
 
 import UIKit
 import RealmSwift
+import SKActivityIndicatorView
 class ProfileTableViewController: UITableViewController {
 let cellid = "cellid"
-    var reload : reloadData?
+    var reload : RemoveAtCell?
     let headerid = "headerid"
-    var pushing : (()->Void)?
     let menu = ["Europharma гид","Адреса аптек","Город"]
+    var network: NetworkManager!
+    var logins : Logining?
+    init(networkManager: NetworkManager) {
+        super.init(nibName: nil, bundle: nil)
+        self.network = networkManager
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,29 +34,8 @@ let cellid = "cellid"
     
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
-            let layout = UICollectionViewFlowLayout()
-            let my_order = MyOrdersCollectionViewController(collectionViewLayout: layout)
-            self.navigationController?.pushViewController(my_order, animated: true)
-        case 1:
-            self.navigationController?.pushViewController(AdressTableViewController(), animated: true)
-
-        case 2:
-            self.navigationController?.pushViewController(UserSettingTableViewController(), animated: true)
-        case 3:
-        
-            let realm = try! Realm()
-
-            let item = realm.objects(UserData.self)
-            try! realm.write {
-                realm.delete(item)
-                reload?.reload()
-                self.navigationController?.popViewController(animated: true)
-            }
-        default:
-            break
-        }
+  
+        reload?.removeAtItem(item: indexPath.row)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,12 +53,35 @@ let cellid = "cellid"
     }
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let head = tableView.dequeueReusableCell(withIdentifier: headerid) as! ProfileLoginTableViewCell
+        head.network = self.network
+        head.login_button.addTarget(self, action: #selector(push), for: .touchUpInside)
+        head.login_button.isUserInteractionEnabled = true
+        logins = head
+        head.loginaction = succes
+        head.error_action = error
         return head.contentView
     }
     
-    @objc func push() {
-        pushing?()
-//        self.navigationController?.pushViewController(ProductViewController(), animated: true)
+
+   @objc func push() {
+        SKActivityIndicator.show("Загрузка")
+        SKActivityIndicator.spinnerStyle(.spinningFadeCircle)
+        logins?.login()
+//        self.reload?.removeAtItem(item: 3)
+    }
+    func succes() {
+        SKActivityIndicator.dismiss()
+        
+        DispatchQueue.main.async {
+            self.reload?.removeAtItem(item: 3)
+        }
+    }
+    
+    func error(error:String) {
+        SKActivityIndicator.dismiss()
+
+        CustomAlert.customAlert.showalert(controller: self, text: "Ошибка", message: "Не правильный логин или пароль")
+        
     }
 
     override func viewWillLayoutSubviews() {
@@ -79,11 +91,13 @@ let cellid = "cellid"
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? SideMenuTableViewCell
         cell?.menu.textColor = .custom_gray()
-        cell?.road.textColor = .custom_gray()
         cell?.imageView?.image = nil
         cell?.menu.text = menu[indexPath.row]
 
         return cell ?? UITableViewCell()
     }
     
+}
+protocol Logining {
+    func login()
 }

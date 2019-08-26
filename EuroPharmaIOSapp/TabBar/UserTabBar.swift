@@ -10,7 +10,10 @@ import UIKit
 import RealmSwift
 import InstantSearchClient
 import SwiftyJSON
+
 class UserTabBar: UITabBarController,UITabBarControllerDelegate {
+    var user = try! Realm().objects(UserData.self)
+
     func navigate(to destination: UserTabBar.Destination) {
         
     }
@@ -41,10 +44,56 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Tab {
+            
+        }
         
     }
+    lazy var networkManager = NetworkManager()
+
     
+    lazy var firstVC : UIViewController = {
+       var vc = MainPageTable(networkManager: networkManager)
+        
+        vc.tabBarItem = UITabBarItem(title: "Главная", image: #imageLiteral(resourceName: "Vector"), selectedImage: nil)
+        let nvController = UINavigationController(rootViewController: vc)
+        return nvController
+    }()
+    lazy var secondVC : UIViewController = {
+        var vc = SearchTableViewController(networkin: networkManager)
+        vc.tabBarItem = UITabBarItem(title: "Каталог", image: #imageLiteral(resourceName: "Group-2"), selectedImage: nil)
+        let nvController = UINavigationController(rootViewController: vc)
+        return nvController
+    }()
     
+    lazy var thirdVC : UIViewController = {
+        var vc = BasketViewController()
+        vc.tabBarItem = UITabBarItem(title: "Корзина", image: #imageLiteral(resourceName: "Group"), selectedImage: nil)
+        let nvController = UINavigationController(rootViewController: vc)
+        return nvController
+    }()
+    
+    lazy var fourthVC : UIViewController = {
+        var vc = FavouriteTableViewController()
+        vc.tabBarItem = UITabBarItem(title: "Избранное", image: #imageLiteral(resourceName: "Vector-2"), selectedImage: nil)
+        let nvController = UINavigationController(rootViewController: vc)
+        return nvController
+    }()
+    
+    lazy var SwipeVc : UIViewController = {
+       var vc = SwipeProfileViewController()
+        vc.tabBarItem = UITabBarItem(title: "Профиль", image: #imageLiteral(resourceName: "Vector-3"), selectedImage: nil)
+
+        let nvController = UINavigationController(rootViewController: vc)
+        return nvController
+    }()
+    lazy var Profile : UIViewController = {
+        var vc = UserProfileTableViewController()
+        vc.tabBarItem = UITabBarItem(title: "Профиль", image: #imageLiteral(resourceName: "Vector-3"), selectedImage: nil)
+        
+        let nvController = UINavigationController(rootViewController: vc)
+        return nvController
+    }()
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
       
@@ -63,10 +112,11 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
 //        self.tabBar.isTranslucent = true
         self.tabBar.frame.size.height = 70
         self.selectedViewController?.tabBarController?.tabBarItem.badgeColor = .black
-        Tab()
+      
      notify()
-        
-        self.selectedIndex = 0
+        self.tabBar.isTranslucent = false
+        tabBar.backgroundColor = .white
+
         tabBar.isTranslucent = false
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.isTranslucent = false
@@ -87,30 +137,34 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
                 print(error)
             }
         })
+        
+
     }
+    
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        
         tabBar.tintColor = .black
     }
-
-    func Tab() {
-        let networkManager = NetworkManager()
-        let firstVc = UINavigationController(rootViewController: MainPageTable (networkManager: networkManager))
-        firstVc.tabBarItem = UITabBarItem(title: "Главная", image: #imageLiteral(resourceName: "Vector"), selectedImage: nil)
-        let secondVc = UINavigationController(rootViewController: SearchTableViewController(networkin: networkManager))
-        secondVc.tabBarItem = UITabBarItem(title: "Каталог", image: #imageLiteral(resourceName: "Group-2"), selectedImage: nil)
-        let thirdVC = UINavigationController(rootViewController: BasketViewController())
-        thirdVC.tabBarItem = UITabBarItem(title: "Корзина", image: #imageLiteral(resourceName: "Group"), selectedImage: nil)
-        let fourthVC = UINavigationController(rootViewController: FavouriteTableViewController())
-        fourthVC.tabBarItem = UITabBarItem(title: "Избранное", image: #imageLiteral(resourceName: "Vector-2"), selectedImage: nil)
-      
-        let fifthVC = UINavigationController(rootViewController: UserProfileTableViewController())
-
-        fifthVC.tabBarItem = UITabBarItem(title: "Профиль", image: #imageLiteral(resourceName: "Vector-3"), selectedImage: nil)
-        
-        let tabbarlist = [firstVc,secondVc,thirdVC,fourthVC,fifthVC]
-        viewControllers = tabbarlist
-        
-        self.tabBar.isTranslucent = false
+ 
+    func selectProf() {
+        self.tabBarController?.selectedIndex = 4
+        self.selectedIndex = 4
+    }
+    
+    func Tab(completion:@escaping()->()) {
+     
+     
+        var tabbarlist = [firstVC,secondVC,thirdVC,fourthVC]
+        if (user.first?.token) != nil {
+            tabbarlist.append(Profile)
+            setViewControllers(tabbarlist, animated: true)
+            completion()
+        }
+        else {
+            tabbarlist.append(SwipeVc)
+            setViewControllers(tabbarlist, animated: true)
+            completion()
+        }
     
     }
     

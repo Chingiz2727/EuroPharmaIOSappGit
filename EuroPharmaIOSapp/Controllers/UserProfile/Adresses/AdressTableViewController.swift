@@ -18,9 +18,10 @@ class AdressTableViewController: UITableViewController {
         tableView.register(AdressTableViewCell.self, forCellReuseIdentifier: cellid)
         tableView.register(AdressTableViewHeaderCell.self, forCellReuseIdentifier: headid)
         tableView.register(AdressTableViewFooterCell.self, forCellReuseIdentifier: footid)
+        tableView.backgroundColor = .white().self
+        
     }
 
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -28,6 +29,7 @@ class AdressTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let head = tableView.dequeueReusableCell(withIdentifier: headid) as! AdressTableViewHeaderCell
+        head.backgroundColor = .white()
         return head
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,6 +38,7 @@ class AdressTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let foot = tableView.dequeueReusableCell(withIdentifier: footid) as! AdressTableViewFooterCell
+        foot.backgroundColor = .white()
         return foot
     }
 
@@ -43,7 +46,7 @@ class AdressTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? AdressTableViewCell
         cell?.selectionStyle = .none
         // Configure the cell...
-
+        cell?.backgroundColor = .white()
         return cell ?? UITableViewCell()
     }
     

@@ -8,7 +8,10 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 class MainPageNavigator:Coordinator {
+    let item = try! Realm().objects(SavedCity.self)
+
     var childCoordinators = [Coordinator]()
     
     var navigationController: UINavigationController
@@ -17,9 +20,20 @@ class MainPageNavigator:Coordinator {
     }
     
     func start() {
-        navigationController.pushViewController(UserTabBar(), animated: true)
+        guard (item.last?.id) != nil else {
+            toCCity()
+            return}
+        toTab()
     }
     
     
+    func toCCity() {
+        navigationController.pushViewController(ChooseCityViewController(networkManager: NetworkManager()), animated: true)
+        
+    }
+    
+    func toTab() {
+         navigationController.pushViewController(UserTabBar(), animated: true)
+    }
    
 }

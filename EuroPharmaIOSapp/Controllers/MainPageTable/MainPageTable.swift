@@ -14,19 +14,18 @@ import InstantSearchClient
 import InstantSearch
 
 class MainPageTable: UIViewController, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,RemoveAtCell {
-    
-    
-    
-    
-    
+    var content = SearchContentView()
+    var update : updateSearchTable?
+
     
     var networkManager: NetworkManager!
     
     func removeAtItem(item: Int) {
-        let catlist = CategoryListTableViewController()
-        catlist.id = String(item)
-        catlist.getData()
-        self.navigationController?.pushViewController(catlist, animated: true)
+        navigator?.go_fromCategory(id: item)
+//        let catlist = CategoryListTableViewController()
+//        catlist.id = String(item)
+//        catlist.getData()
+//        self.navigationController?.pushViewController(catlist, animated: true)
     }
     
     
@@ -51,12 +50,12 @@ var Module = MainPageProductViewModule()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         tableView.delegate = self
         tableView.dataSource = self
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { (cons) in
-            cons.left.right.top.equalTo(self.view).inset(7)
+            cons.left.right.top.equalTo(self.view).inset(0)
             cons.bottom.equalTo(self.view).inset(0)
         }
         self.SetupData()
@@ -65,10 +64,8 @@ var Module = MainPageProductViewModule()
         addNavBarImage()
         ProductViewModel = Module
     }
+    
  
-    
-    
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
       
         
@@ -76,7 +73,7 @@ var Module = MainPageProductViewModule()
            
             let cell = tableView.dequeueReusableCell(withIdentifier: MainPageIdentifiers().categoryid) as! MainPageCategoryRowCell
             if Module.banner.count != 0 {
-                cell.titleLbl.text = "Акции"
+                cell.titleLbl.text = "Категории"
             }
             
             cell.select = self
@@ -99,6 +96,7 @@ var Module = MainPageProductViewModule()
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
    
@@ -110,14 +108,9 @@ var Module = MainPageProductViewModule()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.tableView.reloadInputViews()
+        self.tableView.reloadData()
     }
-    
 
-    
-    
-   
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
     }
@@ -126,11 +119,7 @@ var Module = MainPageProductViewModule()
     
 //    ProductCollectionViewCell
     
- 
-    
-  
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let module = ProductViewModel else {return}
         module.selectRow(atindexPath: indexPath, atSection: collectionView.tag)

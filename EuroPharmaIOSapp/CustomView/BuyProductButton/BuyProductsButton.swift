@@ -3,23 +3,27 @@ import UIKit
 import RealmSwift
 class BuyProductsButton: UIView {
     var write : WriteProduct?
-    
+    var remove_at_cell : RemoveAtCell?
     @objc func add_product() {
         count += 1
         action?.count = count
-        write?.appenData()
+//        write?.appenData()
+        write?.write_count(count: count)
     }
     
    @objc func decrease_product() {
-    action?.count = count
     
     if count != 0 {
         count -= 1
     }
+    action?.count = count
+
     write?.write_count(count: count)
     if count == 0 {
         write?.remove()
         action?.remove()
+        
+//        remove_at_cell?.removeAtItem(item: write?.id ?? 0)
         count = 1
 
     }
@@ -46,7 +50,7 @@ class BuyProductsButton: UIView {
         buy_view.layer.borderWidth = 1
         buy_view.layer.borderColor = UIColor.custom_green().cgColor
         buy_view.snp.makeConstraints { (cons) in
-            cons.top.right.bottom.left.equalTo(buy_stack).inset(0)
+            cons.width.height.equalToSuperview()
         }
         plus_button.addTarget(self, action: #selector(add_product), for: .touchUpInside)
         minus_button.addTarget(self, action: #selector(decrease_product), for: .touchUpInside)
@@ -59,7 +63,7 @@ class BuyProductsButton: UIView {
         count_label.text = "1"
         count_label.textColor = .custom_green()
         buy_stack.snp.makeConstraints { (cons) in
-            cons.width.height.equalTo(self)
+            cons.width.height.equalToSuperview()
         }
         
     }

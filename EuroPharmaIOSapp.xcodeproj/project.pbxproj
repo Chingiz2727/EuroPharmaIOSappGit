@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -118,29 +118,48 @@
 		A443883B22F98E9D005EFF01 /* BuyProductActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443883A22F98E9D005EFF01 /* BuyProductActions.swift */; };
 		A443883D22F99638005EFF01 /* WriteProductToBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443883C22F99638005EFF01 /* WriteProductToBasket.swift */; };
 		A443FDB62302ACDA0014F269 /* SearchMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443FDB52302ACDA0014F269 /* SearchMedia.swift */; };
+		A443FDB92302C7A00014F269 /* SearchContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443FDB82302C7A00014F269 /* SearchContentView.swift */; };
+		A443FDBB2302CADC0014F269 /* SearchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443FDBA2302CADC0014F269 /* SearchModule.swift */; };
 		A449451222F3E7F000232761 /* EuroPharmaGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A449451122F3E7F000232761 /* EuroPharmaGuideViewController.swift */; };
 		A449451622F3F67700232761 /* CategoryModuleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A449451522F3F67700232761 /* CategoryModuleType.swift */; };
 		A449451922F3F71900232761 /* CategoryCellModuleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A449451822F3F71900232761 /* CategoryCellModuleType.swift */; };
 		A449451C22F3F7BD00232761 /* CategoryViewModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A449451B22F3F7BD00232761 /* CategoryViewModule.swift */; };
 		A449451F22F3F82C00232761 /* CategoryViewCellViewModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A449451E22F3F82C00232761 /* CategoryViewCellViewModule.swift */; };
 		A449452222F3FA3A00232761 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A449452122F3FA3A00232761 /* CategoryTableViewCell.swift */; };
+		A44C5763230D4DE700AEE04B /* NavigatorFromProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44C5762230D4DE700AEE04B /* NavigatorFromProfile.swift */; };
 		A45346AC22F2AB940085A068 /* ProfilePageNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45346AB22F2AB940085A068 /* ProfilePageNavigator.swift */; };
 		A45346AE22F2B0110085A068 /* MainPageTableNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45346AD22F2B0110085A068 /* MainPageTableNavigator.swift */; };
 		A45346B022F2DB430085A068 /* MainPageTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45346AF22F2DB430085A068 /* MainPageTableDataSource.swift */; };
+		A45BA49E230BB0C700ECAF88 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45BA49D230BB0C700ECAF88 /* EmptyView.swift */; };
+		A45BA4A3230BF40F00ECAF88 /* DetailBuyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45BA4A2230BF40F00ECAF88 /* DetailBuyButton.swift */; };
+		A45BA4A5230C013900ECAF88 /* InitDetailBuyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45BA4A4230C013900ECAF88 /* InitDetailBuyButton.swift */; };
 		A46495E822E9A0310044EA81 /* FavouritesModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46495E722E9A0310044EA81 /* FavouritesModule.swift */; };
 		A46495EA22E9A2020044EA81 /* FavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46495E922E9A2020044EA81 /* FavouriteTableViewController.swift */; };
 		A46495EC22E9A20F0044EA81 /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46495EB22E9A20F0044EA81 /* FavouriteTableViewCell.swift */; };
 		A466633222E16A8300CA6AA4 /* EditPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633122E16A8300CA6AA4 /* EditPassViewController.swift */; };
 		A466633422E16A9200CA6AA4 /* EditPassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633322E16A9200CA6AA4 /* EditPassView.swift */; };
-		A466633722E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633622E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift */; };
-		A466633922E1752C00CA6AA4 /* MyOrdersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633822E1752C00CA6AA4 /* MyOrdersCollectionViewCell.swift */; };
 		A466633D22E1962300CA6AA4 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633C22E1962300CA6AA4 /* SearchTableViewController.swift */; };
 		A466633F22E1973E00CA6AA4 /* SearchItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A466633E22E1973E00CA6AA4 /* SearchItemTableViewCell.swift */; };
+		A469E813230D468C00A64EEC /* MakeLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A469E812230D468C00A64EEC /* MakeLogin.swift */; };
+		A46E1ED6230A98B700807317 /* ImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E1ED5230A98B700807317 /* ImagesCollectionViewCell.swift */; };
+		A46E1ED9230A9E5C00807317 /* MyOrdersDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E1ED8230A9E5C00807317 /* MyOrdersDetailTableViewController.swift */; };
+		A46E1EDC230AA13D00807317 /* MyOrdersHeadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E1EDB230AA13D00807317 /* MyOrdersHeadTableViewCell.swift */; };
+		A46E1EDE230AA51C00807317 /* MyOrdersOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E1EDD230AA51C00807317 /* MyOrdersOrdersTableViewCell.swift */; };
+		A46E1EE0230AACE100807317 /* MyOrdersDetailBottomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E1EDF230AACE100807317 /* MyOrdersDetailBottomTableViewCell.swift */; };
+		A46E1EE2230AC55000807317 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E1EE1230AC55000807317 /* StatusTableViewCell.swift */; };
 		A4786BBE22E9579C002BD835 /* BasketModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4786BBD22E9579C002BD835 /* BasketModule.swift */; };
 		A4786BC122E96F1B002BD835 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4786BC022E96F1B002BD835 /* File.swift */; };
+		A488A4E3230E599D00105A30 /* ChooseCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488A4E2230E599D00105A30 /* ChooseCityViewController.swift */; };
+		A488A4E5230E59B700105A30 /* ChooseCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488A4E4230E59B700105A30 /* ChooseCityView.swift */; };
+		A488A4E7230E5F1000105A30 /* CityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488A4E6230E5F1000105A30 /* CityModule.swift */; };
+		A488A4E9230EB21100105A30 /* QrReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488A4E8230EB21100105A30 /* QrReader.swift */; };
 		A4A4B0B622E720740016B903 /* SetupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4B0B522E720740016B903 /* SetupData.swift */; };
 		A4A4B0B822E729990016B903 /* MainCategoryRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4B0B722E729990016B903 /* MainCategoryRowCell.swift */; };
 		A4AF411122FD4E4A0036625D /* SwipeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AF411022FD4E4A0036625D /* SwipeProfileViewController.swift */; };
+		A4BA2AD5230A747B00C22DF7 /* MyOrdersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BA2AD4230A747B00C22DF7 /* MyOrdersTableView.swift */; };
+		A4BA2AD7230A756700C22DF7 /* MyOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BA2AD6230A756700C22DF7 /* MyOrdersTableViewCell.swift */; };
+		A4CA08722313CD2D00C25394 /* EditPassCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CA08712313CD2D00C25394 /* EditPassCodeView.swift */; };
+		A4CA08742313D31300C25394 /* EditPassCodeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CA08732313D31300C25394 /* EditPassCodeeViewController.swift */; };
 		A4DB29DD22F7D9C600473120 /* SegoeUI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4DB29DC22F7D8CB00473120 /* SegoeUI.ttf */; };
 		A4DB29DF22F7E28500473120 /* SegoeUIBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4DB29DE22F7E28500473120 /* SegoeUIBold.ttf */; };
 		A4DB29E322F81C6B00473120 /* MainPageFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB29E222F81C6B00473120 /* MainPageFooterTableViewCell.swift */; };
@@ -297,29 +316,49 @@
 		A443883A22F98E9D005EFF01 /* BuyProductActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyProductActions.swift; sourceTree = "<group>"; };
 		A443883C22F99638005EFF01 /* WriteProductToBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteProductToBasket.swift; sourceTree = "<group>"; };
 		A443FDB52302ACDA0014F269 /* SearchMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMedia.swift; sourceTree = "<group>"; };
+		A443FDB82302C7A00014F269 /* SearchContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContentView.swift; sourceTree = "<group>"; };
+		A443FDBA2302CADC0014F269 /* SearchModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModule.swift; sourceTree = "<group>"; };
 		A449451122F3E7F000232761 /* EuroPharmaGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuroPharmaGuideViewController.swift; sourceTree = "<group>"; };
 		A449451522F3F67700232761 /* CategoryModuleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModuleType.swift; sourceTree = "<group>"; };
 		A449451822F3F71900232761 /* CategoryCellModuleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellModuleType.swift; sourceTree = "<group>"; };
 		A449451B22F3F7BD00232761 /* CategoryViewModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModule.swift; sourceTree = "<group>"; };
 		A449451E22F3F82C00232761 /* CategoryViewCellViewModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewCellViewModule.swift; sourceTree = "<group>"; };
 		A449452122F3FA3A00232761 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		A44C5762230D4DE700AEE04B /* NavigatorFromProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorFromProfile.swift; sourceTree = "<group>"; };
 		A45346AB22F2AB940085A068 /* ProfilePageNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageNavigator.swift; sourceTree = "<group>"; };
 		A45346AD22F2B0110085A068 /* MainPageTableNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageTableNavigator.swift; sourceTree = "<group>"; };
 		A45346AF22F2DB430085A068 /* MainPageTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageTableDataSource.swift; sourceTree = "<group>"; };
+		A45BA49D230BB0C700ECAF88 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmptyView.swift; path = EuroPharmaIOSapp/Controllers/UserProfile/OrderStatus/EmptyView.swift; sourceTree = SOURCE_ROOT; };
+		A45BA4A2230BF40F00ECAF88 /* DetailBuyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBuyButton.swift; sourceTree = "<group>"; };
+		A45BA4A4230C013900ECAF88 /* InitDetailBuyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDetailBuyButton.swift; sourceTree = "<group>"; };
 		A46495E722E9A0310044EA81 /* FavouritesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavouritesModule.swift; path = EuroPharmaIOSapp/Controllers/MainPageTable/FavouritesModule.swift; sourceTree = SOURCE_ROOT; };
 		A46495E922E9A2020044EA81 /* FavouriteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewController.swift; sourceTree = "<group>"; };
 		A46495EB22E9A20F0044EA81 /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
 		A466633122E16A8300CA6AA4 /* EditPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPassViewController.swift; sourceTree = "<group>"; };
 		A466633322E16A9200CA6AA4 /* EditPassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPassView.swift; sourceTree = "<group>"; };
-		A466633622E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersCollectionViewController.swift; sourceTree = "<group>"; };
-		A466633822E1752C00CA6AA4 /* MyOrdersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersCollectionViewCell.swift; sourceTree = "<group>"; };
 		A466633C22E1962300CA6AA4 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		A466633E22E1973E00CA6AA4 /* SearchItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemTableViewCell.swift; sourceTree = "<group>"; };
+		A469E812230D468C00A64EEC /* MakeLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeLogin.swift; sourceTree = "<group>"; };
+		A46E1ED5230A98B700807317 /* ImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewCell.swift; sourceTree = "<group>"; };
+		A46E1ED8230A9E5C00807317 /* MyOrdersDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersDetailTableViewController.swift; sourceTree = "<group>"; };
+		A46E1EDB230AA13D00807317 /* MyOrdersHeadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersHeadTableViewCell.swift; sourceTree = "<group>"; };
+		A46E1EDD230AA51C00807317 /* MyOrdersOrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersOrdersTableViewCell.swift; sourceTree = "<group>"; };
+		A46E1EDF230AACE100807317 /* MyOrdersDetailBottomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersDetailBottomTableViewCell.swift; sourceTree = "<group>"; };
+		A46E1EE1230AC55000807317 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
 		A4786BBD22E9579C002BD835 /* BasketModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModule.swift; sourceTree = "<group>"; };
 		A4786BC022E96F1B002BD835 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		A488A4E2230E599D00105A30 /* ChooseCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCityViewController.swift; sourceTree = "<group>"; };
+		A488A4E4230E59B700105A30 /* ChooseCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCityView.swift; sourceTree = "<group>"; };
+		A488A4E6230E5F1000105A30 /* CityModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModule.swift; sourceTree = "<group>"; };
+		A488A4E8230EB21100105A30 /* QrReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrReader.swift; sourceTree = "<group>"; };
 		A4A4B0B522E720740016B903 /* SetupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupData.swift; sourceTree = "<group>"; };
 		A4A4B0B722E729990016B903 /* MainCategoryRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryRowCell.swift; sourceTree = "<group>"; };
 		A4AF411022FD4E4A0036625D /* SwipeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeProfileViewController.swift; sourceTree = "<group>"; };
+		A4BA2AD4230A747B00C22DF7 /* MyOrdersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersTableView.swift; sourceTree = "<group>"; };
+		A4BA2AD6230A756700C22DF7 /* MyOrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersTableViewCell.swift; sourceTree = "<group>"; };
+		A4BA2AD8230A773A00C22DF7 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		A4CA08712313CD2D00C25394 /* EditPassCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPassCodeView.swift; sourceTree = "<group>"; };
+		A4CA08732313D31300C25394 /* EditPassCodeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPassCodeeViewController.swift; sourceTree = "<group>"; };
 		A4DB29DC22F7D8CB00473120 /* SegoeUI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SegoeUI.ttf; sourceTree = "<group>"; };
 		A4DB29DE22F7E28500473120 /* SegoeUIBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SegoeUIBold.ttf; sourceTree = "<group>"; };
 		A4DB29E222F81C6B00473120 /* MainPageFooterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageFooterTableViewCell.swift; sourceTree = "<group>"; };
@@ -431,6 +470,7 @@
 				A40DB2F122F04C99000E8061 /* MainPageNavigator.swift */,
 				A45346AB22F2AB940085A068 /* ProfilePageNavigator.swift */,
 				A45346AD22F2B0110085A068 /* MainPageTableNavigator.swift */,
+				A44C5762230D4DE700AEE04B /* NavigatorFromProfile.swift */,
 			);
 			path = NavigationRouter;
 			sourceTree = "<group>";
@@ -480,6 +520,7 @@
 				A41459C422DC76FC00B6F38B /* AppDelegate.swift */,
 				A41459C622DC76FC00B6F38B /* ViewController.swift */,
 				A4F0788B22FA922A001F9439 /* TestViewController.swift */,
+				A488A4E8230EB21100105A30 /* QrReader.swift */,
 				A443883622F98C0F005EFF01 /* CustomView */,
 				A4786BBF22E96F0D002BD835 /* Protocols */,
 				A40870FF22DD824D00668227 /* Controllers */,
@@ -691,10 +732,11 @@
 		A424626322E041D4007473C1 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				A488A4E1230E598500105A30 /* ChooseCity */,
+				A4BA2ACF230A742800C22DF7 /* MyOrderTableGroup */,
 				A42FA2AE23016450001F4076 /* OrderStatus */,
-				A466633522E1726000CA6AA4 /* MyOrders */,
 				A466633022E16A7100CA6AA4 /* EditPassword */,
-				A424628D22E09283007473C1 /* PhoneNumberEdit */,
+				A424628D22E09283007473C1 /* Forgetpass */,
 				A424628822E08D4D007473C1 /* PersonalSettings */,
 				A424628322E087D4007473C1 /* Adresses */,
 				A424628022E07E08007473C1 /* UserSettingTable */,
@@ -720,6 +762,7 @@
 				A424626622E043D1007473C1 /* LoginView.swift */,
 				A424626822E049AD007473C1 /* LoginViewController.swift */,
 				A42CD47122EAB58600BF63E9 /* AuthorizationModule.swift */,
+				A469E812230D468C00A64EEC /* MakeLogin.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -781,13 +824,14 @@
 			path = PersonalSettings;
 			sourceTree = "<group>";
 		};
-		A424628D22E09283007473C1 /* PhoneNumberEdit */ = {
+		A424628D22E09283007473C1 /* Forgetpass */ = {
 			isa = PBXGroup;
 			children = (
+				A4CA08702313CD1600C25394 /* EditPassCode */,
 				A424628E22E09295007473C1 /* EditPhoneViewController.swift */,
 				A424629022E095C1007473C1 /* EditPhoneView.swift */,
 			);
-			path = PhoneNumberEdit;
+			path = Forgetpass;
 			sourceTree = "<group>";
 		};
 		A42A630722E6AB05007CED70 /* MainPageTable */ = {
@@ -879,6 +923,7 @@
 			isa = PBXGroup;
 			children = (
 				A42FA2AF23016466001F4076 /* OrderStatusViewController.swift */,
+				A46E1EE1230AC55000807317 /* StatusTableViewCell.swift */,
 				A42FA2B1230164AB001F4076 /* OrderStatView.swift */,
 			);
 			path = OrderStatus;
@@ -897,8 +942,10 @@
 		A443883622F98C0F005EFF01 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				A45BA4A1230BF3AE00ECAF88 /* DetailBuyButton */,
 				A40E199E22FBEBD400167D67 /* AddtoFavourite */,
 				A443883922F98E8B005EFF01 /* BuyProductButton */,
+				A45BA49D230BB0C700ECAF88 /* EmptyView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -911,6 +958,15 @@
 				A443883C22F99638005EFF01 /* WriteProductToBasket.swift */,
 			);
 			path = BuyProductButton;
+			sourceTree = "<group>";
+		};
+		A443FDB72302C7890014F269 /* SearchContentView */ = {
+			isa = PBXGroup;
+			children = (
+				A443FDB82302C7A00014F269 /* SearchContentView.swift */,
+				A443FDBA2302CADC0014F269 /* SearchModule.swift */,
+			);
+			path = SearchContentView;
 			sourceTree = "<group>";
 		};
 		A449451022F3E7D700232761 /* EuropharmaGuide */ = {
@@ -967,6 +1023,15 @@
 			path = CategoryCell;
 			sourceTree = "<group>";
 		};
+		A45BA4A1230BF3AE00ECAF88 /* DetailBuyButton */ = {
+			isa = PBXGroup;
+			children = (
+				A45BA4A2230BF40F00ECAF88 /* DetailBuyButton.swift */,
+				A45BA4A4230C013900ECAF88 /* InitDetailBuyButton.swift */,
+			);
+			path = DetailBuyButton;
+			sourceTree = "<group>";
+		};
 		A46495E622E9A0190044EA81 /* Favourites */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,18 +1051,10 @@
 			path = EditPassword;
 			sourceTree = "<group>";
 		};
-		A466633522E1726000CA6AA4 /* MyOrders */ = {
-			isa = PBXGroup;
-			children = (
-				A466633622E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift */,
-				A466633822E1752C00CA6AA4 /* MyOrdersCollectionViewCell.swift */,
-			);
-			path = MyOrders;
-			sourceTree = "<group>";
-		};
 		A466633B22E195FD00CA6AA4 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
+				A443FDB72302C7890014F269 /* SearchContentView */,
 				A449452022F3FA1E00232761 /* CategoryCell */,
 				A449451D22F3F81000232761 /* CategoryViewCellViewModule */,
 				A449451A22F3F7AD00232761 /* CategoryViewModule */,
@@ -1010,6 +1067,25 @@
 				A443FDB52302ACDA0014F269 /* SearchMedia.swift */,
 			);
 			path = SearchView;
+			sourceTree = "<group>";
+		};
+		A46E1ED7230A9E3D00807317 /* MyOrdersDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A46E1EDA230AA12200807317 /* MyOrdersDetailCells */,
+				A46E1ED8230A9E5C00807317 /* MyOrdersDetailTableViewController.swift */,
+			);
+			path = MyOrdersDetail;
+			sourceTree = "<group>";
+		};
+		A46E1EDA230AA12200807317 /* MyOrdersDetailCells */ = {
+			isa = PBXGroup;
+			children = (
+				A46E1EDB230AA13D00807317 /* MyOrdersHeadTableViewCell.swift */,
+				A46E1EDF230AACE100807317 /* MyOrdersDetailBottomTableViewCell.swift */,
+				A46E1EDD230AA51C00807317 /* MyOrdersOrdersTableViewCell.swift */,
+			);
+			path = MyOrdersDetailCells;
 			sourceTree = "<group>";
 		};
 		A4786BBC22E9578D002BD835 /* BasketModule */ = {
@@ -1028,12 +1104,42 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		A488A4E1230E598500105A30 /* ChooseCity */ = {
+			isa = PBXGroup;
+			children = (
+				A488A4E2230E599D00105A30 /* ChooseCityViewController.swift */,
+				A488A4E4230E59B700105A30 /* ChooseCityView.swift */,
+				A488A4E6230E5F1000105A30 /* CityModule.swift */,
+			);
+			path = ChooseCity;
+			sourceTree = "<group>";
+		};
 		A4AF410F22FD4E340036625D /* SwipeProfile */ = {
 			isa = PBXGroup;
 			children = (
 				A4AF411022FD4E4A0036625D /* SwipeProfileViewController.swift */,
 			);
 			path = SwipeProfile;
+			sourceTree = "<group>";
+		};
+		A4BA2ACF230A742800C22DF7 /* MyOrderTableGroup */ = {
+			isa = PBXGroup;
+			children = (
+				A46E1ED7230A9E3D00807317 /* MyOrdersDetail */,
+				A4BA2AD4230A747B00C22DF7 /* MyOrdersTableView.swift */,
+				A46E1ED5230A98B700807317 /* ImagesCollectionViewCell.swift */,
+				A4BA2AD6230A756700C22DF7 /* MyOrdersTableViewCell.swift */,
+			);
+			path = MyOrderTableGroup;
+			sourceTree = "<group>";
+		};
+		A4CA08702313CD1600C25394 /* EditPassCode */ = {
+			isa = PBXGroup;
+			children = (
+				A4CA08712313CD2D00C25394 /* EditPassCodeView.swift */,
+				A4CA08732313D31300C25394 /* EditPassCodeeViewController.swift */,
+			);
+			path = EditPassCode;
 			sourceTree = "<group>";
 		};
 		A4F0788D22FAA36F001F9439 /* ProductListWithIgKit */ = {
@@ -1142,6 +1248,7 @@
 				TargetAttributes = {
 					A41459C022DC76FC00B6F38B = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1030;
 					};
 					A41459D422DC76FE00B6F38B = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -1154,12 +1261,13 @@
 				};
 			};
 			buildConfigurationList = A41459BC22DC76FC00B6F38B /* Build configuration list for PBXProject "EuroPharmaIOSapp" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"ru-RU",
 			);
 			mainGroup = A41459B822DC76FC00B6F38B;
 			productRefGroup = A41459C222DC76FC00B6F38B /* Products */;
@@ -1230,56 +1338,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework",
-				"${BUILT_PRODUCTS_DIR}/IGListKit/IGListKit.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
-				"${BUILT_PRODUCTS_DIR}/InstantSearch/InstantSearch.framework",
-				"${BUILT_PRODUCTS_DIR}/InstantSearchClient/InstantSearchClient.framework",
-				"${BUILT_PRODUCTS_DIR}/InstantSearchCore/InstantSearchCore.framework",
-				"${BUILT_PRODUCTS_DIR}/RSSelectionMenu/RSSelectionMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SKActivityIndicatorView/SKActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftPhoneNumberFormatter/SwiftPhoneNumberFormatter.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyStarRatingView/SwiftyStarRatingView.framework",
-				"${BUILT_PRODUCTS_DIR}/SwipeMenuViewController/SwipeMenuViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
-				"${BUILT_PRODUCTS_DIR}/YNSearch/YNSearch.framework",
-				"${BUILT_PRODUCTS_DIR}/ZKCarousel/ZKCarousel.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CollectionKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGListKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantSearch.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantSearchClient.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantSearchCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSSelectionMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftPhoneNumberFormatter.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStarRatingView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeMenuViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YNSearch.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZKCarousel.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1338,13 +1401,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A40E199D22FBCFB300167D67 /* ProductCellView.swift in Sources */,
+				A443FDBB2302CADC0014F269 /* SearchModule.swift in Sources */,
 				A466633222E16A8300CA6AA4 /* EditPassViewController.swift in Sources */,
+				A46E1ED6230A98B700807317 /* ImagesCollectionViewCell.swift in Sources */,
 				A424627522E066D9007473C1 /* LabelExtension.swift in Sources */,
 				A424626022E039B2007473C1 /* BasketViewController.swift in Sources */,
 				A41AB22522EEB0DE00E769D0 /* EndPointType.swift in Sources */,
 				A41AB21D22EE9E9000E769D0 /* DetailViewModelType.swift in Sources */,
 				A424628C22E08D74007473C1 /* PersonalSettingView.swift in Sources */,
 				A449451222F3E7F000232761 /* EuroPharmaGuideViewController.swift in Sources */,
+				A488A4E7230E5F1000105A30 /* CityModule.swift in Sources */,
 				A41459C722DC76FC00B6F38B /* ViewController.swift in Sources */,
 				A42A630B22E6AB33007CED70 /* ProductCategoryTableCell.swift in Sources */,
 				A41AB23622EEB41700E769D0 /* URLParameterEncoder.swift in Sources */,
@@ -1364,8 +1430,8 @@
 				A4F0789122FAA6B1001F9439 /* ProdViewController.swift in Sources */,
 				A41AB25122EF018E00E769D0 /* ProductListView.swift in Sources */,
 				A41AB23A22EEB60400E769D0 /* NetworkRouter.swift in Sources */,
-				A466633922E1752C00CA6AA4 /* MyOrdersCollectionViewCell.swift in Sources */,
 				A4F2E26622FD1E5E00242FF2 /* MedicineDetailTableViewController.swift in Sources */,
+				A4BA2AD7230A756700C22DF7 /* MyOrdersTableViewCell.swift in Sources */,
 				A42A631322E6ABA2007CED70 /* MainPageTable.swift in Sources */,
 				A4786BC122E96F1B002BD835 /* File.swift in Sources */,
 				A41AB24122EEBA3600E769D0 /* ConfigureParameter.swift in Sources */,
@@ -1373,23 +1439,27 @@
 				A4DB29E922F844E600473120 /* ContentSettingView.swift in Sources */,
 				A414E02F22DEDC380007005F /* CategoryListTableViewController.swift in Sources */,
 				A40E19A622FC435D00167D67 /* MayBeUlikeCollectionViewCell.swift in Sources */,
-				A466633722E1751E00CA6AA4 /* MyOrdersCollectionViewController.swift in Sources */,
 				A42CD47222EAB58600BF63E9 /* AuthorizationModule.swift in Sources */,
+				A46E1EE2230AC55000807317 /* StatusTableViewCell.swift in Sources */,
 				A41AB23422EEB3BC00E769D0 /* NetworkError.swift in Sources */,
 				A41AB24F22EF016B00E769D0 /* ProducstListViewController.swift in Sources */,
 				A414E03B22DF11D80007005F /* MedicineCollectionViewCell.swift in Sources */,
 				A414E02822DECDB40007005F /* ShadowExtension.swift in Sources */,
 				A4AF411122FD4E4A0036625D /* SwipeProfileViewController.swift in Sources */,
+				A45BA4A3230BF40F00ECAF88 /* DetailBuyButton.swift in Sources */,
 				A4A4B0B622E720740016B903 /* SetupData.swift in Sources */,
 				A424627122E06555007473C1 /* ForgetPassViewController.swift in Sources */,
 				A41459F722DC7A4300B6F38B /* UserTabBar.swift in Sources */,
+				A46E1EDE230AA51C00807317 /* MyOrdersOrdersTableViewCell.swift in Sources */,
 				A42A630D22E6AB5C007CED70 /* MainPageProductCollectionViewCell.swift in Sources */,
 				A42A630F22E6AB71007CED70 /* CategoryModel.swift in Sources */,
 				A443883B22F98E9D005EFF01 /* BuyProductActions.swift in Sources */,
 				A42CD47B22EAFE3900BF63E9 /* ProductViewCellModuleType.swift in Sources */,
 				A42A630922E6AB22007CED70 /* SelfSizedTableView.swift in Sources */,
+				A46E1EE0230AACE100807317 /* MyOrdersDetailBottomTableViewCell.swift in Sources */,
 				A41AB23122EEB35500E769D0 /* Encoding.swift in Sources */,
 				A449451C22F3F7BD00232761 /* CategoryViewModule.swift in Sources */,
+				A488A4E5230E59B700105A30 /* ChooseCityView.swift in Sources */,
 				A41AB24622EEBF3900E769D0 /* NetworkLogger.swift in Sources */,
 				A424625E22E0368E007473C1 /* BasketTableViewHeader.swift in Sources */,
 				A408710D22DDBAFD00668227 /* ChildView.swift in Sources */,
@@ -1399,6 +1469,7 @@
 				A449451922F3F71900232761 /* CategoryCellModuleType.swift in Sources */,
 				A41AB24822EEC3A900E769D0 /* GetData.swift in Sources */,
 				A424627322E06567007473C1 /* ForgetPassView.swift in Sources */,
+				A4BA2AD5230A747B00C22DF7 /* MyOrdersTableView.swift in Sources */,
 				A45346B022F2DB430085A068 /* MainPageTableDataSource.swift in Sources */,
 				A45346AC22F2AB940085A068 /* ProfilePageNavigator.swift in Sources */,
 				A42FA2B023016466001F4076 /* OrderStatusViewController.swift in Sources */,
@@ -1411,11 +1482,13 @@
 				A4F0789322FAA746001F9439 /* ProductInfoSectionController.swift in Sources */,
 				A424626C22E06208007473C1 /* RegistrationVIew.swift in Sources */,
 				A414E03E22DF3F180007005F /* MedicineDetailViewController.swift in Sources */,
+				A45BA4A5230C013900ECAF88 /* InitDetailBuyButton.swift in Sources */,
 				A40DB2F022F04433000E8061 /* NavigationRouter.swift in Sources */,
 				A443883D22F99638005EFF01 /* WriteProductToBasket.swift in Sources */,
 				A466633F22E1973E00CA6AA4 /* SearchItemTableViewCell.swift in Sources */,
 				A443882C22F94C18005EFF01 /* CollapsedSection.swift in Sources */,
 				A443883022F97115005EFF01 /* AnalogsCollectionVIew.swift in Sources */,
+				A46E1ED9230A9E5C00807317 /* MyOrdersDetailTableViewController.swift in Sources */,
 				A414E03922DF11C90007005F /* MedineCollectionViewController.swift in Sources */,
 				A40E19A422FC434400167D67 /* MayBeULikeTableViewCell.swift in Sources */,
 				A424627D22E0728A007473C1 /* ProfileHeaderTableViewCell.swift in Sources */,
@@ -1425,6 +1498,8 @@
 				A42FA2B2230164AB001F4076 /* OrderStatView.swift in Sources */,
 				A41AB23C22EEB6A900E769D0 /* Router.swift in Sources */,
 				A43E220622F92E5600CDB39A /* TypeOfContetns.swift in Sources */,
+				A4CA08722313CD2D00C25394 /* EditPassCodeView.swift in Sources */,
+				A4CA08742313D31300C25394 /* EditPassCodeeViewController.swift in Sources */,
 				A443882E22F9562C005EFF01 /* MedicineDetailHeaderTableViewCell.swift in Sources */,
 				A424627B22E07128007473C1 /* ProfileTableViewController.swift in Sources */,
 				A4204F1E2302663D0044E4C9 /* DepartmentAdressTableViewController.swift in Sources */,
@@ -1442,6 +1517,7 @@
 				A466633D22E1962300CA6AA4 /* SearchTableViewController.swift in Sources */,
 				A424626E22E06216007473C1 /* RegistrationViewController.swift in Sources */,
 				A41459F922DC7AF100B6F38B /* CustomAlert.swift in Sources */,
+				A469E813230D468C00A64EEC /* MakeLogin.swift in Sources */,
 				A424628522E087E5007473C1 /* AdressTableViewController.swift in Sources */,
 				A424626722E043D1007473C1 /* LoginView.swift in Sources */,
 				A42CD47522EAF92E00BF63E9 /* MainPageProductViewModule.swift in Sources */,
@@ -1452,8 +1528,11 @@
 				A424628222E07E1E007473C1 /* UserSettingTableViewController.swift in Sources */,
 				A41AB21F22EE9ED900E769D0 /* DetailViewModel.swift in Sources */,
 				A414E03522DEEF4D0007005F /* FlowLayout.swift in Sources */,
+				A488A4E3230E599D00105A30 /* ChooseCityViewController.swift in Sources */,
 				A41AB22C22EEB2B700E769D0 /* HTTPHeaders.swift in Sources */,
+				A45BA49E230BB0C700ECAF88 /* EmptyView.swift in Sources */,
 				A42CD47822EAF9C900BF63E9 /* MainPageModuleType.swift in Sources */,
+				A443FDB92302C7A00014F269 /* SearchContentView.swift in Sources */,
 				A41AB22822EEB1BD00E769D0 /* HTTPMETHODS.swift in Sources */,
 				A41AB22A22EEB23400E769D0 /* HTTPTask.swift in Sources */,
 				A40E19A022FBEBE600167D67 /* AddtoFavouriteVieew.swift in Sources */,
@@ -1468,13 +1547,16 @@
 				A443882822F93CAF005EFF01 /* MedicineTableViewCell.swift in Sources */,
 				A4786BBE22E9579C002BD835 /* BasketModule.swift in Sources */,
 				A41AB23822EEB56300E769D0 /* JSONParameterEncoder.swift in Sources */,
+				A44C5763230D4DE700AEE04B /* NavigatorFromProfile.swift in Sources */,
 				A424627F22E07512007473C1 /* StackExtension.swift in Sources */,
 				A46495E822E9A0310044EA81 /* FavouritesModule.swift in Sources */,
+				A46E1EDC230AA13D00807317 /* MyOrdersHeadTableViewCell.swift in Sources */,
 				A443882A22F94312005EFF01 /* MedicineDetailSource.swift in Sources */,
 				A4F2E26322FD1BD600242FF2 /* AnalogsViewController.swift in Sources */,
 				A449451622F3F67700232761 /* CategoryModuleType.swift in Sources */,
 				A449451F22F3F82C00232761 /* CategoryViewCellViewModule.swift in Sources */,
 				A41AB24422EEBE4B00E769D0 /* NetworkManager.swift in Sources */,
+				A488A4E9230EB21100105A30 /* QrReader.swift in Sources */,
 				A414E03322DEDED00007005F /* Endpoint.swift in Sources */,
 				A449452222F3FA3A00232761 /* CategoryTableViewCell.swift in Sources */,
 			);
@@ -1516,6 +1598,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A41459CE22DC76FE00B6F38B /* Base */,
+				A4BA2AD8230A773A00C22DF7 /* ru-RU */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1527,6 +1610,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1574,14 +1658,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				NEW_SETTING = "";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Debug;
 		};
@@ -1589,6 +1673,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1630,7 +1715,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				NEW_SETTING = "";
@@ -1646,15 +1731,18 @@
 			baseConfigurationReference = B1FD5B26F6D88691BFFEB894 /* Pods-EuroPharmaIOSapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KGL7D9XAQ6;
 				INFOPLIST_FILE = EuroPharmaIOSapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cheena.EuroPharmaIOSapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1665,9 +1753,11 @@
 			baseConfigurationReference = F0209E976D8D7B8F30E8340C /* Pods-EuroPharmaIOSapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KGL7D9XAQ6;
 				INFOPLIST_FILE = EuroPharmaIOSapp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

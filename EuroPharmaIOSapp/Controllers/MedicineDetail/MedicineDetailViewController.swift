@@ -22,7 +22,6 @@ class MedicineDetailViewController: UIViewController {
        let Medicine = MedicineDetailTableViewController(networkManager: network)
         Medicine.id = self.id
         navigationItem.title = Medicine.product?.name ?? ""
-        Medicine.updateData()
         return Medicine
     }()
     
@@ -52,6 +51,10 @@ class MedicineDetailViewController: UIViewController {
             cons.height.equalTo(35)
         }
         segment.tintColor = .custom_gray()
+     
+        
+        segment.tintColor = .custom_gray()
+        
         segment.addTarget(self, action: #selector(segmentChanged(segment:)), for: .valueChanged)
         segment.selectedSegmentIndex = 0
     }

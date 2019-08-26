@@ -48,16 +48,21 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         clipsToBounds = true
         self.addSubview(img)
         img.snp.makeConstraints { (cons) in
-            cons.top.equalTo(self).inset(15)
-            cons.width.height.equalTo(50)
+            cons.top.equalTo(self).inset(14)
+//            cons.width.height.equalTo(50)
+            cons.height.equalTo(40)
+            cons.width.equalTo(43)
+            
             cons.centerX.equalTo(self)
         }
         self.addSubview(label)
         label.snp.makeConstraints { (cons) in
-            cons.top.equalTo(img.snp.bottom).offset(10)
+            cons.top.equalTo(img.snp.bottom).offset(8)
             cons.left.right.equalTo(self).inset(5)
             cons.centerX.equalTo(self)
         }
+        label.get_regular(size: 13)
+        label.textColor = .custom_gray()
         label.numberOfLines = 2
 //        img.layer.cornerRadius = 30
         img.contentMode = .scaleAspectFit
@@ -101,7 +106,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         case "Витамины и бады":
             return #imageLiteral(resourceName: "99")
         case "Изделия мед. назначения":
-            return #imageLiteral(resourceName: "22")
+            return #imageLiteral(resourceName: "10")
         default:
               return UIImage()
         }

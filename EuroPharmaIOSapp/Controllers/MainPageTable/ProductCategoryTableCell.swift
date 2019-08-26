@@ -18,7 +18,7 @@ class CategoryRowCell: UITableViewCell {
         return tmpLayout
     }()
     
-      let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 255, cellwidth: 200, minimumInteritemSpacing: 20, minimumLineSpacing: 20, sectionInset: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
+      let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 210, cellwidth: 150, minimumInteritemSpacing: 6, minimumLineSpacing: 6, sectionInset: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0))
     
     lazy var collectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: columnLayout)
@@ -54,28 +54,30 @@ class CategoryRowCell: UITableViewCell {
         //First configure all views and then setup the constraints..
         
         //Clear background colour
-        addSubview(titleLbl)
-        addSubview(seeAllBtn)
+        self.addSubview(stack)
+        stack.customStack(view: [titleLbl,seeAllBtn], distribution: .fillProportionally, spacing: 5)
+        stack.axis = .horizontal
+      
         //Category Title
         titleLbl.textColor = .custom_gray()
         titleLbl.numberOfLines = 1
-        titleLbl.font = UIFont(name: "SegoeUI", size: 20)
         titleLbl.textAlignment = .left
-       
+       titleLbl.get_regular(size: 16)
+        
         seeAllBtn.setTitle("Смотреть все", for: .normal)
-        seeAllBtn.setTitleColor(#colorLiteral(red: 0.2584031224, green: 0.5864952207, blue: 1, alpha: 1), for: .normal)
- 
+        seeAllBtn.setTitleColor(.gray, for: .normal)
+        
+        seeAllBtn.titleLabel?.get_regular(size: 13)
+        seeAllBtn.titleLabel?.textAlignment = .right
         seeAllBtn.translatesAutoresizingMaskIntoConstraints = false
         
         collectionView.backgroundColor = .custom_white()
         //Collection View
-        titleLbl.snp.makeConstraints { (cons) in
-            cons.centerY.equalTo(seeAllBtn)
-            cons.left.equalTo(self).inset(10)
-        }
-        seeAllBtn.snp.makeConstraints { (cons) in
+       
+        stack.snp.makeConstraints { (cons) in
+            
             cons.top.equalTo(self).inset(15)
-            cons.right.equalTo(self).inset(10)
+            cons.left.right.equalTo(self).inset(15)
             
            
         }
@@ -86,10 +88,10 @@ class CategoryRowCell: UITableViewCell {
         
         collectionView.snp.makeConstraints { (cons) in
             cons.left.right.equalTo(self).inset(0)
-            cons.top.equalTo(seeAllBtn.snp.bottom).offset(15)
+            cons.top.equalTo(seeAllBtn.snp.bottom).offset(5)
             
             cons.bottom.equalTo(self).inset(0)
-            cons.height.equalTo(270)
+            cons.height.equalTo(220)
         }
     }
     

@@ -11,6 +11,7 @@ import UIKit
 extension UIColor {
     
     class func custom_gray() -> UIColor {
+        
         return #colorLiteral(red: 0.2156862745, green: 0.2588235294, blue: 0.3019607843, alpha: 1)
     }
     class func custom_gray1() -> UIColor {
@@ -35,6 +36,9 @@ extension UIColor {
     class func custom_green2() -> UIColor {
         return #colorLiteral(red: 0.7725490196, green: 0.8901960784, blue: 0.09803921569, alpha: 1)
     }
+    class func white() -> UIColor {
+           return #colorLiteral(red: 0.9999018312, green: 1, blue: 0.9998798966, alpha: 1)
+       }
     
 }
 extension String {

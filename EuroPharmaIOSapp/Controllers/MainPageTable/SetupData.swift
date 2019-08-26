@@ -11,8 +11,12 @@ import UIKit
 import SKActivityIndicatorView
 extension MainPageTable {
     func SetupData() {
-        
         SKActivityIndicator.show()
+
+        let view_white = UIView()
+        self.view.addSubview(view_white)
+        view_white.backgroundColor = .white
+        view_white.frame = self.view.bounds
         networkManager.getShopList { (product, error) in
             guard let product = product else {
                 SKActivityIndicator.dismiss()
@@ -66,6 +70,7 @@ extension MainPageTable {
                         
                     }
                 SKActivityIndicator.dismiss()
+                view_white.removeFromSuperview()
                 self.tableView.reloadData()
                 
             }

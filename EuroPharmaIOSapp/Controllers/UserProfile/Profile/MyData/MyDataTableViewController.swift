@@ -19,7 +19,9 @@ let cellid = "cellid"
         tableView.register(MyDataTableViewCell.self, forCellReuseIdentifier: cellid)
         tableView.register(SaveProfileTableViewCell.self, forCellReuseIdentifier: footid)
         tableView.separatorStyle = .none
-        tableView.tableHeaderView?.backgroundColor = .white
+        tableView.tableHeaderView?.backgroundColor = .white()
+        tableView.backgroundColor = .white()
+        
         
     }
 
@@ -42,7 +44,7 @@ let cellid = "cellid"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as! MyDataTableViewCell
         cell.textf.text = item[indexPath.section][indexPath.row]
         cell.textf.placeholder = placeholder[indexPath.section][indexPath.row]
-
+        cell.backgroundColor = .white()
         return cell
     }
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

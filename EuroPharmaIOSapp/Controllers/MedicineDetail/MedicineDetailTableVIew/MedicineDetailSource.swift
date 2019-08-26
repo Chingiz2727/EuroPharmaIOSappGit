@@ -64,7 +64,11 @@ extension MedicineDetailTableViewController  {
             tableCell.product = self.product
             return tableCell
         }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: MainPageIdentifiers().newitemReuseId, for: indexPath)
+    
+        cell.backgroundColor = .white()
+        cell.textLabel?.textColor = .custom_gray()
         cell.textLabel?.text = sections[indexPath.section-1].items[indexPath.row]
         cell.selectionStyle = .none
         return cell
@@ -73,7 +77,7 @@ extension MedicineDetailTableViewController  {
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let back = UIView()
         self.view.addSubview(back)
-        back.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.968627451, blue: 0.968627451, alpha: 1)
+        back.backgroundColor = .white()
         return back
     }
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

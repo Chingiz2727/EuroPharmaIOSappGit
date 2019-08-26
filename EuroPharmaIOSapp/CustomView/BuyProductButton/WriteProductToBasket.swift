@@ -27,11 +27,10 @@ class WriteProduct {
         self.manufacturer = manufacturer
         count = 1
     }
-    
+    var tag : Int?
     let realm = try? Realm()
-
+    var remoatcell : RemoveAtCell?
     func appenData() {
-        print(Basket.isInvalidated)
         if Basket.isInvalidated == true {
             
            let new_Basket = BasketModule()
@@ -66,19 +65,40 @@ class WriteProduct {
                 print(error)
             }
         }
-    
         
     }
     
     func write_count(count:Int) {
-        do {
-            try realm?.write {
-                Basket.count = count
+        print(Basket.isInvalidated)
+        if Basket.isInvalidated == true {
+            
+            let new_Basket = BasketModule()
+            new_Basket.id = id
+            new_Basket.count = count
+            new_Basket.cost = price
+            new_Basket.name = name
+            new_Basket.img_url = img
+            var list =  [BasketModule]()
+            list.append(new_Basket)
+            Basket = new_Basket
+            Basket_list = list
+            
+            try? realm?.write {
+                realm?.add(list)
+            }
+            
+        }
+        else {
+            do {
+                try realm?.write {
+                    Basket.count = count
+                }
+            }
+            catch let error as NSError {
+                print(error)
             }
         }
-        catch let error as NSError {
-            print(error)
-        }
+   
         
     }
     
@@ -87,11 +107,18 @@ class WriteProduct {
         try? realm?.write {
             realm?.delete(Basket_list)
         }
+        guard let tag = tag else {return}
+        remoatcell?.removeAtItem(item: tag)
     }
     
     
     
 }
+
+
+
+
+
 
 
 
@@ -154,19 +181,20 @@ class InitBuy : UIView,BuyProductActions {
        
         self.addSubview(count_button)
         count_button.snp.makeConstraints { (cons) in
-            cons.width.height.equalToSuperview()
+            cons.top.left.right.bottom.equalTo(self).inset(0)
         }
         count_button.write = write
         write?.appenData()
     }
     
     @objc func add_count() {
-        buy_button.removeFromSuperview()
         self.addSubview(count_button)
         count_button.snp.makeConstraints { (cons) in
-            cons.width.height.equalToSuperview()
+            cons.top.left.right.bottom.equalTo(self).inset(0)
         }
         write?.appenData()
+        buy_button.removeFromSuperview()
+
     }
     
     

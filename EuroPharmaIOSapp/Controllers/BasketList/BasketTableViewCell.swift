@@ -19,24 +19,12 @@ class BasketTableViewCell: UITableViewCell {
             desc.text = item?.name
             price.text = String(item?.cost ?? 0) + " ₸"
             buy.count = item?.count ?? 0
-        
+            img.loadImageWithUrl(URL(string: item?.img_url ?? "")!)
         }
         
     }
     let manufacturer : UILabel = UILabel()
-    var viewModule : ProductViewCellModuleType? {
-        willSet(viewModule) {
-        
-            fav.viewModule = viewModule
-//            self.id = viewModule.id
-            
-            desc.text = viewModule?.title
-            price.text = String(viewModule?.new_price ?? 0) + " ₸"
-            buy.write = WriteProduct(id: viewModule?.id ?? 0, price: viewModule?.new_price ?? 0, name: viewModule?.title ?? "", img: viewModule?.img_url ?? "", manufacturer: viewModule?.menufacturer ?? "")
-            img.loadImageWithUrl(URL(string: viewModule?.img_url ?? "")!)
-            
-        }
-    }
+
     
 
     @objc func remove_cell(sender:UIButton) {
@@ -70,17 +58,14 @@ class BasketTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        guard let it = item else {return}
+    
     }
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addview()
-        guard let it = item else {return}
-        buy.write = WriteProduct(id: it.id, price: it.cost, name: it.name, img: it.img_url ?? "", manufacturer: it.manufacturer ?? "")
-        buy.count = it.count
-        print(it)
+        
         self.backgroundColor = .white
     }
     

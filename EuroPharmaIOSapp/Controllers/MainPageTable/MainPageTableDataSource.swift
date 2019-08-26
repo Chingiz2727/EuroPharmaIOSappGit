@@ -27,7 +27,6 @@ extension MainPageTable:UITableViewDataSource,UICollectionViewDataSource {
         
         if indexPath.section == 2 {
             let foot = tableView.dequeueReusableCell(withIdentifier: MainPageIdentifiers().footerId) as! MainPageFooterTableViewCell
-            
             return foot
         }
         return UITableViewCell()
@@ -37,17 +36,15 @@ extension MainPageTable:UITableViewDataSource,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPageIdentifiers().itemReuseId, for: indexPath) as? ItemCell
         guard let collectionCell = cell,let ViewModule = ProductViewModel else {return UICollectionViewCell()}
-//        collectionCell.favourite.check()
         let cellViewModule = ViewModule.cellViewModule(forIndexPath: indexPath, section: collectionView.tag)
         collectionCell.layoutIfNeeded()
         collectionCell.layer.cornerRadius = 5
         collectionCell.viewModule = cellViewModule
-//        collectionCell.check()
         return collectionCell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
+        if section == 0 {
             return 0
         }
         if section == 1 {
@@ -56,9 +53,12 @@ extension MainPageTable:UITableViewDataSource,UICollectionViewDataSource {
         
         return 1
     }
+    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+     
         return 0
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var categoryLimit = Module.categoryModel[collectionView.tag].category_content.count
         if categoryLimit > 5 {
@@ -66,6 +66,7 @@ extension MainPageTable:UITableViewDataSource,UICollectionViewDataSource {
         }
         return categoryLimit
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3

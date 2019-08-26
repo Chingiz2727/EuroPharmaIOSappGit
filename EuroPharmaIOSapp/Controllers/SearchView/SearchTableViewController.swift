@@ -8,9 +8,11 @@
 
 import UIKit
 import SKActivityIndicatorView
-class SearchTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController,UISearchBarDelegate,DismissAndGo,UISearchControllerDelegate {
     let cellid = "cellid"
     let searcher = UITextField()
+    var content = SearchContentView()
+    var update : updateSearchTable?
     var ProductViewModel:CategoryModuleType?
     var Module = CategoryViewModule()
     var netwoking : NetworkManager!
@@ -30,7 +32,10 @@ class SearchTableViewController: UITableViewController {
         loadData()
         navigationController?.navigationBar.barTintColor = .custom_gray()
         navigationController?.title = "Каталог"
+        self.view.backgroundColor = .white()
+        self.tableView.backgroundColor = .white()
         self.tableView.tableFooterView = UIView()
+        addNavBarImage()
     }
     
     func loadData() {
@@ -51,9 +56,7 @@ class SearchTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
+ 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
@@ -63,16 +66,10 @@ class SearchTableViewController: UITableViewController {
         return Module.numofRows()
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        self.tableView.addSubview(searcher)
-        searcher.backgroundColor = .custom_green()
-        searcher.placeholder = "Введите название"
-        searcher.textAlignment = .center
-        return searcher
-    }
+   
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 54
     }
   
     
@@ -86,6 +83,80 @@ class SearchTableViewController: UITableViewController {
         return tablecell
     }
  
-
+    func DissMissAndGo(id: Int, title: String) {
+        content.removeFromSuperview()
+        addNavBarImage()
+        print(title)
+//        navigator?.detail(module: id, title: title)
+    }
+    
+    
+    
+    func addNavBarImage() {
+        let sc = UISearchController(searchResultsController: nil)
+        sc.delegate = self
+        let scb = sc.searchBar
+        sc.searchBar.delegate = self
+        sc.definesPresentationContext = true
+        definesPresentationContext = true
+        scb.tintColor = UIColor.white
+        scb.barTintColor = UIColor.white
+    
+        scb.placeholder = "Поиск по каталогу"
+        navigationItem.title = "Каталог"
+        if let textfield = scb.value(forKey: "searchField") as? UITextField {
+            textfield.textColor = UIColor.blue
+            if let backgroundview = textfield.subviews.first {
+                
+                // Background color
+                backgroundview.backgroundColor = UIColor.white
+                
+                // Rounded corner
+                backgroundview.layer.cornerRadius = 10;
+                backgroundview.clipsToBounds = true;
+                
+            }
+        }
+        
+        if let navigationbar = self.navigationController?.navigationBar {
+            navigationbar.barTintColor = .custom_gray()
+        }
+        navigationItem.searchController = sc
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        content.removeFromSuperview()
+        searchBar.endEditing(true)
+    }
+    
+    
+    public func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        self.view.addSubview(content)
+        content.snp.makeConstraints { (cons) in
+            cons.width.height.equalTo(self.view)
+        }
+        
+        return true
+    }
+    
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        content.removeFromSuperview()
+    }
+    
+    
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        update = content
+        content.dismissgo = self
+        update?.update(text: searchText)
+        
+        
+    }
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return true
+    }
+    
+    
+    
   
 }

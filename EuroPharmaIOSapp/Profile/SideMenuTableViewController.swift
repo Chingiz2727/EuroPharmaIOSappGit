@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SideMenu
 protocol reloadData {
     func reload()
 }
@@ -57,9 +56,7 @@ let cellid = "cellid"
         case 0:
             
             let head_profile = tableView.dequeueReusableCell(withIdentifier: headid) as! ProfileLoginTableViewCell
-//            head_profile.profile = go_profile
-//            head_profile.login_button.addTarget(self, action: #selector(goContent(sender:)), for: .touchUpInside)
-//            head_profile.register_button.addTarget(self, action: #selector(goContent(sender:)), for: .touchUpInside)
+//            head_profile.login_button.addTarget(self, action: #selector(head_profile.push), for: .touchUpInside)
             return head_profile
         default:
             return tableView.tableHeaderView
@@ -67,8 +64,8 @@ let cellid = "cellid"
     }
     
     @objc func go_profile() {
-        let profile = ProfileTableViewController()
-        profile.reload = self
+        let network = NetworkManager()
+        let profile = ProfileTableViewController(networkManager: network)
         self.navigationController?.pushViewController(profile, animated: true)
     }
     

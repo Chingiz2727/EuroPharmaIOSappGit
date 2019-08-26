@@ -7,22 +7,8 @@
 //
 
 import UIKit
-import IGListKit
-class CategoryContentModel:ListDiffable,Equatable {
-    static func == (lhs: CategoryContentModel, rhs: CategoryContentModel) -> Bool {
-        return lhs.isEqual(toDiffableObject: rhs)
-    }
-    
-    func diffIdentifier() -> NSObjectProtocol {
-        return self as! NSObjectProtocol
-    }
-    
-    func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
-        guard self !== object else { return true }
-        guard let object = object as? CategoryContentModel else { return false }
-        return category_content == object.category_content
-    }
-    
+class CategoryContentModel {
+   
     var title: String? = nil
     var type: String? = nil
     var old_price : Int? = nil

@@ -8,14 +8,32 @@
 
 import UIKit
 import SwipeMenuViewController
-class SwipeProfileViewController: SwipeMenuViewController {
-    let profile = ProfileTableViewController()
+import SKActivityIndicatorView
+class SwipeProfileViewController: SwipeMenuViewController,RemoveAtCell {
+    func removeAtItem(item: Int) {
+        DispatchQueue.main.async {
+            if item == 3 {
+                guard let tab = self.tabBarController as? UserTabBar else {return}
+                tab.Tab {
+                    print("changedItem")
+                        tab.selectProf()
+                }
+            }
+            else {
+                self.navigator?.navigate(id: item)
+                
+            }
+        }
+     
+        
+    }
+    
+    var navigator : NavigatorFromProfile?
+    let profile = ProfileTableViewController(networkManager: NetworkManager())
     let user = RegistrationViewController()
-
     
     override func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewControllerForPageAt index: Int) -> UIViewController {
         let controllers = [profile,user]
-        profile.pushing = push
         return controllers[index]
     }
     
@@ -29,17 +47,16 @@ class SwipeProfileViewController: SwipeMenuViewController {
     override func numberOfPages(in swipeMenuView: SwipeMenuView) -> Int {
         return 2
     }
-    
-    func push() {
-        self.navigationController?.pushViewController(BasketViewController(), animated: true)
-    }
+   
    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        profile.reload = self
         self.view.backgroundColor = .white
         options.tabView.style = .segmented
         swipeMenuView.reloadData(options: options)
+        navigator = NavigatorFromProfile(navigationController: self.navigationController!)
     }
     
    
@@ -48,4 +65,6 @@ class SwipeProfileViewController: SwipeMenuViewController {
 
 
 }
+
+
 

@@ -28,11 +28,11 @@ class AdressTableViewFooterCell: UITableViewCell {
         self.addSubview(button)
         button.snp.makeConstraints { (cons) in
             cons.left.right.top.bottom.equalTo(self).inset(13)
-            cons.height.equalTo(44)
+            cons.height.equalTo(43)
         }
         button.backgroundColor = .custom_green()
         button.setTitle("Добавить адрес", for: .normal)
-        button.layer.cornerRadius = 7
+        button.layer.cornerRadius = 4
         self.backgroundColor = .white
     }
     

@@ -8,15 +8,44 @@
 
 import UIKit
 import RealmSwift
-class BasketViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,RemoveAtCell {
-    let results = try! Realm().objects(BasketModule.self)
+class BasketViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,RemoveAtCell,BuyProductActions {
+    func remove() {
+        
+    }
+    
+    var count: Int = 0
+    
+    
+    var results = try! Realm().objects(BasketModule.self)
+    
+    
+    
 
     func removeAtItem(item: Int) {
         let realm = try! Realm()
-        
         try! realm.write {
             realm.delete(results[item])
             self.table.reloadData()
+ 
+        }
+    }
+    let emptyView = EmptyView()
+
+    func check(count:Int) {
+
+        if count == 0 {
+            self.view.addSubview(emptyView)
+            emptyView.addview()
+            emptyView.icon.image = #imageLiteral(resourceName: "корзина")
+            emptyView.title.text = "В корзине нет товаров"
+            emptyView.descript.text = "Перейдите в каталог, чтобы выбрать и заказать нужный товар"
+            emptyView.snp.makeConstraints { (cons) in
+                cons.edges.equalToSuperview()
+            }
+        }
+        else {
+           emptyView.remove()
+            
         }
     }
     
@@ -25,12 +54,15 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
     func notify() {
         
         token = results.observe(  { [weak self] (changes:RealmCollectionChange) in
+            self?.check(count: self?.results.count ?? 0)
             switch changes {
+            
             case.update(_, deletions: _, insertions:  _, modifications:  _):
-                self?.table.reloadData()
+                
                 print("objecssd")
             case .initial(_):
                 print("init")
+            
             case .error(let error):
                 print(error)
             }
@@ -56,7 +88,7 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
         case 0:
             return 130
         default:
-            return 440
+            return 350
         }
 //        return 130
     }
@@ -66,7 +98,16 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? BasketTableViewCell
             cell?.remove_item = self
+            let item = results[indexPath.row]
             cell?.item = results[indexPath.row]
+        
+            cell?.buy.write = WriteProduct(id: item.id, price: item.cost, name: item.name, img: item.img_url ?? "", manufacturer: item.manufacturer ?? "")
+            cell?.buy.count = item.count
+            cell?.buy.write?.Basket = item
+            cell?.buy.write?.tag = indexPath.row
+
+            cell?.buy.write?.remoatcell = self
+            cell?.buy.tag = indexPath.row
             return cell ?? UITableViewCell()
         default:
             let like = tableView.dequeueReusableCell(withIdentifier: likeid) as! MayBeULikeTableViewCell
@@ -87,16 +128,25 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
         switch section {
         case 0:
             let headd = tableView.dequeueReusableCell(withIdentifier: head) as! BasketTableViewHeader
-            
+            headd.backgroundColor = .white
             return headd
         default:
             return UIView()
         }
     
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.view.updateConstraints()
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.table.reloadData()
+        check(count: table.numberOfRows(inSection: 0))
+        
+
     }
   
     
@@ -116,7 +166,8 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
         table.register(MayBeULikeTableViewCell.self, forCellReuseIdentifier: likeid)
         navigator = MainPageTableNavigator(navigationController: self.navigationController!)
         navigationController?.navigationBar.barTintColor = .custom_gray()
-
+        table.backgroundColor = .white()
+        self.view.backgroundColor = .white()
     }
     override func loadView() {
         super.loadView()

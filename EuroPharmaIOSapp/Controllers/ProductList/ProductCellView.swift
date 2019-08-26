@@ -20,7 +20,7 @@ class ProductCellView:UIView {
     var BuyButton = InitBuy()
     lazy var stack = UIStackView()
    
-    
+    lazy var bot_stack = UIStackView()
     
     
     var id : Int = 0 {
@@ -29,18 +29,20 @@ class ProductCellView:UIView {
         }
     }
     
-    func addview2(){
+    func addview2() {
         product_image.contentMode = .scaleAspectFit
         addSubview(product_image)
         addSubview(favourite)
         favourite.snp.makeConstraints { (cons) in
-            cons.top.right.equalToSuperview().inset(10)
-            cons.width.height.equalTo(30)
+            cons.top.equalToSuperview().inset(10)
+            cons.right.equalToSuperview().inset(15)
+            cons.width.height.equalTo(21)
         }
         product_image.snp.makeConstraints { (cons) in
-            cons.top.equalTo(favourite.snp.bottom).offset(5)
+            cons.top.equalTo(self).inset(23)
             cons.left.right.equalTo(self).inset(10)
-            cons.height.equalTo(101)
+            cons.height.equalTo(94)
+            cons.width.equalTo(121)
         }
         
         name.numberOfLines = 2
@@ -51,36 +53,32 @@ class ProductCellView:UIView {
         price.textColor = .custom_gray()
         
         name.get_regular(size: 16)
-        company.get_regular(size: 16)
+        company.get_regular(size: 15)
         company.textColor = .custom_gray_text()
-        price.get_bold(size: 18)
+        price.get_bold(size: 16)
         
         stack.customStack(view: [name,company], distribution: .fill, spacing: 3)
         stack.axis = .vertical
         addSubview(stack)
-        self.addSubview(price)
-       
-        self.addSubview(BuyButton)
-        
-     
         stack.snp.makeConstraints { (cons) in
-            cons.top.equalTo(product_image.snp.bottom).offset(5)
-            cons.left.right.equalTo(self).inset(10)
-            //            cons.right.equalTo(like_button.snp.left).offset(5)
+            cons.top.equalTo(product_image.snp.bottom).offset(21)
+            cons.left.equalTo(self).inset(7)
+            cons.right.equalToSuperview().inset(9)
         }
-        price.snp.makeConstraints { (cons) in
-            cons.top.equalTo(stack.snp.bottom).offset(3)
-            cons.left.equalTo(self).inset(10)
-            cons.right.equalTo(BuyButton.snp.left).offset(5)
+        self.addSubview(bot_stack)
+        bot_stack.customStack(view: [price,BuyButton], distribution: .fillProportionally, spacing: 6)
+        bot_stack.axis = .horizontal
+        bot_stack.snp.makeConstraints { (cons) in
+            cons.left.right.equalTo(self).inset(10)
+            cons.top.equalTo(company.snp.bottom).offset(7)
+            cons.bottom.equalTo(self).inset(14)
+            cons.height.equalTo(33)
         }
         BuyButton.snp.makeConstraints { (cons) in
-            cons.right.equalTo(self).inset(3)
-            cons.centerY.equalTo(price)
-            cons.height.equalTo(40)
-            cons.width.equalTo(100)
-            cons.left.equalTo(price.snp.right).offset(10)
+            cons.width.equalTo(66)
         }
-        self.backgroundColor = .white
+     
+       
     }
     
     func addview(){
@@ -89,14 +87,16 @@ class ProductCellView:UIView {
         product_image.snp.makeConstraints { (cons) in
             cons.top.bottom.equalTo(self).inset(20)
             cons.left.equalTo(self).inset(10)
-            cons.width.equalTo(70)
-            cons.height.equalTo(101)
+            cons.width.equalTo(79)
+            cons.height.equalTo(61)
         }
         name.numberOfLines = 2
         addSubview(favourite)
         favourite.snp.makeConstraints { (cons) in
-            cons.top.right.equalToSuperview().inset(5)
-            cons.width.height.equalTo(30)
+            cons.top.equalToSuperview().inset(19)
+            cons.right.equalToSuperview().inset(15)
+            cons.width.equalTo(22)
+            cons.height.equalTo(20)
         }
         
         
@@ -104,11 +104,11 @@ class ProductCellView:UIView {
         price.textColor = .custom_gray()
         
         name.get_regular(size: 16)
-        company.get_regular(size: 16)
+        company.get_regular(size: 15)
         company.textColor = .custom_gray_text()
-        price.get_bold(size: 18)
+        price.get_bold(size: 16)
         
-        stack.customStack(view: [name,company], distribution: .fill, spacing: 3)
+        stack.customStack(view: [name,company], distribution: .fill, spacing: 2)
         stack.axis = .vertical
         addSubview(stack)
         self.addSubview(price)
@@ -116,22 +116,23 @@ class ProductCellView:UIView {
         stack.snp.makeConstraints { (cons) in
             cons.top.equalTo(self).inset(15)
             cons.left.equalTo(product_image.snp.right).offset(15)
-            cons.right.equalTo(favourite.snp.left).offset(5)
+            cons.right.equalTo(favourite.snp.left).offset(-15)
         }
         price.snp.makeConstraints { (cons) in
-            cons.top.equalTo(stack.snp.bottom).offset(3)
+            cons.top.equalTo(stack.snp.bottom).offset(12)
+            
             cons.left.equalTo(product_image.snp.right).offset(15)
+            
             
         }
         
         self.addSubview(BuyButton)
         
         BuyButton.snp.makeConstraints { (cons) in
-            cons.left.equalTo(price.snp.right).offset(20)
-            cons.right.equalTo(self).inset(20)
-            cons.height.equalTo(40)
-            cons.width.equalTo(100)
-            cons.centerY.equalTo(price)
+            cons.right.equalTo(self).inset(15)
+            cons.width.equalTo(99)
+            cons.bottom.equalTo(self).inset(16)
+            cons.height.equalTo(33)
         }
         
         price.draw(CGRect(x: 0, y: 0, width: 100, height: 30))
@@ -148,7 +149,9 @@ class ProductCellView:UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        self.backgroundColor = .white()
+        name.textColor = .custom_gray()
+        company.textColor = .custom_gray()
         
     }
     
@@ -157,11 +160,12 @@ class ProductCellView:UIView {
             guard  let viewModule = viewModule else {
                 return
             }
-            favourite.viewModule = viewModule
+            favourite.viewModule = FavModule(id: viewModule.id, img: viewModule.img_url, cost: viewModule.new_price, name: viewModule.title,manufacturer: viewModule.menufacturer)
 
             self.id = viewModule.id
             name.text = viewModule.title
             price.text = String(viewModule.new_price) + " ₸"
+            price.sizeToFit()
             company.text = viewModule.menufacturer
             BuyButton.write = WriteProduct(id: viewModule.id, price: viewModule.new_price, name: viewModule.title, img: viewModule.img_url,manufacturer: viewModule.menufacturer)
             product_image.loadImageWithUrl(URL(string: viewModule.img_url)!)

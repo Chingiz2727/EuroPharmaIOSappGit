@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import SwiftyStarRatingView
 import SDWebImage
 import RealmSwift
+
 class ItemCell: UICollectionViewCell {
     fileprivate var isCategory: Bool = true
     fileprivate var imageHeightRatio: CGFloat = 1
@@ -39,24 +39,15 @@ class ItemCell: UICollectionViewCell {
     
    
     
-    let star_rating : SwiftyStarRatingView = {
-       let star = SwiftyStarRatingView()
-        star.maximumValue = 5
-        star.minimumValue = 0
-        star.isUserInteractionEnabled = false
-        star.tintColor = .orange
-        star.allowsHalfStars = true
-        star.value = 4
-        return star
-    }()
-    
+   
     
     
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.black
         label.numberOfLines = 2
-        label.font = UIFont(name: "SegoeUI", size: 20)
+//        label.font = UIFont(name: "SegoeUI", size: 20)
+        label.get_regular(size: 20)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -66,7 +57,8 @@ class ItemCell: UICollectionViewCell {
         labele.textColor = .custom_gray()
         labele.numberOfLines = 0
         labele.textAlignment = .left
-        labele.font = UIFont(name: "SegoeUI", size: 22)
+//        labele.font = UIFont(name: "SegoeUI", size: 22)
+        labele.get_regular(size: 22)
         labele.sizeToFit()
 
         labele.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +71,8 @@ class ItemCell: UICollectionViewCell {
         labele.backgroundColor = .orange
         labele.numberOfLines = 0
         labele.textAlignment = .left
-        labele.font = UIFont(name: "SegoeUI", size: 13)
+//        labele.font = UIFont(name: "SegoeUI", size: 13)
+        labele.get_regular(size: 13)
         labele.sizeToFit()
         labele.translatesAutoresizingMaskIntoConstraints = false
         return labele
@@ -92,7 +85,8 @@ class ItemCell: UICollectionViewCell {
         labele.textColor = .black
         labele.numberOfLines = 0
         labele.textAlignment = .left
-        labele.font = UIFont(name: "SegoeUI", size: 13)
+//        labele.font = UIFont(name: "SegoeUI", size: 13)
+        labele.get_regular(size: 13)
         labele.frame = CGRect(x: 20, y: 20, width: 200, height: 800)
 
         labele.sizeToFit()
@@ -104,7 +98,9 @@ class ItemCell: UICollectionViewCell {
     let old_price : UILabel = {
         let labele = UILabel()
         labele.textColor = #colorLiteral(red: 0.7411764706, green: 0.7529411765, blue: 0.7607843137, alpha: 1)
-        labele.font = UIFont(name: "SegoeUI", size: 18)
+//        labele.font = UIFont(name: "SegoeUI", size: 18)
+        labele.get_regular(size: 13)
+        labele.textColor = .gray
         labele.numberOfLines = 0
         labele.sizeToFit()
         labele.textAlignment = .right
@@ -140,18 +136,21 @@ class ItemCell: UICollectionViewCell {
     func setupViews() {
         self.backgroundColor = .white
         
-        self.addSubview(favourite)
-        favourite.snp.makeConstraints { (cons) in
-            cons.width.height.equalTo(30)
-            cons.right.top.equalTo(self).inset(10)
-        }
+    
         clipsToBounds = true
     
         self.addSubview(mediaPoster)
         mediaPoster.snp.makeConstraints { (cons) in
-            cons.top.equalTo(favourite.snp.bottom).offset(5)
+            cons.top.equalTo(self).inset(26)
             cons.left.right.equalTo(self).inset(20)
-            cons.height.equalTo(100)
+            cons.height.equalTo(84)
+            cons.width.equalTo(120)
+        }
+        self.addSubview(favourite)
+        favourite.snp.makeConstraints { (cons) in
+            cons.width.height.equalTo(30)
+            cons.top.equalTo(self).inset(11)
+            cons.right.top.equalTo(self).inset(11)
         }
       
         self.addSubview(stack_cos)
@@ -165,14 +164,23 @@ class ItemCell: UICollectionViewCell {
        
         stack.snp.makeConstraints { (cons) in
             cons.left.right.equalTo(self).inset(15)
-            cons.top.equalTo(mediaPoster.snp.bottom).offset(3)
+            cons.right.equalTo(self).inset(40)
+            cons.top.equalTo(mediaPoster.snp.bottom).offset(17)
         }
+        titleLabel.get_regular(size: 15)
+        titleLabel.textColor = .custom_gray()
         stack_cos.snp.makeConstraints { (cons) in
-            cons.left.equalTo(self).inset(10)
-            cons.right.equalTo(self).inset(10)
-            cons.bottom.equalTo(self).inset(10)
+            cons.left.equalTo(self).inset(15)
+            cons.right.equalTo(self).inset(15)
+            cons.top.equalTo(titleLabel.snp.bottom).offset(7)
+            cons.bottom.equalTo(self).inset(15)
         }
-        price.font = UIFont.boldSystemFont(ofSize: 22)
+        stack_cos.layoutIfNeeded()
+        stack_cos.sizeToFit()
+        discount.get_regular(size: 13)
+        discount.textColor = .custom_gray()
+        price.get_bold(size: 15)
+        price.textColor = .custom_gray()
        
     }
     override func prepareForReuse() { //This prevents images/text etc being reused on another cell (wrong image/text displayed)
@@ -192,7 +200,7 @@ class ItemCell: UICollectionViewCell {
             guard  let viewModule = viewModule else {
                 return
             }
-            favourite.viewModule = viewModule
+            favourite.viewModule = FavModule(id: viewModule.id, img: viewModule.img_url, cost: viewModule.new_price, name: viewModule.title,manufacturer: viewModule.menufacturer)
             self.id = viewModule.id
             titleLabel.text = viewModule.title
             price.text = String(viewModule.new_price) + tg_sign

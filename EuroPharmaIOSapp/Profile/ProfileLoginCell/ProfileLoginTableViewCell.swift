@@ -10,8 +10,21 @@ import UIKit
 import RealmSwift
 import TextFieldEffects
 import SwiftPhoneNumberFormatter
-class ProfileLoginTableViewCell: UITableViewCell,UITextFieldDelegate {
+class ProfileLoginTableViewCell: UITableViewCell,UITextFieldDelegate,Logining {
+    var loginaction : (()->Void)?
+    var error_action : ((_ error: String)->())?
+    func login() {
+        network.MakeLogin(phone: phone.text!, password: password.text!) { (error) in
+            guard let error = error else {
+                self.loginaction?()
+                return
+            }
+            self.error_action?(error)
+        }
+    }
     
+    var network: NetworkManager!
+
     let title = UILabel()
     let phone : HoshiTextField = {
         let phone = HoshiTextField()
@@ -86,32 +99,35 @@ class ProfileLoginTableViewCell: UITableViewCell,UITextFieldDelegate {
     }
     override func prepareForReuse() {
         super.prepareForReuse()
-        phone.text = ""
-        password.text = ""
+     
     }
     
     let botview = UIView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        self.contentView.addSubview(stack)
          self.contentView.addSubview(stack)
         phone.delegate = self
-        
         password.delegate = self
         stack.snp.makeConstraints { (cons) in
             cons.left.right.equalTo(self.contentView).inset(25)
             cons.centerY.equalTo(self.contentView)
-            cons.height.equalTo(230)
             cons.bottom.equalTo(self.contentView).inset(15)
         }
+        phone.snp.makeConstraints { (cons) in
+            cons.height.equalTo(55)
+        }
+        password.snp.makeConstraints { (cons) in
+            cons.height.equalTo(55)
+        }
+        login_button.snp.makeConstraints { (cons) in
+            cons.height.equalTo(45)
+        }
+        login_button.isUserInteractionEnabled = true
+
         self.contentView.backgroundColor = .white
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return false
-    }
   
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -128,4 +144,11 @@ class ProfileLoginTableViewCell: UITableViewCell,UITextFieldDelegate {
         self.selectionStyle = .none
    
     }
+
+    
+        
+  
+    
+    
+    
 }

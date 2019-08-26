@@ -20,11 +20,15 @@ class CategoryListTableViewController: UITableViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellid)
         tableView.tableFooterView = UIView()
+        tableView.backgroundColor = .white()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath)
         cell.textLabel?.text = cat[indexPath.row].name ?? ""
+        cell.backgroundColor = .white()
+        cell.selectionStyle = .none
+        cell.textLabel?.textColor = .custom_gray()
         return cell
     }
     

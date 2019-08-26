@@ -17,6 +17,7 @@ class MainPageTableNavigator:Coordinator {
     var childCoordinators = [Coordinator]()
     
     var navigationController: UINavigationController
+    
     init(navigationController:UINavigationController) {
         self.navigationController = navigationController
     }
@@ -24,7 +25,9 @@ class MainPageTableNavigator:Coordinator {
    
     
     func list(item:[CategoryContentModel]) {
-        let list = ProducstListViewController()
+        let manager = NetworkManager()
+
+        let list = ProducstListViewController(networkManager: manager)
         list.item = item
         list.navigator = self
         
@@ -38,6 +41,15 @@ class MainPageTableNavigator:Coordinator {
         detail.title_name = title
         detail.navigator = self
         navigationController.pushViewController(detail, animated: true)
+    }
+    
+    func go_fromCategory(id:Int) {
+        let manager = NetworkManager()
+        let list = ProducstListViewController(networkManager: manager)
+        list.id = id
+        list.navigator = self
+        list.getData()
+        navigationController.pushViewController(list, animated: true)
     }
     
   @objc func main_page() {

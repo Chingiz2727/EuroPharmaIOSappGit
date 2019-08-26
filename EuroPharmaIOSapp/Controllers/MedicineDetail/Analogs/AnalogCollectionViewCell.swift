@@ -14,10 +14,8 @@ class AnalogCollectionViewCell: UICollectionViewCell {
     var company = UILabel()
     var price = UILabel()
     var like_button = UIButton()
-    var buy_button = UIButton()
-    var minus_button = UIButton()
-    var plus_button = UIButton()
-    var count_label = UILabel()
+    var buy_button = InitBuy()
+
     lazy var buy_stack = UIStackView()
     lazy var stack = UIStackView()
     func check()
@@ -40,19 +38,19 @@ class AnalogCollectionViewCell: UICollectionViewCell {
         addSubview(product_image)
         product_image.snp.makeConstraints { (cons) in
             cons.top.bottom.equalTo(self).inset(20)
-            cons.left.equalTo(self).inset(10)
-            cons.width.equalTo(70)
-            cons.height.equalTo(101)
+            
+            cons.left.equalTo(self).inset(12)
+            cons.width.height.equalTo(80)
         }
         name.numberOfLines = 2
         addSubview(like_button)
         like_button.snp.makeConstraints { (cons) in
-            cons.top.right.equalToSuperview().inset(5)
-            cons.width.height.equalTo(30)
+            cons.top.equalToSuperview().inset(5)
+            cons.right.equalToSuperview().inset(15)
+            cons.width.equalTo(22)
+            cons.height.equalTo(20)
         }
-        buy_button.setTitle("Купить", for: .normal)
-        buy_button.setTitleColor(.white, for: .normal)
-        buy_button.backgroundColor = #colorLiteral(red: 0.7725490196, green: 0.8901960784, blue: 0.09803921569, alpha: 1)
+      
         //        buy_button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15)
         addSubview(buy_button)
         
@@ -68,21 +66,21 @@ class AnalogCollectionViewCell: UICollectionViewCell {
         stack.axis = .vertical
         addSubview(stack)
         self.addSubview(price)
-        buy_button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 8, bottom: 5, right: 8)
         buy_button.layer.cornerRadius = 5
         buy_button.snp.makeConstraints { (cons) in
             cons.right.equalTo(self).inset(15)
-            cons.bottom.equalToSuperview().inset(15)
-            cons.width.equalTo(100)
+            cons.bottom.equalToSuperview().inset(30)
+            cons.width.equalTo(99)
+            cons.height.equalTo(33)
         }
         stack.snp.makeConstraints { (cons) in
             cons.top.equalTo(self).inset(15)
-            cons.left.equalTo(product_image.snp.right).offset(15)
-            cons.right.equalTo(like_button.snp.left).offset(5)
+            cons.left.equalTo(product_image.snp.right).offset(18)
+            cons.right.equalTo(like_button.snp.left).offset(45)
         }
         price.snp.makeConstraints { (cons) in
-            cons.top.equalTo(stack.snp.bottom).offset(3)
-            cons.left.equalTo(product_image.snp.right).offset(15)
+            cons.top.equalTo(stack.snp.bottom).offset(18)
+            cons.left.equalTo(product_image.snp.right).offset(18)
             
         }
         
@@ -91,7 +89,6 @@ class AnalogCollectionViewCell: UICollectionViewCell {
         price.draw(CGRect(x: 0, y: 0, width: 100, height: 30))
         like_button.addTarget(self, action: #selector(like), for: .touchUpInside)
         self.backgroundColor = .white
-        buy_button.addTarget(self, action: #selector(addbuyButton), for: .touchUpInside)
         
     }
     
@@ -110,6 +107,7 @@ class AnalogCollectionViewCell: UICollectionViewCell {
                 return
             }
             self.id = analog.id ?? 0
+            buy_button.write = WriteProduct(id: analog.id!, price: analog.price!, name:analog.name! , img: analog.img!, manufacturer: "")
             name.text = analog.name ?? ""
             price.text = String(analog.price ?? 0) + " ₸"
             product_image.loadImageWithUrl(URL(string: analog.img ?? "")!)
@@ -120,7 +118,7 @@ class AnalogCollectionViewCell: UICollectionViewCell {
         if (like_button.imageView?.image == UIImage(named: "333")) {
             
             remove_fav()
-        } else{
+        } else {
             
             add_toFav()
         }
@@ -167,30 +165,7 @@ class AnalogCollectionViewCell: UICollectionViewCell {
     }
     let buy_view = UIView()
     
-    @objc func addbuyButton(){
-        addSubview(buy_view)
-        buy_view.addSubview(buy_stack)
-        buy_view.layer.cornerRadius = 3
-        buy_view.layer.borderWidth = 1
-        buy_view.layer.borderColor = UIColor.custom_green().cgColor
-        buy_view.snp.makeConstraints { (cons) in
-            cons.top.right.bottom.left.equalTo(buy_stack).inset(0)
-        }
-        buy_stack.customStack(view: [minus_button,count_label,plus_button], distribution: .fillProportionally, spacing: 0)
-        buy_stack.axis = .horizontal
-        buy_button.removeFromSuperview()
-        minus_button.setTitle("-", for: .normal)
-        minus_button.setTitleColor(.custom_green(), for: .normal)
-        plus_button.setTitleColor(.custom_green(), for: .normal)
-        plus_button.setTitle("+", for: .normal)
-        count_label.text = "1"
-        count_label.textColor = .custom_green()
-        buy_stack.snp.makeConstraints { (cons) in
-            cons.right.equalTo(self).inset(15)
-            cons.bottom.equalTo(self).inset(15)
-            cons.width.equalTo(100)
-        }
-    }
+   
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

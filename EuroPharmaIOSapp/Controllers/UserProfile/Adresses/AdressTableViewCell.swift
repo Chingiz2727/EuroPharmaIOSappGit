@@ -36,13 +36,18 @@ class AdressTableViewCell: UITableViewCell {
         stack.customStack(view: [city,name], distribution: .fill, spacing: 5)
         stack.axis = .horizontal
         stack.snp.makeConstraints { (cons) in
-            cons.left.right.top.bottom.equalTo(self).inset(10)
+            cons.left.top.bottom.equalTo(self).inset(15)
+            cons.right.equalTo(self).inset(56)
         }
         name.numberOfLines = 0
         city.text = "Алматы"
         name.text = "пр. Аль Фараби 77/8, НП 7 здание Esentai mall, 2-й этаж"
-        name.CustomLabel(textAlignment: .left, color: .black, font: UIFont.init(name: "Arial", size: 16)!)
-        city.CustomLabel(textAlignment: .left, color: .custom_gray(), font: UIFont.init(name: "Arial", size: 14)!)
+        name.get_regular(size: 14)
+        name.textAlignment = .left
+        name.textColor = .custom_gray()
+        city.get_regular(size: 16)
+        city.textAlignment = .left
+        city.textColor = .custom_gray()
         name.numberOfLines = 0
         stack.sizeToFit()
         stack.layoutIfNeeded()

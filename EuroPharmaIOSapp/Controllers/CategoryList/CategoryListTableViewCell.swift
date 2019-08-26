@@ -52,7 +52,8 @@ class CategoryListTableViewCell: UICollectionViewCell {
             cons.left.equalTo(self).inset(0)
             cons.width.equalTo(15)
         }
-        self.backgroundColor = .white
+        self.backgroundColor = .white()
+        
         name.snp.makeConstraints { (cons) in
             cons.left.equalTo(view.snp.right).offset(5)
             cons.right.equalTo(self).inset(10)
@@ -61,6 +62,7 @@ class CategoryListTableViewCell: UICollectionViewCell {
         }
       
     }
+    
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         //Exhibit A - We need to cache our calculation to prevent a crash.
         setNeedsLayout()
