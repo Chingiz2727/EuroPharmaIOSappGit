@@ -56,6 +56,7 @@ class SwipeProfileViewController: SwipeMenuViewController,RemoveAtCell {
         self.view.backgroundColor = .white
         options.tabView.style = .segmented
         swipeMenuView.reloadData(options: options)
+        navigationController?.navigationBar.barTintColor = .custom_gray()
         navigator = NavigatorFromProfile(navigationController: self.navigationController!)
     }
     

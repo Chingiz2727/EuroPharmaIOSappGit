@@ -65,10 +65,12 @@ class EditPassCodeView: UIView,UITextFieldDelegate {
             cons.left.right.equalTo(self).inset(15)
             cons.height.equalTo(53)
         }
+        
         code_title.snp.makeConstraints { (cons) in
             cons.top.equalTo(re_new_pass.snp.bottom).offset(25)
             cons.left.equalTo(self).inset(15)
         }
+        
         code.snp.makeConstraints { (cons) in
             cons.top.equalTo(code_title.snp.bottom).offset(2)
             cons.left.equalTo(self).inset(15)

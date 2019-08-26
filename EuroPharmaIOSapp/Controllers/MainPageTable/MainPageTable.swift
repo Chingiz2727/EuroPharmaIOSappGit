@@ -22,10 +22,6 @@ class MainPageTable: UIViewController, UITableViewDelegate, UICollectionViewDele
     
     func removeAtItem(item: Int) {
         navigator?.go_fromCategory(id: item)
-//        let catlist = CategoryListTableViewController()
-//        catlist.id = String(item)
-//        catlist.getData()
-//        self.navigationController?.pushViewController(catlist, animated: true)
     }
     
     
@@ -91,7 +87,7 @@ var Module = MainPageProductViewModule()
                 }
             return cell
         }
-      return UIView()
+      return nil
     }
     
     override func viewDidAppear(_ animated: Bool) {

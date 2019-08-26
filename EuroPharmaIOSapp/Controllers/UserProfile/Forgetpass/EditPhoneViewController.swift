@@ -2,13 +2,13 @@
 
 import UIKit
 import SwiftPhoneNumberFormatter
-class EditPhoneViewController: UIViewController {
+class ForgetPassController: UIViewController {
     
-    var editPhone : EditPhoneView {return self.view as! EditPhoneView}
+    var editPhone : ForgetPassViews {return self.view as! ForgetPassViews}
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isTranslucent = false
-        editPhone.send_button.addTarget(self, action: #selector(go), for: .touchUpInside)
+//        editPhone.send_button.addTarget(self, action: #selector(go), for: .touchUpInside)
 
     }
     @objc func go() {
@@ -17,7 +17,7 @@ class EditPhoneViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        self.view = EditPhoneView(frame: self.view.bounds)
+        self.view = ForgetPassViews(frame: self.view.bounds)
     }
 
 }

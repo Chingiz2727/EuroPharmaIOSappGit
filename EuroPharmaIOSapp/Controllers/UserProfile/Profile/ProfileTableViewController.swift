@@ -57,6 +57,9 @@ let cellid = "cellid"
         head.login_button.addTarget(self, action: #selector(push), for: .touchUpInside)
         head.login_button.isUserInteractionEnabled = true
         logins = head
+        head.forget.isUserInteractionEnabled = true
+        let gest = UITapGestureRecognizer.init(target: self, action: #selector(forget))
+        head.forget.addGestureRecognizer(gest)
         head.loginaction = succes
         head.error_action = error
         return head.contentView
@@ -68,6 +71,9 @@ let cellid = "cellid"
         SKActivityIndicator.spinnerStyle(.spinningFadeCircle)
         logins?.login()
 //        self.reload?.removeAtItem(item: 3)
+    }
+  @objc  func forget() {
+        self.reload?.removeAtItem(item: 4)
     }
     func succes() {
         SKActivityIndicator.dismiss()

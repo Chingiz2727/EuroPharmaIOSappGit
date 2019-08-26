@@ -30,7 +30,7 @@ class ChooseCityView: UIView {
         img.contentMode = .scaleAspectFit
         title.textColor = #colorLiteral(red: 0.7411764706, green: 0.7529411765, blue: 0.7607843137, alpha: 1)
         title.text = "Выберите ваш регион"
-        title.get_regular(size: 14)
+        title.get_regular(size: 13)
         stack.customStack(view: [img,title,picker,button], distribution: .fill, spacing: 10)
         stack.axis = .vertical
         
@@ -41,13 +41,14 @@ class ChooseCityView: UIView {
             cons.centerY.equalTo(self)
         }
         img.snp.makeConstraints { (cons) in
-            cons.height.equalTo(90)
+            cons.height.equalTo(105)
+            cons.width.equalTo(195)
         }
         picker.snp.makeConstraints { (cons) in
-            cons.height.equalTo(100)
+            cons.height.equalTo(150)
         }
         button.snp.makeConstraints { (cons) in
-            cons.height.equalTo(40)
+            cons.height.equalTo(43)
         }
         
         button.backgroundColor = .gray
@@ -56,7 +57,7 @@ class ChooseCityView: UIView {
         
         
         title.textAlignment = .center
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 4
     }
     
     override init(frame: CGRect) {

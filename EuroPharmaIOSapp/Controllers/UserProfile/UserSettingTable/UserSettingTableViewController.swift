@@ -38,7 +38,8 @@ class UserSettingTableViewController: UITableViewController {
             case 0:
                 self.navigationController?.pushViewController(PersonalSettingViewController(), animated: true)
             case 1:
-                self.navigationController?.pushViewController(EditPhoneViewController(), animated: true)
+                break
+//                self.navigationController?.pushViewController(EditPhoneViewController(), animated: true)
             case 2:
                 self.navigationController?.pushViewController(EditPassViewController(), animated: true)
             case 3:

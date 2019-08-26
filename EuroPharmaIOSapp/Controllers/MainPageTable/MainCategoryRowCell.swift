@@ -100,7 +100,6 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
             cons.top.equalTo(self).offset(10)
             cons.left.right.equalTo(self).inset(0)
             cons.height.equalTo(230)
-//            cons.bottom.equalTo(self).inset(0)
         }
         titleLbl.snp.makeConstraints { (cons) in
             cons.left.right.equalTo(self).inset(10)

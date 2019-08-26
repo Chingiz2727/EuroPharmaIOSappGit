@@ -129,7 +129,7 @@ class EditPassView: UIView,UITextFieldDelegate {
     
     
     @objc func change_info() {
-        var checking = check()
+        let checking = check()
         if checking == true {
             change?()
         }

@@ -8,9 +8,7 @@
 
 import UIKit
 import SwiftPhoneNumberFormatter
-import RealmSwift
-class EditPhoneView: UIView {
-    var results = try! Realm().objects(UserData.self)
+class ForgetPassViews: UIView,UITextFieldDelegate {
 
     let title = UILabel()
     let phone_title = UILabel()
@@ -45,8 +43,6 @@ class EditPhoneView: UIView {
         title.textColor = .custom_gray()
         phone_title.get_regular(size: 15)
         phone_title.textColor = .gray
-        phone_textf.isUserInteractionEnabled = false
-        phone_textf.text = results.first?.phone!
         phone_textf.layer.borderWidth = 1
         phone_textf.layer.borderColor = UIColor.gray.cgColor
         phone_textf.layer.cornerRadius = 4
@@ -54,11 +50,53 @@ class EditPhoneView: UIView {
         send_button.backgroundColor = .custom_green()
         phone_textf.setLeftPaddingPoints(10)
         phone_textf.setLeftPaddingPoints(10)
+        phone_textf.delegate = self
         title.text = "Запрос на сброс пароля"
         phone_title.text = "Мобильный телефон"
         send_button.setTitle("Отправить", for: .normal)
+        phone_textf.keyboardType = .phonePad
         
     }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (textField == phone_textf) {
+            let newString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+            let components = newString.components(separatedBy: NSCharacterSet.decimalDigits.inverted)
+            let decimalString = components.joined(separator: "") as NSString
+            let length = decimalString.length
+            let hasLeadingOne = length > 0 && decimalString.hasPrefix("1")
+            if length == 0 || (length > 10 && !hasLeadingOne) || length > 11 {
+                let newLength = (textField.text! as NSString).length + (string as NSString).length - range.length as Int
+                
+                return (newLength > 10) ? false : true
+            }
+            var index = 0 as Int
+            let formattedString = NSMutableString()
+            if hasLeadingOne {
+                formattedString.append("1 ")
+                index += 1
+            }
+            if (length - index) > 3 {
+                let areaCode = decimalString.substring(with: NSMakeRange(index, 3))
+                formattedString.appendFormat("(%@)", areaCode)
+                index += 3
+            }
+            if length - index > 3 {
+                let prefix = decimalString.substring(with: NSMakeRange(index, 3))
+                formattedString.appendFormat("%@-", prefix)
+                index += 3
+            }
+            
+            let remainder = decimalString.substring(from: index)
+            formattedString.append(remainder)
+            textField.text = formattedString as String
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
+  
     
     override init(frame: CGRect) {
         super.init(frame: frame)
