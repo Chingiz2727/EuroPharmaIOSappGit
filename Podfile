@@ -19,7 +19,7 @@ pod 'RSSelectionMenu'
 pod 'SKActivityIndicatorView'
 pod 'SwipeMenuViewController'
 pod 'InstantSearch', '~> 4.0'
-
+pod 'SwipeViewController'
   target 'EuroPharmaIOSappTests' do
     inherit! :search_paths
     # Pods for testing

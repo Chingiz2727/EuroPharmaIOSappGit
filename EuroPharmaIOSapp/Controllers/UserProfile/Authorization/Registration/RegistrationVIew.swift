@@ -22,17 +22,11 @@ class RegistrationView: UIView,UITextFieldDelegate {
         return phone
     }()
     
-    let Email : HoshiTextField = {
-        let phone = HoshiTextField()
-        phone.placeholder = "Электронная почта"
-        phone.tintColor = .blue
-        phone.borderActiveColor = .custom_gray()
-        phone.borderInactiveColor = .custom_gray()
-        return phone
-    }()
     let phone : HoshiTextField = {
         let phone = HoshiTextField()
         phone.placeholder = "Мобильный телефон"
+        phone.borderActiveColor = .custom_gray()
+        phone.borderInactiveColor = .custom_gray()
         return phone
     }()
     
@@ -56,12 +50,11 @@ class RegistrationView: UIView,UITextFieldDelegate {
         login.setTitle("Создать акккаунт", for: .normal)
         login.setTitleColor(.white, for: .normal)
         login.backgroundColor = .custom_green()
-        login.layer.cornerRadius = 10
         return login
     }()
     
     lazy var stack : UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [Name,Email,phone,password,register])
+        let stack = UIStackView(arrangedSubviews: [Name,phone,password,register])
         stack.spacing = 15
         stack.axis = .vertical
         stack.distribution = .fillEqually
@@ -71,22 +64,73 @@ class RegistrationView: UIView,UITextFieldDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(stack)
-        self.addSubview(line)
-        line.backgroundColor = .custom_gray()
-        line.snp.makeConstraints { (cons) in
-            cons.bottom.left.right.equalTo(phone).inset(0)
-            cons.height.equalTo(0.5)
+       self.addSubViews(withList: [Name,phone,password,register])
+        Name.snp.makeConstraints { (cons) in
+            cons.left.right.equalToSuperview().inset(13)
+            cons.top.equalToSuperview().inset(16)
+            cons.height.equalTo(50)
         }
-        stack.snp.makeConstraints { (cons) in
-            cons.top.equalTo(self).inset(5)
-            cons.left.right.equalTo(self).inset(25)
-            cons.height.equalTo(330)
+        phone.snp.makeConstraints { (cons) in
+            cons.top.equalTo(Name.snp.bottom).offset(13)
+            cons.left.right.equalToSuperview().inset(13)
+            cons.height.equalTo(50)
         }
-        Email.keyboardType = .emailAddress
+        
+        password.snp.makeConstraints { (cons) in
+            cons.top.equalTo(phone.snp.bottom).offset(13)
+            cons.left.right.equalToSuperview().inset(13)
+            cons.height.equalTo(50)
+        }
+        register.snp.makeConstraints { (cons) in
+            cons.top.equalTo(password.snp.bottom).offset(13)
+            cons.left.right.equalToSuperview().inset(13)
+            cons.height.equalTo(43)
+        }
+        register.layer.cornerRadius = 4
         phone.keyboardType = .phonePad
-        self.backgroundColor = .white
+        phone.delegate = self
+        
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (textField == phone) {
+            let newString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+            let components = newString.components(separatedBy: NSCharacterSet.decimalDigits.inverted)
+            let decimalString = components.joined(separator: "") as NSString
+            let length = decimalString.length
+            let hasLeadingOne = length > 0 && decimalString.hasPrefix("1")
+            if length == 0 || (length > 10 && !hasLeadingOne) || length > 11 {
+                let newLength = (textField.text! as NSString).length + (string as NSString).length - range.length as Int
+                
+                return (newLength > 10) ? false : true
+            }
+            var index = 0 as Int
+            let formattedString = NSMutableString()
+            if hasLeadingOne {
+                formattedString.append("1 ")
+                index += 1
+            }
+            if (length - index) > 3 {
+                let areaCode = decimalString.substring(with: NSMakeRange(index, 3))
+                formattedString.appendFormat("(%@)", areaCode)
+                index += 3
+            }
+            if length - index > 3 {
+                let prefix = decimalString.substring(with: NSMakeRange(index, 3))
+                formattedString.appendFormat("%@-", prefix)
+                index += 3
+            }
+            
+            let remainder = decimalString.substring(from: index)
+            formattedString.append(remainder)
+            textField.text = formattedString as String
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

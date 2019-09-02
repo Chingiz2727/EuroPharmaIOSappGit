@@ -37,6 +37,7 @@ extension MedicineDetailTableViewController  {
             return head
         }
     }
+    
     @objc func toggleCollapse(sender: UIButton) {
         let section = sender.tag
         let collapsed = sections[section].collapsed
@@ -47,6 +48,8 @@ extension MedicineDetailTableViewController  {
  
         self.tableView.reloadData()
     }
+    
+    
   override  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0
@@ -74,12 +77,14 @@ extension MedicineDetailTableViewController  {
         return cell
         
     }
+    
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let back = UIView()
         self.view.addSubview(back)
-        back.backgroundColor = .white()
+        back.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.968627451, blue: 0.968627451, alpha: 1)
         return back
     }
+    
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 30
     }

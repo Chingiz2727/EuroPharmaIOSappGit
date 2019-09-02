@@ -539,11 +539,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EuroPharmaIOSapp/Controllers/UserProfile/Authorization/Login/LoginViewController.swift"
-            timestampString = "588163185.506945"
+            timestampString = "588678213.271752"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "logn()"
             landmarkType = "7">
          </BreakpointContent>
@@ -556,11 +556,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EuroPharmaIOSapp/Controllers/UserProfile/Authorization/Login/LoginViewController.swift"
-            timestampString = "588163185.518774"
+            timestampString = "588678213.271812"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "logn()"
             landmarkType = "7">
          </BreakpointContent>
@@ -573,11 +573,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EuroPharmaIOSapp/Controllers/UserProfile/Authorization/Login/LoginViewController.swift"
-            timestampString = "588163185.519986"
+            timestampString = "588678213.271855"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "logn()"
             landmarkType = "7">
          </BreakpointContent>
@@ -590,11 +590,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EuroPharmaIOSapp/Controllers/UserProfile/Authorization/Login/LoginViewController.swift"
-            timestampString = "588163185.520394"
+            timestampString = "588678213.271892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "logn()"
             landmarkType = "7">
          </BreakpointContent>
@@ -658,7 +658,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EuroPharmaIOSapp/Extensions/NavigationRouter/NavigationRouter.swift"
-            timestampString = "586353681.0107909"
+            timestampString = "588675046.458584"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -673,7 +673,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EuroPharmaIOSapp/Extensions/NetWorking/Manager/NetworkManager.swift"
-            timestampString = "588163185.521934"
+            timestampString = "588772730.885797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -690,7 +690,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EuroPharmaIOSapp/Extensions/NetWorking/Manager/NetworkManager.swift"
-            timestampString = "588163185.524057"
+            timestampString = "588772730.885927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
@@ -707,7 +707,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EuroPharmaIOSapp/Extensions/NetWorking/Manager/NetworkManager.swift"
-            timestampString = "588163185.525344"
+            timestampString = "588772730.885986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
@@ -724,7 +724,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EuroPharmaIOSapp/Extensions/NetWorking/Manager/NetworkManager.swift"
-            timestampString = "588163185.5272239"
+            timestampString = "588772730.8860559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
@@ -741,7 +741,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EuroPharmaIOSapp/Extensions/NetWorking/Manager/NetworkManager.swift"
-            timestampString = "588163185.528234"
+            timestampString = "588772730.886096"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
@@ -765,6 +765,38 @@
             endingLineNumber = "126"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EuroPharmaIOSapp.MainPageTable.__allocating_init(networkManager: EuroPharmaIOSapp.NetworkManager) -&gt; EuroPharmaIOSapp.MainPageTable"
+                  moduleName = "EuroPharmaIOSapp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyngyskuandyk/Library/Autosave%20Information/EuroPharmaIOSapp/EuroPharmaIOSapp/Controllers/MainPageTable/MainPageTable.swift"
+                  timestampString = "588766703.1827511"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EuroPharmaIOSapp.MainPageTable.init(networkManager: EuroPharmaIOSapp.NetworkManager) -&gt; EuroPharmaIOSapp.MainPageTable"
+                  moduleName = "EuroPharmaIOSapp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shyngyskuandyk/Library/Autosave%20Information/EuroPharmaIOSapp/EuroPharmaIOSapp/Controllers/MainPageTable/MainPageTable.swift"
+                  timestampString = "588766703.184508"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "41">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -893,7 +925,7 @@
                   moduleName = "EuroPharmaIOSapp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shyngyskuandyk/Library/Autosave%20Information/EuroPharmaIOSapp/EuroPharmaIOSapp/CustomView/BuyProductButton/WriteProductToBasket.swift"
-                  timestampString = "588226883.095787"
+                  timestampString = "588766703.212377"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "107"
@@ -908,7 +940,7 @@
                   moduleName = "EuroPharmaIOSapp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shyngyskuandyk/Library/Autosave%20Information/EuroPharmaIOSapp/EuroPharmaIOSapp/CustomView/BuyProductButton/WriteProductToBasket.swift"
-                  timestampString = "588226883.0993789"
+                  timestampString = "588766703.214069"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "108"
@@ -942,7 +974,7 @@
                   moduleName = "EuroPharmaIOSapp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shyngyskuandyk/Library/Autosave%20Information/EuroPharmaIOSapp/EuroPharmaIOSapp/CustomView/BuyProductButton/WriteProductToBasket.swift"
-                  timestampString = "588226883.1042"
+                  timestampString = "588766703.2191"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "47"
@@ -957,7 +989,7 @@
                   moduleName = "EuroPharmaIOSapp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shyngyskuandyk/Library/Autosave%20Information/EuroPharmaIOSapp/EuroPharmaIOSapp/CustomView/BuyProductButton/WriteProductToBasket.swift"
-                  timestampString = "588226883.106128"
+                  timestampString = "588766703.220818"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -1148,8 +1180,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "190"
             endingLineNumber = "190"
-            landmarkName = "getData()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

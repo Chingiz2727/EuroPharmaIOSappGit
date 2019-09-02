@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 class ProfilePageNavigator: Coordinator {
     var childCoordinators = [Coordinator]()
     
@@ -47,12 +48,34 @@ class ProfilePageNavigator: Coordinator {
             switch indexpath.row {
             case 0:
                 navigationController.pushViewController(UserSettingTableViewController(), animated: true)
+            case 2:
+                let realm = try! Realm()
+                try! realm.write {
+                    
+                    guard let tab = navigationController.tabBarController as? UserTabBar else {return}
+                        tab.Tab {
+                            let user = try! Realm().objects(UserData.self)
+                            
+                            realm.delete(user)
+                            tab.Tab {
+                                tab.selectProf()
+
+                            }
+
+                        }
+                     
+                    
+                    
+
+                }
             default:
                 break
             }
             
         case 2:
             switch indexpath.row {
+            case 0:
+                navigationController.pushViewController(MainPageGuideTableViewController(), animated: true)
             case 1:
                 navigationController.pushViewController(DepartmentAdressTableViewController(), animated: true)
             default:

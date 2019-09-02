@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		61B4613DB7AB1E0F00258774 /* Pods_EuroPharmaIOSappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 583A12145B708A4A67817497 /* Pods_EuroPharmaIOSappTests.framework */; };
 		A40870FE22DD731100668227 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40870FD22DD731100668227 /* Colors.swift */; };
 		A408710922DD9A4200668227 /* PostNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408710822DD9A4200668227 /* PostNetworking.swift */; };
 		A408710B22DDA33300668227 /* StoreModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408710A22DDA33300668227 /* StoreModule.swift */; };
@@ -22,7 +21,6 @@
 		A40E19A422FC434400167D67 /* MayBeULikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40E19A322FC434400167D67 /* MayBeULikeTableViewCell.swift */; };
 		A40E19A622FC435D00167D67 /* MayBeUlikeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40E19A522FC435D00167D67 /* MayBeUlikeCollectionViewCell.swift */; };
 		A41459C522DC76FC00B6F38B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459C422DC76FC00B6F38B /* AppDelegate.swift */; };
-		A41459C722DC76FC00B6F38B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459C622DC76FC00B6F38B /* ViewController.swift */; };
 		A41459CC22DC76FE00B6F38B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A41459CB22DC76FE00B6F38B /* Assets.xcassets */; };
 		A41459CF22DC76FE00B6F38B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A41459CD22DC76FE00B6F38B /* LaunchScreen.storyboard */; };
 		A41459DA22DC76FE00B6F38B /* EuroPharmaIOSappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41459D922DC76FE00B6F38B /* EuroPharmaIOSappTests.swift */; };
@@ -108,6 +106,12 @@
 		A42FA2B623016FFA001F4076 /* AdressTableViewFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42FA2B523016FFA001F4076 /* AdressTableViewFooterCell.swift */; };
 		A43E220422F92C8F00CDB39A /* ProdListTwoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43E220322F92C8F00CDB39A /* ProdListTwoCollectionViewCell.swift */; };
 		A43E220622F92E5600CDB39A /* TypeOfContetns.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43E220522F92E5600CDB39A /* TypeOfContetns.swift */; };
+		A44284512314EE2A00AB83F2 /* EuroGuideModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44284502314EE2A00AB83F2 /* EuroGuideModule.swift */; };
+		A44284532314EF7C00AB83F2 /* MainPageGuideTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44284522314EF7C00AB83F2 /* MainPageGuideTableViewController.swift */; };
+		A44284562314F1E100AB83F2 /* GuideDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44284552314F1E100AB83F2 /* GuideDetailTableViewController.swift */; };
+		A442845A2314F34400AB83F2 /* GuideDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44284592314F34400AB83F2 /* GuideDetailTableViewCell.swift */; };
+		A442845C2314F9C400AB83F2 /* GuidesModulee.swift in Sources */ = {isa = PBXBuildFile; fileRef = A442845B2314F9C400AB83F2 /* GuidesModulee.swift */; };
+		A442845F23151D5100AB83F2 /* ExpandedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A442845E23151D5100AB83F2 /* ExpandedTableViewController.swift */; };
 		A443882822F93CAF005EFF01 /* MedicineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443882722F93CAF005EFF01 /* MedicineTableViewCell.swift */; };
 		A443882A22F94312005EFF01 /* MedicineDetailSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443882922F94312005EFF01 /* MedicineDetailSource.swift */; };
 		A443882C22F94C18005EFF01 /* CollapsedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A443882B22F94C18005EFF01 /* CollapsedSection.swift */; };
@@ -127,6 +131,8 @@
 		A449451F22F3F82C00232761 /* CategoryViewCellViewModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A449451E22F3F82C00232761 /* CategoryViewCellViewModule.swift */; };
 		A449452222F3FA3A00232761 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A449452122F3FA3A00232761 /* CategoryTableViewCell.swift */; };
 		A44C5763230D4DE700AEE04B /* NavigatorFromProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44C5762230D4DE700AEE04B /* NavigatorFromProfile.swift */; };
+		A4526C1C231657800018A059 /* RegistrationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4526C1B231657800018A059 /* RegistrationCodeViewController.swift */; };
+		A4526C1E231657AC0018A059 /* RegistrationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4526C1D231657AC0018A059 /* RegistrationCodeView.swift */; };
 		A45346AC22F2AB940085A068 /* ProfilePageNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45346AB22F2AB940085A068 /* ProfilePageNavigator.swift */; };
 		A45346AE22F2B0110085A068 /* MainPageTableNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45346AD22F2B0110085A068 /* MainPageTableNavigator.swift */; };
 		A45346B022F2DB430085A068 /* MainPageTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45346AF22F2DB430085A068 /* MainPageTableDataSource.swift */; };
@@ -152,7 +158,6 @@
 		A488A4E3230E599D00105A30 /* ChooseCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488A4E2230E599D00105A30 /* ChooseCityViewController.swift */; };
 		A488A4E5230E59B700105A30 /* ChooseCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488A4E4230E59B700105A30 /* ChooseCityView.swift */; };
 		A488A4E7230E5F1000105A30 /* CityModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488A4E6230E5F1000105A30 /* CityModule.swift */; };
-		A488A4E9230EB21100105A30 /* QrReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488A4E8230EB21100105A30 /* QrReader.swift */; };
 		A4A4B0B622E720740016B903 /* SetupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4B0B522E720740016B903 /* SetupData.swift */; };
 		A4A4B0B822E729990016B903 /* MainCategoryRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4B0B722E729990016B903 /* MainCategoryRowCell.swift */; };
 		A4AF411122FD4E4A0036625D /* SwipeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AF411022FD4E4A0036625D /* SwipeProfileViewController.swift */; };
@@ -166,15 +171,15 @@
 		A4DB29E522F824FF00473120 /* ProductListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB29E422F824FF00473120 /* ProductListCollectionViewCell.swift */; };
 		A4DB29E722F82BB500473120 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB29E622F82BB500473120 /* CustomFont.swift */; };
 		A4DB29E922F844E600473120 /* ContentSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DB29E822F844E600473120 /* ContentSettingView.swift */; };
-		A4F0788C22FA922A001F9439 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0788B22FA922A001F9439 /* TestViewController.swift */; };
 		A4F0788F22FAA385001F9439 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0788E22FAA385001F9439 /* ProductViewController.swift */; };
 		A4F0789122FAA6B1001F9439 /* ProdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0789022FAA6B1001F9439 /* ProdViewController.swift */; };
 		A4F0789322FAA746001F9439 /* ProductInfoSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0789222FAA746001F9439 /* ProductInfoSectionController.swift */; };
 		A4F2E26322FD1BD600242FF2 /* AnalogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F2E26222FD1BD600242FF2 /* AnalogsViewController.swift */; };
 		A4F2E26622FD1E5E00242FF2 /* MedicineDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F2E26522FD1E5E00242FF2 /* MedicineDetailTableViewController.swift */; };
 		A4F2E26822FD364600242FF2 /* MakeOrderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F2E26722FD364600242FF2 /* MakeOrderDataSource.swift */; };
-		B4BFF53130DE830876D02278 /* Pods_EuroPharmaIOSapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0610DEDC99B13F285602303A /* Pods_EuroPharmaIOSapp.framework */; };
-		ED626F7DE3221AEC56BF7FE9 /* Pods_EuroPharmaIOSappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65FD78AFFAF629CC8AD84D2 /* Pods_EuroPharmaIOSappUITests.framework */; };
+		A73785CE5A1DD829AA407C74 /* Pods_EuroPharmaIOSappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07DA589045A9D4CD221424A /* Pods_EuroPharmaIOSappUITests.framework */; };
+		B8E8F914C49AFED570CCE70E /* Pods_EuroPharmaIOSapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC85C439601C17FD942242C /* Pods_EuroPharmaIOSapp.framework */; };
+		E4A3A2C61DCC793A22712D09 /* Pods_EuroPharmaIOSappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E3DFEAE3D410D3121255BBE /* Pods_EuroPharmaIOSappTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,11 +200,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0610DEDC99B13F285602303A /* Pods_EuroPharmaIOSapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EuroPharmaIOSapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		284D9123A4F79E38029737EB /* Pods-EuroPharmaIOSappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSappUITests.release.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSappUITests/Pods-EuroPharmaIOSappUITests.release.xcconfig"; sourceTree = "<group>"; };
-		4A63EEDB4FBE433A7A5243CA /* Pods-EuroPharmaIOSappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSappTests.debug.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSappTests/Pods-EuroPharmaIOSappTests.debug.xcconfig"; sourceTree = "<group>"; };
-		583A12145B708A4A67817497 /* Pods_EuroPharmaIOSappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EuroPharmaIOSappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A40914E3C0F0437DF812E5D /* Pods-EuroPharmaIOSappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSappUITests.debug.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSappUITests/Pods-EuroPharmaIOSappUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0556C49057639F2875DE1203 /* Pods-EuroPharmaIOSappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSappTests.debug.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSappTests/Pods-EuroPharmaIOSappTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1DC85C439601C17FD942242C /* Pods_EuroPharmaIOSapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EuroPharmaIOSapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		340657313C7723121B8C92A9 /* Pods-EuroPharmaIOSapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSapp.release.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp.release.xcconfig"; sourceTree = "<group>"; };
+		3E3DFEAE3D410D3121255BBE /* Pods_EuroPharmaIOSappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EuroPharmaIOSappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B03D8772EAAE96B53169A82 /* Pods-EuroPharmaIOSappUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSappUITests.release.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSappUITests/Pods-EuroPharmaIOSappUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7617AD25669F0B2EDC90A00D /* Pods-EuroPharmaIOSapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSapp.debug.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp.debug.xcconfig"; sourceTree = "<group>"; };
 		A40870FD22DD731100668227 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A408710822DD9A4200668227 /* PostNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworking.swift; sourceTree = "<group>"; };
 		A408710A22DDA33300668227 /* StoreModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModule.swift; sourceTree = "<group>"; };
@@ -215,7 +221,6 @@
 		A40E19A522FC435D00167D67 /* MayBeUlikeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MayBeUlikeCollectionViewCell.swift; sourceTree = "<group>"; };
 		A41459C122DC76FC00B6F38B /* EuroPharmaIOSapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EuroPharmaIOSapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A41459C422DC76FC00B6F38B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A41459C622DC76FC00B6F38B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A41459CB22DC76FE00B6F38B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A41459CE22DC76FE00B6F38B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A41459D022DC76FE00B6F38B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -306,6 +311,12 @@
 		A42FA2B523016FFA001F4076 /* AdressTableViewFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdressTableViewFooterCell.swift; sourceTree = "<group>"; };
 		A43E220322F92C8F00CDB39A /* ProdListTwoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdListTwoCollectionViewCell.swift; sourceTree = "<group>"; };
 		A43E220522F92E5600CDB39A /* TypeOfContetns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfContetns.swift; sourceTree = "<group>"; };
+		A44284502314EE2A00AB83F2 /* EuroGuideModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EuroGuideModule.swift; sourceTree = "<group>"; };
+		A44284522314EF7C00AB83F2 /* MainPageGuideTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageGuideTableViewController.swift; sourceTree = "<group>"; };
+		A44284552314F1E100AB83F2 /* GuideDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideDetailTableViewController.swift; sourceTree = "<group>"; };
+		A44284592314F34400AB83F2 /* GuideDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideDetailTableViewCell.swift; sourceTree = "<group>"; };
+		A442845B2314F9C400AB83F2 /* GuidesModulee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidesModulee.swift; sourceTree = "<group>"; };
+		A442845E23151D5100AB83F2 /* ExpandedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandedTableViewController.swift; sourceTree = "<group>"; };
 		A443882722F93CAF005EFF01 /* MedicineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineTableViewCell.swift; sourceTree = "<group>"; };
 		A443882922F94312005EFF01 /* MedicineDetailSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineDetailSource.swift; sourceTree = "<group>"; };
 		A443882B22F94C18005EFF01 /* CollapsedSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsedSection.swift; sourceTree = "<group>"; };
@@ -325,6 +336,8 @@
 		A449451E22F3F82C00232761 /* CategoryViewCellViewModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewCellViewModule.swift; sourceTree = "<group>"; };
 		A449452122F3FA3A00232761 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		A44C5762230D4DE700AEE04B /* NavigatorFromProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorFromProfile.swift; sourceTree = "<group>"; };
+		A4526C1B231657800018A059 /* RegistrationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegistrationCodeViewController.swift; path = "EuroPharmaIOSapp/Assets.xcassets/Vector-8.imageset/RegistrationCodeViewController.swift"; sourceTree = SOURCE_ROOT; };
+		A4526C1D231657AC0018A059 /* RegistrationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCodeView.swift; sourceTree = "<group>"; };
 		A45346AB22F2AB940085A068 /* ProfilePageNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageNavigator.swift; sourceTree = "<group>"; };
 		A45346AD22F2B0110085A068 /* MainPageTableNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageTableNavigator.swift; sourceTree = "<group>"; };
 		A45346AF22F2DB430085A068 /* MainPageTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageTableDataSource.swift; sourceTree = "<group>"; };
@@ -350,7 +363,6 @@
 		A488A4E2230E599D00105A30 /* ChooseCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCityViewController.swift; sourceTree = "<group>"; };
 		A488A4E4230E59B700105A30 /* ChooseCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCityView.swift; sourceTree = "<group>"; };
 		A488A4E6230E5F1000105A30 /* CityModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModule.swift; sourceTree = "<group>"; };
-		A488A4E8230EB21100105A30 /* QrReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrReader.swift; sourceTree = "<group>"; };
 		A4A4B0B522E720740016B903 /* SetupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupData.swift; sourceTree = "<group>"; };
 		A4A4B0B722E729990016B903 /* MainCategoryRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryRowCell.swift; sourceTree = "<group>"; };
 		A4AF411022FD4E4A0036625D /* SwipeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeProfileViewController.swift; sourceTree = "<group>"; };
@@ -365,17 +377,15 @@
 		A4DB29E422F824FF00473120 /* ProductListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCollectionViewCell.swift; sourceTree = "<group>"; };
 		A4DB29E622F82BB500473120 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		A4DB29E822F844E600473120 /* ContentSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSettingView.swift; sourceTree = "<group>"; };
-		A4F0788B22FA922A001F9439 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		A4F0788E22FAA385001F9439 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		A4F0789022FAA6B1001F9439 /* ProdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdViewController.swift; sourceTree = "<group>"; };
 		A4F0789222FAA746001F9439 /* ProductInfoSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoSectionController.swift; sourceTree = "<group>"; };
 		A4F2E26222FD1BD600242FF2 /* AnalogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogsViewController.swift; sourceTree = "<group>"; };
 		A4F2E26522FD1E5E00242FF2 /* MedicineDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineDetailTableViewController.swift; sourceTree = "<group>"; };
 		A4F2E26722FD364600242FF2 /* MakeOrderDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeOrderDataSource.swift; sourceTree = "<group>"; };
-		B1FD5B26F6D88691BFFEB894 /* Pods-EuroPharmaIOSapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSapp.debug.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp.debug.xcconfig"; sourceTree = "<group>"; };
-		C37207F36207E5465AD54804 /* Pods-EuroPharmaIOSappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSappTests.release.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSappTests/Pods-EuroPharmaIOSappTests.release.xcconfig"; sourceTree = "<group>"; };
-		E65FD78AFFAF629CC8AD84D2 /* Pods_EuroPharmaIOSappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EuroPharmaIOSappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0209E976D8D7B8F30E8340C /* Pods-EuroPharmaIOSapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSapp.release.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp.release.xcconfig"; sourceTree = "<group>"; };
+		B30D96BEA4F8250BD98E84E5 /* Pods-EuroPharmaIOSappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSappUITests.debug.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSappUITests/Pods-EuroPharmaIOSappUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C2F350FB202A492FAA274665 /* Pods-EuroPharmaIOSappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EuroPharmaIOSappTests.release.xcconfig"; path = "Target Support Files/Pods-EuroPharmaIOSappTests/Pods-EuroPharmaIOSappTests.release.xcconfig"; sourceTree = "<group>"; };
+		D07DA589045A9D4CD221424A /* Pods_EuroPharmaIOSappUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EuroPharmaIOSappUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,7 +393,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4BFF53130DE830876D02278 /* Pods_EuroPharmaIOSapp.framework in Frameworks */,
+				B8E8F914C49AFED570CCE70E /* Pods_EuroPharmaIOSapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +401,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61B4613DB7AB1E0F00258774 /* Pods_EuroPharmaIOSappTests.framework in Frameworks */,
+				E4A3A2C61DCC793A22712D09 /* Pods_EuroPharmaIOSappTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,19 +409,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED626F7DE3221AEC56BF7FE9 /* Pods_EuroPharmaIOSappUITests.framework in Frameworks */,
+				A73785CE5A1DD829AA407C74 /* Pods_EuroPharmaIOSappUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08A99CE1DF2955E076296339 /* Frameworks */ = {
+		7CDB19EF87DF08BBEF9E4B09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0610DEDC99B13F285602303A /* Pods_EuroPharmaIOSapp.framework */,
-				583A12145B708A4A67817497 /* Pods_EuroPharmaIOSappTests.framework */,
-				E65FD78AFFAF629CC8AD84D2 /* Pods_EuroPharmaIOSappUITests.framework */,
+				1DC85C439601C17FD942242C /* Pods_EuroPharmaIOSapp.framework */,
+				3E3DFEAE3D410D3121255BBE /* Pods_EuroPharmaIOSappTests.framework */,
+				D07DA589045A9D4CD221424A /* Pods_EuroPharmaIOSappUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -500,7 +510,7 @@
 				A41459E322DC76FE00B6F38B /* EuroPharmaIOSappUITests */,
 				A41459C222DC76FC00B6F38B /* Products */,
 				EC42161412A92235BCF64A5F /* Pods */,
-				08A99CE1DF2955E076296339 /* Frameworks */,
+				7CDB19EF87DF08BBEF9E4B09 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -518,9 +528,6 @@
 			isa = PBXGroup;
 			children = (
 				A41459C422DC76FC00B6F38B /* AppDelegate.swift */,
-				A41459C622DC76FC00B6F38B /* ViewController.swift */,
-				A4F0788B22FA922A001F9439 /* TestViewController.swift */,
-				A488A4E8230EB21100105A30 /* QrReader.swift */,
 				A443883622F98C0F005EFF01 /* CustomView */,
 				A4786BBF22E96F0D002BD835 /* Protocols */,
 				A40870FF22DD824D00668227 /* Controllers */,
@@ -732,6 +739,7 @@
 		A424626322E041D4007473C1 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				A442844F2314ED5200AB83F2 /* EuropharmaGuide */,
 				A488A4E1230E598500105A30 /* ChooseCity */,
 				A4BA2ACF230A742800C22DF7 /* MyOrderTableGroup */,
 				A42FA2AE23016450001F4076 /* OrderStatus */,
@@ -772,6 +780,8 @@
 			children = (
 				A424626B22E06208007473C1 /* RegistrationVIew.swift */,
 				A424626D22E06216007473C1 /* RegistrationViewController.swift */,
+				A4526C1B231657800018A059 /* RegistrationCodeViewController.swift */,
+				A4526C1D231657AC0018A059 /* RegistrationCodeView.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -927,6 +937,35 @@
 				A42FA2B1230164AB001F4076 /* OrderStatView.swift */,
 			);
 			path = OrderStatus;
+			sourceTree = "<group>";
+		};
+		A442844F2314ED5200AB83F2 /* EuropharmaGuide */ = {
+			isa = PBXGroup;
+			children = (
+				A442845D23151D2C00AB83F2 /* ExpandedGuideTableView */,
+				A44284542314F1C400AB83F2 /* GuideDetailTable */,
+				A44284502314EE2A00AB83F2 /* EuroGuideModule.swift */,
+				A44284522314EF7C00AB83F2 /* MainPageGuideTableViewController.swift */,
+				A442845B2314F9C400AB83F2 /* GuidesModulee.swift */,
+			);
+			path = EuropharmaGuide;
+			sourceTree = "<group>";
+		};
+		A44284542314F1C400AB83F2 /* GuideDetailTable */ = {
+			isa = PBXGroup;
+			children = (
+				A44284552314F1E100AB83F2 /* GuideDetailTableViewController.swift */,
+				A44284592314F34400AB83F2 /* GuideDetailTableViewCell.swift */,
+			);
+			path = GuideDetailTable;
+			sourceTree = "<group>";
+		};
+		A442845D23151D2C00AB83F2 /* ExpandedGuideTableView */ = {
+			isa = PBXGroup;
+			children = (
+				A442845E23151D5100AB83F2 /* ExpandedTableViewController.swift */,
+			);
+			path = ExpandedGuideTableView;
 			sourceTree = "<group>";
 		};
 		A443883322F975D9005EFF01 /* Analogs */ = {
@@ -1166,12 +1205,12 @@
 		EC42161412A92235BCF64A5F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B1FD5B26F6D88691BFFEB894 /* Pods-EuroPharmaIOSapp.debug.xcconfig */,
-				F0209E976D8D7B8F30E8340C /* Pods-EuroPharmaIOSapp.release.xcconfig */,
-				4A63EEDB4FBE433A7A5243CA /* Pods-EuroPharmaIOSappTests.debug.xcconfig */,
-				C37207F36207E5465AD54804 /* Pods-EuroPharmaIOSappTests.release.xcconfig */,
-				9A40914E3C0F0437DF812E5D /* Pods-EuroPharmaIOSappUITests.debug.xcconfig */,
-				284D9123A4F79E38029737EB /* Pods-EuroPharmaIOSappUITests.release.xcconfig */,
+				7617AD25669F0B2EDC90A00D /* Pods-EuroPharmaIOSapp.debug.xcconfig */,
+				340657313C7723121B8C92A9 /* Pods-EuroPharmaIOSapp.release.xcconfig */,
+				0556C49057639F2875DE1203 /* Pods-EuroPharmaIOSappTests.debug.xcconfig */,
+				C2F350FB202A492FAA274665 /* Pods-EuroPharmaIOSappTests.release.xcconfig */,
+				B30D96BEA4F8250BD98E84E5 /* Pods-EuroPharmaIOSappUITests.debug.xcconfig */,
+				4B03D8772EAAE96B53169A82 /* Pods-EuroPharmaIOSappUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1183,11 +1222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A41459E922DC76FE00B6F38B /* Build configuration list for PBXNativeTarget "EuroPharmaIOSapp" */;
 			buildPhases = (
-				1231333C7710413791A3D6E9 /* [CP] Check Pods Manifest.lock */,
+				71F07FF24AD93FF0BB766040 /* [CP] Check Pods Manifest.lock */,
 				A41459BD22DC76FC00B6F38B /* Sources */,
 				A41459BE22DC76FC00B6F38B /* Frameworks */,
 				A41459BF22DC76FC00B6F38B /* Resources */,
-				344530D9EB8394617FFE4404 /* [CP] Embed Pods Frameworks */,
+				77E54866BAE0B8CCC177AFC9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1202,7 +1241,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A41459EC22DC76FE00B6F38B /* Build configuration list for PBXNativeTarget "EuroPharmaIOSappTests" */;
 			buildPhases = (
-				CF88BF85431A411DD26FF0BD /* [CP] Check Pods Manifest.lock */,
+				A34A4FC25A3F9E31BED8A2FE /* [CP] Check Pods Manifest.lock */,
 				A41459D122DC76FE00B6F38B /* Sources */,
 				A41459D222DC76FE00B6F38B /* Frameworks */,
 				A41459D322DC76FE00B6F38B /* Resources */,
@@ -1221,7 +1260,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A41459EF22DC76FE00B6F38B /* Build configuration list for PBXNativeTarget "EuroPharmaIOSappUITests" */;
 			buildPhases = (
-				508C070DEA5EF82A392FDA95 /* [CP] Check Pods Manifest.lock */,
+				67216D7862FDF34B0ECD4DD9 /* [CP] Check Pods Manifest.lock */,
 				A41459DC22DC76FE00B6F38B /* Sources */,
 				A41459DD22DC76FE00B6F38B /* Frameworks */,
 				A41459DE22DC76FE00B6F38B /* Resources */,
@@ -1310,46 +1349,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1231333C7710413791A3D6E9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-EuroPharmaIOSapp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		344530D9EB8394617FFE4404 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		508C070DEA5EF82A392FDA95 /* [CP] Check Pods Manifest.lock */ = {
+		67216D7862FDF34B0ECD4DD9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1371,7 +1371,46 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CF88BF85431A411DD26FF0BD /* [CP] Check Pods Manifest.lock */ = {
+		71F07FF24AD93FF0BB766040 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EuroPharmaIOSapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77E54866BAE0B8CCC177AFC9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EuroPharmaIOSapp/Pods-EuroPharmaIOSapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A34A4FC25A3F9E31BED8A2FE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1403,6 +1442,7 @@
 				A40E199D22FBCFB300167D67 /* ProductCellView.swift in Sources */,
 				A443FDBB2302CADC0014F269 /* SearchModule.swift in Sources */,
 				A466633222E16A8300CA6AA4 /* EditPassViewController.swift in Sources */,
+				A442845A2314F34400AB83F2 /* GuideDetailTableViewCell.swift in Sources */,
 				A46E1ED6230A98B700807317 /* ImagesCollectionViewCell.swift in Sources */,
 				A424627522E066D9007473C1 /* LabelExtension.swift in Sources */,
 				A424626022E039B2007473C1 /* BasketViewController.swift in Sources */,
@@ -1411,11 +1451,10 @@
 				A424628C22E08D74007473C1 /* PersonalSettingView.swift in Sources */,
 				A449451222F3E7F000232761 /* EuroPharmaGuideViewController.swift in Sources */,
 				A488A4E7230E5F1000105A30 /* CityModule.swift in Sources */,
-				A41459C722DC76FC00B6F38B /* ViewController.swift in Sources */,
+				A4526C1C231657800018A059 /* RegistrationCodeViewController.swift in Sources */,
 				A42A630B22E6AB33007CED70 /* ProductCategoryTableCell.swift in Sources */,
 				A41AB23622EEB41700E769D0 /* URLParameterEncoder.swift in Sources */,
 				A4204F22230270880044E4C9 /* DepartMentHeadTableViewCell.swift in Sources */,
-				A4F0788C22FA922A001F9439 /* TestViewController.swift in Sources */,
 				A40870FE22DD731100668227 /* Colors.swift in Sources */,
 				A42CD47022EAADF100BF63E9 /* ProfileLoginTableViewCell.swift in Sources */,
 				A408711622DDC9F000668227 /* ImageDownloader.swift in Sources */,
@@ -1453,6 +1492,7 @@
 				A46E1EDE230AA51C00807317 /* MyOrdersOrdersTableViewCell.swift in Sources */,
 				A42A630D22E6AB5C007CED70 /* MainPageProductCollectionViewCell.swift in Sources */,
 				A42A630F22E6AB71007CED70 /* CategoryModel.swift in Sources */,
+				A44284562314F1E100AB83F2 /* GuideDetailTableViewController.swift in Sources */,
 				A443883B22F98E9D005EFF01 /* BuyProductActions.swift in Sources */,
 				A42CD47B22EAFE3900BF63E9 /* ProductViewCellModuleType.swift in Sources */,
 				A42A630922E6AB22007CED70 /* SelfSizedTableView.swift in Sources */,
@@ -1487,11 +1527,13 @@
 				A443883D22F99638005EFF01 /* WriteProductToBasket.swift in Sources */,
 				A466633F22E1973E00CA6AA4 /* SearchItemTableViewCell.swift in Sources */,
 				A443882C22F94C18005EFF01 /* CollapsedSection.swift in Sources */,
+				A442845F23151D5100AB83F2 /* ExpandedTableViewController.swift in Sources */,
 				A443883022F97115005EFF01 /* AnalogsCollectionVIew.swift in Sources */,
 				A46E1ED9230A9E5C00807317 /* MyOrdersDetailTableViewController.swift in Sources */,
 				A414E03922DF11C90007005F /* MedineCollectionViewController.swift in Sources */,
 				A40E19A422FC434400167D67 /* MayBeULikeTableViewCell.swift in Sources */,
 				A424627D22E0728A007473C1 /* ProfileHeaderTableViewCell.swift in Sources */,
+				A442845C2314F9C400AB83F2 /* GuidesModulee.swift in Sources */,
 				A41AB22222EEA78B00E769D0 /* Box.swift in Sources */,
 				A42FA2A623012CF6001F4076 /* UserProfileTableViewController.swift in Sources */,
 				A424626922E049AD007473C1 /* LoginViewController.swift in Sources */,
@@ -1527,6 +1569,7 @@
 				A4DB29E522F824FF00473120 /* ProductListCollectionViewCell.swift in Sources */,
 				A424628222E07E1E007473C1 /* UserSettingTableViewController.swift in Sources */,
 				A41AB21F22EE9ED900E769D0 /* DetailViewModel.swift in Sources */,
+				A44284512314EE2A00AB83F2 /* EuroGuideModule.swift in Sources */,
 				A414E03522DEEF4D0007005F /* FlowLayout.swift in Sources */,
 				A488A4E3230E599D00105A30 /* ChooseCityViewController.swift in Sources */,
 				A41AB22C22EEB2B700E769D0 /* HTTPHeaders.swift in Sources */,
@@ -1536,9 +1579,11 @@
 				A41AB22822EEB1BD00E769D0 /* HTTPMETHODS.swift in Sources */,
 				A41AB22A22EEB23400E769D0 /* HTTPTask.swift in Sources */,
 				A40E19A022FBEBE600167D67 /* AddtoFavouriteVieew.swift in Sources */,
+				A44284532314EF7C00AB83F2 /* MainPageGuideTableViewController.swift in Sources */,
 				A408711022DDC3C200668227 /* CategoryCollectionViewCell.swift in Sources */,
 				A41459FE22DC7DA400B6F38B /* SideMenuTableViewController.swift in Sources */,
 				A42FA2B623016FFA001F4076 /* AdressTableViewFooterCell.swift in Sources */,
+				A4526C1E231657AC0018A059 /* RegistrationCodeView.swift in Sources */,
 				A42FA2AD23016027001F4076 /* SaveProfileTableViewCell.swift in Sources */,
 				A42FA2AB230141BA001F4076 /* MyDataTableViewCell.swift in Sources */,
 				A414E03122DEDC460007005F /* CategoryListTableViewCell.swift in Sources */,
@@ -1556,7 +1601,6 @@
 				A449451622F3F67700232761 /* CategoryModuleType.swift in Sources */,
 				A449451F22F3F82C00232761 /* CategoryViewCellViewModule.swift in Sources */,
 				A41AB24422EEBE4B00E769D0 /* NetworkManager.swift in Sources */,
-				A488A4E9230EB21100105A30 /* QrReader.swift in Sources */,
 				A414E03322DEDED00007005F /* Endpoint.swift in Sources */,
 				A449452222F3FA3A00232761 /* CategoryTableViewCell.swift in Sources */,
 			);
@@ -1728,12 +1772,12 @@
 		};
 		A41459EA22DC76FE00B6F38B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1FD5B26F6D88691BFFEB894 /* Pods-EuroPharmaIOSapp.debug.xcconfig */;
+			baseConfigurationReference = 7617AD25669F0B2EDC90A00D /* Pods-EuroPharmaIOSapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KGL7D9XAQ6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EuroPharmaIOSapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1750,12 +1794,12 @@
 		};
 		A41459EB22DC76FE00B6F38B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0209E976D8D7B8F30E8340C /* Pods-EuroPharmaIOSapp.release.xcconfig */;
+			baseConfigurationReference = 340657313C7723121B8C92A9 /* Pods-EuroPharmaIOSapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KGL7D9XAQ6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = EuroPharmaIOSapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1771,7 +1815,7 @@
 		};
 		A41459ED22DC76FE00B6F38B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A63EEDB4FBE433A7A5243CA /* Pods-EuroPharmaIOSappTests.debug.xcconfig */;
+			baseConfigurationReference = 0556C49057639F2875DE1203 /* Pods-EuroPharmaIOSappTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1793,7 +1837,7 @@
 		};
 		A41459EE22DC76FE00B6F38B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C37207F36207E5465AD54804 /* Pods-EuroPharmaIOSappTests.release.xcconfig */;
+			baseConfigurationReference = C2F350FB202A492FAA274665 /* Pods-EuroPharmaIOSappTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1815,7 +1859,7 @@
 		};
 		A41459F022DC76FE00B6F38B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A40914E3C0F0437DF812E5D /* Pods-EuroPharmaIOSappUITests.debug.xcconfig */;
+			baseConfigurationReference = B30D96BEA4F8250BD98E84E5 /* Pods-EuroPharmaIOSappUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1836,7 +1880,7 @@
 		};
 		A41459F122DC76FE00B6F38B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 284D9123A4F79E38029737EB /* Pods-EuroPharmaIOSappUITests.release.xcconfig */;
+			baseConfigurationReference = 4B03D8772EAAE96B53169A82 /* Pods-EuroPharmaIOSappUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -12,22 +12,18 @@ class RegistrationViewController: UIViewController {
     var register : RegistrationView  {return self.view as! RegistrationView}
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        register.register.addTarget(self, action: #selector(go_code), for: .touchUpInside)
         // Do any additional setup after loading the view.
     }
     override func loadView() {
         super.loadView()
+        self.navigationController?.navigationBar.isHidden = true
         self.view = RegistrationView(frame: self.view.bounds)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @objc func go_code() {
+        self.navigationController?.pushViewController(RegistrationCodeViewController(), animated: true)
     }
-    */
+
 
 }

@@ -125,8 +125,8 @@ public extension ConstraintView {
         return self.snp.prepareConstraints(closure)
     }
     
-    @available(*, deprecated, message:"Use newer snp.* syntax.")
-    func snp_makeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
+    @available(*, deprecated:3.0, message:"Use newer snp.* syntax.")
+    public func snp_makeConstraints(_ closure: (_ make: ConstraintMaker) -> Void) {
         self.snp.makeConstraints(closure)
     }
     

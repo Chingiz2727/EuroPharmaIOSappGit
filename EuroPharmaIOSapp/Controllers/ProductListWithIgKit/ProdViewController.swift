@@ -1,9 +1,9 @@
 //
-//  QrReader.swift
+//  ProdViewController.swift
 //  EuroPharmaIOSapp
 //
-//  Created by Shyngys Kuandyk on 8/22/19.
+//  Created by Shyngys Kuandyk on 8/7/19.
 //  Copyright © 2019 Shyngys Kuandyk. All rights reserved.
 //
 
-import Foundation
+import UIKit

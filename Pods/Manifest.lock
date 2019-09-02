@@ -22,6 +22,7 @@ PODS:
   - SwiftPhoneNumberFormatter (1.5)
   - SwiftyJSON (4.3.0)
   - SwipeMenuViewController (3.0.0)
+  - SwipeViewController (2.0)
   - TextFieldEffects (1.6.0)
   - ZKCarousel (1.0.0)
 
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - SwiftPhoneNumberFormatter
   - SwiftyJSON (~> 4.0)
   - SwipeMenuViewController
+  - SwipeViewController
   - TextFieldEffects
   - ZKCarousel
 
@@ -56,6 +58,7 @@ SPEC REPOS:
     - SwiftPhoneNumberFormatter
     - SwiftyJSON
     - SwipeMenuViewController
+    - SwipeViewController
     - TextFieldEffects
     - ZKCarousel
 
@@ -74,9 +77,10 @@ SPEC CHECKSUMS:
   SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   SwipeMenuViewController: 572a6fcd7fa95c3d744c760d5e836896817c5735
+  SwipeViewController: 87ac3b72473f2caee7b84a7761c9367501fd557a
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
   ZKCarousel: 10d5d84fe490dca8e234e381d27e733a364d119c
 
-PODFILE CHECKSUM: 104a3c39323856c299b2bd21ff982f775ad04bf9
+PODFILE CHECKSUM: 97df2c75a74a339fc30118a6b4aba8ba0ab06478
 
 COCOAPODS: 1.7.5

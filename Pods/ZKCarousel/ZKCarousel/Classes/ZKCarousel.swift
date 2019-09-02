@@ -8,7 +8,6 @@
 
 import UIKit
 
-@available(iOS 11.0, *)
 final public class ZKCarousel: UIView, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
@@ -36,14 +35,11 @@ final public class ZKCarousel: UIView, UICollectionViewDelegateFlowLayout, UICol
         control.translatesAutoresizingMaskIntoConstraints = false
         return control
     }()
-            let columnLayout = ColumnFlowLayout(cellsPerRow: 1, cellheight: 260, cellwidth: 200, minimumInteritemSpacing: 20, minimumLineSpacing: 20, sectionInset: UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5))
     
     fileprivate lazy var collectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-
         layout.scrollDirection = .horizontal
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: columnLayout)
-        columnLayout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.delegate = self
         cv.dataSource = self
         cv.isPagingEnabled = true
@@ -77,7 +73,13 @@ final public class ZKCarousel: UIView, UICollectionViewDelegateFlowLayout, UICol
         
         self.collectionView.addGestureRecognizer(self.tapGesture)
         
-      
+        self.addSubview(pageControl)
+        NSLayoutConstraint(item: pageControl, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: 20).isActive = true
+        NSLayoutConstraint(item: pageControl, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: -20).isActive = true
+        NSLayoutConstraint(item: pageControl, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: -5).isActive = true
+        NSLayoutConstraint(item: pageControl, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 25).isActive = true
+        
+        self.bringSubviewToFront(pageControl)
     }
     
     @objc private func tapGestureHandler(tap: UITapGestureRecognizer?) {
@@ -120,8 +122,6 @@ final public class ZKCarousel: UIView, UICollectionViewDelegateFlowLayout, UICol
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "slideCell", for: indexPath) as! carouselCollectionViewCell
         cell.slide = self.slides[indexPath.item]
-        cell.layer.cornerRadius = 6
-        cell.layoutIfNeeded()
         return cell
     }
     
@@ -223,7 +223,6 @@ fileprivate class carouselCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint(item: self.titleLabel, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: -15).isActive = true
         NSLayoutConstraint(item: self.titleLabel, attribute: .bottom, relatedBy: .equal, toItem: self.descriptionLabel, attribute: .top, multiplier: 1.0, constant: 8).isActive = true
         NSLayoutConstraint(item: self.titleLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 43).isActive = true
-        
     }
     
     private func parseData(forSlide slide: ZKCarouselSlide) {
@@ -281,54 +280,12 @@ extension UIView {
 
 extension UIImageView {
     func addBlackGradientLayer(frame: CGRect){
-      
+        let gradient = CAGradientLayer()
+        gradient.frame = frame
+        gradient.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.8).cgColor]
+        gradient.locations = [0.0, 0.6]
+        self.layer.insertSublayer(gradient, at: 0)
     }
 }
 
 
-@available(iOS 11.0, *)
-@available(iOS 11.0, *)
-class ColumnFlowLayout: UICollectionViewFlowLayout {
-    
-    let cellsPerRow: Int
-    let cellheight : CGFloat
-    let cellwidth : CGFloat
-    var width : CGFloat?
-    init(cellsPerRow: Int, cellheight: CGFloat = 0 ,cellwidth:CGFloat = 0, minimumInteritemSpacing: CGFloat = 0, minimumLineSpacing: CGFloat = 0, sectionInset: UIEdgeInsets = .zero) {
-        self.cellsPerRow = cellsPerRow
-        self.cellheight = cellheight
-        self.cellwidth = cellwidth
-        super.init()
-        self.minimumInteritemSpacing = minimumInteritemSpacing
-        self.minimumLineSpacing = minimumLineSpacing
-        self.sectionInset = sectionInset
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func prepare() {
-        super.prepare()
-        
-        guard let collectionView = collectionView else { return }
-        let marginsAndInsets = sectionInset.left + sectionInset.right + collectionView.safeAreaInsets.left + collectionView.safeAreaInsets.right + minimumInteritemSpacing * CGFloat(cellsPerRow - 1)
-        let itemWidth = ((collectionView.bounds.size.width - marginsAndInsets) / CGFloat(cellsPerRow)).rounded(.down)
-        if self.cellwidth == 0 {
-            itemSize = CGSize(width: itemWidth, height: cellheight)
-        }
-        else {
-            self.width = itemWidth
-            itemSize = CGSize(width: cellwidth, height: cellheight)
-        }
-        
-    }
-    
-    override func invalidationContext(forBoundsChange newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext {
-        let context = super.invalidationContext(forBoundsChange: newBounds) as! UICollectionViewFlowLayoutInvalidationContext
-        context.invalidateFlowLayoutDelegateMetrics = newBounds.size != collectionView?.bounds.size
-        return context
-    }
-    
-}

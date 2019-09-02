@@ -22,7 +22,7 @@ class MainPageNavigator:Coordinator {
     func start() {
         guard (item.last?.id) != nil else {
             toCCity()
-            return}
+            return }
         toTab()
     }
     

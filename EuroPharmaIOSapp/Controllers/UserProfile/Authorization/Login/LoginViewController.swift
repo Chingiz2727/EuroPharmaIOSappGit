@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc func register() {
+        
         self.navigationController?.pushViewController(RegistrationViewController(), animated: true)
     }
     @objc func Forget() {
@@ -44,8 +45,10 @@ class LoginViewController: UIViewController {
                         data.id = user?.id ?? 0
                         try? realm?.write {
                             realm?.add(data)
-                            self.reload?.reload()
-                            self.navigationController?.popViewController(animated: true)
+                            guard let tab = self.tabBarController as? UserTabBar else {return}
+                            tab.Tab {
+                                tab.selectProf()
+                            }
                         }
                     }
                 })

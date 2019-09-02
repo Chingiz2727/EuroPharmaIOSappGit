@@ -7,15 +7,15 @@
 //
 
 import UIKit
-import SwipeMenuViewController
 import SKActivityIndicatorView
+import SwipeMenuViewController
 class SwipeProfileViewController: SwipeMenuViewController,RemoveAtCell {
+    let vc = SwipeMenuViewController()
     func removeAtItem(item: Int) {
         DispatchQueue.main.async {
             if item == 3 {
                 guard let tab = self.tabBarController as? UserTabBar else {return}
                 tab.Tab {
-                    print("changedItem")
                         tab.selectProf()
                 }
             }
@@ -27,11 +27,20 @@ class SwipeProfileViewController: SwipeMenuViewController,RemoveAtCell {
      
         
     }
+    let profile : UIViewController = {
+        let prof = ProfileTableViewController(networkManager: NetworkManager())
+        let nav = UINavigationController.init(rootViewController: prof)
+        return nav
+    }()
     
     var navigator : NavigatorFromProfile?
-    let profile = ProfileTableViewController(networkManager: NetworkManager())
-    let user = RegistrationViewController()
-    
+    let user : UIViewController = {
+        let prof = RegistrationViewController()
+        let nav = UINavigationController.init(rootViewController: prof)
+        
+        return nav
+        
+    }()
     override func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewControllerForPageAt index: Int) -> UIViewController {
         let controllers = [profile,user]
         return controllers[index]
@@ -52,12 +61,13 @@ class SwipeProfileViewController: SwipeMenuViewController,RemoveAtCell {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        profile.reload = self
+        options.tabView.itemView.clipsToBounds = true
         self.view.backgroundColor = .white
-        options.tabView.style = .segmented
-        swipeMenuView.reloadData(options: options)
         navigationController?.navigationBar.barTintColor = .custom_gray()
         navigator = NavigatorFromProfile(navigationController: self.navigationController!)
+        options.tabView.style = .segmented
+        swipeMenuView.reloadData(options: options)
+        
     }
     
    

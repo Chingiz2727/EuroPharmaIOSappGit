@@ -36,18 +36,17 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
                 let tabitem = tabItems[2]
                 
                 tabitem.badgeValue = "\(count)"
+                
                 tabitem.badgeColor = .custom_green2()
             }
         }
     }
+    
     let item = BasketModule()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Tab {
-            
-        }
-        
+     
     }
     lazy var networkManager = NetworkManager()
 
@@ -59,6 +58,7 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
         let nvController = UINavigationController(rootViewController: vc)
         return nvController
     }()
+    
     lazy var secondVC : UIViewController = {
         var vc = SearchTableViewController(networkin: networkManager)
         vc.tabBarItem = UITabBarItem(title: "Каталог", image: #imageLiteral(resourceName: "Group-2"), selectedImage: nil)
@@ -94,9 +94,15 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
         let nvController = UINavigationController(rootViewController: vc)
         return nvController
     }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-      
+        Tab {
+            
+        }
+        tabBar.tintColor = .black
+        tabBar.selectedItem?.badgeColor = .black
+        tabBar.barTintColor = .black
         self.navigationController?.navigationBar.isTranslucent = false
         let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 270, height: 30))
         let imageView = UIImageView(frame: CGRect(x: 0, y: -5, width: 270, height: 30))
@@ -152,7 +158,6 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
     }
     
     func Tab(completion:@escaping()->()) {
-     
      
         var tabbarlist = [firstVC,secondVC,thirdVC,fourthVC]
         if (user.first?.token) != nil {

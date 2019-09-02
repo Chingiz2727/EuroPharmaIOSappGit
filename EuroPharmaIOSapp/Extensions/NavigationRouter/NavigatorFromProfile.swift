@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 class NavigatorFromProfile: Coordinator {
     var childCoordinators = [Coordinator]()
-
-    var navigationController: UINavigationController
     
+    var navigationController: UINavigationController
+    var tab : UserTabBar?
     init(navigationController:UINavigationController) {
         self.navigationController = navigationController
     }
@@ -21,7 +21,15 @@ class NavigatorFromProfile: Coordinator {
         
     }
     
-   
+    func returnTab() {
+        guard let tab = tab else {return}
+        tab.Tab {
+            tab.Tab {
+                print("here")
+                tab.selectProf()
+            }
+        }
+    }
     
     
     func navigate(id:Int) {

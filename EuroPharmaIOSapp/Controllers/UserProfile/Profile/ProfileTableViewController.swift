@@ -12,6 +12,8 @@ import SKActivityIndicatorView
 class ProfileTableViewController: UITableViewController {
 let cellid = "cellid"
     var reload : RemoveAtCell?
+    var navigator : NavigatorFromProfile?
+
     let headerid = "headerid"
     let menu = ["Europharma гид","Адреса аптек","Город"]
     var network: NetworkManager!
@@ -30,6 +32,7 @@ let cellid = "cellid"
         tableView.register(SideMenuTableViewCell.self, forCellReuseIdentifier: cellid)
         tableView.register(ProfileLoginTableViewCell.self, forCellReuseIdentifier: headerid)
         tableView.tableFooterView = UIView()
+        navigationController?.navigationBar.isHidden = true
     }
     
 
@@ -74,13 +77,28 @@ let cellid = "cellid"
     }
   @objc  func forget() {
         self.reload?.removeAtItem(item: 4)
+    
     }
+    var window: UIWindow?
+
     func succes() {
         SKActivityIndicator.dismiss()
         
         DispatchQueue.main.async {
-            self.reload?.removeAtItem(item: 3)
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.makeKeyAndVisible()
+            let tab = UserTabBar()
+            tab.Tab {
+                tab.Tab {
+                    tab.selectProf()
+
+                }
+
+            }
+            self.window?.rootViewController = UINavigationController(rootViewController: tab)
+            
         }
+        
     }
     
     func error(error:String) {
