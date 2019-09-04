@@ -144,6 +144,7 @@ class InitBuy : UIView,BuyProductActions {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .custom_green()
         button.layer.cornerRadius = 3
+        button.titleLabel?.get_regular(size: 16)
         button.addTarget(self, action: #selector(add_count), for: .touchUpInside)
         return button
         

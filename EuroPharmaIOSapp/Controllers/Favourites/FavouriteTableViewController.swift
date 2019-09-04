@@ -20,6 +20,8 @@ class FavouriteTableViewController: UIViewController,UITableViewDelegate,UITable
         table.snp.makeConstraints { (cons) in
             cons.edges.equalToSuperview()
         }
+        emptyView.button.addTarget(self, action: #selector(change_cat), for: .touchUpInside)
+
         table.dataSource = self
         table.delegate = self
         table.register(FavouriteTableViewCell.self, forCellReuseIdentifier: cellid)
@@ -28,6 +30,14 @@ class FavouriteTableViewController: UIViewController,UITableViewDelegate,UITable
         notify()
 
     }
+    
+    @objc func change_cat() {
+        guard let tab = self.tabBarController as? UserTabBar else {
+            return
+        }
+        tab.selectedIndex = 1
+    }
+    
     var token: NotificationToken? = nil
     
     func notify() {

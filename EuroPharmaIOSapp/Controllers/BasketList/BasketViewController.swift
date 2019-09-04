@@ -30,7 +30,12 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
     }
     let emptyView = EmptyView()
-
+    @objc func change_cat() {
+        guard let tab = self.tabBarController as? UserTabBar else {
+            return
+        }
+        tab.selectedIndex = 1
+    }
     func check(count:Int) {
 
         if count == 0 {
@@ -113,6 +118,7 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
             let like = tableView.dequeueReusableCell(withIdentifier: likeid) as! MayBeULikeTableViewCell
             like.collectionView.delegate = self
             like.collectionView.dataSource = self
+            like.makeorderbutton.addTarget(self, action: #selector(goBuy), for: .touchUpInside)
             return like
         }
      
@@ -149,7 +155,9 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
 
     }
   
-    
+    @objc func goBuy() {
+        navigator?.goToPay()
+    }
  
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -168,6 +176,7 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
         navigationController?.navigationBar.barTintColor = .custom_gray()
         table.backgroundColor = .white()
         self.view.backgroundColor = .white()
+        emptyView.button.addTarget(self, action: #selector(change_cat), for: .touchUpInside)
     }
     override func loadView() {
         super.loadView()

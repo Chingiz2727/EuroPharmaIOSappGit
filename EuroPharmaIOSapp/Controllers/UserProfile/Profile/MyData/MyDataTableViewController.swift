@@ -7,46 +7,107 @@
 //
 
 import UIKit
+import RealmSwift
 
-class MyDataTableViewController: UITableViewController {
+class MyDataTableViewController: UITableViewController,UITextFieldDelegate {
 let cellid = "cellid"
     let footid = "footid"
-    let titles = ["Личная информация","Контактная информация"]
-    let placeholder = [["Имя","Пол","Город"],["Телефон","E-mail"]]
-    let item = [["Чингиз","Мужской","Алматы"],["+77477502321","k.chyngiz@gmail.com"]]
+   let headid = "headid"
+    var module = MyDataModule()
+    let item = ["Личная информация","Контактная информация"]
+    var results = try! Realm().objects(UserData.self)
+    var city_detail = try! Realm().objects(SavedCity.self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(MyDataTableViewCell.self, forCellReuseIdentifier: cellid)
         tableView.register(SaveProfileTableViewCell.self, forCellReuseIdentifier: footid)
+        tableView.register(MyDataLabelHead.self, forCellReuseIdentifier: headid)
         tableView.separatorStyle = .none
         tableView.tableHeaderView?.backgroundColor = .white()
         tableView.backgroundColor = .white()
-        
-        
     }
-
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let head = tableView.dequeueReusableCell(withIdentifier: headid) as! MyDataLabelHead
+        head.label_text.text = item[section]
+        return head
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return UserFullInfo.UserEphone.rawValue + 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return placeholder[section].count
+        guard let section = UserFullInfo(rawValue: section) else {return 0}
+        switch section {
+        case .userinfo:
+            return UserInfoEdit.city.rawValue + 1
+        case .UserEphone:
+            return UserInfoEphone.email.rawValue + 1
+        }
     }
 
   
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return titles[section]
-    }
+   
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as! MyDataTableViewCell
-        cell.textf.text = item[indexPath.section][indexPath.row]
-        cell.textf.placeholder = placeholder[indexPath.section][indexPath.row]
-        cell.backgroundColor = .white()
+        cell.textf.delegate = self
+        guard  let section = UserFullInfo(rawValue: indexPath.section) else {
+            return UITableViewCell() }
+        switch section {
+        case .userinfo:
+            let item = UserInfoEdit(rawValue: indexPath.row)
+            
+            switch item! {
+            case .name:
+                cell.textf.placeholder = "Имя"
+                cell.textf.text = results.first?.first_name ?? ""
+                cell.textf.tag = 0
+            case .gender:
+                cell.textf.placeholder = "Пол"
+                cell.textf.tag = 1
+
+            case .city:
+                cell.textf.placeholder = "Город"
+                cell.textf.tag = 2
+                
+                cell.textf.text = city_detail.first?.name ?? ""
+            }
+            
+            
+        case .UserEphone:
+            let item = UserInfoEphone(rawValue: indexPath.row)
+            switch item! {
+            case .email:
+                cell.textf.placeholder = "E-mail"
+                cell.textf.tag = 3
+
+            case .phone:
+                cell.textf.placeholder = "Телефон"
+                cell.textf.tag = 4
+                cell.textf.text = results.first?.phone ?? ""
+            }
+        }
+        
         return cell
     }
+    
+  
+    
+    @objc func send_data() {
+
+    }
+    
+    
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0
@@ -59,7 +120,7 @@ let cellid = "cellid"
 
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
      let foot = tableView.dequeueReusableCell(withIdentifier: footid) as! SaveProfileTableViewCell
-        
+        foot.button.addTarget(self, action: #selector(send_data), for: .touchUpInside)
         if section == 1 {
             return foot
         }
@@ -71,3 +132,23 @@ let cellid = "cellid"
     
     
 }
+
+
+
+enum UserInfoEdit:Int {
+    case name
+    case gender
+    case city
+}
+
+enum UserInfoEphone:Int {
+    case phone
+    case email
+}
+
+enum UserFullInfo:Int {
+    case userinfo
+    case UserEphone
+}
+
+

@@ -100,9 +100,9 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
         Tab {
             
         }
+        
         tabBar.tintColor = .black
         tabBar.selectedItem?.badgeColor = .black
-        tabBar.barTintColor = .black
         self.navigationController?.navigationBar.isTranslucent = false
         let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 270, height: 30))
         let imageView = UIImageView(frame: CGRect(x: 0, y: -5, width: 270, height: 30))
@@ -111,7 +111,6 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
         imageView.image = image
         logoContainer.addSubview(imageView)
         navigationController?.navigationItem.titleView = logoContainer
-         UINavigationController().navigationBar.barTintColor = .custom_gray()
         UINavigationController().navigationBar.isTranslucent = false
         UITabBar.appearance().barTintColor = UIColor.custom_white()
         UITabBar.appearance().itemPositioning = .fill
@@ -126,8 +125,10 @@ class UserTabBar: UITabBarController,UITabBarControllerDelegate {
         tabBar.isTranslucent = false
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = .custom_gray()
     }
+    
+    
+    
     
     func notify() {
         let results = try! Realm().objects(BasketModule.self)

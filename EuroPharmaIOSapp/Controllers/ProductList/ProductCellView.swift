@@ -75,7 +75,7 @@ class ProductCellView:UIView {
             cons.height.equalTo(33)
         }
         BuyButton.snp.makeConstraints { (cons) in
-            cons.width.equalTo(66)
+            cons.width.equalTo(99)
         }
      
        
@@ -134,6 +134,7 @@ class ProductCellView:UIView {
             cons.bottom.equalTo(self).inset(16)
             cons.height.equalTo(33)
         }
+        
         
         price.draw(CGRect(x: 0, y: 0, width: 100, height: 30))
         self.backgroundColor = .white

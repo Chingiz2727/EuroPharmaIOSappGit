@@ -11,7 +11,7 @@ import UIKit
 
 class UserProfileTableViewController: UITableViewController {
     
-    let items = [["Мои данные","Мои заказы","Статус заказа","Адрес доставки"],["Настройки","Помощь","Выход"],["Europharma гид","Адреса аптек"]]
+    let items = [["Мои данные","Мои заказы","Статус заказа","Адрес доставки"],["Настройки","Выход"],["Europharma гид","Адреса аптек"]]
     let headid = "headid"
     let cellid = "cellid"
     var navigator : ProfilePageNavigator?

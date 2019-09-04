@@ -36,10 +36,11 @@ class UserSettingTableViewController: UITableViewController {
      
             switch indexPath.row {
             case 0:
-                self.navigationController?.pushViewController(PersonalSettingViewController(), animated: true)
-            case 1:
                 break
-//                self.navigationController?.pushViewController(EditPhoneViewController(), animated: true)
+//                self.navigationController?.pushViewController(PersonalSettingViewController(), animated: true)
+            case 1:
+                
+                self.navigationController?.pushViewController(WritePhoneViewController(), animated: true)
             case 2:
                 self.navigationController?.pushViewController(EditPassViewController(), animated: true)
             case 3:
@@ -62,7 +63,13 @@ class UserSettingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as? SideMenuTableViewCell
-
+        switch indexPath.row {
+        case 0:
+            cell?.switcher.isHidden = false
+            cell?.road.isHidden = true
+        default:
+            break
+        }
         // Configure the cell...
         cell?.backgroundColor = .white
         cell?.menu.text = menu[indexPath.row]

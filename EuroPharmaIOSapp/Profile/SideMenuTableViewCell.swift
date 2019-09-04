@@ -45,6 +45,11 @@ class SideMenuTableViewCell: UITableViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
+    lazy var switcher : UISwitch = {
+        let switcer = UISwitch()
+        switcer.onTintColor = .custom_green()
+        return switcer
+    }()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -70,6 +75,14 @@ class SideMenuTableViewCell: UITableViewCell {
                 cons.width.height.equalTo(35)
             }
         }
+        self.addSubview(switcher)
+        switcher.snp.makeConstraints { (cons) in
+            cons.centerY.equalToSuperview()
+            cons.right.equalToSuperview().inset(16)
+            cons.width.equalTo(50)
+            cons.height.equalTo(30)
+        }
+        switcher.isHidden = true
       
         self.selectionStyle = .none
         self.backgroundColor = .clear

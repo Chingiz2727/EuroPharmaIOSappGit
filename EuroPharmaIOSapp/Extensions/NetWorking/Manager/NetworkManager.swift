@@ -119,11 +119,16 @@ struct NetworkManager {
                     }
                     
                     do {
-                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                        let apiResponse = try JSONDecoder().decode([ProductElement].self, from: responseData)
+                        let decoder = JSONDecoder()
+                        decoder.keyDecodingStrategy = .useDefaultKeys
+                        decoder.dataDecodingStrategy = .deferredToData
+                        
+                        let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .allowFragments)
+                        let apiResponse = try decoder.decode([ProductElement].self, from: responseData)
+                        print(jsonData)
                         completion(apiResponse,nil)
-                    }catch {
-                        print(error)
+                    }catch let err {
+                        print(err.localizedDescription)
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
                 case .failure(let networkFailureError):
@@ -243,12 +248,15 @@ struct NetworkManager {
                     }
                     
                     do {
+                        
                         print(responseData)
                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
                         print(jsonData)
                         let apiResponse = try JSONDecoder().decode(CityModule.self, from: responseData)
-                        completion(apiResponse,nil)
-                    }catch {
+                            completion(apiResponse,nil)
+                        
+                        
+                    } catch {
                         print(error)
                         completion(nil, NetworkResponse.unableToDecode.rawValue)
                     }
@@ -281,8 +289,12 @@ struct NetworkManager {
                         print(responseData)
                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
                         print(jsonData)
+                        
                         let apiResponse = try JSONDecoder().decode(Product.self, from: responseData)
-                        completion(apiResponse,nil)
+                        DispatchQueue.main.async {
+                            completion(apiResponse,nil)
+
+                        }
                     }catch {
                         print(error)
                         completion(nil, NetworkResponse.unableToDecode.rawValue)

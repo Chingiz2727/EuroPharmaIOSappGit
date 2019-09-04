@@ -28,11 +28,11 @@ class SaveProfileTableViewCell: UITableViewCell {
         self.addSubview(button)
         button.snp.makeConstraints { (cons) in
             cons.left.right.top.bottom.equalTo(self).inset(10)
-            cons.height.equalTo(50)
+            cons.height.equalTo(44)
         }
         button.backgroundColor = .custom_green()
         button.setTitle("Сохранить изменения", for: .normal)
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = 4
         self.backgroundColor = .white
     }
     

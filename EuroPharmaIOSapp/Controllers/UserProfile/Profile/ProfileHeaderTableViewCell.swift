@@ -44,7 +44,7 @@ class ProfileHeaderTableViewCell: UITableViewCell {
         stack.customStack(view: [name,phone], distribution: .equalSpacing, spacing: 5)
         stack.axis = .vertical
         photo.layer.cornerRadius = 18
-self.backgroundColor = .white
+        self.backgroundColor = .white
         photo.snp.makeConstraints { (cons) in
             cons.centerY.equalTo(self)
             cons.left.equalTo(self).inset(15)

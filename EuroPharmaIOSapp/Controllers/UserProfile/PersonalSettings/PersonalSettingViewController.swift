@@ -7,8 +7,9 @@
 //
 
 import UIKit
-
+import RealmSwift
 class PersonalSettingViewController: UIViewController {
+    
     var settings : PersonalSettingView {return self.view as! PersonalSettingView}
     override func viewDidLoad() {
         super.viewDidLoad()

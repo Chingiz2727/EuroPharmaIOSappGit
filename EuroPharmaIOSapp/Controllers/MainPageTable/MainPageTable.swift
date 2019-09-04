@@ -13,9 +13,8 @@ import RealmSwift
 import InstantSearchClient
 import InstantSearch
 
-class MainPageTable: UIViewController, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,RemoveAtCell {
-    var content = SearchContentView()
-    var update : updateSearchTable?
+class MainPageTable: SearchViewController, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,RemoveAtCell {
+   
 
     
     var networkManager: NetworkManager!
@@ -27,7 +26,6 @@ class MainPageTable: UIViewController, UITableViewDelegate, UICollectionViewDele
     
 var ProductViewModel:ProductViewModuleType?
 var Module = MainPageProductViewModule()
-    var navigator : MainPageTableNavigator?
     
  var tableView: SelfSizedTableView = {
     let table = SelfSizedTableView()
@@ -57,8 +55,15 @@ var Module = MainPageProductViewModule()
         self.SetupData()
         navigator = MainPageTableNavigator(navigationController: self.navigationController!)
         navigator?.navigationController.navigationBar.barTintColor = .custom_gray()
-        addNavBarImage()
         ProductViewModel = Module
+        let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 270, height: 30))
+
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 270, height: 30))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "ezgif.com-gif-maker")
+        imageView.image = image
+        logoContainer.addSubview(imageView)
+        navigationItem.titleView = logoContainer
     }
     
  

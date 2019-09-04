@@ -48,7 +48,7 @@ class ProfilePageNavigator: Coordinator {
             switch indexpath.row {
             case 0:
                 navigationController.pushViewController(UserSettingTableViewController(), animated: true)
-            case 2:
+            case 1:
                 let realm = try! Realm()
                 try! realm.write {
                     

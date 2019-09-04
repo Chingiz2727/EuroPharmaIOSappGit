@@ -153,6 +153,19 @@
 		A46E1EDE230AA51C00807317 /* MyOrdersOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E1EDD230AA51C00807317 /* MyOrdersOrdersTableViewCell.swift */; };
 		A46E1EE0230AACE100807317 /* MyOrdersDetailBottomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E1EDF230AACE100807317 /* MyOrdersDetailBottomTableViewCell.swift */; };
 		A46E1EE2230AC55000807317 /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E1EE1230AC55000807317 /* StatusTableViewCell.swift */; };
+		A4700441231E2E3B00D1CA21 /* MyDataModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4700440231E2E3B00D1CA21 /* MyDataModule.swift */; };
+		A4700444231E41F200D1CA21 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4700443231E41F200D1CA21 /* CheckBox.swift */; };
+		A4700447231E42A300D1CA21 /* MakePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4700446231E42A300D1CA21 /* MakePaymentViewController.swift */; };
+		A4700449231E42E300D1CA21 /* MakePaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4700448231E42E300D1CA21 /* MakePaymentView.swift */; };
+		A470044C231E458E00D1CA21 /* MakePaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470044B231E458E00D1CA21 /* MakePaymentTableViewCell.swift */; };
+		A470044E231E5A0A00D1CA21 /* PaymentModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470044D231E5A0A00D1CA21 /* PaymentModule.swift */; };
+		A4700450231E8BEE00D1CA21 /* MakePaymentTableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470044F231E8BEE00D1CA21 /* MakePaymentTableViewCell2.swift */; };
+		A4711EB2231D1B930031AE5A /* WritePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4711EB1231D1B930031AE5A /* WritePhoneViewController.swift */; };
+		A4711EB4231D1BB90031AE5A /* WritePhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4711EB3231D1BB90031AE5A /* WritePhoneView.swift */; };
+		A4711EB7231D20B00031AE5A /* WriteCodeToPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4711EB6231D20B00031AE5A /* WriteCodeToPhoneView.swift */; };
+		A4711EB9231D20BD0031AE5A /* WriteCodetoPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4711EB8231D20BD0031AE5A /* WriteCodetoPhoneViewController.swift */; };
+		A4711EBC231D21310031AE5A /* PassWordTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4711EBB231D21310031AE5A /* PassWordTextView.swift */; };
+		A4711EBE231D37850031AE5A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4711EBD231D37850031AE5A /* SearchViewController.swift */; };
 		A4786BBE22E9579C002BD835 /* BasketModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4786BBD22E9579C002BD835 /* BasketModule.swift */; };
 		A4786BC122E96F1B002BD835 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4786BC022E96F1B002BD835 /* File.swift */; };
 		A488A4E3230E599D00105A30 /* ChooseCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488A4E2230E599D00105A30 /* ChooseCityViewController.swift */; };
@@ -358,6 +371,19 @@
 		A46E1EDD230AA51C00807317 /* MyOrdersOrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersOrdersTableViewCell.swift; sourceTree = "<group>"; };
 		A46E1EDF230AACE100807317 /* MyOrdersDetailBottomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersDetailBottomTableViewCell.swift; sourceTree = "<group>"; };
 		A46E1EE1230AC55000807317 /* StatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
+		A4700440231E2E3B00D1CA21 /* MyDataModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataModule.swift; sourceTree = "<group>"; };
+		A4700443231E41F200D1CA21 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		A4700446231E42A300D1CA21 /* MakePaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePaymentViewController.swift; sourceTree = "<group>"; };
+		A4700448231E42E300D1CA21 /* MakePaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePaymentView.swift; sourceTree = "<group>"; };
+		A470044B231E458E00D1CA21 /* MakePaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePaymentTableViewCell.swift; sourceTree = "<group>"; };
+		A470044D231E5A0A00D1CA21 /* PaymentModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModule.swift; sourceTree = "<group>"; };
+		A470044F231E8BEE00D1CA21 /* MakePaymentTableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePaymentTableViewCell2.swift; sourceTree = "<group>"; };
+		A4711EB1231D1B930031AE5A /* WritePhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePhoneViewController.swift; sourceTree = "<group>"; };
+		A4711EB3231D1BB90031AE5A /* WritePhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePhoneView.swift; sourceTree = "<group>"; };
+		A4711EB6231D20B00031AE5A /* WriteCodeToPhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCodeToPhoneView.swift; sourceTree = "<group>"; };
+		A4711EB8231D20BD0031AE5A /* WriteCodetoPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCodetoPhoneViewController.swift; sourceTree = "<group>"; };
+		A4711EBB231D21310031AE5A /* PassWordTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassWordTextView.swift; sourceTree = "<group>"; };
+		A4711EBD231D37850031AE5A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A4786BBD22E9579C002BD835 /* BasketModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModule.swift; sourceTree = "<group>"; };
 		A4786BC022E96F1B002BD835 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		A488A4E2230E599D00105A30 /* ChooseCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCityViewController.swift; sourceTree = "<group>"; };
@@ -453,6 +479,7 @@
 				A424625822E02955007473C1 /* BasketList */,
 				A414E03622DF11AE0007005F /* MedicineList */,
 				A414E02D22DEDC070007005F /* CategoryList */,
+				A4711EBD231D37850031AE5A /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -726,6 +753,7 @@
 		A424625822E02955007473C1 /* BasketList */ = {
 			isa = PBXGroup;
 			children = (
+				A4700445231E428C00D1CA21 /* MakePayment */,
 				A4786BBC22E9578D002BD835 /* BasketModule */,
 				A424626122E039D3007473C1 /* MakeOrderButtonView.swift */,
 				A4F2E26722FD364600242FF2 /* MakeOrderDataSource.swift */,
@@ -739,6 +767,7 @@
 		A424626322E041D4007473C1 /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
+				A4711EB0231D1B600031AE5A /* EditPhoneNumbeer */,
 				A442844F2314ED5200AB83F2 /* EuropharmaGuide */,
 				A488A4E1230E598500105A30 /* ChooseCity */,
 				A4BA2ACF230A742800C22DF7 /* MyOrderTableGroup */,
@@ -925,6 +954,7 @@
 			children = (
 				A42FA2A8230141AE001F4076 /* MyDataTableViewController.swift */,
 				A42FA2AA230141BA001F4076 /* MyDataTableViewCell.swift */,
+				A4700440231E2E3B00D1CA21 /* MyDataModule.swift */,
 			);
 			path = MyData;
 			sourceTree = "<group>";
@@ -981,6 +1011,8 @@
 		A443883622F98C0F005EFF01 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				A4700442231E41E300D1CA21 /* CheckBox */,
+				A4711EBA231D21160031AE5A /* PassWordTextField */,
 				A45BA4A1230BF3AE00ECAF88 /* DetailBuyButton */,
 				A40E199E22FBEBD400167D67 /* AddtoFavourite */,
 				A443883922F98E8B005EFF01 /* BuyProductButton */,
@@ -1125,6 +1157,61 @@
 				A46E1EDD230AA51C00807317 /* MyOrdersOrdersTableViewCell.swift */,
 			);
 			path = MyOrdersDetailCells;
+			sourceTree = "<group>";
+		};
+		A4700442231E41E300D1CA21 /* CheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				A4700443231E41F200D1CA21 /* CheckBox.swift */,
+			);
+			path = CheckBox;
+			sourceTree = "<group>";
+		};
+		A4700445231E428C00D1CA21 /* MakePayment */ = {
+			isa = PBXGroup;
+			children = (
+				A470044A231E457700D1CA21 /* MakePaymentCheckBoxCell */,
+				A4700446231E42A300D1CA21 /* MakePaymentViewController.swift */,
+				A4700448231E42E300D1CA21 /* MakePaymentView.swift */,
+				A470044D231E5A0A00D1CA21 /* PaymentModule.swift */,
+			);
+			path = MakePayment;
+			sourceTree = "<group>";
+		};
+		A470044A231E457700D1CA21 /* MakePaymentCheckBoxCell */ = {
+			isa = PBXGroup;
+			children = (
+				A470044B231E458E00D1CA21 /* MakePaymentTableViewCell.swift */,
+				A470044F231E8BEE00D1CA21 /* MakePaymentTableViewCell2.swift */,
+			);
+			path = MakePaymentCheckBoxCell;
+			sourceTree = "<group>";
+		};
+		A4711EB0231D1B600031AE5A /* EditPhoneNumbeer */ = {
+			isa = PBXGroup;
+			children = (
+				A4711EB5231D20530031AE5A /* WriteCodeToPhone */,
+				A4711EB1231D1B930031AE5A /* WritePhoneViewController.swift */,
+				A4711EB3231D1BB90031AE5A /* WritePhoneView.swift */,
+			);
+			path = EditPhoneNumbeer;
+			sourceTree = "<group>";
+		};
+		A4711EB5231D20530031AE5A /* WriteCodeToPhone */ = {
+			isa = PBXGroup;
+			children = (
+				A4711EB6231D20B00031AE5A /* WriteCodeToPhoneView.swift */,
+				A4711EB8231D20BD0031AE5A /* WriteCodetoPhoneViewController.swift */,
+			);
+			path = WriteCodeToPhone;
+			sourceTree = "<group>";
+		};
+		A4711EBA231D21160031AE5A /* PassWordTextField */ = {
+			isa = PBXGroup;
+			children = (
+				A4711EBB231D21310031AE5A /* PassWordTextView.swift */,
+			);
+			path = PassWordTextField;
 			sourceTree = "<group>";
 		};
 		A4786BBC22E9578D002BD835 /* BasketModule */ = {
@@ -1440,6 +1527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A40E199D22FBCFB300167D67 /* ProductCellView.swift in Sources */,
+				A4700449231E42E300D1CA21 /* MakePaymentView.swift in Sources */,
 				A443FDBB2302CADC0014F269 /* SearchModule.swift in Sources */,
 				A466633222E16A8300CA6AA4 /* EditPassViewController.swift in Sources */,
 				A442845A2314F34400AB83F2 /* GuideDetailTableViewCell.swift in Sources */,
@@ -1459,6 +1547,7 @@
 				A42CD47022EAADF100BF63E9 /* ProfileLoginTableViewCell.swift in Sources */,
 				A408711622DDC9F000668227 /* ImageDownloader.swift in Sources */,
 				A4F0788F22FAA385001F9439 /* ProductViewController.swift in Sources */,
+				A4711EBE231D37850031AE5A /* SearchViewController.swift in Sources */,
 				A443FDB62302ACDA0014F269 /* SearchMedia.swift in Sources */,
 				A466633422E16A9200CA6AA4 /* EditPassView.swift in Sources */,
 				A424628722E08826007473C1 /* AdressTableViewCell.swift in Sources */,
@@ -1468,6 +1557,7 @@
 				A424626222E039D3007473C1 /* MakeOrderButtonView.swift in Sources */,
 				A4F0789122FAA6B1001F9439 /* ProdViewController.swift in Sources */,
 				A41AB25122EF018E00E769D0 /* ProductListView.swift in Sources */,
+				A4700450231E8BEE00D1CA21 /* MakePaymentTableViewCell2.swift in Sources */,
 				A41AB23A22EEB60400E769D0 /* NetworkRouter.swift in Sources */,
 				A4F2E26622FD1E5E00242FF2 /* MedicineDetailTableViewController.swift in Sources */,
 				A4BA2AD7230A756700C22DF7 /* MyOrdersTableViewCell.swift in Sources */,
@@ -1486,6 +1576,7 @@
 				A414E02822DECDB40007005F /* ShadowExtension.swift in Sources */,
 				A4AF411122FD4E4A0036625D /* SwipeProfileViewController.swift in Sources */,
 				A45BA4A3230BF40F00ECAF88 /* DetailBuyButton.swift in Sources */,
+				A4700441231E2E3B00D1CA21 /* MyDataModule.swift in Sources */,
 				A4A4B0B622E720740016B903 /* SetupData.swift in Sources */,
 				A424627122E06555007473C1 /* ForgetPassViewController.swift in Sources */,
 				A41459F722DC7A4300B6F38B /* UserTabBar.swift in Sources */,
@@ -1526,6 +1617,7 @@
 				A40DB2F022F04433000E8061 /* NavigationRouter.swift in Sources */,
 				A443883D22F99638005EFF01 /* WriteProductToBasket.swift in Sources */,
 				A466633F22E1973E00CA6AA4 /* SearchItemTableViewCell.swift in Sources */,
+				A4711EB2231D1B930031AE5A /* WritePhoneViewController.swift in Sources */,
 				A443882C22F94C18005EFF01 /* CollapsedSection.swift in Sources */,
 				A442845F23151D5100AB83F2 /* ExpandedTableViewController.swift in Sources */,
 				A443883022F97115005EFF01 /* AnalogsCollectionVIew.swift in Sources */,
@@ -1535,7 +1627,10 @@
 				A424627D22E0728A007473C1 /* ProfileHeaderTableViewCell.swift in Sources */,
 				A442845C2314F9C400AB83F2 /* GuidesModulee.swift in Sources */,
 				A41AB22222EEA78B00E769D0 /* Box.swift in Sources */,
+				A4711EB9231D20BD0031AE5A /* WriteCodetoPhoneViewController.swift in Sources */,
+				A4700444231E41F200D1CA21 /* CheckBox.swift in Sources */,
 				A42FA2A623012CF6001F4076 /* UserProfileTableViewController.swift in Sources */,
+				A4711EB7231D20B00031AE5A /* WriteCodeToPhoneView.swift in Sources */,
 				A424626922E049AD007473C1 /* LoginViewController.swift in Sources */,
 				A42FA2B2230164AB001F4076 /* OrderStatView.swift in Sources */,
 				A41AB23C22EEB6A900E769D0 /* Router.swift in Sources */,
@@ -1571,7 +1666,10 @@
 				A41AB21F22EE9ED900E769D0 /* DetailViewModel.swift in Sources */,
 				A44284512314EE2A00AB83F2 /* EuroGuideModule.swift in Sources */,
 				A414E03522DEEF4D0007005F /* FlowLayout.swift in Sources */,
+				A4711EB4231D1BB90031AE5A /* WritePhoneView.swift in Sources */,
+				A470044C231E458E00D1CA21 /* MakePaymentTableViewCell.swift in Sources */,
 				A488A4E3230E599D00105A30 /* ChooseCityViewController.swift in Sources */,
+				A4700447231E42A300D1CA21 /* MakePaymentViewController.swift in Sources */,
 				A41AB22C22EEB2B700E769D0 /* HTTPHeaders.swift in Sources */,
 				A45BA49E230BB0C700ECAF88 /* EmptyView.swift in Sources */,
 				A42CD47822EAF9C900BF63E9 /* MainPageModuleType.swift in Sources */,
@@ -1587,9 +1685,11 @@
 				A42FA2AD23016027001F4076 /* SaveProfileTableViewCell.swift in Sources */,
 				A42FA2AB230141BA001F4076 /* MyDataTableViewCell.swift in Sources */,
 				A414E03122DEDC460007005F /* CategoryListTableViewCell.swift in Sources */,
+				A4711EBC231D21310031AE5A /* PassWordTextView.swift in Sources */,
 				A41AB24C22EEF01600E769D0 /* MainPageIdentifiers.swift in Sources */,
 				A424628A22E08D64007473C1 /* PersonalSettingViewController.swift in Sources */,
 				A443882822F93CAF005EFF01 /* MedicineTableViewCell.swift in Sources */,
+				A470044E231E5A0A00D1CA21 /* PaymentModule.swift in Sources */,
 				A4786BBE22E9579C002BD835 /* BasketModule.swift in Sources */,
 				A41AB23822EEB56300E769D0 /* JSONParameterEncoder.swift in Sources */,
 				A44C5763230D4DE700AEE04B /* NavigatorFromProfile.swift in Sources */,
@@ -1777,7 +1877,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KGL7D9XAQ6;
 				INFOPLIST_FILE = EuroPharmaIOSapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1799,7 +1899,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KGL7D9XAQ6;
 				INFOPLIST_FILE = EuroPharmaIOSapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

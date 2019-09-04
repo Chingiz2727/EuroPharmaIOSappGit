@@ -51,7 +51,10 @@ class MainPageTableNavigator:Coordinator {
         list.getData()
         navigationController.pushViewController(list, animated: true)
     }
-    
+    func goToPay() {
+        let pay = MakePaymentViewController()
+        navigationController.pushViewController(pay, animated: true)
+    }
   @objc func main_page() {
     let manager = NetworkManager()
 

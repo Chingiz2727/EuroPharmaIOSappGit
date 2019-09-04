@@ -41,6 +41,7 @@ class SwipeProfileViewController: SwipeMenuViewController,RemoveAtCell {
         return nav
         
     }()
+    
     override func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewControllerForPageAt index: Int) -> UIViewController {
         let controllers = [profile,user]
         return controllers[index]

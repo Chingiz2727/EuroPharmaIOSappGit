@@ -8,13 +8,10 @@
 
 import UIKit
 import SKActivityIndicatorView
-class ProducstListViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,DismissAndGo,UISearchControllerDelegate,UISearchBarDelegate {
-    var content = SearchContentView()
-    var update : updateSearchTable?
+class ProducstListViewController: SearchViewController,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var ProductViewModel:ProductViewModuleType?
     var Module = MainPageProductViewModule()
-    var navigator : MainPageTableNavigator?
     var item = [CategoryContentModel]()
     var id : Int? = 0
     var ProdList : ProductListView  {return self.view as! ProductListView}
@@ -46,25 +43,19 @@ class ProducstListViewController: UIViewController,UICollectionViewDelegate, UIC
        
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       navigationController?.navigationBar.isTranslucent = false
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         ProdList.collectionView.delegate = self
         ProdList.collectionView.dataSource = self
-        addNavBarImage()
         
         ProdList.collectionView.register(ProductListCollectionViewCell.self, forCellWithReuseIdentifier: MainPageIdentifiers().itemReuseId)
         ProdList.collectionView.register(ProdListTwoCollectionViewCell.self, forCellWithReuseIdentifier: MainPageIdentifiers().newitemReuseId)
         ProductViewModel = Module
         Module.categoryModel = item
-        
-//        self.view.backgroundColor = .white()
-        
     }
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
-    
+  
+   
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let module = ProductViewModel , let navigat = navigator else {return}
       
@@ -78,73 +69,11 @@ class ProducstListViewController: UIViewController,UICollectionViewDelegate, UIC
         self.view = ProductListView(frame: self.view.bounds)
     }
     
-    func DissMissAndGo(id: Int, title: String) {
-        content.removeFromSuperview()
-        addNavBarImage()
-        navigator?.detail(module: id, title: title)
-    }
+
     
     
     
-    func addNavBarImage() {
-        let sc = UISearchController(searchResultsController: nil)
-        sc.delegate = self
-        let scb = sc.searchBar
-        sc.searchBar.delegate = self
-        sc.definesPresentationContext = true
-        definesPresentationContext = true
-        scb.tintColor = UIColor.white
-        scb.barTintColor = UIColor.white
-        
-        scb.placeholder = "Поиск по каталогу"
-        navigationItem.title = "Каталог"
-        if let textfield = scb.value(forKey: "searchField") as? UITextField {
-            textfield.textColor = UIColor.blue
-            if let backgroundview = textfield.subviews.first {
-                
-                // Background color
-                backgroundview.backgroundColor = UIColor.white
-                
-                // Rounded corner
-                backgroundview.layer.cornerRadius = 10;
-                backgroundview.clipsToBounds = true;
-                
-            }
-        }
-        
-        if let navigationbar = self.navigationController?.navigationBar {
-            navigationbar.barTintColor = .custom_gray()
-        }
-        navigationItem.searchController = sc
-        navigationItem.hidesSearchBarWhenScrolling = false
-    }
-    
-    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        content.removeFromSuperview()
-        searchBar.endEditing(true)
-    }
-    
-    
-    public func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        self.view.addSubview(content)
-        content.snp.makeConstraints { (cons) in
-            cons.width.height.equalTo(self.view)
-        }
-        
-        return true
-    }
-    
-    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        content.removeFromSuperview()
-    }
-    
-    
-    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        update = content
-        content.dismissgo = self
-        update?.update(text: searchText)
-        
-    }
+  
     var networking : NetworkManager!
     init(networkManager: NetworkManager) {
         super.init(nibName: nil, bundle: nil)
@@ -156,10 +85,11 @@ class ProducstListViewController: UIViewController,UICollectionViewDelegate, UIC
     }
     
     func getData() {
-        SKActivityIndicator.show()
         
         let view_white = UIView()
         self.view.addSubview(view_white)
+        SKActivityIndicator.show()
+
         view_white.backgroundColor = .white
         view_white.frame = self.view.bounds
         networking.getCatalog(id: id ?? 0) { (product, error) in
@@ -192,8 +122,6 @@ class ProducstListViewController: UIViewController,UICollectionViewDelegate, UIC
     }
     
     
-    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        return true
-    }
+   
     
 }
