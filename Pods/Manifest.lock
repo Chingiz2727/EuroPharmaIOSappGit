@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.8.2)
+  - Alamofire (4.9.0)
   - InstantSearch (4.0.0):
     - InstantSearch/UI (= 4.0.0)
   - InstantSearch/UI (4.0.0):
@@ -63,7 +63,7 @@ SPEC REPOS:
     - ZKCarousel
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   InstantSearch: 1f2ece050db0e23f74e69a06734a57501c67dedb
   InstantSearchClient: c9c1522c59f109514c6a37a7ec2a622e069ba56b
   InstantSearchCore: 2367211e88b682ad605603945620c984fd1fd8f1
