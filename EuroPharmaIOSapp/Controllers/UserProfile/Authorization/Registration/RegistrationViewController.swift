@@ -8,7 +8,19 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController, NavigateFromSwipeVC {
+    
+    var rootSwipeController: SwipeProfileViewController? = nil {
+        didSet {
+            swipeProfileVC = rootSwipeController
+        }
+    }
+    private var swipeProfileVC: SwipeProfileViewController?
+    
+    func navigateToUserProfilePage(item: Int) {
+        rootSwipeController?.goFromProfile(item: item)
+    }
+    
     var register : RegistrationView  {return self.view as! RegistrationView}
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +36,6 @@ class RegistrationViewController: UIViewController {
     @objc func go_code() {
         self.navigationController?.pushViewController(RegistrationCodeViewController(), animated: true)
     }
-
-
+    
+    
 }

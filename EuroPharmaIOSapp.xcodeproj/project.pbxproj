@@ -174,6 +174,8 @@
 		A4A41BE1231FAC8300075445 /* MakeLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A41BE0231FAC8300075445 /* MakeLogin.swift */; };
 		A4A41BE5231FAE2000075445 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A41BE4231FAE2000075445 /* SearchViewController.swift */; };
 		A4A41BE7231FAFCE00075445 /* AnalogsCollecrtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A41BE6231FAFCE00075445 /* AnalogsCollecrtionView.swift */; };
+		A4A41BE9231FB7C600075445 /* TelephoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A41BE8231FB7C600075445 /* TelephoneTextField.swift */; };
+		A4A41BEB231FB90D00075445 /* UserProfileNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A41BEA231FB90D00075445 /* UserProfileNavigator.swift */; };
 		A4A4B0B622E720740016B903 /* SetupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4B0B522E720740016B903 /* SetupData.swift */; };
 		A4A4B0B822E729990016B903 /* MainCategoryRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4B0B722E729990016B903 /* MainCategoryRowCell.swift */; };
 		A4AF411122FD4E4A0036625D /* SwipeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AF411022FD4E4A0036625D /* SwipeProfileViewController.swift */; };
@@ -394,6 +396,8 @@
 		A4A41BE0231FAC8300075445 /* MakeLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeLogin.swift; sourceTree = "<group>"; };
 		A4A41BE4231FAE2000075445 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A4A41BE6231FAFCE00075445 /* AnalogsCollecrtionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogsCollecrtionView.swift; sourceTree = "<group>"; };
+		A4A41BE8231FB7C600075445 /* TelephoneTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelephoneTextField.swift; sourceTree = "<group>"; };
+		A4A41BEA231FB90D00075445 /* UserProfileNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileNavigator.swift; sourceTree = "<group>"; };
 		A4A4B0B522E720740016B903 /* SetupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupData.swift; sourceTree = "<group>"; };
 		A4A4B0B722E729990016B903 /* MainCategoryRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryRowCell.swift; sourceTree = "<group>"; };
 		A4AF411022FD4E4A0036625D /* SwipeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeProfileViewController.swift; sourceTree = "<group>"; };
@@ -496,6 +500,7 @@
 			children = (
 				A40DB2EF22F04433000E8061 /* NavigationRouter.swift */,
 				A40DB2F122F04C99000E8061 /* MainPageNavigator.swift */,
+				A4A41BEA231FB90D00075445 /* UserProfileNavigator.swift */,
 				A45346AB22F2AB940085A068 /* ProfilePageNavigator.swift */,
 				A45346AD22F2B0110085A068 /* MainPageTableNavigator.swift */,
 				A44C5762230D4DE700AEE04B /* NavigatorFromProfile.swift */,
@@ -1010,6 +1015,7 @@
 				A40E199E22FBEBD400167D67 /* AddtoFavourite */,
 				A443883922F98E8B005EFF01 /* BuyProductButton */,
 				A45BA49D230BB0C700ECAF88 /* EmptyView.swift */,
+				A4A41BE8231FB7C600075445 /* TelephoneTextField.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -1537,6 +1543,7 @@
 				A46E1ED6230A98B700807317 /* ImagesCollectionViewCell.swift in Sources */,
 				A424627522E066D9007473C1 /* LabelExtension.swift in Sources */,
 				A424626022E039B2007473C1 /* BasketViewController.swift in Sources */,
+				A4A41BEB231FB90D00075445 /* UserProfileNavigator.swift in Sources */,
 				A41AB22522EEB0DE00E769D0 /* EndPointType.swift in Sources */,
 				A41AB21D22EE9E9000E769D0 /* DetailViewModelType.swift in Sources */,
 				A424628C22E08D74007473C1 /* PersonalSettingView.swift in Sources */,
@@ -1610,6 +1617,7 @@
 				A41459FB22DC7BD900B6F38B /* SideMenuTableViewCell.swift in Sources */,
 				A408710B22DDA33300668227 /* StoreModule.swift in Sources */,
 				A424629122E095C1007473C1 /* EditPhoneView.swift in Sources */,
+				A4A41BE9231FB7C600075445 /* TelephoneTextField.swift in Sources */,
 				A41459C522DC76FC00B6F38B /* AppDelegate.swift in Sources */,
 				A42FA2A9230141AE001F4076 /* MyDataTableViewController.swift in Sources */,
 				A424625C22E029F7007473C1 /* BasketTableViewCell.swift in Sources */,

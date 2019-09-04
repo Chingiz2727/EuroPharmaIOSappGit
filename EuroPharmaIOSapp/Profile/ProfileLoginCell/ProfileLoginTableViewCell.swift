@@ -33,8 +33,8 @@ class ProfileLoginTableViewCell: UITableViewCell,UITextFieldDelegate,Logining {
     var network: NetworkManager!
 
     let title = UILabel()
-    let phone : HoshiTextField = {
-        let phone = HoshiTextField()
+    let phone : TelephoneTextField = {
+        let phone = TelephoneTextField()
         phone.placeholder = "Телефон"
         phone.tintColor = .custom_gray()
         phone.textColor = .custom_gray()

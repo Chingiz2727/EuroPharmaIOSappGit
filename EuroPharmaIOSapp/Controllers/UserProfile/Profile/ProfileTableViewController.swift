@@ -9,15 +9,26 @@
 import UIKit
 import RealmSwift
 import SKActivityIndicatorView
-class ProfileTableViewController: UITableViewController {
-let cellid = "cellid"
-    var reload : RemoveAtCell?
-    var navigator : NavigatorFromProfile?
 
+class ProfileTableViewController: UITableViewController, NavigateFromSwipeVC {
+    
+    var rootSwipeController: SwipeProfileViewController? = nil {
+        didSet {
+            swipeProfileVC = rootSwipeController
+        }
+    }
+    private var swipeProfileVC: SwipeProfileViewController?
+    let cellid = "cellid"
+    var reload : RemoveAtCell?
     let headerid = "headerid"
     let menu = ["Europharma гид","Адреса аптек","Город"]
     var network: NetworkManager!
     var logins : Logining?
+    
+    func navigateToUserProfilePage(item: Int) {
+        rootSwipeController?.goFromProfile(item: item)
+    }
+    
     init(networkManager: NetworkManager) {
         super.init(nibName: nil, bundle: nil)
         self.network = networkManager
@@ -28,19 +39,20 @@ let cellid = "cellid"
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         tableView.register(SideMenuTableViewCell.self, forCellReuseIdentifier: cellid)
         tableView.register(ProfileLoginTableViewCell.self, forCellReuseIdentifier: headerid)
         tableView.tableFooterView = UIView()
         navigationController?.navigationBar.isHidden = true
+        
     }
     
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-  
-        reload?.removeAtItem(item: indexPath.row)
+        //swipeProfileVC!.goFromProfile(item: indexPath.row)
+        navigateToUserProfilePage(item: indexPath.row)
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -49,7 +61,7 @@ let cellid = "cellid"
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return menu.count
@@ -68,19 +80,19 @@ let cellid = "cellid"
         return head.contentView
     }
     
-
-   @objc func push() {
+    
+    @objc func push() {
         SKActivityIndicator.show("Загрузка")
         SKActivityIndicator.spinnerStyle(.spinningFadeCircle)
         logins?.login()
-//        self.reload?.removeAtItem(item: 3)
+        //        self.reload?.removeAtItem(item: 3)
     }
-  @objc  func forget() {
+    @objc  func forget() {
         self.reload?.removeAtItem(item: 4)
-    
+        
     }
     var window: UIWindow?
-
+    
     func succes() {
         SKActivityIndicator.dismiss()
         
@@ -91,9 +103,9 @@ let cellid = "cellid"
             tab.Tab {
                 tab.Tab {
                     tab.selectProf()
-
+                    
                 }
-
+                
             }
             self.window?.rootViewController = UINavigationController(rootViewController: tab)
             
@@ -103,11 +115,9 @@ let cellid = "cellid"
     
     func error(error:String) {
         SKActivityIndicator.dismiss()
-
         CustomAlert.customAlert.showalert(controller: self, text: "Ошибка", message: "Не правильный логин или пароль")
-        
     }
-
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
     }
@@ -117,11 +127,12 @@ let cellid = "cellid"
         cell?.menu.textColor = .custom_gray()
         cell?.imageView?.image = nil
         cell?.menu.text = menu[indexPath.row]
-
+        
         return cell ?? UITableViewCell()
     }
     
 }
+
 protocol Logining {
     func login()
 }

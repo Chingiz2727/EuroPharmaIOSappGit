@@ -67,5 +67,6 @@ class MainPageTableNavigator:Coordinator {
         detail.id = id
         detail.navigator = self
         navigationController.pushViewController(detail, animated: true)
+
     }
 }

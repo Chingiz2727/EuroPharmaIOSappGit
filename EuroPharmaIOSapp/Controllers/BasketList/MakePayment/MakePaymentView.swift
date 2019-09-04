@@ -44,33 +44,31 @@ class MakePaymentView: UIView,UITableViewDataSource,UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         guard let it = PayMentSection(rawValue: indexPath.section) else {return}
         switch it {
         case .delivering:
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellid) as! MakePaymentTableViewCell
-            cell.checkBox.isChecked = true
-            cell.accessoryType = .checkmark
-        case .ordering:
-            let cell2 = tableView.dequeueReusableCell(withIdentifier: cellid2) as! MakePaymentTableViewCell2
-            cell2.checkBox.isChecked = true
+            let cell = tableView.cellForRow(at: indexPath) as? MakePaymentTableViewCell
+            cell?.checkBox.isChecked = true
+            cell?.accessoryType = .checkmark
             
+        case .ordering:
+            let cell2 = tableView.cellForRow(at: indexPath) as? MakePaymentTableViewCell2
+            cell2!.checkBox.isChecked = true
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         guard let it = PayMentSection(rawValue: indexPath.section) else {return}
         switch it {
         case .delivering:
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellid) as! MakePaymentTableViewCell
-          cell.checkBox.isChecked = false
-            cell.accessoryType = .none
-        case .ordering:
-            let cell2 = tableView.dequeueReusableCell(withIdentifier: cellid2) as! MakePaymentTableViewCell2
-          cell2.checkBox.isChecked = false
+            let cell = tableView.cellForRow(at: indexPath) as? MakePaymentTableViewCell
+            cell!.checkBox.isChecked = false
+            cell!.accessoryType = .none
             
-            cell2.accessoryType = .none
+        case .ordering:
+            let cell2 = tableView.cellForRow(at: indexPath) as? MakePaymentTableViewCell2
+            cell2!.checkBox.isChecked = false
+            cell2!.accessoryType = .none
         }
     }
     

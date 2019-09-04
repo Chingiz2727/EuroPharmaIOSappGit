@@ -9,73 +9,85 @@
 import UIKit
 import SKActivityIndicatorView
 import SwipeMenuViewController
-class SwipeProfileViewController: SwipeMenuViewController,RemoveAtCell {
+
+protocol NavigateFromSwipeVC {
+    var rootSwipeController: SwipeProfileViewController? {get set}
+    func navigateToUserProfilePage(item: Int)
+}
+
+class SwipeProfileViewController: SwipeMenuViewController, RemoveAtCell {
+    
     let vc = SwipeMenuViewController()
+    var navigator : UserProfilePageNavigator?
+    var items = ["Войти", "Создать аккаунт"]
+    var options = SwipeMenuViewOptions()
+    
+    let profile : UIViewController = {
+        
+        let prof = ProfileTableViewController(networkManager: NetworkManager())
+        let nav = UINavigationController.init(rootViewController: prof)
+        return nav
+        
+    }()
+    
+    let user : UIViewController = {
+        
+        let prof = RegistrationViewController()
+        let nav = UINavigationController.init(rootViewController: prof)
+        return nav
+        
+    }()
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        options.tabView.itemView.clipsToBounds = true
+        self.view.backgroundColor = .white
+        navigationController?.navigationBar.barTintColor = .custom_gray()
+        navigator = UserProfilePageNavigator(navigationController: self.navigationController!)
+        options.tabView.style = .segmented
+        swipeMenuView.reloadData(options: options)
+        navigationItem.title = "Профиль"
+
+    }
+    
+    func goFromProfile(item: Int) {
+        self.navigator?.userInformation(item: item)
+    }
+    
     func removeAtItem(item: Int) {
         DispatchQueue.main.async {
             if item == 3 {
                 guard let tab = self.tabBarController as? UserTabBar else {return}
                 tab.Tab {
-                        tab.selectProf()
+                    tab.selectProf()
                 }
             }
             else {
-                self.navigator?.navigate(id: item)
-                
+                self.navigator?.userInformation(item: item)
             }
         }
-     
-        
     }
-    let profile : UIViewController = {
-        let prof = ProfileTableViewController(networkManager: NetworkManager())
-        let nav = UINavigationController.init(rootViewController: prof)
-        return nav
-    }()
-    
-    var navigator : NavigatorFromProfile?
-    let user : UIViewController = {
-        let prof = RegistrationViewController()
-        let nav = UINavigationController.init(rootViewController: prof)
-        
-        return nav
-        
-    }()
     
     override func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewControllerForPageAt index: Int) -> UIViewController {
-        let controllers = [profile,user]
-        return controllers[index]
+        let controllers = [profile, user]
+        let currentVC = controllers[index]
+        guard let currentNavController = currentVC as? UINavigationController else { return currentVC }
+        for subVC in currentNavController.viewControllers {
+            guard var subViewController = subVC as? NavigateFromSwipeVC else { continue }
+            subViewController.rootSwipeController = self
+        }
+        return currentVC
     }
     
     override func swipeMenuView(_ swipeMenuView: SwipeMenuView, titleForPageAt index: Int) -> String {
-        
         return items[index]
     }
-    var items = ["Войти","Создать аккаунт"]
-    var options = SwipeMenuViewOptions()
-
+    
     override func numberOfPages(in swipeMenuView: SwipeMenuView) -> Int {
         return 2
     }
-   
-   
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        options.tabView.itemView.clipsToBounds = true
-        self.view.backgroundColor = .white
-        navigationController?.navigationBar.barTintColor = .custom_gray()
-        navigator = NavigatorFromProfile(navigationController: self.navigationController!)
-        options.tabView.style = .segmented
-        swipeMenuView.reloadData(options: options)
-        
-    }
     
-   
- 
-    
-
-
 }
 
 

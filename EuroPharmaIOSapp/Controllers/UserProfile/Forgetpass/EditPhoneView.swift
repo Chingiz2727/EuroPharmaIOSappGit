@@ -12,7 +12,20 @@ class ForgetPassViews: UIView,UITextFieldDelegate {
 
     let title = UILabel()
     let phone_title = UILabel()
-    let phone_textf = UITextField()
+    let phone_textf : TelephoneTextField = {
+        let phone = TelephoneTextField()
+        phone.placeholder = "Мобильный телефон"
+        phone.tintColor = .custom_gray()
+        phone.textColor = .custom_gray()
+        phone.borderActiveColor = .custom_gray()
+        phone.borderInactiveColor = .custom_gray()
+        phone.keyboardType = .phonePad
+        phone.textColor = .custom_green()
+        phone.layer.cornerRadius = 4
+        phone.layer.borderWidth = 1
+        phone.setLeftPaddingPoints(10)
+        return phone
+    }()
     let send_button = UIButton()
     
     

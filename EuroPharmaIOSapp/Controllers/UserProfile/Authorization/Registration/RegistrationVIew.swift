@@ -22,8 +22,8 @@ class RegistrationView: UIView,UITextFieldDelegate {
         return phone
     }()
     
-    let phone : HoshiTextField = {
-        let phone = HoshiTextField()
+    let phone : TelephoneTextField = {
+        let phone = TelephoneTextField()
         phone.placeholder = "Мобильный телефон"
         phone.borderActiveColor = .custom_gray()
         phone.borderInactiveColor = .custom_gray()
