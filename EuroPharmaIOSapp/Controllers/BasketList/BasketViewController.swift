@@ -93,7 +93,7 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
         case 0:
             return 130
         default:
-            return 350
+            return tableView.estimatedRowHeight
         }
     }
     

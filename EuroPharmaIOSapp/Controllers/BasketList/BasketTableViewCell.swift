@@ -13,9 +13,18 @@ class BasketTableViewCell: UITableViewCell {
     let img : ImageLoader = ImageLoader()
     let desc : UILabel = UILabel()
     let price : UILabel = UILabel()
+    let total_price = UILabel()
+    
+    var total_price_text : String?  {
+        didSet {
+            total_price.text = total_price_text
+        }
+    }
+    
     var remove_item : RemoveAtCell?
     var item : BasketModule? {
         willSet(item) {
+            total_price.text = String(item!.count * item!.cost) + tg_sign
             desc.text = item?.name
             price.text = String(item?.cost ?? 0) + " ₸"
             buy.count = item?.count ?? 0
@@ -65,7 +74,6 @@ class BasketTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addview()
-        
         self.backgroundColor = .white
     }
     
@@ -76,38 +84,7 @@ class BasketTableViewCell: UITableViewCell {
     let fav = FavouriteView()
     let buy = BuyProductsButton()
     func addview() {
-        desc.numberOfLines = 2
-      self.addSubview(img)
-       
-        desc.textColor = .custom_gray()
-        price.textColor = .custom_gray()
-        self.addSubview(full_stack)
-        self.addSubview(fav)
-        self.addSubview(buy)
-        fav.snp.makeConstraints { (cons) in
-            cons.top.right.equalTo(self).inset(10)
-            cons.width.height.equalTo(30)
-        }
-        img.snp.makeConstraints { (cons) in
-            cons.top.equalTo(self).inset(15)
-            cons.bottom.equalTo(self).inset(15)
-            cons.left.equalTo(self).inset(10)
-            cons.width.equalTo(130)
-            
-        }
-        img.contentMode = .scaleAspectFit
-      
-        full_stack.snp.makeConstraints { (cons) in
-            cons.top.bottom.equalTo(self).inset(10)
-            cons.left.equalTo(img.snp.right).offset(10)
-            cons.right.equalTo(fav.snp.left).offset(-10)
-        }
-        buy.snp.makeConstraints { (cons) in
-            cons.right.equalTo(self).inset(10)
-            cons.centerY.equalTo(price)
-            cons.width.equalTo(100)
-            cons.height.equalTo(35)
-        }
+    
     }
     
 
