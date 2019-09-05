@@ -49,9 +49,11 @@ var Module = MainPageProductViewModule()
         tableView.dataSource = self
         self.view.addSubview(tableView)
         tableView.snp.makeConstraints { (cons) in
-            cons.left.right.top.equalTo(self.view).inset(0)
-            cons.bottom.equalTo(self.view).inset(0)
+            cons.left.right.equalTo(self.view).inset(15)
+            
+            cons.top.bottom.equalTo(self.view).inset(0)
         }
+        tableView.tableFooterView?.backgroundColor = .custom_white()
         self.SetupData()
         navigator = MainPageTableNavigator(navigationController: self.navigationController!)
         navigator?.navigationController.navigationBar.barTintColor = .custom_gray()
@@ -64,6 +66,7 @@ var Module = MainPageProductViewModule()
         imageView.image = image
         logoContainer.addSubview(imageView)
         navigationItem.titleView = logoContainer
+        self.view.backgroundColor = .custom_white()
     }
     
  
@@ -90,16 +93,24 @@ var Module = MainPageProductViewModule()
                         }
                     }
                 }
+            cell.carousel.interval = 2
             return cell
         }
-      return nil
+      return UIView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
     }
-    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return tableView.estimatedRowHeight
+        default:
+            return 0
+        }
+    }
    
     
     @objc func goToList(sender:UIButton) {
@@ -112,9 +123,7 @@ var Module = MainPageProductViewModule()
         self.tableView.reloadData()
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
-    }
+   
    
     
     

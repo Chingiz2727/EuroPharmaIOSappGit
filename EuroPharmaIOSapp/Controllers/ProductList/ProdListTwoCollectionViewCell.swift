@@ -9,8 +9,10 @@
 import UIKit
 import RealmSwift
 class ProdListTwoCollectionViewCell: UICollectionViewCell {
-   
+    let separtor = UIView()
     var main_view = ProductCellView()
+    var line_view = UIView()
+
     var id : Int = 0 {
         didSet {
             main_view.favourite.check(id: id)
@@ -31,9 +33,15 @@ class ProdListTwoCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addSubview(line_view)
+        line_view.snp.makeConstraints { (cons) in
+            cons.width.height.equalTo(self)
+        }
+        line_view.backgroundColor = .gray
         addSubview(main_view)
         main_view.snp.makeConstraints { (cons) in
             cons.width.height.equalTo(self)
+            cons.left.right.top.bottom.equalTo(self).inset(0.3)
         }
         main_view.addview2()
     }

@@ -12,12 +12,19 @@ class MakePaymentView: UIView,UITableViewDataSource,UITableViewDelegate{
     let cellid = "cellid"
     let cellid2 = "cellid2"
     let headid = "headid"
-    let items = ["Способ доставки","Способ оплаты"]
+    let contactid = "contactid"
+    let items = ["Способ доставки","Способ оплаты","Контактная информация"]
     var checkb : ChangeCheckBox?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return PayContent().main_module[section].count
+        guard let it = PayMentSection(rawValue: section) else { return 0 }
+        switch it {
+        case .contacs:
+            return 1
+        default:
+            return PayContent().main_module[section].count
+        }
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard  let it = PayMentSection(rawValue: indexPath.section) else {return UITableViewCell()}
@@ -33,44 +40,19 @@ class MakePaymentView: UIView,UITableViewDataSource,UITableViewDelegate{
         case .ordering:
             let cell2 = tableView.dequeueReusableCell(withIdentifier: cellid2) as! MakePaymentTableViewCell2
             let item = PayContent().main_module[1][indexPath.row]
-            cell2.tag = 1
             cell2.title.text = item.title
             cell2.comment.text = item.sub_title
             cell2.title_desc.text = item.descript
             return cell2
-      
-        }
-    
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let it = PayMentSection(rawValue: indexPath.section) else {return}
-        switch it {
-        case .delivering:
-            let cell = tableView.cellForRow(at: indexPath) as? MakePaymentTableViewCell
-            cell?.checkBox.isChecked = true
-            cell?.accessoryType = .checkmark
+        case .contacs:
+            let contact = tableView.dequeueReusableCell(withIdentifier: contactid) as! UserContacstTableViewCell
             
-        case .ordering:
-            let cell2 = tableView.cellForRow(at: indexPath) as? MakePaymentTableViewCell2
-            cell2!.checkBox.isChecked = true
+            return contact
         }
+    
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        guard let it = PayMentSection(rawValue: indexPath.section) else {return}
-        switch it {
-        case .delivering:
-            let cell = tableView.cellForRow(at: indexPath) as? MakePaymentTableViewCell
-            cell!.checkBox.isChecked = false
-            cell!.accessoryType = .none
-            
-        case .ordering:
-            let cell2 = tableView.cellForRow(at: indexPath) as? MakePaymentTableViewCell2
-            cell2!.checkBox.isChecked = false
-            cell2!.accessoryType = .none
-        }
-    }
+   
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let head = tableView.dequeueReusableCell(withIdentifier: headid) as! MyDataLabelHead
@@ -81,7 +63,14 @@ class MakePaymentView: UIView,UITableViewDataSource,UITableViewDelegate{
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return PayMentSection.ordering.rawValue + 1
+        return PayMentSection.contacs.rawValue + 1
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if let selectedIndexPathsInSection = tableView.indexPathsForSelectedRows?.filter({ $0.section == indexPath.section }), !selectedIndexPathsInSection.isEmpty {
+            selectedIndexPathsInSection.forEach({ tableView.deselectRow(at: $0, animated: false) })
+        }
+        return indexPath
     }
     
     let tableView : UITableView = {
@@ -100,7 +89,7 @@ class MakePaymentView: UIView,UITableViewDataSource,UITableViewDelegate{
         
         tableView.register(MyDataLabelHead.self, forCellReuseIdentifier: headid)
         tableView.register(MakePaymentTableViewCell.self, forCellReuseIdentifier: cellid)
-
+        tableView.register(UserContacstTableViewCell.self, forCellReuseIdentifier: contactid)
         tableView.register(MakePaymentTableViewCell2.self, forCellReuseIdentifier: cellid2)
         tableView.delegate = self
         tableView.dataSource = self
@@ -119,5 +108,5 @@ class MakePaymentView: UIView,UITableViewDataSource,UITableViewDelegate{
 enum PayMentSection: Int {
     case delivering
     case ordering
-
+    case contacs
 }

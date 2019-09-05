@@ -1,37 +1,13 @@
-//
-//  MakePaymentTableViewCell.swift
-//  EuroPharmaIOSapp
-//
-//  Created by Shyngys Kuandyk on 9/3/19.
-//  Copyright © 2019 Shyngys Kuandyk. All rights reserved.
-//
-
 import UIKit
 
-class MakePaymentTableViewCell: UITableViewCell,ChangeCheckBox {
-    func change() {
-        if !checkBox.isChecked {
-            print("checked")
-        }
-        else {
-            print("unchked")
-        }
-    }
+class MakePaymentTableViewCell2: UITableViewCell {
     
-
+    
     let checkBox = Checkbox()
     let title = UILabel()
     let title_desc = UILabel()
     let comment = UILabel()
     lazy var stack = UIStackView()
-    var module : PaymentModule? {
-        willSet {
-            title.text = module?.title
-            title_desc.text = module?.sub_title
-            comment.text = module?.descript
-        }
-    }
-    
     
     
     func addview() {
@@ -56,6 +32,7 @@ class MakePaymentTableViewCell: UITableViewCell,ChangeCheckBox {
             cons.left.equalTo(checkBox.snp.right).offset(11)
             cons.right.equalToSuperview().inset(15)
         }
+        
         checkBox.useHapticFeedback = true
         title_desc.numberOfLines = 0
         title.numberOfLines = 0
@@ -86,21 +63,14 @@ class MakePaymentTableViewCell: UITableViewCell,ChangeCheckBox {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
+        
         super.setSelected(selected, animated: animated)
-//        if selected {
-//                            checkBox.isChecked = true
-//        } else {
-//                            checkBox.isChecked = false
-//            
-//        }
+        self.accessoryType = selected ? .checkmark : .none
+        self.checkBox.isChecked = selected
+        
+     
     }
-
+    
 }
-
-protocol ChangeCheckBox {
-    func change()
-}
-
-

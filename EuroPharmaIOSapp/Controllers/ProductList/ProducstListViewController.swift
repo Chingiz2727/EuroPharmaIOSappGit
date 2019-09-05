@@ -15,6 +15,7 @@ class ProducstListViewController: SearchViewController,UICollectionViewDelegate,
     var item = [CategoryContentModel]()
     var id : Int? = 0
     var ProdList : ProductListView  {return self.view as! ProductListView}
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return ProductViewModel?.numOfRows() ?? 0
@@ -25,7 +26,6 @@ class ProducstListViewController: SearchViewController,UICollectionViewDelegate,
         switch type {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPageIdentifiers().itemReuseId, for: indexPath) as? ProductListCollectionViewCell
-            
             guard let collectionCell = cell,let ViewModule = ProductViewModel else {return UICollectionViewCell()}
             let cellViewModule = ViewModule.cellSingleViewModule(forindexPath: indexPath)
             collectionCell.viewModule = cellViewModule
@@ -35,7 +35,6 @@ class ProducstListViewController: SearchViewController,UICollectionViewDelegate,
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPageIdentifiers().newitemReuseId, for: indexPath) as? ProdListTwoCollectionViewCell
             guard let collectionCell = cell,let ViewModule = ProductViewModel else {return UICollectionViewCell()}
             let cellViewModule = ViewModule.cellSingleViewModule(forindexPath: indexPath)
-
             collectionCell.viewModule = cellViewModule
             collectionCell.layoutIfNeeded()
             return collectionCell
@@ -43,17 +42,6 @@ class ProducstListViewController: SearchViewController,UICollectionViewDelegate,
        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        ProdList.collectionView.delegate = self
-        ProdList.collectionView.dataSource = self
-        
-        ProdList.collectionView.register(ProductListCollectionViewCell.self, forCellWithReuseIdentifier: MainPageIdentifiers().itemReuseId)
-        ProdList.collectionView.register(ProdListTwoCollectionViewCell.self, forCellWithReuseIdentifier: MainPageIdentifiers().newitemReuseId)
-        ProductViewModel = Module
-        Module.categoryModel = item
-    }
   
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -67,13 +55,46 @@ class ProducstListViewController: SearchViewController,UICollectionViewDelegate,
     override func loadView() {
         super.loadView()
         self.view = ProductListView(frame: self.view.bounds)
+     
     }
     
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .white()
+        ProdList.collectionView.delegate = self
+        ProdList.collectionView.dataSource = self
+        ProdList.content_setting.content.addTarget(self, action: #selector(ChangeType), for: .touchUpInside)
+        ProdList.collectionView.register(ProductListCollectionViewCell.self, forCellWithReuseIdentifier: MainPageIdentifiers().itemReuseId)
+        ProdList.collectionView.register(ProdListTwoCollectionViewCell.self, forCellWithReuseIdentifier: MainPageIdentifiers().newitemReuseId)
+        ProductViewModel = Module
+        Module.categoryModel = item
+    }
     
+    @objc func ChangeType() {
+        let type = content_type.get_content_type()
+        switch type {
+            case 0:
+            content_type.ChangeType(type: 1)
+            self.ProdList.collectionView.collectionViewLayout = self.ProdList.columnLayout
+            self.ProdList.content_setting.content.setImage(#imageLiteral(resourceName: "Group 11"), for: .normal)
+            self.ProdList.collectionView.reloadData()
+        default:
+            content_type.ChangeType(type: 0)
+            self.ProdList.collectionView.reloadData()
+            self.ProdList.content_setting.content.setImage(#imageLiteral(resourceName: "Group 4"), for: .normal)
+
+            self.ProdList.collectionView.collectionViewLayout = self.ProdList.columnLayout2
+        }
+//        self.reloadInputViews()
+        self.reloadViewFromNib()
+    }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        ProdList.collectionView.collectionViewLayout.invalidateLayout()
+    }
     
-  
     var networking : NetworkManager!
     init(networkManager: NetworkManager) {
         super.init(nibName: nil, bundle: nil)
@@ -85,7 +106,6 @@ class ProducstListViewController: SearchViewController,UICollectionViewDelegate,
     }
     
     func getData() {
-        
         let view_white = UIView()
         self.view.addSubview(view_white)
         SKActivityIndicator.show()
@@ -93,12 +113,11 @@ class ProducstListViewController: SearchViewController,UICollectionViewDelegate,
         view_white.backgroundColor = .white
         view_white.frame = self.view.bounds
         networking.getCatalog(id: id ?? 0) { (product, error) in
-            print(error)
             guard let product = product else {
                 SKActivityIndicator.dismiss()
                 CustomAlert.customAlert.showalert(controller: self, text: "Ошибка", message: error)
                 return}
-            var module = CategoryContentModel()
+            let module = CategoryContentModel()
             var content = [CategoryContentModel]()
             for item in product {
                 let cell = CategoryContentModel()
@@ -124,4 +143,12 @@ class ProducstListViewController: SearchViewController,UICollectionViewDelegate,
     
    
     
+}
+extension UIViewController {
+    func reloadViewFromNib() {
+        let parent = view.superview
+        view.removeFromSuperview()
+        view = nil
+        parent?.addSubview(view) // This line causes the view to be reloaded
+    }
 }

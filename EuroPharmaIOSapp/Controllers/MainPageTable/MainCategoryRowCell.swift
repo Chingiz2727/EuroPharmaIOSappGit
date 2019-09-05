@@ -48,7 +48,7 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
         collection.bounces = false
         collection.collectionViewLayout = columnLayout
         collection.isScrollEnabled = true
-        collection.backgroundColor = .clear
+        collection.backgroundColor = .custom_white()
         
         return collection
     }()
@@ -58,7 +58,7 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
         self.selectionStyle = .none
         self.setupCategoryViews()
         self.addlayer()
-        
+        self.backgroundColor = .custom_white()
         collectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: cellid)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -91,6 +91,8 @@ class MainPageCategoryRowCell: UITableViewCell,UICollectionViewDelegate,UICollec
         self.addSubview(carousel)
         self.addSubview(collectionView)
         self.addSubview(titleLbl)
+        carousel.layer.cornerRadius = 4
+       
         titleLbl.textColor = .custom_gray()
         titleLbl.get_regular(size: 16)
         carousel.interval = 3

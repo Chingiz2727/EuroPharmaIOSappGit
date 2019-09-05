@@ -48,7 +48,6 @@ class ContentSettingView: UIView {
     func addview() {
         stack.customStack(view: [content,by_name,filter], distribution: .fill, spacing: 10)
         stack.axis = .horizontal
-        content.setImage(#imageLiteral(resourceName: "Group 4"), for: .normal)
         addSubview(stack)
         content.snp.makeConstraints { (cons) in
             cons.width.height.equalTo(25)
@@ -58,9 +57,17 @@ class ContentSettingView: UIView {
             cons.top.bottom.equalTo(self).inset(5)
             cons.left.right.equalTo(self).inset(15)
         }
-      
+        let type = content_type.get_content_type()
+        switch type {
+        case 0:
+            content.setImage(#imageLiteral(resourceName: "Group 11"), for: .normal)
+        default:
+           content.setImage(#imageLiteral(resourceName: "Group 4"), for: .normal)
+            
+        }
         self.backgroundColor = .custom_white()
 }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addview()

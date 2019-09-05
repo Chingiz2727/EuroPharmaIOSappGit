@@ -176,6 +176,7 @@
 		A4A41BE7231FAFCE00075445 /* AnalogsCollecrtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A41BE6231FAFCE00075445 /* AnalogsCollecrtionView.swift */; };
 		A4A41BE9231FB7C600075445 /* TelephoneTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A41BE8231FB7C600075445 /* TelephoneTextField.swift */; };
 		A4A41BEB231FB90D00075445 /* UserProfileNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A41BEA231FB90D00075445 /* UserProfileNavigator.swift */; };
+		A4A41BED231FBEEE00075445 /* UserContacstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A41BEC231FBEEE00075445 /* UserContacstTableViewCell.swift */; };
 		A4A4B0B622E720740016B903 /* SetupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4B0B522E720740016B903 /* SetupData.swift */; };
 		A4A4B0B822E729990016B903 /* MainCategoryRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A4B0B722E729990016B903 /* MainCategoryRowCell.swift */; };
 		A4AF411122FD4E4A0036625D /* SwipeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AF411022FD4E4A0036625D /* SwipeProfileViewController.swift */; };
@@ -398,6 +399,7 @@
 		A4A41BE6231FAFCE00075445 /* AnalogsCollecrtionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogsCollecrtionView.swift; sourceTree = "<group>"; };
 		A4A41BE8231FB7C600075445 /* TelephoneTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelephoneTextField.swift; sourceTree = "<group>"; };
 		A4A41BEA231FB90D00075445 /* UserProfileNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileNavigator.swift; sourceTree = "<group>"; };
+		A4A41BEC231FBEEE00075445 /* UserContacstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContacstTableViewCell.swift; sourceTree = "<group>"; };
 		A4A4B0B522E720740016B903 /* SetupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupData.swift; sourceTree = "<group>"; };
 		A4A4B0B722E729990016B903 /* MainCategoryRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryRowCell.swift; sourceTree = "<group>"; };
 		A4AF411022FD4E4A0036625D /* SwipeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeProfileViewController.swift; sourceTree = "<group>"; };
@@ -1169,7 +1171,7 @@
 		A4700445231E428C00D1CA21 /* MakePayment */ = {
 			isa = PBXGroup;
 			children = (
-				A470044A231E457700D1CA21 /* MakePaymentCheckBoxCell */,
+				A470044A231E457700D1CA21 /* MakePaymentCell */,
 				A4700446231E42A300D1CA21 /* MakePaymentViewController.swift */,
 				A4700448231E42E300D1CA21 /* MakePaymentView.swift */,
 				A470044D231E5A0A00D1CA21 /* PaymentModule.swift */,
@@ -1177,13 +1179,14 @@
 			path = MakePayment;
 			sourceTree = "<group>";
 		};
-		A470044A231E457700D1CA21 /* MakePaymentCheckBoxCell */ = {
+		A470044A231E457700D1CA21 /* MakePaymentCell */ = {
 			isa = PBXGroup;
 			children = (
 				A470044B231E458E00D1CA21 /* MakePaymentTableViewCell.swift */,
+				A4A41BEC231FBEEE00075445 /* UserContacstTableViewCell.swift */,
 				A470044F231E8BEE00D1CA21 /* MakePaymentTableViewCell2.swift */,
 			);
-			path = MakePaymentCheckBoxCell;
+			path = MakePaymentCell;
 			sourceTree = "<group>";
 		};
 		A4711EB0231D1B600031AE5A /* EditPhoneNumbeer */ = {
@@ -1550,6 +1553,7 @@
 				A449451222F3E7F000232761 /* EuroPharmaGuideViewController.swift in Sources */,
 				A488A4E7230E5F1000105A30 /* CityModule.swift in Sources */,
 				A4526C1C231657800018A059 /* RegistrationCodeViewController.swift in Sources */,
+				A4A41BED231FBEEE00075445 /* UserContacstTableViewCell.swift in Sources */,
 				A42A630B22E6AB33007CED70 /* ProductCategoryTableCell.swift in Sources */,
 				A41AB23622EEB41700E769D0 /* URLParameterEncoder.swift in Sources */,
 				A4204F22230270880044E4C9 /* DepartMentHeadTableViewCell.swift in Sources */,

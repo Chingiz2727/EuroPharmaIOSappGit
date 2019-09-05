@@ -1,13 +1,37 @@
+//
+//  MakePaymentTableViewCell.swift
+//  EuroPharmaIOSapp
+//
+//  Created by Shyngys Kuandyk on 9/3/19.
+//  Copyright © 2019 Shyngys Kuandyk. All rights reserved.
+//
+
 import UIKit
 
-class MakePaymentTableViewCell2: UITableViewCell {
+class MakePaymentTableViewCell: UITableViewCell,ChangeCheckBox {
+    func change() {
+        if !checkBox.isChecked {
+            print("checked")
+        }
+        else {
+            print("unchked")
+        }
+    }
     
-    
+
     let checkBox = Checkbox()
     let title = UILabel()
     let title_desc = UILabel()
     let comment = UILabel()
     lazy var stack = UIStackView()
+    var module : PaymentModule? {
+        willSet {
+            title.text = module?.title
+            title_desc.text = module?.sub_title
+            comment.text = module?.descript
+        }
+    }
+    
     
     
     func addview() {
@@ -62,20 +86,17 @@ class MakePaymentTableViewCell2: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
-        
         super.setSelected(selected, animated: animated)
-//            if selected {
-//                self.accessoryType = .checkmark
-//                checkBox.isChecked = true
-//            } else {
-//                self.accessoryType = .none
-//                checkBox.isChecked = false
-//                
-//            }
-        
-     
+        self.accessoryType = selected ? .checkmark : .none
+        self.checkBox.isChecked = selected
     }
-    
+
 }
+
+protocol ChangeCheckBox {
+    func change()
+}
+
+

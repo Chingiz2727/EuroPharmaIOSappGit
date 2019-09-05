@@ -108,6 +108,7 @@ class ProfileLoginTableViewCell: UITableViewCell,UITextFieldDelegate,Logining {
         super.prepareForReuse()
      
     }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if (textField == phone) {
             let newString = (textField.text! as NSString).replacingCharacters(in: range, with: string)

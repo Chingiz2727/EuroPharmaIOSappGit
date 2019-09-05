@@ -56,6 +56,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate,UISearchControl
         if let navigationbar = self.navigationController?.navigationBar {
             navigationbar.barTintColor = .custom_gray()
         }
+        navigationController?.navigationBar.isTranslucent = false
         navigationItem.searchController = sc
         navigationItem.hidesSearchBarWhenScrolling = false
     }

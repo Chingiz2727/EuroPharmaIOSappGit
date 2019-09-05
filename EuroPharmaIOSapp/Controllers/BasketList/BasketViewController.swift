@@ -95,7 +95,6 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
         default:
             return 350
         }
-//        return 130
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -152,7 +151,6 @@ class BasketViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.table.reloadData()
         check(count: table.numberOfRows(inSection: 0))
         
-
     }
   
     @objc func goBuy() {

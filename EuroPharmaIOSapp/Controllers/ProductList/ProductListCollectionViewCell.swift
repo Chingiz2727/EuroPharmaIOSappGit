@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 class ProductListCollectionViewCell: UICollectionViewCell {
     var main_view = ProductCellView()
-    
+    var line_view = UIView()
     override func prepareForReuse() {
         super.prepareForReuse()
       
@@ -32,9 +32,14 @@ class ProductListCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addSubview(line_view)
+        line_view.snp.makeConstraints { (cons) in
+            cons.width.height.equalTo(self)
+        }
+        line_view.backgroundColor = .gray
         addSubview(main_view)
         main_view.snp.makeConstraints { (cons) in
-            cons.width.height.equalTo(self)
+            cons.top.left.right.bottom.equalTo(self).inset(0.25)
         }
         main_view.addview()
     }

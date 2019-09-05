@@ -29,6 +29,7 @@ extension MainPageTable:UITableViewDataSource,UICollectionViewDataSource {
             let foot = tableView.dequeueReusableCell(withIdentifier: MainPageIdentifiers().footerId) as! MainPageFooterTableViewCell
             return foot
         }
+        
         return UITableViewCell()
     }
     
@@ -40,6 +41,7 @@ extension MainPageTable:UITableViewDataSource,UICollectionViewDataSource {
         collectionCell.layoutIfNeeded()
         collectionCell.layer.cornerRadius = 5
         collectionCell.viewModule = cellViewModule
+//        collectionCell.backgroundColor = .red
         return collectionCell
     }
     
@@ -54,10 +56,7 @@ extension MainPageTable:UITableViewDataSource,UICollectionViewDataSource {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-     
-        return 0
-    }
+  
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var categoryLimit = Module.categoryModel[collectionView.tag].category_content.count
